@@ -1,6 +1,6 @@
 # Contact
 
-Contacting the o!TR team is easy!
+Contact the o!TR team.
 
 ## Bug reports & new features
 
