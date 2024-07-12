@@ -8,15 +8,16 @@ The o!TR team requires tournaments meet the following criteria before being acce
 >
 {style="note"}
 
-## Tournaments
-
 The following is a reference on what constitutes an acceptable tournament and submission steps.
 
-### Acceptance criteria
+## Acceptance criteria
 
 In order for a tournament to be accepted into the o!TR system, it must:
 
 <procedure>
+<step>
+Feature a bracket size of at least Round of 8 double elimination.
+</step>
 <step>
 Publicly document all match links to an acceptable standard, such as through a public Google sheet.
 </step>
@@ -32,9 +33,54 @@ Be organized to an acceptable standard.
 For example, tournaments that have been rigged or have serious foul play issues will not be included.
 </tip>
 </step>
+<step>
+Target an acceptable skill range of players. For osu!, this rank range is restricted to <code>#200,000</code> (<code>#100,000</code> for regional tournaments).
+</step>
+<step>
+Have a forum post or wiki page hosted on the osu! website.
+</step>
+<step>
+Have a <a href="https://osu.ppy.sh/wiki/en/Gameplay/Game_modifier/ScoreV2">ScoreV2</a> win condition throughout the tournament.
+</step>
+<step>
+Not be of a battle-royale format or have variable team sizes or <a href="https://osu.ppy.sh/wiki/en/Game_mode">game modes</a>.
+</step>
+<step>
+Feature a format that allows players to play at their full competitive strength throughout the whole match.
+</step>
+<step>
+Not feature asynchronous matches.
+</step>
+<step>
+Not stray too far from traditional competitive standards.
+<tip>
+For example:
+<list>
+<li><a href="https://osu.ppy.sh/community/forums/topics/1767170?n=1">BATBALL's Gimmick Emporium</a> is considered barely acceptable.</li>
+<li><a href="https://osu.ppy.sh/community/forums/topics/1790791?n=1">Pokemon Battle Tournament</a> is considered barely unacceptable.</li>
+</list>
+</tip>
+</step>
 </procedure>
 
-### Submission
+> Tournaments do not need to be badge-eligible in order to be accepted.
+> 
+{style="note"}
+
+### osu!mania
+
+In addition to the above criteria, osu!mania tournaments must:
+
+<procedure>
+<step>
+Be of the 4-key or 7-key variants.
+</step>
+<step>
+Not feature a format where multiple key counts are played simultaneously.
+</step>
+</procedure>
+
+## Submission
 
 When submitting a tournament, follow these steps:
 <procedure>
@@ -51,3 +97,55 @@ No need to worry about warmups or other erroneous data in otherwise valid matche
 </tip>
 </step>
 </procedure>
+
+Additionally, keep the following in mind for tiered tournaments or tournaments that feature multiple divisions:
+
+> Carefully check how the tournament defines the word "tier". The o!TR team considers "tiered" tournaments to be **tournaments where multiple separate rank ranges are participating within the same bracket** (usually on the same team). In cases where multiple brackets are used, we use the term **division**.
+> 
+{style="warning"}
+
+<procedure>
+<step>
+Tiered tournaments must be submitted as a single tournament. In this case, for the rank range field, denote the rank as the top-end rank restriction for the tournament.
+</step>
+<step>
+For divisional tournaments, submit them as separate tournaments - <b>one submission per bracket</b>.
+<tip>
+For example, say "Test Tournament" has 2 divisions, one that is open rank and one that is for players #1,000+.
+<list>
+<li>The first submission would be titled "Test Tournament Division 1" with a rank of "1" on the submission form.</li>
+<li>The second division would be titled "Test Tournament Division 2" with a rank range of "1000" on the submission form.</li>
+</list>
+</tip>
+</step>
+</procedure>
+
+## FAQ
+
+### How far back can submissions be from?
+
+Any tournament may be submitted from any time period. Make sure to do quality checks against our [acceptance criteria](Tournament-Approval.md#acceptance-criteria).
+
+### What if the tournament I want to submit is missing matches?
+
+If the tournament is not yet finished, do not submit it. If a very old tournament is missing some rounds of data, it is okay to submit it anyway as we do care about data preservation. If a recent (~last 2 years or so) tournament is missing rounds, or you're not sure, please ask in our [Discord server](Contact.md).
+
+### Is it okay for two tournaments to share the same abbreviation?
+
+Yes, this is fine.
+
+### What about weird abbreviations?
+
+If a tournament uses inconsistent abbreviations, please inform an o!TR team member after submitting. When submitting, in the abbreviation field, write the most consistent portion. For example, if a tournament has a scheme like so: `IGTS RO16`, `IGTS QF`, only write `IGTS` in the submission field.
+
+### Is there a way to gather links quickly?
+
+We know how time-consuming it is to gather links. There's a few methods we use for this:
+
+* Contact the tournament host, spreadsheet owner, referee, or anyone else who may have access to that tournament's match data. Kindly ask them for a list of links or match ids.
+* Assuming the data may be on a Google sheet, an alternative is to use the `=IMPORTRANGE()` function on the cells with the match links and import them to a new sheet.
+> You'll then have lots of cells that look like "MP Link". You can extract the links with a script detailed in this [Stack Overflow answer](https://stackoverflow.com/a/67206954).
+
+> When in doubt, have the tournament's spreadsheet maintainers contact us or ask in our [Discord server](Contact.md).
+> 
+{style="note"}
