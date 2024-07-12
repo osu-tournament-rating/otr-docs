@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE instance-profile
+        SYSTEM "https://resources.jetbrains.com/writerside/1.0/product-profile.dtd">
+
+<instance-profile id="otrd"
+                 name="osu! Tournament Rating Documentation"
+                 start-page="Overview.md">
+
+    <toc-element topic="Overview.md" accepts-web-file-names-ref="6efba2d3">
+        <toc-element topic="Rating-Calculation.md"/>
+        <toc-element topic="Tournament-Approval.md"/>
+        <toc-element topic="Contact.md"/>
+    </toc-element>
+</instance-profile>
