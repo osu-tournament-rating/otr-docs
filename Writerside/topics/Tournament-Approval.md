@@ -100,7 +100,7 @@ No need to worry about warmups or other erroneous data in otherwise valid matche
 
 Additionally, keep the following in mind for tiered tournaments or tournaments that feature multiple divisions:
 
-> Carefully check how the tournament defines the word "tier". The o!TR team considers "tiered" tournaments to be **tournaments where multiple separate rank ranges are participating within the same bracket** (usually on the same team). In cases where multiple brackets are used, we use the term **division**.
+> Carefully check how the tournament defines the word "tier". The o!TR team considers "tiered" tournaments to be **tournaments where multiple rank ranges are participating within the same bracket** (usually on the same team). In cases where multiple brackets are used, we use the term **division**.
 > 
 {style="warning"}
 
@@ -109,7 +109,7 @@ Additionally, keep the following in mind for tiered tournaments or tournaments t
 Tiered tournaments must be submitted as a single tournament. In this case, for the rank range field, denote the rank as the top-end rank restriction for the tournament.
 </step>
 <step>
-For divisional tournaments, submit them as separate tournaments - <b>one submission per bracket</b>.
+For divisional tournaments, submit them as separate tournaments - <b>one submission per bracket</b>. Append "Division 1", "Division 2", etc. to the tournament's title when submitting.
 <tip>
 For example, say "Test Tournament" has 2 divisions, one that is open rank and one that is for players #1,000+.
 <list>
@@ -138,7 +138,7 @@ Yes, this is fine.
 
 If a tournament uses inconsistent abbreviations, please inform an o!TR team member after submitting. When submitting, in the abbreviation field, write the most consistent portion. For example, if a tournament has a scheme like so: `IGTS RO16`, `IGTS QF`, only write `IGTS` in the submission field.
 
-### Is there a way to gather links quickly?
+### What's the best way to gather match links?
 
 We know how time-consuming it is to gather links. There's a few methods we use for this:
 
@@ -149,3 +149,7 @@ We know how time-consuming it is to gather links. There's a few methods we use f
 > When in doubt, have the tournament's spreadsheet maintainers contact us or ask in our [Discord server](Contact.md).
 > 
 {style="note"}
+
+### How can invalid data be flagged for review?
+
+Invalid data, such as warmups, show matches, or any other data that should not be in our system will be reportable in the future on our website. For now, know that this data does not significantly affect rating values.
