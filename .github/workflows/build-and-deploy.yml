@@ -1,0 +1,85 @@
+name: Build documentation
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  id-token: write
+  pages: write
+
+env:
+  INSTANCE: ${{ secrets.INSTANCE }}
+  ARTIFACT: ${{ secrets.ARTIFACT }}
+  DOCKER_VERSION: ${{ secrets.DOCKER_VERSION }}
+
+jobs:
+  build:
+    name: Build & Publish
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Build docs using Docker
+        uses: JetBrains/writerside-github-action@v4
+        with:
+          instance: ${{ secrets.INSTANCE }}
+          artifact: ${{ secrets.ARTIFACT }}
+          docker-version: ${{ secrets.DOCKER_VERSION }}
+
+      - name: Copy files to server
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_KEY }}
+          source: "artifacts/*"
+          target: "~/otr-docs"
+
+  deploy:
+    name: Deploy
+    environment: Production
+    needs: publish
+    runs-on: ubuntu-latest
+    steps:
+      - name: Unzip artifact
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_KEY }}
+          script: |
+            cd ~/otr-docs
+            
+
+#  deploy:
+#    environment:
+#      name: Production
+#    needs: build
+#    runs-on: ubuntu-latest
+#
+#    steps:
+#      - name: Download artifact
+#        uses: actions/download-artifact@v4
+#        with:
+#          name: docs
+#
+#      - name: Unzip artifact
+#        run: unzip -O UTF-8 -qq ${{ secrets.ARTIFACT }} -d dir
+#
+#      - name: Setup Pages
+#        uses: actions/configure-pages@v4.0.0
+#
+#      - name: Upload artifact
+#        uses: actions/upload-pages-artifact@v3.0.1
+#        with:
+#          path: dir
+#
+#      - name: Deploy to GitHub Pages
+#        id: deployment
+#        uses: actions/deploy-pages@v4.0.4

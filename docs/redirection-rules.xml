@@ -6,4 +6,771 @@
         <accepts>page.html</accepts>
     </rule>
     -->
+    <rule id="683ee2c">
+        <description>Created after removal of "Schemas" from osu! Tournament Rating Documentation</description>
+        <accepts>Schemas.html</accepts>
+    </rule>
+    <rule id="768a7b78">
+        <description>Created after removal of "Void" from osu! Tournament Rating Documentation</description>
+        <accepts>Void.html</accepts>
+    </rule>
+    <rule id="4af75aaa">
+        <description>Created after removal of "UserSettingsDTO" from osu! Tournament Rating Documentation</description>
+        <accepts>UserSettingsDTO.html</accepts>
+    </rule>
+    <rule id="31bc332c">
+        <description>Created after removal of "UserDTO" from osu! Tournament Rating Documentation</description>
+        <accepts>UserDTO.html</accepts>
+    </rule>
+    <rule id="2cfe729b">
+        <description>Created after removal of "TypeInfo" from osu! Tournament Rating Documentation</description>
+        <accepts>TypeInfo.html</accepts>
+    </rule>
+    <rule id="23fb7098">
+        <description>Created after removal of "TypeAttributes" from osu! Tournament Rating Documentation</description>
+        <accepts>TypeAttributes.html</accepts>
+    </rule>
+    <rule id="383e5b83">
+        <description>Created after removal of "Type" from osu! Tournament Rating Documentation</description>
+        <accepts>Type.html</accepts>
+    </rule>
+    <rule id="2c9d7485">
+        <description>Created after removal of "TournamentWebSubmissionDTO" from osu! Tournament Rating Documentation
+        </description>
+        <accepts>TournamentWebSubmissionDTO.html</accepts>
+    </rule>
+    <rule id="48ae3db0">
+        <description>Created after removal of "TournamentSearchResultDTO" from osu! Tournament Rating Documentation
+        </description>
+        <accepts>TournamentSearchResultDTO.html</accepts>
+    </rule>
+    <rule id="787001d4">
+        <description>Created after removal of "TournamentDTO" from osu! Tournament Rating Documentation</description>
+        <accepts>TournamentDTO.html</accepts>
+    </rule>
+    <rule id="27825e02">
+        <description>Created after removal of "TournamentCreatedResultDTO" from osu! Tournament Rating Documentation
+        </description>
+        <accepts>TournamentCreatedResultDTO.html</accepts>
+    </rule>
+    <rule id="8a4b09e">
+        <description>Created after removal of "TeamType" from osu! Tournament Rating Documentation</description>
+        <accepts>TeamType.html</accepts>
+    </rule>
+    <rule id="3aeabeb3">
+        <description>Created after removal of "StructLayoutAttribute" from osu! Tournament Rating Documentation
+        </description>
+        <accepts>StructLayoutAttribute.html</accepts>
+    </rule>
+    <rule id="6def20fc">
+        <description>Created after removal of "SecurityRuleSet" from osu! Tournament Rating Documentation</description>
+        <accepts>SecurityRuleSet.html</accepts>
+    </rule>
+    <rule id="23943f68">
+        <description>Created after removal of "SearchResponseCollectionDTO" from osu! Tournament Rating Documentation
+        </description>
+        <accepts>SearchResponseCollectionDTO.html</accepts>
+    </rule>
+    <rule id="28e0dac6">
+        <description>Created after removal of "ScreeningResultDTO" from osu! Tournament Rating Documentation
+        </description>
+        <accepts>ScreeningResultDTO.html</accepts>
+    </rule>
+    <rule id="14c94b45">
+        <description>Created after removal of "ScreeningResult" from osu! Tournament Rating Documentation</description>
+        <accepts>ScreeningResult.html</accepts>
+    </rule>
+    <rule id="740774c1">
+        <description>Created after removal of "ScreeningRequestDTO" from osu! Tournament Rating Documentation
+        </description>
+        <accepts>ScreeningRequestDTO.html</accepts>
+    </rule>
+    <rule id="2b069192">
+        <description>Created after removal of "ScreeningFailReason" from osu! Tournament Rating Documentation
+        </description>
+        <accepts>ScreeningFailReason.html</accepts>
+    </rule>
+    <rule id="641d640e">
+        <description>Created after removal of "ScoringType" from osu! Tournament Rating Documentation</description>
+        <accepts>ScoringType.html</accepts>
+    </rule>
+    <rule id="508a4a07">
+        <description>Created after removal of "RuntimeTypeHandle" from osu! Tournament Rating Documentation
+        </description>
+        <accepts>RuntimeTypeHandle.html</accepts>
+    </rule>
+    <rule id="21253363">
+        <description>Created after removal of "RuntimeMethodHandle" from osu! Tournament Rating Documentation
+        </description>
+        <accepts>RuntimeMethodHandle.html</accepts>
+    </rule>
+    <rule id="7ddc0181">
+        <description>Created after removal of "RuntimeFieldHandle" from osu! Tournament Rating Documentation
+        </description>
+        <accepts>RuntimeFieldHandle.html</accepts>
+    </rule>
+    <rule id="e4f3b90">
+        <description>Created after removal of "Ruleset" from osu! Tournament Rating Documentation</description>
+        <accepts>Ruleset.html</accepts>
+    </rule>
+    <rule id="2aa321ae">
+        <description>Created after removal of "RatingAdjustmentDTO" from osu! Tournament Rating Documentation
+        </description>
+        <accepts>RatingAdjustmentDTO.html</accepts>
+    </rule>
+    <rule id="442cd580">
+        <description>Created after removal of "RateLimitOverrides" from osu! Tournament Rating Documentation
+        </description>
+        <accepts>RateLimitOverrides.html</accepts>
+    </rule>
+    <rule id="4f2671e0">
+        <description>Created after removal of "RankProgressDTO" from osu! Tournament Rating Documentation</description>
+        <accepts>RankProgressDTO.html</accepts>
+    </rule>
+    <rule id="a50ecb9">
+        <description>Created after removal of "RankChartDataPointDTO" from osu! Tournament Rating Documentation
+        </description>
+        <accepts>RankChartDataPointDTO.html</accepts>
+    </rule>
+    <rule id="33ce33cf">
+        <description>Created after removal of "PropertyInfo" from osu! Tournament Rating Documentation</description>
+        <accepts>PropertyInfo.html</accepts>
+    </rule>
+    <rule id="1f5330bd">
+        <description>Created after removal of "PropertyAttributes" from osu! Tournament Rating Documentation
+        </description>
+        <accepts>PropertyAttributes.html</accepts>
+    </rule>
+    <rule id="6e3b4d9">
+        <description>Created after removal of "ProblemDetails" from osu! Tournament Rating Documentation</description>
+        <accepts>ProblemDetails.html</accepts>
+    </rule>
+    <rule id="2af5da78">
+        <description>Created after removal of "PlayerTournamentTeamSizeCountDTO" from osu! Tournament Rating
+            Documentation
+        </description>
+        <accepts>PlayerTournamentTeamSizeCountDTO.html</accepts>
+    </rule>
+    <rule id="24e65f6b">
+        <description>Created after removal of "PlayerTournamentStatsDTO" from osu! Tournament Rating Documentation
+        </description>
+        <accepts>PlayerTournamentStatsDTO.html</accepts>
+    </rule>
+    <rule id="3311c7a4">
+        <description>Created after removal of "PlayerTournamentMatchCostDTO" from osu! Tournament Rating Documentation
+        </description>
+        <accepts>PlayerTournamentMatchCostDTO.html</accepts>
+    </rule>
+    <rule id="693ed1b6">
+        <description>Created after removal of "PlayerStatsDTO" from osu! Tournament Rating Documentation</description>
+        <accepts>PlayerStatsDTO.html</accepts>
+    </rule>
+    <rule id="f80a5a2">
+        <description>Created after removal of "PlayerSearchResultDTO" from osu! Tournament Rating Documentation
+        </description>
+        <accepts>PlayerSearchResultDTO.html</accepts>
+    </rule>
+    <rule id="54bae4fd">
+        <description>Created after removal of "PlayerScreeningResultDTO" from osu! Tournament Rating Documentation
+        </description>
+        <accepts>PlayerScreeningResultDTO.html</accepts>
+    </rule>
+    <rule id="5991c154">
+        <description>Created after removal of "PlayerRatingChartDataPointDTO" from osu! Tournament Rating
+            Documentation
+        </description>
+        <accepts>PlayerRatingChartDataPointDTO.html</accepts>
+    </rule>
+    <rule id="25622839">
+        <description>Created after removal of "PlayerRatingChartDTO" from osu! Tournament Rating Documentation
+        </description>
+        <accepts>PlayerRatingChartDTO.html</accepts>
+    </rule>
+    <rule id="f928f94">
+        <description>Created after removal of "PlayerRanksDTO" from osu! Tournament Rating Documentation</description>
+        <accepts>PlayerRanksDTO.html</accepts>
+    </rule>
+    <rule id="a7bd0a">
+        <description>Created after removal of "PlayerRankChartDTO" from osu! Tournament Rating Documentation
+        </description>
+        <accepts>PlayerRankChartDTO.html</accepts>
+    </rule>
+    <rule id="5ed1181">
+        <description>Created after removal of "PlayerModStatsDTO" from osu! Tournament Rating Documentation
+        </description>
+        <accepts>PlayerModStatsDTO.html</accepts>
+    </rule>
+    <rule id="66fe1e72">
+        <description>Created after removal of "PlayerMatchStatsDTO" from osu! Tournament Rating Documentation
+        </description>
+        <accepts>PlayerMatchStatsDTO.html</accepts>
+    </rule>
+    <rule id="73d2ec18">
+        <description>Created after removal of "PlayerInfoDTO" from osu! Tournament Rating Documentation</description>
+        <accepts>PlayerInfoDTO.html</accepts>
+    </rule>
+    <rule id="69ae72a9">
+        <description>Created after removal of "PlayerIdMappingDTO" from osu! Tournament Rating Documentation
+        </description>
+        <accepts>PlayerIdMappingDTO.html</accepts>
+    </rule>
+    <rule id="48b024bd">
+        <description>Created after removal of "PlayerFrequencyDTO" from osu! Tournament Rating Documentation
+        </description>
+        <accepts>PlayerFrequencyDTO.html</accepts>
+    </rule>
+    <rule id="228e3e0f">
+        <description>Created after removal of "PlayerCountryMappingDTO" from osu! Tournament Rating Documentation
+        </description>
+        <accepts>PlayerCountryMappingDTO.html</accepts>
+    </rule>
+    <rule id="6a715048">
+        <description>Created after removal of "ParameterInfo" from osu! Tournament Rating Documentation</description>
+        <accepts>ParameterInfo.html</accepts>
+    </rule>
+    <rule id="39d155fa">
+        <description>Created after removal of "ParameterAttributes" from osu! Tournament Rating Documentation
+        </description>
+        <accepts>ParameterAttributes.html</accepts>
+    </rule>
+    <rule id="49ba7d26">
+        <description>Created after removal of "OperationType" from osu! Tournament Rating Documentation</description>
+        <accepts>OperationType.html</accepts>
+    </rule>
+    <rule id="2203dfc0">
+        <description>Created after removal of "Operation" from osu! Tournament Rating Documentation</description>
+        <accepts>Operation.html</accepts>
+    </rule>
+    <rule id="687ec456">
+        <description>Created after removal of "OAuthResponseDTO" from osu! Tournament Rating Documentation</description>
+        <accepts>OAuthResponseDTO.html</accepts>
+    </rule>
+    <rule id="d4e1d71">
+        <description>Created after removal of "OAuthClientDTO" from osu! Tournament Rating Documentation</description>
+        <accepts>OAuthClientDTO.html</accepts>
+    </rule>
+    <rule id="447b1415">
+        <description>Created after removal of "OAuthClientCreatedDTO" from osu! Tournament Rating Documentation
+        </description>
+        <accepts>OAuthClientCreatedDTO.html</accepts>
+    </rule>
+    <rule id="772cdc86">
+        <description>Created after removal of "ModuleHandle" from osu! Tournament Rating Documentation</description>
+        <accepts>ModuleHandle.html</accepts>
+    </rule>
+    <rule id="48cd6984">
+        <description>Created after removal of "Module" from osu! Tournament Rating Documentation</description>
+        <accepts>Module.html</accepts>
+    </rule>
+    <rule id="3e7fcfc3">
+        <description>Created after removal of "Mods" from osu! Tournament Rating Documentation</description>
+        <accepts>Mods.html</accepts>
+    </rule>
+    <rule id="480489bd">
+        <description>Created after removal of "ModelValidationState" from osu! Tournament Rating Documentation
+        </description>
+        <accepts>ModelValidationState.html</accepts>
+    </rule>
+    <rule id="64862473">
+        <description>Created after removal of "ModelStateEntry" from osu! Tournament Rating Documentation</description>
+        <accepts>ModelStateEntry.html</accepts>
+    </rule>
+    <rule id="5af8a125">
+        <description>Created after removal of "ModelError" from osu! Tournament Rating Documentation</description>
+        <accepts>ModelError.html</accepts>
+    </rule>
+    <rule id="53040cb7">
+        <description>Created after removal of "ModStatsDTO" from osu! Tournament Rating Documentation</description>
+        <accepts>ModStatsDTO.html</accepts>
+    </rule>
+    <rule id="1623ee27">
+        <description>Created after removal of "MethodInfo" from osu! Tournament Rating Documentation</description>
+        <accepts>MethodInfo.html</accepts>
+    </rule>
+    <rule id="1f103757">
+        <description>Created after removal of "MethodImplAttributes" from osu! Tournament Rating Documentation
+        </description>
+        <accepts>MethodImplAttributes.html</accepts>
+    </rule>
+    <rule id="106c480">
+        <description>Created after removal of "MethodBase" from osu! Tournament Rating Documentation</description>
+        <accepts>MethodBase.html</accepts>
+    </rule>
+    <rule id="16a813d2">
+        <description>Created after removal of "MethodAttributes" from osu! Tournament Rating Documentation</description>
+        <accepts>MethodAttributes.html</accepts>
+    </rule>
+    <rule id="bf6371c">
+        <description>Created after removal of "MemberTypes" from osu! Tournament Rating Documentation</description>
+        <accepts>MemberTypes.html</accepts>
+    </rule>
+    <rule id="6c37877a">
+        <description>Created after removal of "MemberInfo" from osu! Tournament Rating Documentation</description>
+        <accepts>MemberInfo.html</accepts>
+    </rule>
+    <rule id="541bdc47">
+        <description>Created after removal of "MatchesWebSubmissionDTO" from osu! Tournament Rating Documentation
+        </description>
+        <accepts>MatchesWebSubmissionDTO.html</accepts>
+    </rule>
+    <rule id="754285f5">
+        <description>Created after removal of "MatchWinRecordDTO" from osu! Tournament Rating Documentation
+        </description>
+        <accepts>MatchWinRecordDTO.html</accepts>
+    </rule>
+    <rule id="5688fd0a">
+        <description>Created after removal of "MatchVerificationStatus" from osu! Tournament Rating Documentation
+        </description>
+        <accepts>MatchVerificationStatus.html</accepts>
+    </rule>
+    <rule id="755aaf68">
+        <description>Created after removal of "MatchTooltipInfoDTO" from osu! Tournament Rating Documentation
+        </description>
+        <accepts>MatchTooltipInfoDTO.html</accepts>
+    </rule>
+    <rule id="17cfdb0b">
+        <description>Created after removal of "MatchSubmissionStatusDTO" from osu! Tournament Rating Documentation
+        </description>
+        <accepts>MatchSubmissionStatusDTO.html</accepts>
+    </rule>
+    <rule id="29c8fd3c">
+        <description>Created after removal of "MatchSearchResultDTO" from osu! Tournament Rating Documentation
+        </description>
+        <accepts>MatchSearchResultDTO.html</accepts>
+    </rule>
+    <rule id="44e2a3ef">
+        <description>Created after removal of "MatchScoreDTO" from osu! Tournament Rating Documentation</description>
+        <accepts>MatchScoreDTO.html</accepts>
+    </rule>
+    <rule id="31492aa3">
+        <description>Created after removal of "MatchRatingStatsDTO" from osu! Tournament Rating Documentation
+        </description>
+        <accepts>MatchRatingStatsDTO.html</accepts>
+    </rule>
+    <rule id="36e9f00b">
+        <description>Created after removal of "MatchDTOPagedResultDTO" from osu! Tournament Rating Documentation
+        </description>
+        <accepts>MatchDTOPagedResultDTO.html</accepts>
+    </rule>
+    <rule id="5cb761e5">
+        <description>Created after removal of "MatchDTO" from osu! Tournament Rating Documentation</description>
+        <accepts>MatchDTO.html</accepts>
+    </rule>
+    <rule id="38eeebe">
+        <description>Created after removal of "MatchCreatedResultDTO" from osu! Tournament Rating Documentation
+        </description>
+        <accepts>MatchCreatedResultDTO.html</accepts>
+    </rule>
+    <rule id="68da1af0">
+        <description>Created after removal of "LeaderboardTierFilterDTO" from osu! Tournament Rating Documentation
+        </description>
+        <accepts>LeaderboardTierFilterDTO.html</accepts>
+    </rule>
+    <rule id="38168c4b">
+        <description>Created after removal of "LeaderboardPlayerInfoDTO" from osu! Tournament Rating Documentation
+        </description>
+        <accepts>LeaderboardPlayerInfoDTO.html</accepts>
+    </rule>
+    <rule id="1e1b0a11">
+        <description>Created after removal of "LeaderboardPlayerChartDTO" from osu! Tournament Rating Documentation
+        </description>
+        <accepts>LeaderboardPlayerChartDTO.html</accepts>
+    </rule>
+    <rule id="1a0c2030">
+        <description>Created after removal of "LeaderboardFilterDefaultsDTO" from osu! Tournament Rating Documentation
+        </description>
+        <accepts>LeaderboardFilterDefaultsDTO.html</accepts>
+    </rule>
+    <rule id="298d70e2">
+        <description>Created after removal of "LeaderboardFilterDTO" from osu! Tournament Rating Documentation
+        </description>
+        <accepts>LeaderboardFilterDTO.html</accepts>
+    </rule>
+    <rule id="6ba2e84f">
+        <description>Created after removal of "LeaderboardDTO" from osu! Tournament Rating Documentation</description>
+        <accepts>LeaderboardDTO.html</accepts>
+    </rule>
+    <rule id="46e9be82">
+        <description>Created after removal of "LeaderboardChartType" from osu! Tournament Rating Documentation
+        </description>
+        <accepts>LeaderboardChartType.html</accepts>
+    </rule>
+    <rule id="78eea5b8">
+        <description>Created after removal of "LayoutKind" from osu! Tournament Rating Documentation</description>
+        <accepts>LayoutKind.html</accepts>
+    </rule>
+    <rule id="5942414">
+        <description>Created after removal of "IntPtr" from osu! Tournament Rating Documentation</description>
+        <accepts>IntPtr.html</accepts>
+    </rule>
+    <rule id="277edfbf">
+        <description>Created after removal of "ICustomAttributeProvider" from osu! Tournament Rating Documentation
+        </description>
+        <accepts>ICustomAttributeProvider.html</accepts>
+    </rule>
+    <rule id="31734ca2">
+        <description>Created after removal of "GenericParameterAttributes" from osu! Tournament Rating Documentation
+        </description>
+        <accepts>GenericParameterAttributes.html</accepts>
+    </rule>
+    <rule id="75fe7810">
+        <description>Created after removal of "GameWinRecordDTO" from osu! Tournament Rating Documentation</description>
+        <accepts>GameWinRecordDTO.html</accepts>
+    </rule>
+    <rule id="2e8d9864">
+        <description>Created after removal of "GameDTO" from osu! Tournament Rating Documentation</description>
+        <accepts>GameDTO.html</accepts>
+    </rule>
+    <rule id="33730645">
+        <description>Created after removal of "FieldInfo" from osu! Tournament Rating Documentation</description>
+        <accepts>FieldInfo.html</accepts>
+    </rule>
+    <rule id="54c2ec19">
+        <description>Created after removal of "FieldAttributes" from osu! Tournament Rating Documentation</description>
+        <accepts>FieldAttributes.html</accepts>
+    </rule>
+    <rule id="80849a6">
+        <description>Created after removal of "Exception" from osu! Tournament Rating Documentation</description>
+        <accepts>Exception.html</accepts>
+    </rule>
+    <rule id="5b170513">
+        <description>Created after removal of "EventInfo" from osu! Tournament Rating Documentation</description>
+        <accepts>EventInfo.html</accepts>
+    </rule>
+    <rule id="3ee6bf5d">
+        <description>Created after removal of "EventAttributes" from osu! Tournament Rating Documentation</description>
+        <accepts>EventAttributes.html</accepts>
+    </rule>
+    <rule id="2c927e91">
+        <description>Created after removal of "CustomAttributeTypedArgument" from osu! Tournament Rating Documentation
+        </description>
+        <accepts>CustomAttributeTypedArgument.html</accepts>
+    </rule>
+    <rule id="223025b8">
+        <description>Created after removal of "CustomAttributeNamedArgument" from osu! Tournament Rating Documentation
+        </description>
+        <accepts>CustomAttributeNamedArgument.html</accepts>
+    </rule>
+    <rule id="687bd6b8">
+        <description>Created after removal of "CustomAttributeData" from osu! Tournament Rating Documentation
+        </description>
+        <accepts>CustomAttributeData.html</accepts>
+    </rule>
+    <rule id="6bec897">
+        <description>Created after removal of "CreatedAtRouteValues" from osu! Tournament Rating Documentation
+        </description>
+        <accepts>CreatedAtRouteValues.html</accepts>
+    </rule>
+    <rule id="3e2c243c">
+        <description>Created after removal of "ConstructorInfo" from osu! Tournament Rating Documentation</description>
+        <accepts>ConstructorInfo.html</accepts>
+    </rule>
+    <rule id="38f48474">
+        <description>Created after removal of "CallingConventions" from osu! Tournament Rating Documentation
+        </description>
+        <accepts>CallingConventions.html</accepts>
+    </rule>
+    <rule id="4d1beb86">
+        <description>Created after removal of "BeatmapDTO" from osu! Tournament Rating Documentation</description>
+        <accepts>BeatmapDTO.html</accepts>
+    </rule>
+    <rule id="43f596ee">
+        <description>Created after removal of "BaseStatsPostDTO" from osu! Tournament Rating Documentation</description>
+        <accepts>BaseStatsPostDTO.html</accepts>
+    </rule>
+    <rule id="345d1030">
+        <description>Created after removal of "BaseStatsDTO" from osu! Tournament Rating Documentation</description>
+        <accepts>BaseStatsDTO.html</accepts>
+    </rule>
+    <rule id="3c9cc8aa">
+        <description>Created after removal of "Assembly" from osu! Tournament Rating Documentation</description>
+        <accepts>Assembly.html</accepts>
+    </rule>
+    <rule id="70ed8855">
+        <description>Created after removal of "AggregatePlayerMatchStatsDTO" from osu! Tournament Rating Documentation
+        </description>
+        <accepts>AggregatePlayerMatchStatsDTO.html</accepts>
+    </rule>
+    <rule id="2e2a0f06">
+        <description>Created after removal of "Sync the ruleset of a user with their osu! ruleset" from osu! Tournament
+            Rating Documentation
+        </description>
+        <accepts>Sync_the_ruleset_of_a_user_with_their_osu_ruleset.html</accepts>
+    </rule>
+    <rule id="6a1de842">
+        <description>Created after removal of "Reset the secret of a user's OAuth client" from osu! Tournament Rating
+            Documentation
+        </description>
+        <accepts>Reset_the_secret_of_a_user_s_OAuth_client.html</accepts>
+    </rule>
+    <rule id="8c38ea5">
+        <description>Created after removal of "Delete a user's OAuth client" from osu! Tournament Rating Documentation
+        </description>
+        <accepts>Delete_a_user_s_OAuth_client.html</accepts>
+    </rule>
+    <rule id="b3bcfdc">
+        <description>Created after removal of "Get a user's OAuth clients" from osu! Tournament Rating Documentation
+        </description>
+        <accepts>Get_a_user_s_OAuth_clients.html</accepts>
+    </rule>
+    <rule id="2bdc225b">
+        <description>Created after removal of "Rejects a user's match submissions" from osu! Tournament Rating
+            Documentation
+        </description>
+        <accepts>Rejects_a_user_s_match_submissions.html</accepts>
+    </rule>
+    <rule id="21c2d6ea">
+        <description>Created after removal of "Get a user's match submissions" from osu! Tournament Rating
+            Documentation
+        </description>
+        <accepts>Get_a_user_s_match_submissions.html</accepts>
+    </rule>
+    <rule id="7bdb809c">
+        <description>Created after removal of "Update a user's scopes" from osu! Tournament Rating Documentation
+        </description>
+        <accepts>Update_a_user_s_scopes.html</accepts>
+    </rule>
+    <rule id="2bedfc1f">
+        <description>Created after removal of "Get a user" from osu! Tournament Rating Documentation</description>
+        <accepts>Get_a_user.html</accepts>
+    </rule>
+    <rule id="6fa2fc80">
+        <description>Created after removal of "Submit matches to an existing tournament" from osu! Tournament Rating
+            Documentation
+        </description>
+        <accepts>Submit_matches_to_an_existing_tournament.html</accepts>
+    </rule>
+    <rule id="32ce28c7">
+        <description>Created after removal of "List all matches from a tournament" from osu! Tournament Rating
+            Documentation
+        </description>
+        <accepts>List_all_matches_from_a_tournament.html</accepts>
+    </rule>
+    <rule id="b516e05">
+        <description>Created after removal of "Amend tournament data" from osu! Tournament Rating Documentation
+        </description>
+        <accepts>Amend_tournament_data.html</accepts>
+    </rule>
+    <rule id="11928e63">
+        <description>Created after removal of "Get a tournament" from osu! Tournament Rating Documentation</description>
+        <accepts>Get_a_tournament.html</accepts>
+    </rule>
+    <rule id="67b165c5">
+        <description>Created after removal of "Submit a tournament" from osu! Tournament Rating Documentation
+        </description>
+        <accepts>Submit_a_tournament.html</accepts>
+    </rule>
+    <rule id="996a0c6">
+        <description>Created after removal of "List all tournaments" from osu! Tournament Rating Documentation
+        </description>
+        <accepts>List_all_tournaments.html</accepts>
+    </rule>
+    <rule id="bc41ff7">
+        <description>Created after removal of "/api/v1/stats DELETE" from osu! Tournament Rating Documentation
+        </description>
+        <accepts>api_v1_stats_DELETE.html</accepts>
+    </rule>
+    <rule id="7543094a">
+        <description>Created after removal of "/api/v1/stats/matchwinrecords POST" from osu! Tournament Rating
+            Documentation
+        </description>
+        <accepts>api_v1_stats_matchwinrecords_POST.html</accepts>
+    </rule>
+    <rule id="7a4795fc">
+        <description>Created after removal of "/api/v1/stats/gamewinrecords POST" from osu! Tournament Rating
+            Documentation
+        </description>
+        <accepts>api_v1_stats_gamewinrecords_POST.html</accepts>
+    </rule>
+    <rule id="7e14b668">
+        <description>Created after removal of "/api/v1/stats/basestats POST" from osu! Tournament Rating Documentation
+        </description>
+        <accepts>api_v1_stats_basestats_POST.html</accepts>
+    </rule>
+    <rule id="1ba9f813">
+        <description>Created after removal of "/api/v1/stats/ratingstats POST" from osu! Tournament Rating
+            Documentation
+        </description>
+        <accepts>api_v1_stats_ratingstats_POST.html</accepts>
+    </rule>
+    <rule id="462a2f6a">
+        <description>Created after removal of "/api/v1/stats/matchstats POST" from osu! Tournament Rating
+            Documentation
+        </description>
+        <accepts>api_v1_stats_matchstats_POST.html</accepts>
+    </rule>
+    <rule id="58048ca6">
+        <description>Created after removal of "/api/v1/stats/ratingadjustments POST" from osu! Tournament Rating
+            Documentation
+        </description>
+        <accepts>api_v1_stats_ratingadjustments_POST.html</accepts>
+    </rule>
+    <rule id="1b663ac9">
+        <description>Created after removal of "/api/v1/stats/histogram GET" from osu! Tournament Rating Documentation
+        </description>
+        <accepts>api_v1_stats_histogram_GET.html</accepts>
+    </rule>
+    <rule id="108487f2">
+        <description>Created after removal of "Get a player's stats" from osu! Tournament Rating Documentation
+        </description>
+        <accepts>Get_a_player_s_stats.html</accepts>
+    </rule>
+    <rule id="4c7e5f41">
+        <description>Created after removal of "Search for tournaments, matches, and users" from osu! Tournament Rating
+            Documentation
+        </description>
+        <accepts>Search_for_tournaments_matches_and_users.html</accepts>
+    </rule>
+    <rule id="2df15193">
+        <description>Created after removal of "Screen a list of users based on the criteria as described in" from osu!
+            Tournament Rating Documentation
+        </description>
+        <accepts>Screen_a_list_of_users_based_on_the_criteria_as_described_in_API_DTOs_ScreeningResultDTO.html</accepts>
+    </rule>
+    <rule id="634837f6">
+        <description>Created after removal of "/api/v1/players/country-mapping GET" from osu! Tournament Rating
+            Documentation
+        </description>
+        <accepts>api_v1_players_country_mapping_GET.html</accepts>
+    </rule>
+    <rule id="4e828c34">
+        <description>Created after removal of "/api/v1/players/id-mapping GET" from osu! Tournament Rating
+            Documentation
+        </description>
+        <accepts>api_v1_players_id_mapping_GET.html</accepts>
+    </rule>
+    <rule id="317ef0bb">
+        <description>Created after removal of "/api/v1/players/ranks/all GET" from osu! Tournament Rating
+            Documentation
+        </description>
+        <accepts>api_v1_players_ranks_all_GET.html</accepts>
+    </rule>
+    <rule id="5254840c">
+        <description>Created after removal of "/api/v1/players/{key}/info GET" from osu! Tournament Rating
+            Documentation
+        </description>
+        <accepts>api_v1_players_key_info_GET.html</accepts>
+    </rule>
+    <rule id="3b2bc332">
+        <description>Created after removal of "/api/v1/players/all GET" from osu! Tournament Rating Documentation
+        </description>
+        <accepts>api_v1_players_all_GET.html</accepts>
+    </rule>
+    <rule id="3e8ef378">
+        <description>Created after removal of "Generate new access credentials from a valid refresh token" from osu!
+            Tournament Rating Documentation
+        </description>
+        <accepts>Generate_new_access_credentials_from_a_valid_refresh_token.html</accepts>
+    </rule>
+    <rule id="b751150">
+        <description>Created after removal of "Create a new OAuth client" from osu! Tournament Rating Documentation
+        </description>
+        <accepts>Create_a_new_OAuth_client.html</accepts>
+    </rule>
+    <rule id="6589b0cd">
+        <description>Created after removal of "Authorize using client credentials" from osu! Tournament Rating
+            Documentation
+        </description>
+        <accepts>Authorize_using_client_credentials.html</accepts>
+    </rule>
+    <rule id="39f19c68">
+        <description>Created after removal of "Authorize using an osu! authorization code" from osu! Tournament Rating
+            Documentation
+        </description>
+        <accepts>Authorize_using_an_osu_authorization_code.html</accepts>
+    </rule>
+    <rule id="1aa15836">
+        <description>Created after removal of "Sync the ruleset of the currently logged in user to their osu! ruleset"
+            from osu! Tournament Rating Documentation
+        </description>
+        <accepts>Sync_the_ruleset_of_the_currently_logged_in_user_to_their_osu_ruleset.html</accepts>
+    </rule>
+    <rule id="4364e3a0">
+        <description>Created after removal of "Update the ruleset for the currently logged in user" from osu! Tournament
+            Rating Documentation
+        </description>
+        <accepts>Update_the_ruleset_for_the_currently_logged_in_user.html</accepts>
+    </rule>
+    <rule id="30b09a5c">
+        <description>Created after removal of "Get player stats for the currently logged in user" from osu! Tournament
+            Rating Documentation
+        </description>
+        <accepts>Get_player_stats_for_the_currently_logged_in_user.html</accepts>
+    </rule>
+    <rule id="7b827813">
+        <description>Created after removal of "Get the currently logged in user" from osu! Tournament Rating
+            Documentation
+        </description>
+        <accepts>Get_the_currently_logged_in_user.html</accepts>
+    </rule>
+    <rule id="633be51b">
+        <description>Created after removal of "Update the verification status of a match" from osu! Tournament Rating
+            Documentation
+        </description>
+        <accepts>Update_the_verification_status_of_a_match.html</accepts>
+    </rule>
+    <rule id="61d923cd">
+        <description>Created after removal of "/api/v1/matches/{id}/osuid GET" from osu! Tournament Rating
+            Documentation
+        </description>
+        <accepts>api_v1_matches_id_osuid_GET.html</accepts>
+    </rule>
+    <rule id="2af481a0">
+        <description>Created after removal of "/api/v1/matches/player/{osuId} GET" from osu! Tournament Rating
+            Documentation
+        </description>
+        <accepts>api_v1_matches_player_osuId_GET.html</accepts>
+    </rule>
+    <rule id="e2fe618">
+        <description>Created after removal of "/api/v1/matches/duplicate POST" from osu! Tournament Rating
+            Documentation
+        </description>
+        <accepts>api_v1_matches_duplicate_POST.html</accepts>
+    </rule>
+    <rule id="34d31ab0">
+        <description>Created after removal of "/api/v1/matches/duplicates GET" from osu! Tournament Rating
+            Documentation
+        </description>
+        <accepts>api_v1_matches_duplicates_GET.html</accepts>
+    </rule>
+    <rule id="715e2340">
+        <description>Created after removal of "Get a match" from osu! Tournament Rating Documentation</description>
+        <accepts>Get_a_match.html</accepts>
+    </rule>
+    <rule id="76da4697">
+        <description>Created after removal of "/api/v1/matches/checks/refresh POST" from osu! Tournament Rating
+            Documentation
+        </description>
+        <accepts>api_v1_matches_checks_refresh_POST.html</accepts>
+    </rule>
+    <rule id="3737a771">
+        <description>Created after removal of "Gets all matches" from osu! Tournament Rating Documentation</description>
+        <accepts>Gets_all_matches.html</accepts>
+    </rule>
+    <rule id="476a6deb">
+        <description>Created after removal of "/api/v1/leaderboards GET" from osu! Tournament Rating Documentation
+        </description>
+        <accepts>api_v1_leaderboards_GET.html</accepts>
+    </rule>
+    <rule id="7fd0689a">
+        <description>Created after removal of "/api/v1/clients/{id}/ratelimit PATCH" from osu! Tournament Rating
+            Documentation
+        </description>
+        <accepts>api_v1_clients_id_ratelimit_PATCH.html</accepts>
+    </rule>
+    <rule id="2591be6a">
+        <description>Created after removal of "Get a beatmap by versatile search" from osu! Tournament Rating
+            Documentation
+        </description>
+        <accepts>Get_a_beatmap_by_versatile_search.html</accepts>
+    </rule>
+    <rule id="6117a01f">
+        <description>Created after removal of "List all beatmaps" from osu! Tournament Rating Documentation
+        </description>
+        <accepts>List_all_beatmaps.html</accepts>
+    </rule>
+    <rule id="5a5f26ac">
+        <description>Created after removal of "API Reference" from osu! Tournament Rating Documentation</description>
+        <accepts>API_Reference.html</accepts>
+    </rule>
 </rules>
