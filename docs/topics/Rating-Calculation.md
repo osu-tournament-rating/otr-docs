@@ -70,6 +70,26 @@ At the end of the match processing loop, if any players have a negative change i
 Volatility is not affected by this scaling.
 </tip>
 
+## Further details
+
+### Rating change formulas
+
+The rating system itself is based on OpenSkill, which is a Bayesian approximation algorithm. Without going too deep into any formulas, these Bayesian rating algorithms assign each player a rating μ and volatility σ, which together describe a distribution of predicted actual skill levels for that player. 
+
+When players compete against each other in a match, a formula is used to calculate the probability of various outcomes / rankings of that match. The players' μ and σ values are then adjusted based on how "surprising" the match outcome was. In o!TR's case, the formula comes from the Plackett-Luce model, whose fundamental assumption is "irrelevance of alternatives".
+
+Specifically, Plackett-Luce is based on the idea that player A outperforms player B with the same probability, no matter who else is in the lobby. This assumption is not fully correct because teammates do affect how often one participates, but Plackett-Luce is still a model used in real-world ranking systems like horse racing or poker standings.
+
+Quoting from the [paper](https://jmlr.csail.mit.edu/papers/volume12/weng11a/weng11a.pdf), these adjustments are calculated via "the average of the relative rate of change of [a player's] winning probability with respect to [their] strength," where the average is taken over the prior distribution. The actual Bayesian inference calculations for these types of models are computationally intensive, and OpenSkill is actually only an **approximation** of the full calculation (in the paper, they discuss why the simplifications are reasonable).
+
+### Choosing model parameters
+
+There are various parameters that can be adjusted when setting up the model (see [here](https://github.com/injae/openskill-rs/blob/main/src/model/plackett_luce.rs#L12) or read the paper for more detailed calculations). In words, μ and σ are the rating and volatility mentioned above, β is an "extra volatility" term for calculating head-to-head matchup probabilities, κ is used as part of a check that volatility stays positive, and τ adds a small amount to variance (squared volatility) after each match. Finally, the function γ is a dampening factor which causes volatility to decrease less significantly when matchups are large. Intuitively, this can be thought of as not treating a match with 10 players in it as counting as much as 9 separate 1v1s against each opponent.
+
+The Plackett-Luce model allows for arbitrary scalings of parameters, though the OpenSkill documentation recommends that σ starts out as 1/3 of μ. We choose a scaling here so that the highest ratings look somewhat similar to chess (solely for aesthetic appeal), though we do choose varying initial ratings based on rank. While we keep the default values of γ and κ, we currently initialize σ, β, and τ to a smaller fraction of μ than the default to make it more difficult to farm rating from low-rated players.
+
+Remember that different players specialize in different skillsets and have skillcaps at different levels, so please interpret TR not as an absolute skill comparison between two players. Remember that o!TR identifies when people **frequently win** relative to others in their rank range or skill level, so if you see a player with what seems like an unusually high rating, we recommend that you look at their tournament history and check if they're consistently the top performer in their matches.
+
 ## FAQ
 
 Please read the following FAQ before asking questions. If your questions still are not answered, please [contact us](Contact.md).
