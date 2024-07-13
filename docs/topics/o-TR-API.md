@@ -4,3 +4,5 @@ The [o!TR API](https://github.com/osu-tournament-rating/otr-api) is a [.NET](htt
 
 * o!TR API
 * o!TR Data Processor
+
+View the o!TR API reference
