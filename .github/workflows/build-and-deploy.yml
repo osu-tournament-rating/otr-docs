@@ -47,6 +47,6 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           script: |
             cd ~/otr-docs
-            docker stop stagecodes/otr-docs-prod
-            docker rm stagecodes/otr-docs-prod
-            docker run -d -p 3800:80 --restart=always stagecodes/otr-docs-prod
+            docker stop otr-docs
+            docker otr-docs
+            docker run -d -p 3800:80 --restart=always --name otr-docs stagecodes/otr-docs-prod
