@@ -37,10 +37,8 @@ For example, tournaments that have been rigged or have serious foul play issues 
 Target an acceptable skill range of players.
 
 <list>
-<li>For osu!, the minimum rank range is <code>#150,000+</code> (<code>#75,000+</code> for regional tournaments).</li>
-<li>For osu!mania, the minimum rank range is <code>#75,000+</code> for all tournaments.</li>
-<li>For osu!taiko, the minimum rank range is <code>#10,000+</code> for all tournaments.</li>
-<li>For osu!taiko, the minimum rank range is <code>#10,000+</code> for all tournaments.</li>
+<li>For osu!, the minimum rank restriction is <code>#150,000+</code> (<code>#75,000+</code> for regional tournaments).</li>
+<li>For osu!taiko, osu!catch, and osu!mania, there is no restriction on rank range.</li>
 </list>
 </step>
 <step>
