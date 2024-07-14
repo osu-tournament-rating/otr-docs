@@ -48,5 +48,5 @@ jobs:
           script: |
             cd ~/otr-docs
             docker stop otr-docs
-            docker otr-docs
+            docker rm otr-docs
             docker run -d -p 3800:80 --restart=always --name otr-docs stagecodes/otr-docs-prod
