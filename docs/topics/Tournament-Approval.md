@@ -34,7 +34,14 @@ For example, tournaments that have been rigged or have serious foul play issues 
 </tip>
 </step>
 <step>
-Target an acceptable skill range of players. For osu!, this rank range is restricted to <code>#200,000</code> (<code>#100,000</code> for regional tournaments).
+Target an acceptable skill range of players.
+
+<list>
+<li>For osu!, the minimum rank range is <code>#150,000+</code> (<code>#75,000+</code> for regional tournaments).</li>
+<li>For osu!mania, the minimum rank range is <code>#75,000+</code> for all tournaments.</li>
+<li>For osu!taiko, the minimum rank range is <code>#10,000+</code> for all tournaments.</li>
+<li>For osu!taiko, the minimum rank range is <code>#10,000+</code> for all tournaments.</li>
+</list>
 </step>
 <step>
 Have a forum post or wiki page hosted on the osu! website.
