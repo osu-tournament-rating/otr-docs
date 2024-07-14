@@ -16,5 +16,58 @@
         <toc-element topic="Contact.md"/>
     </toc-element>
     <toc-element topic="o-TR-API.md">
+        <toc-element topic="API_Reference.topic">
+            <toc-element topic="Sync_the_ruleset_of_a_user_with_their_osu_ruleset.topic"/>
+            <toc-element topic="Reset_the_secret_of_a_user_s_OAuth_client.topic"/>
+            <toc-element topic="Delete_a_user_s_OAuth_client.topic"/>
+            <toc-element topic="Get_a_user_s_OAuth_clients.topic"/>
+            <toc-element topic="Rejects_a_user_s_match_submissions.topic"/>
+            <toc-element topic="Get_a_user_s_match_submissions.topic"/>
+            <toc-element topic="Update_a_user_s_scopes.topic"/>
+            <toc-element topic="Get_a_user.topic"/>
+            <toc-element topic="Submit_matches_to_an_existing_tournament.topic"/>
+            <toc-element topic="List_all_matches_from_a_tournament.topic"/>
+            <toc-element topic="Amend_tournament_data.topic"/>
+            <toc-element topic="Get_a_tournament.topic"/>
+            <toc-element topic="Submit_a_tournament.topic"/>
+            <toc-element topic="List_all_tournaments.topic"/>
+            <toc-element topic="api_v1_stats_DELETE.topic"/>
+            <toc-element topic="api_v1_stats_matchwinrecords_POST.topic"/>
+            <toc-element topic="api_v1_stats_gamewinrecords_POST.topic"/>
+            <toc-element topic="api_v1_stats_basestats_POST.topic"/>
+            <toc-element topic="api_v1_stats_ratingstats_POST.topic"/>
+            <toc-element topic="api_v1_stats_matchstats_POST.topic"/>
+            <toc-element topic="api_v1_stats_ratingadjustments_POST.topic"/>
+            <toc-element topic="api_v1_stats_histogram_GET.topic"/>
+            <toc-element topic="Get_a_player_s_stats.topic"/>
+            <toc-element topic="Search_for_tournaments_matches_and_users.topic"/>
+            <toc-element
+                    topic="Screen_a_list_of_users_based_on_the_criteria_as_described_in_API_DTOs_ScreeningResultDTO.topic"/>
+            <toc-element topic="api_v1_players_country_mapping_GET.topic"/>
+            <toc-element topic="api_v1_players_id_mapping_GET.topic"/>
+            <toc-element topic="api_v1_players_ranks_all_GET.topic"/>
+            <toc-element topic="api_v1_players_key_info_GET.topic"/>
+            <toc-element topic="api_v1_players_all_GET.topic"/>
+            <toc-element topic="Generate_new_access_credentials_from_a_valid_refresh_token.topic"/>
+            <toc-element topic="Create_a_new_OAuth_client.topic"/>
+            <toc-element topic="Authorize_using_client_credentials.topic"/>
+            <toc-element topic="Authorize_using_an_osu_authorization_code.topic"/>
+            <toc-element topic="Sync_the_ruleset_of_the_currently_logged_in_user_to_their_osu_ruleset.topic"/>
+            <toc-element topic="Update_the_ruleset_for_the_currently_logged_in_user.topic"/>
+            <toc-element topic="Get_player_stats_for_the_currently_logged_in_user.topic"/>
+            <toc-element topic="Get_the_currently_logged_in_user.topic"/>
+            <toc-element topic="Update_the_verification_status_of_a_match.topic"/>
+            <toc-element topic="api_v1_matches_id_osuid_GET.topic"/>
+            <toc-element topic="api_v1_matches_player_osuId_GET.topic"/>
+            <toc-element topic="api_v1_matches_duplicate_POST.topic"/>
+            <toc-element topic="api_v1_matches_duplicates_GET.topic"/>
+            <toc-element topic="Get_a_match.topic"/>
+            <toc-element topic="api_v1_matches_checks_refresh_POST.topic"/>
+            <toc-element topic="Gets_all_matches.topic"/>
+            <toc-element topic="api_v1_leaderboards_GET.topic"/>
+            <toc-element topic="api_v1_clients_id_ratelimit_PATCH.topic"/>
+            <toc-element topic="Get_a_beatmap_by_versatile_search.topic"/>
+            <toc-element topic="List_all_beatmaps.topic"/>
+        </toc-element>
     </toc-element>
 </instance-profile>
