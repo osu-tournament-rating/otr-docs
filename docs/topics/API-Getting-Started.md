@@ -17,6 +17,12 @@ dotnet tool install --global dotnet-ef
 
 Follow [this guide](Database-Setup-Backup-and-Recovery.md) to setup your local database. Make sure this docker container is always running before you launch the API.
 
+### Setting up Redis
+
+Run the following command:
+
+`docker run -d -p 6379:6379 --name otr-redis redis`
+
 ### Configuring the API
 
 With a fresh PostgreSQL database instance and other required frameworks installed, the API can now be built and configured.
@@ -36,7 +42,9 @@ Your configuration file should look like this. Fill in the empty values.
     }
   },
   "ConnectionStrings": {
-    "DefaultConnection": ""
+    "DefaultConnection": "",
+    "CollectorConnection": "",
+    "RedisConnection": ""
   },
   "Osu": {
     "ApiKey": "",
@@ -50,7 +58,8 @@ Your configuration file should look like this. Fill in the empty values.
     "Audience": ""
   },
   "Auth": {
-    "ClientCallbackUrl": ""
+    "ClientCallbackUrl": "",
+    "EnforceWhitelist": false
   },
   "RateLimit": {
     "PermitLimit": 30,
@@ -67,13 +76,23 @@ The `PermitLimit` field is the default number of requests allotted to each authe
 
 The `Window` field represents the default rate limit refresh period (in seconds).
 
-#### Connection String
+#### Connection Strings
 
-The connection string format is as follows:\
-`"Server=<domain>;Port=<port>;User Id=<postgres_user>;Password=<postgres_password>;Include Error Detail=true;"`
+**DefaultConnection:**
+
+The `DefaultConnection` connection string format is as follows:\
+`"Server=<domain>;Port=<port>;User Id=<postgres_user>;Password=<postgres_password>;Include Error Detail=true;"`. Note that this is for a PostgreSQL database instance.
 
 An example connection string for local development would look like:\
 `"Server=localhost;Port=5432;User Id=postgres;Password=otrdev;Include Error Detail=true;"`
+
+**CollectorConnection:**
+
+* This connection string is only used in production. However, a URL must be specified regardless. It is fine to use a dummy value, such as `"http://localhost1234"` for this value.
+
+**Redis:**
+
+* The Redis connection string must be written exactly as follows, assuming Redis is running on port `6379`: `"localhost:6379"`.
 
 #### Osu
 
