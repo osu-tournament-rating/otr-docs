@@ -30,7 +30,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       - name: Build and Push Docker Image
         run: |
-          docker build -t stagecodes/otr-docs-prod:latest .
+          docker build -t otr-docs-prod:latest .
           docker push stagecodes/otr-docs-prod:latest
 
   deploy:
