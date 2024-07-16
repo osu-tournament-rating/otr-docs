@@ -31,12 +31,10 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Build and Push Docker Image
-        run: |
-          IMAGE_TAG=stagecodes/otr-docs-prod:$(git rev-parse --short HEAD)
-          docker build --no-cache -t $IMAGE_TAG .
-          docker tag $IMAGE_TAG stagecodes/otr-docs-prod:latest
-          docker push $IMAGE_TAG
-          docker push stagecodes/otr-docs-prod:latest
+        uses: docker/build-push-action@v3
+        with:
+          push: true
+          tags: stagecodes/otr-docs-prod:latest
 
   deploy:
     name: Deploy
@@ -51,7 +49,7 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
           script: |
-            docker pull stagecodes/otr-docs-prod:latest
             docker stop otr-docs || true
             docker rm otr-docs || true
-            docker run -d -p 3800:80 --restart=always --name otr-docs stagecodes/otr-docs-prod:latest
+            docker pull stagecodes/otr-docs-prod:latest
+            docker run -d -p 3800:80 --restart always --name otr-docs stagecodes/otr-docs-prod:latest
