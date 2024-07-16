@@ -30,8 +30,8 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       - name: Build and Push Docker Image
         run: |
-          docker build -t stagecodes/otr-docs-prod .
-          docker push stagecodes/otr-docs-prod
+          docker build -t stagecodes/otr-docs-prod:latest .
+          docker push stagecodes/otr-docs-prod:latest
 
   deploy:
     name: Deploy
@@ -46,7 +46,6 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
           script: |
-            cd ~/otr-docs
             docker stop otr-docs
             docker rm otr-docs
-            docker run -d -p 3800:80 --restart=always --name otr-docs stagecodes/otr-docs-prod
+            docker run -d -p 3800:80 --restart=always --name otr-docs stagecodes/otr-docs-prod:latest
