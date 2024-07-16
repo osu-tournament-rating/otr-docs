@@ -11,7 +11,12 @@ Here are our repositories:
 * [o!TR API](https://github.com/osu-tournament-rating/otr-api)
 * [o!TR Web](https://github.com/osu-tournament-rating/otr-web)
 * [o!TR Processor](https://github.com/osu-tournament-rating/otr-processor)
+* [o!TR Docs](https://github.com/osu-tournament-rating/otr-docs)
 
 ## General contact
 
 Feedback of all kind is greatly appreciated. Long-form feedback should be left in discussions as described above. For general comments or quick questions, please join our [Discord server](https://discord.gg/R53AwX2tJA) and let us know what's on your mind!
+
+## Improving the docs
+
+Users who feel the documentation is missing something should create an issue [here](https://github.com/osu-tournament-rating/otr-docs/issues).
