@@ -6,7 +6,7 @@ RUN mkdir /opt/sources
 
 WORKDIR /opt/sources
 
-ADD docs docs
+ADD docs ./docs
 
 RUN export DISPLAY=:99 && \
 Xvfb :99 & \

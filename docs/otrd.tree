@@ -6,7 +6,7 @@
                  name="osu! Tournament Rating Documentation"
                  start-page="Overview.md">
 
-    <toc-element topic="Overview.md" accepts-web-file-names-ref="6efba2d3">
+    <toc-element topic="Overview.md">
         <toc-element topic="Tournament-Approval.md"/>
         <toc-element topic="Rating-Calculation.md">
             <toc-element topic="Rating-Decay.md"/>
