@@ -1,6 +1,6 @@
 # Contact
 
-Contact the o!TR team.
+Contact the o!TR team here!
 
 ## Bug reports & new features
 
@@ -20,3 +20,10 @@ Feedback of all kind is greatly appreciated. Long-form feedback should be left i
 ## Improving the docs
 
 Users who feel the documentation is missing something should create an issue [here](https://github.com/osu-tournament-rating/otr-docs/issues).
+
+## Quick links
+
+* [Website](https://otr.stagec.xyz)
+* [Discord](https://discord.gg/R53AwX2tJA)
+* [Twitter](https://twitter.com/osu_tr)
+* [Github](https://github.com/osu-tournament-rating)
