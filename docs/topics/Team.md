@@ -67,6 +67,12 @@ Many people have contributed to the o!TR projects in a multitude of ways. The te
     </tr>
 </table>
 
+### Pre-release feedback
+
+* [FlatPaper](https://osu.ppy.sh/users/11255340)
+* [this1neguy](https://osu.ppy.sh/users/1797189)
+* [Willy](https://osu.ppy.sh/users/3521482)
+
 ### Inactive
 
 These users once helped the o!TR projects but now are no longer involved with the project.
