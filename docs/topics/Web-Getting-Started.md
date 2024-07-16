@@ -27,6 +27,9 @@ NODE_ENV=
 </step>
 <step>
 Copy your osu! API v2 client id and set <code>REACT_APP_OSU_CLIENT_ID</code> equal to that value.
+<note>
+The API instance must also be using the same client id.
+</note>
 </step>
 <note>
 This must be the same client used in your running instance of the API.
