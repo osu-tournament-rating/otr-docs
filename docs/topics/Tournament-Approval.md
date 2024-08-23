@@ -1,6 +1,6 @@
 # Tournament Approval
 
-The o!TR team requires tournaments meet the following criteria before being accepted into our rating system. The o!TR team reserves the final say on whether a tournament is deemed fair for acceptance into our system.
+The o!TR team requires tournaments meet the criteria below before being accepted into our rating system. Please note that the team reserves the final say on whether a specific tournament is deemed fair for acceptance into our system.
 
 > A list of all reviewed tournaments may be viewed on [this spreadsheet](https://docs.google.com/spreadsheets/d/1F6yBKfVQqkusVxoIEEBP9j4l0h52D0tPHODGXQqCau8/edit?gid=817877375#gid=817877375).
 > 
@@ -8,7 +8,7 @@ The o!TR team requires tournaments meet the following criteria before being acce
 >
 {style="note"}
 
-The following is a reference on what constitutes an acceptable tournament and submission steps.
+The following is a reference on what constitutes an acceptable tournament and how to submit new data.
 
 ## Acceptance criteria
 
@@ -16,7 +16,7 @@ In order for a tournament to be accepted into the o!TR system, it must:
 
 <procedure>
 <step>
-Feature a bracket size of at least Round of 8 double elimination.
+Feature a bracket size of at least Round of 8 double elimination or Round of 16 single elimination.
 </step>
 <step>
 Publicly document all match links to an acceptable standard, such as through a public Google sheet.
@@ -40,15 +40,18 @@ Target an acceptable skill range of players.
 <li>For osu!, the minimum rank restriction is <code>#150,000+</code> (<code>#75,000+</code> for regional tournaments).</li>
 <li>For osu!taiko, osu!catch, and osu!mania, there is no restriction on rank range.</li>
 </list>
+> This restriction is present to avoid "farming" of rating in isolated pockets of newer players in the tournament community.
+>
+{style="note"}
 </step>
 <step>
 Have a forum post or wiki page hosted on the osu! website.
 </step>
 <step>
-Have a <a href="https://osu.ppy.sh/wiki/en/Gameplay/Game_modifier/ScoreV2">ScoreV2</a> win condition throughout the tournament.
+Use the <a href="https://osu.ppy.sh/wiki/en/Gameplay/Game_modifier/ScoreV2">ScoreV2</a> win condition throughout the tournament.
 </step>
 <step>
-Not be of a battle-royale format or have variable team sizes or <a href="https://osu.ppy.sh/wiki/en/Game_mode">game modes</a>.
+Not use variable lobby sizes or <a href="https://osu.ppy.sh/wiki/en/Game_mode">game modes</a>; in particular, battle-royale tournaments are excluded.
 </step>
 <step>
 Feature a format that allows players to play at their full competitive strength throughout the whole match.
@@ -61,8 +64,8 @@ Not stray too far from traditional competitive standards.
 <tip>
 For example:
 <list>
-<li><a href="https://osu.ppy.sh/community/forums/topics/1767170?n=1">BATBALL's Gimmick Emporium</a> is considered barely acceptable.</li>
-<li><a href="https://osu.ppy.sh/community/forums/topics/1790791?n=1">Pokemon Battle Tournament</a> is considered barely unacceptable.</li>
+<li><a href="https://osu.ppy.sh/community/forums/topics/1767170?n=1">BATBALL's Gimmick Emporium</a> is considered barely acceptable despite restrictions on how many maps each player may win for their team.</li>
+<li><a href="https://osu.ppy.sh/community/forums/topics/1790791?n=1">Pokémon Battle Tournament</a> is considered barely unacceptable due to the special HP / targeting rules.</li>
 </list>
 </tip>
 </step>
@@ -98,7 +101,7 @@ Gather all match links from bracket stages (and group stages if applicable).
 Never submit links from qualifiers, tryouts, show matches, or asynchronous matches.
 </warning>
 <tip>
-No need to worry about warmups or other erroneous data in otherwise valid matches.
+There is no need to worry about warmups or other erroneous data in otherwise valid matches during the initial submission.
 </tip>
 </step>
 </procedure>
@@ -148,8 +151,8 @@ If a tournament uses inconsistent abbreviations, please inform an o!TR team memb
 We know how time-consuming it is to gather links. There's a few methods we use for this:
 
 * Contact the tournament host, spreadsheet owner, referee, or anyone else who may have access to that tournament's match data. Kindly ask them for a list of links or match ids.
-* Assuming the data may be on a Google sheet, an alternative is to use the `=IMPORTRANGE()` function on the cells with the match links and import them to a new sheet.
-> You'll then have lots of cells that look like "MP Link". You can extract the links with a script detailed in this [Stack Overflow answer](https://stackoverflow.com/a/67206954).
+* Assuming the data may be on a Google sheet, an alternative is to use the `=IMPORTRANGE()` function on the cells with the match links to import them to a new sheet.
+> You'll then have a list of cells which each include a hyperlink. From here, you can extract the links with a script detailed in this [Stack Overflow answer](https://stackoverflow.com/a/67206954).
 
 > When in doubt, have the tournament's spreadsheet maintainers contact us or ask in our [Discord server](Contact.md).
 > 
@@ -157,4 +160,4 @@ We know how time-consuming it is to gather links. There's a few methods we use f
 
 ### How can invalid data be flagged for review?
 
-Invalid data, such as warmups, show matches, or any other data that should not be in our system will be reportable in the future on our website. For now, know that this data does not significantly affect rating values.
+Invalid data, such as warmups, show matches, or any other data that should not be in our system will be reportable in the future on our website. For now, know that this data does not significantly affect rating values, but please note it down so you can let us know later!

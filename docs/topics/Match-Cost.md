@@ -1,7 +1,24 @@
 # Match Cost
 
-Although not used in rating calculations directly, the match cost formula o!TR uses for statistics is as follows.
+Although not used in rating calculations directly, o!TR does keep track of match cost for use in other statistics (for example, comparing performance across different tournaments). The formula is as follows.
 
 ## Formula
 
-The match cost formula is inspired by Bathbot's formula, simplified to remove factors that are not relevant for our purposes. Each player receives a **map score** between 0.5 and 1.5 for each map they play, with 1.0 being average across the lobby (specifically, this is `0.5 + normal cdf(z-score)`). To calculate match cost, we take the average of these map scores and multiply by a **lobby bonus factor** ranging from 1.0 to 1.3 (specifically, this is `1.0 + 0.3 * sqrt(x)`, where x ranges linearly from 0.0 for playing only one map to 1.0 for playing all of them). 
+The match cost formula is inspired by Bathbot's formula, simplified to remove factors that are not relevant for our purposes. For each map played, each player receives a map score between 0.5 and 1.5, specifically
+<code-block lang="tex">
+\begin{equation}
+    \text{map score} = 0.5 + \text{normcdf}\left(\frac{\text{score} - \text{avg}(\text{scores on map})}{\text{stddev}(\text{scores on map})}\right).
+\end{equation}
+</code-block>
+These map scores are then averaged together and finally multiplied by a bonus factor for playing more of the match, specifically
+<code-block lang="tex">
+\begin{equation}
+    \text{lobby bonus} = 1 + 0.3 \cdot \sqrt{\frac{\text{maps played} - 1}{\text{total maps} - 1}}.
+\end{equation}
+</code-block>
+
+Thus, match cost values will range from 0.5 to 1.95, with a typical value being around 1.2.
+
+> Some other match cost formulas include bonus factors for playing in tiebreaker or playing a variety of different mods during a match. We do not include such factors so that our formula primarily reflects relative performance rather than contribution towards winning. For example, the winner of a 1v1 match will always have a higher match cost, even if they won their maps by much smaller margins.
+> 
+{style="note"}
