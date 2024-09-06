@@ -21,7 +21,9 @@ This rank z-score will be a number typically between -3 and 3, with better-ranke
 </code-block>
 with an enforced minimum and maximum rating of 600 and 1800. The reason for the asymmetrical dependence is due to a skew in the rank distribution of tournament players.
 
-> For a rough reference, players ranked near #20,000 in the osu! gamemode will have a rank z-score around 0 and receive an "average" starting rating around 1080.
+> For a rough reference, players ranked near #20,000 in osu! will have a rank z-score around 0 and receive an "average" starting rating around 1080.
+
+Any players whose rank data cannot be recovered from either osu!track or the osu! API are given a default initial rating of 900. This may occur because they are restricted, have no plays for that ruleset, or are inactive and have no osu!track data.
 
 > Please note that the formula for initial ratings is still tentative. In particular, any discussions surrounding how to account for historical "rank drift" are welcome.
 > 

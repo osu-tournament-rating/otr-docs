@@ -44,7 +44,7 @@ In contrast to both ETX and SIP, o!TR intentionally does not take map difficulty
 
 o!TR is open source, compliant with osu! tournament [filtering rules](https://osu.ppy.sh/wiki/en/Tournaments/Official_support#registrant-filtering-and-seeding), and communicates all algorithm changes publicly. This means it can be used for [filtering](https://osu.ppy.sh/wiki/en/Tournaments/Official_support#registrant-filtering-and-seeding) in badged tournaments. We aim to have an open, compliant tool that meets the osu! community's high transparency standards.
 
-### Support for other game modes
+### Support for other rulesets
 
 Our rating formulas and submission processes are equally applicable to osu!taiko, osu!catch, and osu!mania as osu!. We also separate osu!mania 4k and 7k leaderboards.
 
