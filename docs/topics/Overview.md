@@ -36,7 +36,9 @@ All collected match data and rating histories are accessible via the o!TR websit
 
 ### Fundamental interpretation
 
-There are other third-party tools which also analyze tournament players' match performance. For example, [Elitebotix (ETX)](https://osu.ppy.sh/users/31050083) estimates a star rating level that one can play comfortably, and [Skill Issue (SIP)](https://osu.ppy.sh/community/forums/topics/1891677?n=1) measures relative ability across various skills. o!TR is designed specifically to gauge competitive performance (though SIP uses a similar algorithm and can be useful for answering more specific questions related to head-to-head matches). In contrast to both ETX and SIP, o!TR intentionally does not take map difficulty into account. One effect of this is that players with significantly better o!TR ranking compared to ETX or SIP may likely be playing in tournaments significantly below their skill level.
+There are other third-party tools which analyze tournament players' match performances. For example, [Elitebotix (ETX)](https://osu.ppy.sh/users/31050083) estimates a star rating level that one can play comfortably, and [Skill Issue (SIP)](https://osu.ppy.sh/community/forums/topics/1891677?n=1) measures relative ability across various skills. o!TR is specifically designed to gauge competitive performance. 
+
+In contrast to both ETX and SIP, o!TR intentionally does not take map difficulty into account. One effect of this is that players with significantly better o!TR ranking compared to ETX or SIP may likely be playing in tournaments significantly below their skill level.
 
 ### Open-source code
 
@@ -44,7 +46,7 @@ o!TR is open source, compliant with osu! tournament [filtering rules](https://os
 
 ### Support for other game modes
 
-Our rating formulas and submission processes are just as applicable to osu!taiko, osu!catch, and osu!mania as osu!standard. We also separate osu!mania 4k and 7k leaderboards.
+Our rating formulas and submission processes are equally applicable to osu!taiko, osu!catch, and osu!mania as osu!. We also separate osu!mania 4k and 7k leaderboards.
 
 ## Important note
 

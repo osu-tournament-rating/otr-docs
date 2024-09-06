@@ -10,6 +10,7 @@
         <toc-element topic="Tournament-Approval.md"/>
         <toc-element topic="Rating-Calculation.md">
             <toc-element topic="Rating-Decay.md"/>
+            <toc-element topic="Initial-Ratings.md"/>
             <toc-element topic="Match-Cost.md"/>
         </toc-element>
         <toc-element topic="Score-Modifications.md"/>

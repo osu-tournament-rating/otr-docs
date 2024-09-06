@@ -4,13 +4,13 @@ o!TR primarily uses the [OpenSkill algorithm](https://jmlr.csail.mit.edu/papers/
 
 ## Rating
 
-Rating (a.k.a. Tournament Rating or TR) is the number used to quantify an individual's tournament performance. This number, combined with [Volatility](#volatility), is used by the OpenSkill model to determine how likely someone is to come out ahead against someone else in a tournament match. Rating changes are more drastic when lower-rated players perform better than higher-rated players.
+Rating (a.k.a. Tournament Rating or TR) is the number used to quantify an individual's tournament performance. This number, combined with [volatility](#volatility), is used by the OpenSkill model to determine how likely someone is to come out ahead against someone else in a tournament match. Rating changes are more drastic when lower-rated players perform better than higher-rated players.
 
-The [initial rating](#initial-ratings) each player is assigned is not nearly as important as the subsequent adjustments from tournament performance. Like other games with competitive ladders, players will initially see higher fluctuations in their rating until the system becomes more confident in their abilities. Players should not worry about being stuck at a certain range; a better rating will follow from better match performance.
+The [initial rating](Initial-Ratings.md) each player is assigned is not nearly as important as the subsequent adjustments from tournament performance. Like other games with competitive ladders, players will initially see higher fluctuations in their rating until the system becomes more confident in their abilities. Players should not worry about being stuck at a certain range; a better rating will follow from better match performance.
 
 ## Volatility
 
-Volatility is the number that determines how confident the model is in one's [Rating](#rating). The higher this value, the less confident the model is in one's rating. (More precisely, volatility is the standard deviation in the posterior estimate of a player's rating.)
+Volatility is the number that determines how confident the model is in one's [Rating](#rating). The higher this value, the less confident the model is in one's rating. More precisely, volatility is the standard deviation in the posterior estimate of a player's rating.
 
 > Consider the following:
 > 
@@ -40,11 +40,17 @@ Store the results (changes in rating & volatility) for lookup later. If a player
 </step>
 </procedure>
 
-These results are then averaged over all games to obtain an overall rating and volatility change. However, using these numbers alone would cause specialists who play only a few games (and perform well) to be over-rated compared to generalists. Thus, a second set of overall rating changes are also computed, where not playing a game is now considered "tying for last." These two sets of changes are averaged at a weight of 90%-10% to get the final changes, which are stored in their histories.
+The results are then averaged over all games to obtain an overall rating and volatility change, which we call "rating change A". However, using these numbers alone would cause specialists who play only a few games (and perform well) to be over-rated compared to generalists. Thus, a second set of overall rating changes are also computed, where not playing a game is now considered tying for last. We call these numbers "rating change B."
 
+Finally, these two sets of changes are combined at a weighted average of 90%-10%. In other words, the actual change stored in a player's rating history is
+<code-block lang="tex">
+\begin{equation}
+    \text{rating change} = 0.9 \cdot \text{rating change A} + 0.1 \cdot \text{rating change B}.
+\end{equation}
+</code-block>
+Volatility changes are averaged similarly but as a quadratic mean instead.
 
-
-> This part of the process reflects the fact that match performance is not just determined by scores in match but also the degree to which players must "fill in" for their team members.
+> This part of the process reflects the fact that match performance is not just determined by scores in match but also the degree to which players must "fill in" for their team members. The weighting of 90%-10% is preliminary and may be altered to a dynamic ratio depending on the total number of players in the match.
 > 
 {style="note"}
 
@@ -56,7 +62,7 @@ The rating system itself is based on OpenSkill, which is a Bayesian approximatio
 
 When players compete against each other, a formula is used to calculate the probability of various outcomes (that is, of various relative rankings). The players' <math>$\mu$</math> and <math>$\sigma$</math> values are then adjusted based on how "surprising" the match outcome was. 
 
-In o!TR's case, this formula comes from the Plackett-Luce model, whose fundamental assumption is "irrelevance of alternatives". Specifically, Plackett-Luce is based on the idea that player A outperforms player B with the same probability, no matter who else is in the lobby. While this assumption is not completely true (for instance because teammates affect how often one participates), Plackett-Luce is still a model used in real-world ranking systems like poker standings where this assumption does not hold.
+In o!TR's case, this formula comes from the Plackett-Luce model, whose fundamental assumption is "irrelevance of alternatives". Specifically, Plackett-Luce is based on the idea that player A outperforms player B with the same probability, no matter who else is in the lobby. While this assumption is not completely true (as teammates may influence how often one participates), Plackett-Luce is still a model used in real-world ranking systems like poker standings where this assumption does not hold.
 
 Quoting from the [paper](https://jmlr.csail.mit.edu/papers/volume12/weng11a/weng11a.pdf), rating adjustments are calculated via "the average of the relative rate of change of [a player's] winning probability with respect to [their] strength," where the average is taken over the prior distribution. The actual Bayesian inference calculations for these types of models are computationally intensive, and OpenSkill is actually only an **approximation** of the full calculation (in the paper, they discuss why the simplifications are reasonable).
 
@@ -64,20 +70,9 @@ Quoting from the [paper](https://jmlr.csail.mit.edu/papers/volume12/weng11a/weng
 
 There are various parameters that can be adjusted when setting up the model (see [the code](https://github.com/injae/openskill-rs/blob/main/src/model/plackett_luce.rs#L12) or read the paper for more detailed calculations). In words, <math>$\mu$</math> and <math>$\sigma$</math> are the rating and volatility mentioned above, <math>$\beta$</math> is an "extra volatility" term for calculating head-to-head matchup probabilities, <math>$\kappa$</math> is used as part of a check that volatility stays positive, and <math>$\tau$</math> adds a small amount to variance (squared volatility) after each match. Finally, the function <math>$\gamma$</math> is a dampening factor which causes volatility to decrease less significantly when matchups are large. Intuitively, this can be thought of as not treating a match with 10 players in it as affecting rating as much as 9 separate 1v1s against each opponent.
 
-The Plackett-Luce model allows for arbitrary scalings of parameters, though the OpenSkill documentation recommends that <math>$\sigma$</math> starts out as 1/3 of <math>$\mu$</math>. We choose a scaling here so that the highest ratings look somewhat similar to chess (solely for aesthetic appeal), though we do choose varying initial ratings based on osu! rank. While we keep the default values of <math>$\gamma$</math> and <math>$\kappa$</math>, we currently initialize <math>$\sigma$</math>, <math>$\beta$</math>, and <math>$\tau$</math> to a smaller fraction of <math>$\mu$</math> than the default to make it more difficult to farm rating from low-rated players.
+The Plackett-Luce model allows for arbitrary scalings of parameters, though the OpenSkill documentation recommends that <math>$\sigma$</math> starts out as 1/3 of <math>$\mu$</math>. We choose a scaling here so that the highest ratings look somewhat similar to chess (solely for aesthetic appeal), though we do choose varying [initial ratings](Initial-Ratings.md) based on osu! rank. While we keep the default values of <math>$\gamma$</math> and <math>$\kappa$</math>, we currently initialize <math>$\sigma$</math>, <math>$\beta$</math>, and <math>$\tau$</math> to a smaller fraction of <math>$\mu$</math> than the default to make it more difficult to farm rating from low-rated players.
 
 Remember that different players specialize in different skillsets and have skillcaps at different levels, so please interpret TR not as an absolute skill comparison between two players. In particular, o!TR identifies when people **frequently win** relative to others in their rank range or skill level, so if you see a player with what seems like an unusually high rating, we recommend that you look at their tournament history and check if they're consistently the top performer in their matches.
-
-### Initial ratings
-
-Starting ratings are based on the closest-known rank according to [osu!track](https://github.com/Ameobea/osutrack-api), or your most recent global rank if none is known. The initial placement is based on the closest point in time relative to when you started playing tournaments. These ratings follow roughly a bell curve and are roughly linearly dependent on log(rank).
-
-> For a rough reference, players ranked near #10,000 will receive a typical starting rating.
-
-> The accuracy of one's rating will sharply improve after playing a few tournaments.
->
-{style="note"}
-
 
 ### When will ratings update?
 

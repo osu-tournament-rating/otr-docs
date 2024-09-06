@@ -16,7 +16,7 @@ In order for a tournament to be accepted into the o!TR system, it must:
 
 <procedure>
 <step>
-Feature a bracket size of at least Round of 8 double elimination or Round of 16 single elimination.
+Feature a bracket size of at least Round of 8 double elimination.
 </step>
 <step>
 Publicly document all match links to an acceptable standard, such as through a public Google sheet.
