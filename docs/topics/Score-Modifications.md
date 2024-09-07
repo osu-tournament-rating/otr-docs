@@ -12,10 +12,10 @@ This data includes:
   * Scores
   * Games participated
   > From this information we can build references such as teammate & opponent information
-* osu! profile information (id, username, country, global ranks for all game modes)
+* osu! profile information (id, username, country, global ranks for all rulesets)
 * osu!track information
-  * Closest known global rank for all game modes (with timestamp)
-  > This is for players who have tournament data for a given game mode. The closest known rank is the closest available rank from osu!track compared to the date of the first tournament match a player participated in.
+  * Closest known global rank for all rulesets (with timestamp)
+  > This is for players who have tournament data for a given ruleset. The closest known rank is the closest available rank from osu!track compared to the date of the first tournament match a player participated in.
 
 ## Data manipulation
 
