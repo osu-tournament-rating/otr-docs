@@ -15,13 +15,48 @@ docker volume create otr-db
 Then start the database:
 
 ```Shell
-docker run -d -p 5432:5432 -v otr-db:/var/lib/postgresql/data -e POSTGRES_PASSWORD=password postgres
+docker run \
+-d \
+-p 5432:5432 \
+-v otr-db:/var/lib/postgresql/data \
+-e POSTGRES_PASSWORD=password postgres
 ```
 
 In the above example, this is what you put as your `DefaultConnection` in the `otr-api` `appsettings.Development.json` file:
 
 ```
 Server=localhost;Port=5432;User Id=postgres;Password=password;Include Error Detail=true;
+```
+
+## Migrations
+
+Migrations are handled by [Entity Framework](https://learn.microsoft.com/en-us/aspnet/entity-framework). These are auto-generated files and configurations which allow us to make code-first changes to our databases.
+
+First, a migrations script is generated via the entity framework CLI. The script is then piped into the docker container which hosts our database.
+
+To generate the migrations script, run the following under the root directory of the project:
+
+```Shell
+dotnet ef migrations script \
+--idempotent \
+--context OtrContext \
+--project Database \
+-o script.sql
+```
+
+> The `idempotent` flag tells the script to only apply migrations which have not already been applied.
+> If you want to configure a database from scratch (e.g. no tables are in the `public` schema),
+> remove this flag.
+>
+> {style="note"}
+
+Apply the migrations:
+
+```Shell
+cat script.sql | docker exec \
+-i [container] psql \
+-U postgres \
+-d postgres
 ```
 
 ## Data
@@ -41,7 +76,10 @@ Backups are done with `pg_dump` and restores are done with `psql` as documented 
 Backup the database into a zip file.
 
 ```Shell
-docker exec [container] pg_dump -c -U postgres postgres | gzip > /my/dir/dump.gz
+docker exec [container] pg_dump \
+-c \
+-U postgres \
+-d postgres | gzip > /my/dir/dump.gz
 ```
 
 ### Restore the database
@@ -55,13 +93,21 @@ docker exec [container] pg_dump -c -U postgres postgres | gzip > /my/dir/dump.gz
 > 1. Remove the `public` schema:
 >
 > ```Shell
-> docker exec -it [container] psql -U postgres -c "DROP SCHEMA public CASCADE;" postgres 
+> docker exec \
+> -it [container] psql \
+> -U postgres \
+> -c "DROP SCHEMA public CASCADE;" \
+> -d postgres 
 > ```
 >
 > 2. Create the `public` schema:
 >
 > ```Shell
-> docker exec -it [container] psql -U postgres -c "CREATE SCHEMA public;" postgres 
+> docker exec \
+> -it [container] psql \
+> -U postgres \
+> -c "CREATE SCHEMA public;" \
+> -d postgres 
 > ```
 > 
 {style="note"}
@@ -69,7 +115,11 @@ docker exec [container] pg_dump -c -U postgres postgres | gzip > /my/dir/dump.gz
 Overwrite your database with the dump:
 
 ```Shell
-gunzip -c /my/dir/dump.gz | docker exec -i [container] psql -U postgres postgres 
+gunzip \
+-c /my/dir/dump.gz | docker exec \
+-i [container] psql \
+-U postgres \
+-d postgres 
 ```
 
 Your database should now contain all of the data from the dump file.
