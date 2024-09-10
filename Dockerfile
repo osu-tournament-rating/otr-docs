@@ -1,6 +1,6 @@
 FROM registry.jetbrains.team/p/writerside/builder/writerside-builder:241.16003 as build
 
-ARG INSTANCE=docs/otrd
+ARG INSTANCE=docs/otr
 
 RUN mkdir /opt/sources
 
@@ -14,7 +14,7 @@ Xvfb :99 & \
 
 WORKDIR /opt/wrs-output
 
-RUN unzip webHelpOTRD2-all.zip -d /opt/wrs-output/unzipped-artifact
+RUN unzip webHelpOTR2-all.zip -d /opt/wrs-output/unzipped-artifact
 
 FROM httpd:2.4 as http-server
 
