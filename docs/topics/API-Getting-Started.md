@@ -7,6 +7,12 @@
 
 ## Setup
 
+### Clone
+
+```Shell
+git clone https://github.com/osu-tournament-rating/otr-api.git
+```
+
 ### Install Entity Framework
 
 ```
@@ -27,46 +33,11 @@ Run the following command:
 
 With a fresh PostgreSQL database instance and other required frameworks installed, the API can now be built and configured.
 
-[Clone the API](https://github.com/osu-tournament-rating/otr-api) and create a config file at `otr-api/API/appsettings.Development.json`. Fill in the values from the `example.appsettings.json` template (a reference is included below).
+Create a config file at `otr-api/API/appsettings.Development.json`. Fill in the values from the `example.appsettings.json` template (a reference is included below). This will serve as your configuration file for development (so long as )
 
 ### Configuration file
 
-Your configuration file should look like this. Fill in the empty values.
-
-```json
-{
-  "Logging": {
-    "LogLevel": {
-      "Default": "Trace",
-      "Microsoft.AspNetCore": "Warning"
-    }
-  },
-  "ConnectionStrings": {
-    "DefaultConnection": "",
-    "CollectorConnection": "",
-    "RedisConnection": ""
-  },
-  "Osu": {
-    "ApiKey": "",
-    "ClientId": "",
-    "ClientSecret": "",
-    "AutoUpdateUsers": false,
-    "AllowDataFetching": false
-  },
-  "Jwt": {
-    "Key": "",
-    "Audience": ""
-  },
-  "Auth": {
-    "ClientCallbackUrl": "",
-    "EnforceWhitelist": false
-  },
-  "RateLimit": {
-    "PermitLimit": 30,
-    "Window": 60
-  }
-}
-```
+Your configuration file should look like [this](https://github.com/osu-tournament-rating/otr-api/blob/master/API/example.appsettings.json). Fill in the empty values as defined in the next section.
 
 ### Configuration fields
 
