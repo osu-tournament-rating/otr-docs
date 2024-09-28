@@ -4,9 +4,9 @@ Those who wish to make open-source contributions to the API must adhere to this 
 
 ## Claiming an Issue
 
-First-time contributors may volunteer to take low-priority tasks to work on. We request first-time contributors take low-priority issues due to the length of time it takes a first-time developer to contribute to the project.
+If you're a first-time contributor, we encourage you to start by working on low-priority tasks. This helps you familiarize yourself with the project without the pressure of tackling more urgent issues.
 
-Developers who make consistent code contributions may opt to take high or medium priority items. Critical issues should be left to the o!TR team.
+Contributors with a history of consistent code submissions are welcome to take on medium or high-priority issues. Critical issues, however, should be reserved for the o!TR team.
 
 ## Pull Requests
 
