@@ -4,7 +4,7 @@ Migrations are handled by [Entity Framework](https://learn.microsoft.com/en-us/a
 
 ## Creating / Editing Entities
 
-Migrations must be created and tested when any of the following is modified:
+Migrations must be created and tested when any of the following are modified:
 
 1. Files in `Database/Entities`. These objects directly link to a database table.
     - Only create a migration when the changes modify the entity such that a database change is required. For example, adding a new field requires a migration, but modifying basic comments do not.
@@ -21,7 +21,7 @@ dotnet ef migrations add [Entity_ChangesMade] \
 --context OtrContext
 ```
 
-> `[Entity_ChangesMade]` is the name of your migration. Migrations should use PascalCase with underscores separating the entity from the changes made. For example, `Player_ConvertIdToInteger` is a good name for a migration as it describes the change made at a glance.
+> `[Entity_ChangesMade]` should be replaced with the name of your migration. Migrations should use PascalCase with underscores separating the entity from the changes made. For example, `Player_ConvertIdToInteger` is a good name for a migration as it describes the change made at a glance.
 > 
 
 > When a new migration is created, it will not be tracked by git automatically. Ensure you commit the generated files.
