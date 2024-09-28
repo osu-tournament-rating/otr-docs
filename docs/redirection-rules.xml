@@ -9,4 +9,13 @@
         <description>Created after removal of "DataWorker - Getting Started" from osu! Tournament Rating</description>
         <accepts>DataWorker-Getting-Started.html</accepts>
     </rule>
+    <rule id="6b3cecf2">
+        <description>
+            <![CDATA[Created after removal of "<Database-Setup-API.md>" from osu! Tournament Rating]]></description>
+        <accepts>Database-Setup-API.html</accepts>
+    </rule>
+    <rule id="2d568fd5">
+        <description>Created after removal of "Setup" from osu! Tournament Rating</description>
+        <accepts>Setup.html</accepts>
+    </rule>
 </rules>
