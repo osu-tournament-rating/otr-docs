@@ -61,7 +61,7 @@ If running via docker compose, replace `localhost` with the Redis container name
    </step>
 </procedure>
 
-### Jwt
+### JWT
 
 1. `Key`
     - The `Key` field is the secret the API uses to encode and decode JSON Web Tokens. This can be set to any string in development, but must be a randomized secret in production.
