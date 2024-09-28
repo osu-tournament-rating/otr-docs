@@ -30,10 +30,10 @@ Copy your osu! API v2 client id and set <code>REACT_APP_OSU_CLIENT_ID</code> equ
 <note>
 The API instance must also be using the same client id.
 </note>
-</step>
 <note>
 This must be the same client used in your running instance of the API.
 </note>
+</step>
 <step>
 Set <code>REACT_APP_OSU_CALLBACK_URL</code> to <code>http://localhost:3000/auth</code>. The web server runs on port <code>3000</code> by default.
 <tip>
