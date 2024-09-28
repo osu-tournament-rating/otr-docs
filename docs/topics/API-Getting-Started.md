@@ -19,13 +19,13 @@ git clone https://github.com/osu-tournament-rating/otr-api.git
 dotnet tool install --global dotnet-ef
 ```
 
-### Setting up a PostgreSQL Database
+### Set up a PostgreSQL Database
 
 Follow [this guide](Database-Setup-Backup-and-Recovery.md) to set up your local database.
 
 > The database container must be running for the API to function.
 
-### Setting up Redis
+### Set up Redis
 
 Run the following command:
 
