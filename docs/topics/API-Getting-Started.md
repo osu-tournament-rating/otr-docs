@@ -72,4 +72,4 @@ Ensure the `ASPNETCORE_ENVIRONMENT=Development` environment variable is set whil
 
 ### Recommended IDE
 
-We prefer [Jetbrains Rider](https://www.jetbrains.com/rider/) as the IDE of choice for developing this project, though [Visual Studio Code](https://code.visualstudio.com/) and [Visual Studio](https://visualstudio.microsoft.com/) will work fine.
+We prefer [JetBrains Rider](https://www.jetbrains.com/rider/) as the IDE of choice for developing this project, though [Visual Studio Code](https://code.visualstudio.com/) and [Visual Studio](https://visualstudio.microsoft.com/) will work fine.
