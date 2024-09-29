@@ -21,12 +21,12 @@ CONNECTION_STRING=
 Setup the environment variables:
 
 <procedure>
-<step>
-Rename the <code>env_example</code> file provided to <code>.env</code>.
-</step>
-<step>
-Set the <code>CONNECTION_STRING</code> to the database connection string as described <a href="Database-Setup.md">here</a>.
-</step>
+    <step>
+        Rename the <code>env_example</code> file provided to <code>.env</code>.
+    </step>
+    <step>
+        Set the <code>CONNECTION_STRING</code> to the database connection string as described <a href="Database-Setup.md">here</a>.
+    </step>
 </procedure>
 
 ## Processing data
