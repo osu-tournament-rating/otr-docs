@@ -8,37 +8,26 @@ Install the following tools:
 
 - [Rust](https://www.rust-lang.org/)
 - [Setup o!TR API](o-TR-API.md)
+- [Setup Database](o-TR-Database.md)
 
 ## Environment variables
 
 This project utilizes a `.env` file for configuring environment variables. A `env_example` file is provided for reference. The contents are as follows:
 
 ```
-API_ROOT=
-CLIENT_ID=
-CLIENT_SECRET=
+CONNECTION_STRING=
 ```
 
 Setup the environment variables:
 
 <procedure>
-<step>
-Rename the <code>env_example</code> file provided to <code>.env</code>.
-</step>
-<step>
-Set the <code>API_ROOT</code> value to where the API is running on your local machine. By default, this is <code>http://localhost:5075/api</code>
-</step>
-<step>
-Set the <code>CLIENT_ID</code> value to your o!TR API client's <code>id</code> value.
-</step>
-<step>
-Set the <code>CLIENT_SECRET</code> value to your o!TR API client's <code>secret</code> value.
-</step>
+    <step>
+        Rename the <code>env_example</code> file provided to <code>.env</code>.
+    </step>
+    <step>
+        Set the <code>CONNECTION_STRING</code> to the database connection string as described <a href="Database-Setup.md">here</a>.
+    </step>
 </procedure>
-
-> At this time, the procedure for generating a valid o!TR API client is complicated and undocumented.
-> 
-{style="warning"}
 
 ## Processing data
 
