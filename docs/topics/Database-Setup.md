@@ -26,7 +26,7 @@ docker run \
 
 ## Connection
 
-Your database is accessible at `localhost:5432` with the password `password`. Connect to it using a database browser, such as [DataGrip](https://www.jetbrains.com/datagrip/).
+Your database is accessible at `localhost:5432` with the password `password`. Connect to it using a database browser, such as [DataGrip](https://www.jetbrains.com/datagrip/) or [DBeaver](https://dbeaver.io/).
 
 ### Connection String
 
