@@ -8,3 +8,7 @@ The [o!TR Processor](https://github.com/osu-tournament-rating/otr-processor) is 
     * Host of the algorithm by which ratings are affected
 2. (Coming soon) Host a private processing API to be used by the [o!TR API](o-TR-API.md):
     * Allows internal clients to have access to model functions, such as match predictions.
+
+## Contents
+
+<toc depth="10" />
