@@ -9,7 +9,7 @@ Duplicate the `example.appsettings.json` file and rename to `appsettings.Develop
 > Ensure the file is located in the `API` project folder (the same folder which contains `API.csproj`).
 >
 
-## Fields
+## Configuration Sections
 
 ### Rate Limit
 
