@@ -11,13 +11,6 @@ Duplicate the `example.appsettings.json` file and rename to `appsettings.Develop
 
 ## Configuration Sections
 
-### Rate Limit
-
-1. `PermitLimit`
-    - The `PermitLimit` field is the default number of requests allotted to each authenticated user or client. Default is `60`.
-2. Window
-    - The `Window` field represents the default rate limit refresh period (in seconds). Default is `60`.
-
 ### Connection Strings
 
 1. `DefaultConnection`
@@ -43,9 +36,9 @@ If running via docker compose, replace `localhost` with the Redis container name
 > - [Reference](https://osu.ppy.sh/docs/index.html)
 
 1. `ClientId`
-    - Set the `ClientId` field to the ID of your osu! API v2 client.
+    - The ID of your osu! API v2 client.
 2. `ClientSecret`
-    - Set the `ClientSecret` field to the secret of your API v2 client.
+    - The secret of your API v2 client.
 
 <procedure collapsible="true" default-state="collapsed" title="Further osu! API setup instructions">
    <step>
@@ -64,7 +57,22 @@ If running via docker compose, replace `localhost` with the Redis container name
 ### JWT
 
 1. `Key`
-    - The `Key` field is the secret the API uses to encode and decode JSON Web Tokens. This can be set to any string in development, but must be a randomized secret in production.
+    - The secret the API uses to encode and decode JSON Web Tokens. This can be set to any string in development, but must be a randomized secret in production.
 
 2. `Audience`
-    - The `Audience` field refers to the intended recipient of the JWT. This can be set to any string for development purposes, but in production should be the intended resource server, such as `https://some.production.api.url`.
+    - The intended recipient of the JWT. This can be set to any string for development purposes, but in production should be the intended resource server, such as `https://some.production.api.url`.
+
+3. `Issuer`
+   - Defines who issues the JWT. This can be any string in development, but should be set to a proper resource in production.
+
+### Auth
+
+1. `EnforceWhitelist`
+   - Whether to restrict web access to `User`s with the `whitelist` scope. Will be obsolete after the public beta is released.
+
+### Rate Limit
+
+1. `PermitLimit`
+   - The `PermitLimit` field is the default number of requests allotted to each authenticated user or client. Default is `60`.
+2. Window
+   - The `Window` field represents the default rate limit refresh period (in seconds). Default is `60`.
