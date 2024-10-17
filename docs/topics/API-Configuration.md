@@ -74,5 +74,6 @@ If running via docker compose, replace `localhost` with the Redis container name
 
 1. `PermitLimit`
    - The `PermitLimit` field is the default number of requests allotted to each authenticated user or client. Default is `60`.
-2. Window
+
+2. `Window`
    - The `Window` field represents the default rate limit refresh period (in seconds). Default is `60`.
