@@ -11,12 +11,12 @@ Database replicas are updated weekly and stored in a Google Cloud storage bucket
 
 These public replicas omit the following information due to security and user privacy concerns:
 
-1. Logs
-2. OAuth clients
-3. Audit logs
-4. User friends
-5. Users
-6. Admin notes
+1. Admin notes
+2. Audit logs
+3. Logs
+4. OAuth clients
+5. User friends
+6. Users
 
 Refer to the [disaster recovery](Disaster-Recovery.md#restore-the-database) guide for instructions on importing a replica locally.
 
