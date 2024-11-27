@@ -3,7 +3,7 @@
 The o!TR team maintains a publicly accessible archive of database replicas to support two key objectives:
 
 1. Facilitating development and contributions to the official [o!TR repositories](https://github.com/osu-tournament-rating/).
-2. Ensuring interested parties can verify a tournament (which used o!TR to seed or filter registrants) did so in a legitimate manner.
+2. Ensuring that interested parties may verify a tournament using o!TR to seed or filter registrants did so legitimately.
 
 ## Public Replicas
 
