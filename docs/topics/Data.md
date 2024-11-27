@@ -7,7 +7,7 @@ The o!TR team maintains a publicly accessible archive of database replicas to su
 
 ## Public Replicas
 
-Database replicas are updated every Wednesday at 00:00 UTC and are stored in a Google Cloud storage bucket. **The public may browse available replicas [here](https://data.otr.stagec.xyz/).**
+Database replicas are published every Wednesday at 00:00 UTC and are stored in a Google Cloud storage bucket. **The public may browse available replicas [here](https://data.otr.stagec.xyz/).**
 
 These public replicas omit the following information due to security and user privacy concerns:
 
