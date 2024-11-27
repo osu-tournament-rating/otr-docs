@@ -7,16 +7,16 @@ The o!TR team maintains a publicly accessible archive of database replicas to su
 
 ## Public Replicas
 
-Database replicas are updated weekly and stored in a Google Cloud storage bucket. **The public may browse available replicas [here](https://data.otr.stagec.xyz/).**
+Database replicas are updated every Wednesday at 00:00 UTC and are stored in a Google Cloud storage bucket. **The public may browse available replicas [here](https://data.otr.stagec.xyz/).**
 
 These public replicas omit the following information due to security and user privacy concerns:
 
 1. Admin notes
-2. Audit logs
-3. Logs
+2. Audit logs (tracks the state of entities over time)
+3. Logs (general purpose logs)
 4. OAuth clients
-5. User friends
-6. Users
+5. User friends (who an osu! user is following)
+6. Users (of the o!TR platform)
 
 Refer to the [disaster recovery](Disaster-Recovery.md#restore-the-database) guide for instructions on importing a replica locally.
 
