@@ -47,7 +47,7 @@ For example, consider `TournamentProcessingStatus`:
 2. `NeedsMatchData`: Match data needs to be fetched via the osu! API.
 3. `NeedsAutomationChecks`: The tournament, and all of its children, are awaiting automation checks.
 4. `NeedsVerification`: Awaiting human review
-5. `NeedsStatCalculation`: After human review, process statistics (must be complete before it is eligible for inclusion in the rating system).
+5. `NeedsStatCalculation`: Some statistics, such as game placements, must be processed and stored as the processor requires them to function.
 6. `Done`: Processing is completed. `Verified` tournaments with this status are eligible for inclusion in the rating system.
 
 ### `RejectionReason`
@@ -115,7 +115,7 @@ flowchart TD;
    G[Apply NoGames flag to RejectionReason]
    Q[What is the count of PreVerified and/or Verified games?]
    Q1[0]
-   Q2[1 or 2]
+   Q2[1 to 3]
    Q3[4 or 5]
    Q4[&gt;5]
    Q_A[Apply NoValidGames flag to RejectionReason]
