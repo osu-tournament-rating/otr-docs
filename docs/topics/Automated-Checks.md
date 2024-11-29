@@ -137,9 +137,9 @@ flowchart TD;
    Q --> Q2
    Q --> Q3
    Q --> Q4
-   Q1 --> Q_A
-   Q2 --> Q_B
-   Q3 --> Q_C
+   Q1 --> Q_A --> PreTerm
+   Q2 --> Q_B --> PreTerm
+   Q3 --> Q_C --> PreTerm
    Q4 --> PreTerm
    PreTerm -- Yes --> TermPositive
    PreTerm -- No --> TermNegative
