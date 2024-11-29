@@ -1,10 +1,8 @@
 # Automated Checks
 
-The [](DataWorkerService.md) has numerous responsibilities, one of them being a data processing step known as automated
-checks. These checks are responsible for processing various portions of data depending on the current processing step
-for a particular piece of data.
+The [](DataWorkerService.md) has numerous responsibilities, one of them being a data processing step known as automated checks. These checks are responsible for processing various kinds of data and moving them through different processing steps.
 
-## Core Principals
+## Core Principles
 
 When designing this system, we did so with the following principles in mind:
 
@@ -12,7 +10,7 @@ When designing this system, we did so with the following principles in mind:
 2. The automatic application of the `PreRejected` status must be as accurate as possible, based on concrete rules.
 3. The process must be as transparent as possible. As such, the system tracks all changes to entities in the `audit` tables. Additionally, all entities have a `RejectionReason` enum which defines a combination of reasons why it was marked as rejected by either the system or human reviewer.
 4. Do not include entities which are not `Verified` in the tournament rating algorithm.
-    * This provides an added benefit of ensuring all generated statistics are valid. Even with manually submitted data, humans make mistakes. If unverified data is introduced into the rating & statistics systems, users will notice invalid statistics and the rating ladder itself will not be completely accurate.
+    * Even with manually submitted data, humans make mistakes. If unverified data is introduced, users may notice invalid stats or inaccurate rating calculations, and it may be easier for bad actors to influence the algorithm.
 
 ## Entities
 
@@ -43,10 +41,10 @@ Each entity has a unique `ProcessingStatus` type associated with it. This flag i
 
 For example, consider `TournamentProcessingStatus`:
 
-1. `NeedsApproval`: The tournament is submitted but waiting approval from a verifier.
+1. `NeedsApproval`: The tournament is submitted but awaiting approval from a verifier.
 2. `NeedsMatchData`: Match data needs to be fetched via the osu! API.
 3. `NeedsAutomationChecks`: The tournament, and all of its children, are awaiting automation checks.
-4. `NeedsVerification`: Awaiting human review
+4. `NeedsVerification`: The tournament has been checked and is awaiting human review.
 5. `NeedsStatCalculation`: After human review, process statistics (must be complete before it is eligible for inclusion in the rating system).
 6. `Done`: Processing is completed. `Verified` tournaments with this status are eligible for inclusion in the rating system.
 
@@ -63,14 +61,14 @@ flowchart LR;
     GameScore --> Game --> Match --> Tournament
 ```
 
-> This allows the parent entities to have the context of how their children faired during the automated checks process.
+> This allows the parent entities to have the context of how their children fared during the automated checks process.
 > 
 
 ### Tournament
 
 ```Mermaid
 flowchart TD;
-   A[Is the count of PreVerified and/or Verified matches >= 0?]
+   A[Is the count of PreVerified and/or Verified matches > 0?]
    B[Apply NoVerifiedMatches flag to RejectionReason]
    C[Is this count >= 80% of the total match count?]
    D[Apply NotEnoughVerifiedMatches flag to RejectionReason]
@@ -108,7 +106,7 @@ flowchart TD;
       conversion to TeamVS?]
    N[Attempt to convert a full set of Head to Head games to TeamVS]
    O[Apply FailedTeamVsConversion flag to RejectionReason, repeat 
-      for all child games]
+      for all games]
    P[Convert all games to TeamVS, mark all games as PreVerified]
    
    F[Is the count of games equal to 0?]
@@ -116,7 +114,7 @@ flowchart TD;
    Q[What is the count of PreVerified and/or Verified games?]
    Q1[0]
    Q2[1 or 2]
-   Q3[4 or 5]
+   Q3[3 or 4]
    Q4[&gt;5]
    Q_A[Apply NoValidGames flag to RejectionReason]
    Q_B[Apply UnexpectedGameCount flag to RejectionReason]
@@ -180,7 +178,7 @@ flowchart TD;
     O[Is the count of PreVerified and/or Verified scores 0?]
     P[Apply NoValidScores flag to RejectionReason]
     Q[Is the count of PreVerified and/or Verified scores 
-        half that of the tournament's LobbySize?]
+        twice that of the tournament's LobbySize?]
     R[Apply LobbySizeMismatch flag to RejectionReason]
     S[Is the ScoringType ScoreV2?]
     T[Apply InvalidScoringType flag to RejectionReason]
@@ -248,7 +246,7 @@ flowchart TD;
 
 Most of the issues which require manual intervention are at the `Match` and `Game` levels. For example, if a `Match` has too many invalid games, it will be marked as `PreRejected` and require manual intervention. The same is true for `Game`s.
 
-For `GameScore` entities, there are very concrete rules which can easily determine whether it should be `Rejected`, for example if the `Score` value is below the minimum.
+For `GameScore` entities, there are very concrete rules which can easily determine whether it should be `Rejected`, for example if the `Score` value is below the minimum (and thus very likely comes from a referee in the lobby or other anomaly).
 
 We also have a web interface which allows reviewers to mark an entity - and all of its children - as `Verified` or `Rejected`. Generally speaking, if at a glance everything is marked as `PreVerified`, very little effort is required to manually approve these submissions. If the opposite is true, it's likely that the submission contains invalid data.
 
