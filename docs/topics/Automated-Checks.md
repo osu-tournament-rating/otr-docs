@@ -206,6 +206,30 @@ flowchart TD;
     PreTerm -- No --> TermNegative
 ```
 
+### GameScore
+
+```Mermaid
+flowchart TD;
+    A[Is the score value > 1,000?]
+    B[Apply ScoreBelowMinimum flag to RejectionReason]
+    C[Does the score contain invalid mods?]
+    D[Apply InvalidMods flag to RejectionReason]
+    E[Does the ruleset match the tournament's ruleset?]
+    F[Apply RulesetMismatch flag to RejectionReason]
+    PreTerm[Is the RejectionReason null?]
+    TermPositive[Change VerificationStatus to PreVerified]
+    TermNegative[Change VerificationStatus to PreRejected]
+   
+    A -- No --> B --> C
+    A -- Yes --> C
+    C -- Yes --> D --> E
+    C -- No --> E
+    E -- Yes --> PreTerm
+    E -- No --> F --> PreTerm
+    PreTerm -- Yes --> TermPositive
+    PreTerm -- No --> TermNegative
+```
+
 ## FAQ
 
 ### How can a human manually mark all entities as `Verified`?
