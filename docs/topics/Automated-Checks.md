@@ -56,12 +56,88 @@ Each entity has a custom `RejectionReason` type with various flags which may cau
 
 ### Tournament
 
-<code-block lang="mermaid">
-graph LR
-   A[Do you write docs?]
-   A -- Yes --> B[Use Writerside]
-   A -- No --> C[Tell us why]
-</code-block>
+```Mermaid
+graph TD;
+   A[Is the count of PreVerified and/or Verified matches >= 0?]
+   B[Apply NoVerifiedMatches flag to RejectionReason]
+   C[Is this count >= 80% of the total match count?]
+   D[Apply NotEnoughVerifiedMatches flag to RejectionReason]
+   End[Change VerificationStatus to PreVerified]
+   
+   A -- No --> B
+   A -- Yes --> C
+   C -- No --> D
+   C -- Yes --> End
+```
+
+### Match
+
+```Mermaid
+graph TD;
+   A[Is the count of games > 2?]
+   B[Do any games besides the first 2 have a 
+      RejectionReason of BeatmapNotPooled?]
+   C[Apply UnexpectedBeatmapsFound to WarningFlags]
+   D[Is the match's EndTime property equal to 
+   2007-09-17-00:00:00?]
+   E[Apply NoEndTime flag to RejectionReason]
+   H[Is the match name structured in a typical 
+      format?]
+   I[Apply UnexpectedNameFormat to WarningFlags]
+   J[Does the match name start with the tournament's 
+      abbreviation?]
+   K[Apply NamePrefixMismatch flag to RejectionReason]
+   L[Is the tournament's lobby size equal to 1?]
+   M[Are the games structured in a way which supports 
+      conversion to TeamVS?]
+   N[Attempt to convert a full set of Head to Head games to TeamVS]
+   O[Apply FailedTeamVsConversion flag to RejectionReason, repeat 
+      for all child games]
+   P[Convert all games to TeamVS, mark all games as PreVerified]
+   
+   F[Is the count of games equal to 0?]
+   G[Apply NoGames flag to RejectionReason]
+   Q[What is the count of PreVerified and/or Verified games?]
+   Q1[0]
+   Q2[1 or 2]
+   Q3[4 or 5]
+   Q4[&gt;5]
+   Q_A[Apply NoValidGames flag to RejectionReason]
+   Q_B[Apply UnexpectedGameCount flag to RejectionReason]
+   Q_C[Apply LowGameCount to WarningFlags]
+   
+   PreTerm[Is the RejectionReason null?]
+   TermPositive[Change VerificationStatus to PreVerified]
+   
+   A -- Yes --> B
+   B -- Yes --> C --> D
+   A -- No --> D
+   B -- No --> D
+   D -- Yes --> E --> H
+   D -- No --> H
+   
+   H -- No --> I --> J
+   H -- Yes --> J
+   J -- No --> K --> L
+   J -- Yes --> L
+   L -- No --> F
+   L -- Yes --> M
+   M -- Yes --> N
+   M -- No --> F
+   N -- Fail --> O --> F
+   N -- Success --> P --> F
+   F -- No --> Q
+   F -- Yes --> G
+   Q --> Q1
+   Q --> Q2
+   Q --> Q3
+   Q --> Q4
+   Q1 --> Q_A
+   Q2 --> Q_B
+   Q3 --> Q_C
+   Q4 --> PreTerm
+   PreTerm -- Yes --> TermPositive
+```
 
 ## FAQ
 
