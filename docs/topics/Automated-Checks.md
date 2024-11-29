@@ -178,8 +178,8 @@ flowchart TD;
    TermPositive[Change VerificationStatus to PreVerified]
    TermNegative[Change VerificationStatus to PreRejected]
     
-    A -- Yes --> B
-    A -- No --> G
+    A -- Yes --> G
+    A -- No --> B
     B -- Yes --> C
     B -- No --> G
     C -- Yes --> D --> E
@@ -200,7 +200,7 @@ flowchart TD;
     Q -- No --> R --> S
     S -- No --> T --> U
     S -- Yes --> U
-    U -- No --> V
+    U -- No --> V --> PreTerm
     U -- Yes --> PreTerm
     PreTerm -- Yes --> TermPositive
     PreTerm -- No --> TermNegative
