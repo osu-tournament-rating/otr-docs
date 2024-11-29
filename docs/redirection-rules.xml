@@ -18,9 +18,4 @@
         <description>Created after removal of "Setup" from osu! Tournament Rating</description>
         <accepts>Setup.html</accepts>
     </rule>
-    <rule id="4f4b2c10">
-        <description>
-            <![CDATA[Created after removal of "Related Tools & Services" from osu! Tournament Rating]]></description>
-        <accepts>DataWorkerService.html</accepts>
-    </rule>
 </rules>
