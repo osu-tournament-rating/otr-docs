@@ -1,6 +1,8 @@
 # Automated Checks
 
-The [DataWorkerService](DataWorkerService.md) has numerous responsibilities, one of them being a data processing step known as automated checks. These checks are responsible for processing various portions of data depending on the current processing step for a particular piece of data.
+The [](DataWorkerService.md) has numerous responsibilities, one of them being a data processing step known as automated
+checks. These checks are responsible for processing various portions of data depending on the current processing step
+for a particular piece of data.
 
 ## Core Principals
 
@@ -54,6 +56,16 @@ Each entity has a custom `RejectionReason` type with various flags which may cau
 
 ## Flow
 
+Automation checks are performed in the following order.
+
+```Mermaid
+flowchart LR;
+    GameScore --> Game --> Match --> Tournament
+```
+
+> This allows the parent entities to have the context of how their children faired during the automated checks process.
+> 
+
 ### Tournament
 
 ```Mermaid
@@ -66,7 +78,7 @@ flowchart TD;
    TermPositive[Change VerificationStatus to PreVerified]
    TermNegative[Change VerificationStatus to PreRejected]
    
-   A -- No --> B
+   A -- No --> B --> PreTerm
    A -- Yes --> C
    C -- No --> D --> PreTerm
    C -- Yes --> PreTerm
