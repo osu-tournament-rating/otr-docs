@@ -57,28 +57,32 @@ Each entity has a custom `RejectionReason` type with various flags which may cau
 ### Tournament
 
 ```Mermaid
-graph TD;
+flowchart TD;
    A[Is the count of PreVerified and/or Verified matches >= 0?]
    B[Apply NoVerifiedMatches flag to RejectionReason]
    C[Is this count >= 80% of the total match count?]
    D[Apply NotEnoughVerifiedMatches flag to RejectionReason]
-   End[Change VerificationStatus to PreVerified]
+   PreTerm[Is the RejectionReason null?]
+   TermPositive[Change VerificationStatus to PreVerified]
+   TermNegative[Change VerificationStatus to PreRejected]
    
    A -- No --> B
    A -- Yes --> C
-   C -- No --> D
-   C -- Yes --> End
+   C -- No --> D --> PreTerm
+   C -- Yes --> PreTerm
+   PreTerm -- Yes --> TermPositive
+   PreTerm -- No --> TermNegative
 ```
 
 ### Match
 
 ```Mermaid
-graph TD;
+flowchart TD;
    A[Is the count of games > 2?]
    B[Do any games besides the first 2 have a 
       RejectionReason of BeatmapNotPooled?]
    C[Apply UnexpectedBeatmapsFound to WarningFlags]
-   D[Is the match's EndTime property equal to 
+   D[Is the EndTime property equal to 
    2007-09-17-00:00:00?]
    E[Apply NoEndTime flag to RejectionReason]
    H[Is the match name structured in a typical 
@@ -108,6 +112,7 @@ graph TD;
    
    PreTerm[Is the RejectionReason null?]
    TermPositive[Change VerificationStatus to PreVerified]
+   TermNegative[Change VerificationStatus to PreRejected]
    
    A -- Yes --> B
    B -- Yes --> C --> D
@@ -137,6 +142,68 @@ graph TD;
    Q3 --> Q_C
    Q4 --> PreTerm
    PreTerm -- Yes --> TermPositive
+   PreTerm -- No --> TermNegative
+```
+
+### Game
+
+```Mermaid
+flowchart TD;
+    A[Is the beatmap null?]
+    B[Is there a known mappool for the tournament?]
+    C[Of all games in the tournament, is the beatmap
+        used exactly once?]
+    D[Apply BeatmapUsedOnce to WarningFlags]
+    E[Is the beatmap in the known mappool for the tournament?]
+    F[Apply BeatmapNotPooled flag to RejectionReason]
+    G[Is the EndTime property equal to
+        2007-09-17-00:00:00?]
+    H[Apply NoEndTime flag to RejectionReason]
+    I[Are invalid mods present at the game level?]
+    J[Apply InvalidMods flag to RejectionReason]
+    K[Does the ruleset match the tournament's ruleset?]
+    L[Apply RulesetMismatch flag to RejectionReason]
+    M[Is the count of scores 0?]
+    N[Apply NoScores flag to RejectionReason]
+    O[Is the count of PreVerified and/or Verified scores 0?]
+    P[Apply NoValidScores flag to RejectionReason]
+    Q[Is the count of PreVerified and/or Verified scores 
+        half that of the tournament's LobbySize?]
+    R[Apply LobbySizeMismatch flag to RejectionReason]
+    S[Is the ScoringType ScoreV2?]
+    T[Apply InvalidScoringType flag to RejectionReason]
+    U[Is the TeamType TeamVs?]
+    V[Apply InvalidTeamType flag to RejectionReason]
+   PreTerm[Is the RejectionReason null?]
+   TermPositive[Change VerificationStatus to PreVerified]
+   TermNegative[Change VerificationStatus to PreRejected]
+    
+    A -- Yes --> B
+    A -- No --> G
+    B -- Yes --> C
+    B -- No --> G
+    C -- Yes --> D --> E
+    C -- No --> E
+    E -- Yes --> G
+    E -- No --> F --> G
+    G -- Yes --> H --> I
+    G -- No --> I
+    I -- Yes --> J --> K
+    I -- No --> K
+    K -- Yes --> M
+    K -- No --> L --> M
+    M -- Yes --> N --> S
+    M -- No --> O
+    O -- Yes --> P --> S
+    O -- No --> Q
+    Q -- Yes --> S
+    Q -- No --> R --> S
+    S -- No --> T --> U
+    S -- Yes --> U
+    U -- No --> V
+    U -- Yes --> PreTerm
+    PreTerm -- Yes --> TermPositive
+    PreTerm -- No --> TermNegative
 ```
 
 ## FAQ
