@@ -1,6 +1,6 @@
 # Automated Checks
 
-The [](DataWorkerService.md) has numerous responsibilities, one of them being a data processing step known as automated checks. These checks are responsible for processing various kinds of data and moving them through different processing steps.
+The [](DataWorkerService.md) has numerous responsibilities, one of them being a data processing step known as automated checks. These checks are responsible for identifying, flagging, and in some cases fixing various discrepancies found in our data.
 
 ## Core Principles
 
