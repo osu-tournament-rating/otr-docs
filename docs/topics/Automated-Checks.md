@@ -194,11 +194,11 @@ flowchart TD;
 
 ### How can a human manually mark all entities as `Verified`?
 
-Most of the issues which require manual intervention are at the `Match` and `Game` levels. For example, if a `Match` has too many invalid games, it will be marked as `PreRejected` and require manual intervention. The same is true for `Game`s.
+Most of the manual review process occurs at the `Match` and `Game` levels. For example, if a `Match` has too many invalid games, it will be marked as `PreRejected` and require manual intervention. The same is true for `Game`s.
 
-For `GameScore` entities, there are very concrete rules which can easily determine whether it should be `Rejected`, for example if the `Score` value is below the minimum (and thus very likely comes from a referee in the lobby or other anomaly).
+For `GameScore` entities, there are concrete rules which determine whether it should be `PreRejected`, for example if the `Score` value is below the minimum (and thus very likely comes from a referee in the lobby or other anomaly). It is rare for a `GameScore`'s `PreRejected` flag to be manually overturned.
 
-We also have a web interface which allows reviewers to mark an entity - and all of its children - as `Verified` or `Rejected`. Generally speaking, if at a glance everything is marked as `PreVerified`, very little effort is required to manually approve these submissions. If the opposite is true, it's likely that the submission contains invalid data.
+Additionally, a web interface exists which allows reviewers to mark an entity - and all of its children - as `Verified` or `Rejected`. Generally speaking, if at a glance everything is marked as `PreVerified`, little effort is required to manually approve these submissions as they can be approved in one click.
 
 ### In what cases should a human reviewer override a `PreRejected` status?
 

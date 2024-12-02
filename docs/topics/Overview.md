@@ -42,7 +42,7 @@ In contrast to both ETX and SIP, o!TR intentionally does not take map difficulty
 
 ### Open-source code
 
-o!TR is open source, compliant with osu! tournament [filtering rules](https://osu.ppy.sh/wiki/en/Tournaments/Official_support#registrant-filtering-and-seeding), and communicates all algorithm changes publicly. This means it can be used for [filtering](https://osu.ppy.sh/wiki/en/Tournaments/Official_support#registrant-filtering-and-seeding) in badged tournaments. We aim to have an open, compliant tool that meets the osu! community's high transparency standards.
+o!TR is open source, compliant with osu! tournament [filtering rules](https://osu.ppy.sh/wiki/en/Tournaments/Official_support#registrant-filtering-and-seeding), and communicates all algorithm changes publicly. This means it can be used for [filtering and seeding](https://osu.ppy.sh/wiki/en/Tournaments/Official_support#registrant-filtering-and-seeding) in badged tournaments. We aim to have an open, compliant tool that meets the osu! community's high transparency standards.
 
 ### Support for other rulesets
 
