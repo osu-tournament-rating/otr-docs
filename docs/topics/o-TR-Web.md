@@ -6,4 +6,4 @@ The repository can be viewed [here](https://github.com/osu-tournament-rating/otr
 
 ## Contents
 
-<toc depth="10" />
+<toc depth="1" />

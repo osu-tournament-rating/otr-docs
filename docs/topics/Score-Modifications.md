@@ -22,7 +22,3 @@ This data includes:
 The o!TR team manipulates raw match data in the following ways:
 
 * Multiplies all score values that have the [`EZ` modifier](https://osu.ppy.sh/wiki/en/Gameplay/Game_modifier/Easy) by **1.75x**.
-
-## Removal of user information
-
-At this time, the o!TR team does not provide a mechanism for removing a user's information. Users who close or [delete their osu! account](https://osu.ppy.sh/wiki/en/Help_centre/Account#account-deletion) may have their data automatically removed or anonymized from our systems without any formal request to us.
