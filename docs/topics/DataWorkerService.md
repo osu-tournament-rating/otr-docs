@@ -6,11 +6,11 @@ the [](o-TR-API.md) repository. This program is a service which continuously pol
 * Fetching match data from the [osu! API](https://osu.ppy.sh/docs/index.html).
 * Fetching historical player data from the [osu!track API](https://github.com/Ameobea/osutrack-api).
 * Running [automated checks](Automated-Checks.md) against tournament data.
-* Performing stat calculations, such as match cost and forming placements (required by the [](o-TR-Processor.md)).
+* Performing stat calculations, such as calculating match costs and forming game placements (required by the [](o-TR-Processor.md)).
 
 ## Core Principles
 
-This system is designed with the following principals in mind:
+This system is designed with the following principles in mind:
 
 1. Human reviewers have authority over whether an entity is `Verified` or `Rejected`. As such, the system will never automatically assign these designations.
 2. The automatic application of the `PreRejected` status must be as accurate as possible, based on concrete rules.
