@@ -2,4 +2,4 @@
 
 ## Contents
 
-<toc depth="10" />
+<toc depth="1" />

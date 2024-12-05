@@ -1,10 +1,11 @@
 # o!TR API
 
-The [o!TR API](https://github.com/osu-tournament-rating/otr-api) is a [.NET](https://dotnet.microsoft.com/en-us/) project that is comprised of two applications:
+The [o!TR API](https://github.com/osu-tournament-rating/otr-api) is a [.NET](https://dotnet.microsoft.com/en-us/) project that is comprised of multiple applications:
 
 * o!TR API
-* o!TR Data Processor
+* [](DataWorkerService.md)
+* OsuApiClient
 
 ## Contents
 
-<toc depth="10" />
+<toc depth="1" />
