@@ -4,7 +4,7 @@ By using the o!TR API, you agree to abide by these terms of use. The o!TR API is
 
 ## Accreditation
 
-Data which is sourced from us should be credited properly. Misleading users to believe data created by us is provided by another source, or failing to credit this information as being created by us, is not allowed.
+Data which is sourced from us should be credited properly. Misleading users to believe data created by us is provided by another source, or failing to credit this information as being created by us, is not allowed. While we do source our input data from osu!, the service we provide as a result of curating and processing this data is our own creation.
 
 > For example, informing users of your application that information is provided by osu! officially is not allowed because it is not true.
 > 
