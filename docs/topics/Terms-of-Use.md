@@ -1,10 +1,6 @@
 # Terms of Use
 
-By using the o!TR API, you agree to abide by these terms of use. The o!TR API is provided publicly, for free, for all users by the osu! Tournament Rating Team ("o!TR Team", "us", "our").
-
-## Scraping
-
-The API must not be used to scrape information. Scraping data, such as tournaments, matches, etc. is forbidden and will result in a permanent revocation of API access. Please see the [data](Data.md) page for more information on conveniently importing our dataset.
+By using the o!TR API, you agree to abide by these terms of use. The o!TR API is provided by the osu! Tournament Rating Team ("o!TR Team", "us", "our") for free.
 
 ## Accreditation
 
@@ -16,7 +12,15 @@ Data which is sourced from us should be credited properly. Misleading users to b
 
 ## Abuse
 
-Users who abuse this service will have their API access revoked. For example, repeatedly encountering 429 errors will result in access revocation.
+Users who abuse this service will have their API access revoked. Users found to consistently exceed the rate limit will have their access revoked.
+
+### Scraping
+
+The API must not be used to scrape information. Scraping data in any form is prohibited and will result in a permanent revocation of API access. Please see the [data](Data.md) page for more information on conveniently importing our dataset.
+
+### Multiple Clients
+
+Multiple clients may be used so long as each client serves separate purposes. The use of multiple clients for a single application is prohibited.
 
 ### Rate Limit Increases
 
