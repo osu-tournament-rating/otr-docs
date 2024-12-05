@@ -21,6 +21,7 @@
         </toc-element>
     </toc-element>
     <toc-element topic="o-TR-API.md">
+        <toc-element topic="Terms-of-Use.md"/>
         <toc-element topic="Development.md">
             <toc-element topic="API-Getting-Started.md">
             </toc-element>
