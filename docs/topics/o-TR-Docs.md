@@ -6,4 +6,4 @@ See the [Getting Started](Getting-Started.md) section for setup.
 
 ## Contents
 
-<toc depth="10" />
+<toc depth="1" />
