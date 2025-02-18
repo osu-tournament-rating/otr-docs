@@ -41,8 +41,7 @@ flowchart TD;
    A[Is the count of games > 2?]
    B[Do any games besides the first 2 have a RejectionReason of BeatmapNotPooled?]
    C[Apply UnexpectedBeatmapsFound to WarningFlags]
-   D[Is the EndTime property equal to 
-   2007-09-17-00:00:00?]
+   D[Is the EndTime property equal to 2007-09-17-00:00:00?]
    E[Apply NoEndTime flag to RejectionReason]
    H[Is the match name structured in a typical format?]
    I[Apply UnexpectedNameFormat to WarningFlags]
