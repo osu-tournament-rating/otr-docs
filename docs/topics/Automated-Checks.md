@@ -39,24 +39,19 @@ flowchart TD;
 ```Mermaid
 flowchart TD;
    A[Is the count of games > 2?]
-   B[Do any games besides the first 2 have a 
-      RejectionReason of BeatmapNotPooled?]
+   B[Do any games besides the first 2 have a RejectionReason of BeatmapNotPooled?]
    C[Apply UnexpectedBeatmapsFound to WarningFlags]
    D[Is the EndTime property equal to 
    2007-09-17-00:00:00?]
    E[Apply NoEndTime flag to RejectionReason]
-   H[Is the match name structured in a typical 
-      format?]
+   H[Is the match name structured in a typical format?]
    I[Apply UnexpectedNameFormat to WarningFlags]
-   J[Does the match name start with the tournament's 
-      abbreviation?]
+   J[Does the match name start with the tournament's abbreviation?]
    K[Apply NamePrefixMismatch flag to RejectionReason]
    L[Is the tournament's lobby size equal to 1?]
-   M[Are the games structured in a way which supports 
-      conversion to TeamVS?]
+   M[Are the games structured in a way which supports conversion to TeamVS?]
    N[Attempt to convert a full set of Head to Head games to TeamVS]
-   O[Apply FailedTeamVsConversion flag to RejectionReason, repeat 
-      for all games]
+   O[Apply FailedTeamVsConversion flag to RejectionReason, repeat for all games]
    P[Convert all games to TeamVS, mark all games as PreVerified]
    
    F[Is the count of games equal to 0?]
@@ -111,13 +106,11 @@ flowchart TD;
 flowchart TD;
     A[Is the beatmap null?]
     B[Is there a known mappool for the tournament?]
-    C[Of all games in the tournament, is the beatmap
-        used exactly once?]
+    C[Of all games in the tournament, is the beatmapused exactly once?]
     D[Apply BeatmapUsedOnce to WarningFlags]
     E[Is the beatmap in the known mappool for the tournament?]
     F[Apply BeatmapNotPooled flag to RejectionReason]
-    G[Is the EndTime property equal to
-        2007-09-17-00:00:00?]
+    G[Is the EndTime property equal to2007-09-17-00:00:00?]
     H[Apply NoEndTime flag to RejectionReason]
     I[Are invalid mods present at the game level?]
     J[Apply InvalidMods flag to RejectionReason]
@@ -127,8 +120,7 @@ flowchart TD;
     N[Apply NoScores flag to RejectionReason]
     O[Is the count of PreVerified and/or Verified scores 0?]
     P[Apply NoValidScores flag to RejectionReason]
-    Q[Is the count of PreVerified and/or Verified scores 
-        twice that of the tournament's LobbySize?]
+    Q[Is the count of PreVerified and/or Verified scores twice that of the tournament's LobbySize?]
     R[Apply LobbySizeMismatch flag to RejectionReason]
     S[Is the ScoringType ScoreV2?]
     T[Apply InvalidScoringType flag to RejectionReason]
