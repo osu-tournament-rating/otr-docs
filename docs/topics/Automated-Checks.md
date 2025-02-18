@@ -20,7 +20,7 @@ flowchart LR;
 flowchart TD;
    A[Is the count of PreVerified and/or Verified matches > 0?]
    B[Apply NoVerifiedMatches flag to RejectionReason]
-   C[Is this count >= 80% of the total match count?]
+   C[Is this count at least 80% of the total match count?]
    D[Apply NotEnoughVerifiedMatches flag to RejectionReason]
    PreTerm[Is the RejectionReason null?]
    TermPositive[Change VerificationStatus to PreVerified]
@@ -59,7 +59,7 @@ flowchart TD;
    Q1[0]
    Q2[1 to 3]
    Q3[4 or 5]
-   Q4[&gt;5]
+   Q4[5 or more]
    Q_A[Apply NoValidGames flag to RejectionReason]
    Q_B[Apply UnexpectedGameCount flag to RejectionReason]
    Q_C[Apply LowGameCount to WarningFlags]
