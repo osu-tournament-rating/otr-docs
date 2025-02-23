@@ -2,17 +2,16 @@
 
 The o!TR team requires tournaments meet the criteria below before being accepted into our rating system. Please note that the team reserves the final say on whether a specific tournament is deemed fair for acceptance into our system.
 
-> A list of all reviewed tournaments may be viewed on [this spreadsheet](https://docs.google.com/spreadsheets/d/1F6yBKfVQqkusVxoIEEBP9j4l0h52D0tPHODGXQqCau8/edit?gid=817877375#gid=817877375).
+> A list of all reviewed tournaments may be viewed [here](https://docs.google.com/spreadsheets/d/1F6yBKfVQqkusVxoIEEBP9j4l0h52D0tPHODGXQqCau8/edit?usp=sharing). More details will be accessible on the website during the beta phase.
 > 
-> *This will be migrated to a web interface at a later date.*
->
+> For more details on the verification review process, see [this page](Data-Verification.md).
 {style="note"}
 
 The following is a reference on what constitutes an acceptable tournament and how to submit new data.
 
-## Acceptance criteria
+## Acceptance criteria<a id="acceptance"></a>
 
-In order for a tournament to be accepted into the o!TR system, it must:
+In order for a tournament to be accepted into the o!TR system for rating calculation, it must generally abide by the following rules. The o!TR team may make exceptions to the criteria below, but any such cases will be clearly documented with admin notes explaining the circumstances.
 
 <procedure>
 <step>
@@ -104,6 +103,18 @@ Never submit links from qualifiers, tryouts, show matches, or asynchronous match
 There is no need to worry about warmups or other erroneous data in otherwise valid matches during the initial submission.
 </tip>
 </step>
+<step>
+Gather all beatmap IDs pooled in the tournament, <i>including qualifiers</i> and group stages.
+<warning>
+Remember to use the beatmap ID rather than the beatmapset ID. For example, enter 75 rather than 1 for <a href="https://osu.ppy.sh/beatmapsets/1#osu/75">this beatmap</a>. 
+</warning>
+<tip>
+Beatmap IDs are used as part of automated checks to filter out warmups from match data.
+</tip>
+</step>
+<step>
+Enter the above data along with requested general tournament information on the <a href="https://otr.stagec.xyz/submit">website submission form</a>.
+</step>
 </procedure>
 
 Additionally, keep the following in mind for tiered tournaments or tournaments that feature multiple divisions:
@@ -160,4 +171,4 @@ We know how time-consuming it is to gather links. There's a few methods we use f
 
 ### How can invalid data be flagged for review?
 
-Invalid data, such as warmups, show matches, or any other data that should not be in our system will be reportable in the future on our website. For now, know that this data does not significantly affect rating values, but please note it down so you can let us know later!
+Invalid data, such as warmups, show matches, or any other data that should not be in our system are mostly being detected via automated checks and will also be reportable in the future. For now, know that this data does not significantly affect rating values, but please note it down so you can let us know later!

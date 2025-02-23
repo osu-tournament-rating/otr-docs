@@ -8,6 +8,7 @@
 
     <toc-element topic="Overview.md">
         <toc-element topic="Tournament-Approval.md"/>
+        <toc-element topic="Data-Verification.md"/>
         <toc-element topic="Rating-Calculation.md">
             <toc-element topic="Rating-Decay.md"/>
             <toc-element topic="Initial-Ratings.md"/>
