@@ -23,7 +23,7 @@ Users who feel the documentation is missing something should create an issue [he
 
 ## Quick links
 
-* [Website](https://otr.stagec.xyz)
+* [Website](https://otr.stagec.xyz) (Whitelist only)
 * [Discord](https://discord.gg/R53AwX2tJA)
-* [Twitter](https://twitter.com/osu_tr)
+* [Bluesky](https://bsky.app/profile/otr.stagec.xyz)
 * [Github](https://github.com/osu-tournament-rating)

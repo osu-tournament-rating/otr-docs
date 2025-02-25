@@ -57,13 +57,13 @@ If running via docker compose, replace `localhost` with the Redis container name
 ### JWT
 
 1. `Key`
-    - The secret the API uses to encode and decode JSON Web Tokens. This can be set to any string in development, but must be a randomized secret in production.
+    - The secret the API uses to encode and decode JSON Web Tokens. This can be set to any 16 character or longer string in development, but must be a randomized secret in production.
 
 2. `Audience`
-    - The intended recipient of the JWT. This can be set to any string for development purposes, but in production should be the intended resource server, such as `https://some.production.api.url`.
+    - The intended recipient of the JWT. This can be set to any non-empty string for development purposes, but in production should be the intended resource server, such as `https://some.production.api.url`.
 
 3. `Issuer`
-   - Defines who issues the JWT. This can be any string in development, but should be set to a proper resource in production.
+   - Defines who issues the JWT. This can be any non-empty string in development, but should be set to a proper resource in production.
 
 ### Auth
 

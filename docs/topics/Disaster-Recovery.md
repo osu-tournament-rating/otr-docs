@@ -16,14 +16,28 @@ Backups are done with `pg_dump` and restores are done with `psql` ([see here](ht
 
 ### Backup the database
 
-Backup the database into a zip file.
-
-```Shell
-docker exec [container] pg_dump \
--c \
--U postgres \
--d postgres | gzip > /my/dir/dump.gz
-```
+<tabs group="os">
+    <tab id="Windows-backup" title="Windows" group-key="Windows">
+        Backup the database into a zip file.<br/>
+        <code-block>
+        docker exec [container] pg_dump `
+        -c `
+        -U postgres `
+        -d postgres | gzip > /my/dir/dump.gz
+        </code-block> 
+        <!-- This command requires a way to execute gzip in Windows, either a software package or 
+            an alternative command prompt to Windows PowerShell-->
+    </tab>
+    <tab id="Else-backup" title="Linux &amp; macOS" group-key="Else">
+        Backup the database into a zip file.<br/>
+        <code-block>
+        docker exec [container] pg_dump \
+        -c \
+        -U postgres \
+        -d postgres | gzip > /my/dir/dump.gz
+        </code-block>
+    </tab>
+</tabs>
 
 ### Restore the database
 
@@ -33,36 +47,78 @@ docker exec [container] pg_dump \
 
 > Cleaning the database is strongly recommended before overwriting it.
 >
-> 1. Remove the `public` schema:
->
-> ```Shell
-> docker exec \
-> -it [container] psql \
-> -U postgres \
-> -c "DROP SCHEMA public CASCADE;" \
-> -d postgres 
-> ```
->
-> 2. Create the `public` schema:
->
-> ```Shell
-> docker exec \
-> -it [container] psql \
-> -U postgres \
-> -c "CREATE SCHEMA public;" \
-> -d postgres 
-> ```
->
 {style="note"}
 
-Overwrite your database with the dump:
+##### Cleaning the database
 
-```Shell
-gunzip \
--c /my/dir/dump.gz | docker exec \
--i [container] psql \
--U postgres \
--d postgres 
-```
+ <tabs group="os">
+    <tab id="Windows-Schema" title="Windows" group-key="Windows">
+        <ol>
+            <li>Remove the <code>public</code> schema:<br/>
+                <code-block>
+                docker exec `
+                -it serene_keller psql `
+                -U postgres `
+                -c "DROP SCHEMA public CASCADE;" `
+                -d postgres
+                </code-block><br/></li>
+            <li>Create the <code>public</code> schema:<br/>
+                <code-block>
+                docker exec `
+                > -it [container] psql `
+                > -U postgres `
+                > -c "CREATE SCHEMA public;" `
+                > -d postgres 
+                </code-block><br/></li>
+        </ol>
+    </tab>
+    <tab id="Else-Schema" title="Linux &amp; macOS" group-key="Else">
+        <ol>
+            <li>Remove the <code>public</code> schema:<br/>
+                <code-block>
+                docker exec \
+                -it serene_keller psql \
+                -U postgres \
+                -c "DROP SCHEMA public CASCADE;" \
+                -d postgres
+                </code-block><br/></li>
+            <li>Create the <code>public</code> schema:<br/>
+                <code-block>
+                docker exec \
+                > -it [container] psql \
+                > -U postgres \
+                > -c "CREATE SCHEMA public;" \
+                > -d postgres 
+                </code-block><br/></li>
+        </ol>
+    </tab>
+</tabs>
 
+##### Overwriting the database 
+
+<tabs group="os">
+    <tab id="Windows-overwrite" title="Windows" group-key="Windows">
+        Overwrite your database with the dump:<br/>
+        <code-block>
+        gunzip `
+        -c /my/dir/dump.gz | docker exec `
+        -i [container] psql `
+        -U postgres `
+        -d postgres
+        </code-block>
+        <!-- This command requires a way to execute gunzip in Windows, either a software package or 
+    an alternative command prompt to Windows PowerShell-->
+    </tab>
+    <tab id="Else-overwrite" title="Linux &amp; macOS" group-key="Else">
+        Overwrite your database with the dump:<br/>
+        <code-block>
+        gunzip \
+        -c /my/dir/dump.gz | docker exec \
+        -i [container] psql \
+        -U postgres \
+        -d postgres
+        </code-block>
+    </tab>
+</tabs>
+<br/>
 Your database should now contain all of the data from the dump file.
