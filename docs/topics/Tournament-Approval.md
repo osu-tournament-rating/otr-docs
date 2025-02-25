@@ -9,7 +9,7 @@ The o!TR team requires tournaments meet the criteria below before being accepted
 
 The following is a reference on what constitutes an acceptable tournament and how to submit new data.
 
-## Acceptance criteria<a id="acceptance"></a>
+## Acceptance criteria
 
 In order for a tournament to be accepted into the o!TR system for rating calculation, it must generally abide by the following rules. The o!TR team may make exceptions to the criteria below, but any such cases will be clearly documented with admin notes explaining the circumstances.
 

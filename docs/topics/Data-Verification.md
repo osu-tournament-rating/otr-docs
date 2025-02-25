@@ -8,7 +8,7 @@ Once data finishes running through automated checks, each game score, game, matc
 
 <procedure>
 <step>
-First, general information about the tournament (rank limit, lobby size, any gimmick) is cross-checked against the tournament's wiki page or forum post. If the tournament does not meet the <a href="Tournament-Approval.md#acceptance">acceptance criteria</a>, it will be rejected, meaning that none of the match data will factor into ratings.
+First, general information about the tournament (rank limit, lobby size, any gimmick) is cross-checked against the tournament's wiki page or forum post. If the tournament does not meet the <a href="Tournament-Approval.md#acceptance-criteria">acceptance criteria</a>, it will be rejected, meaning that none of the match data will factor into ratings.
 <tip>
 There is currently no strict numerical cutoff for allowed forfeits or minimum match count per tournament. If there is a particularly small bracket or high percentage of FFs, an admin note will detail the reason for verification or rejection (which will reflect whether the tournament was played in a reasonably competitive environment).
 </tip>
@@ -51,3 +51,9 @@ The o!TR admins have the ability to modify match data in the database, including
 * Renaming a tournament for consistency with past or future iterations,
 * Correcting the EZ (or other mod) multipliers specified in a particular tournament's ruleset by manually changing the appropriate scores,
 * Adding a game score to correct a lobby size mismatch if (1) the player disconnected mid-game but provided a local replay or records of an on-stream score and (2) that data was actually used as the source of truth for tournament proceedings.
+
+Any modifications of this kind, as well as any changes to verification status detailed above, will be recorded in audit logs. These logs will include the time the change was made, the user who performed it, and the state of the object before and after the change; thus, any manual edits will be trackable and reversible if needed. While these audit logs will not be available in the [public replicas](Data.md#public-replicas) (since they are attached to specific users), more transparent records are in development.
+
+## Effect on ratings
+
+As mentioned on the [rating calculation](Rating-Calculation.md#when-will-ratings-update) page, changes to ratings and associated statistics occur on a regular schedule (Tuesdays at 12 UTC). Thus, even though changes to verification status, modifications to match data, and admin notes will be viewable on the website immediately, their effects on player ratings will not be instantaneous. This minimizes the ability for an individual to manipulate TR by submitting tickets for individual scores, games, matches, or tournaments.
