@@ -94,7 +94,7 @@ Backups are done with `pg_dump` and restores are done with `psql` ([see here](ht
     </tab>
 </tabs>
 
-##### Overwriting the database 
+##### Overwrite the database 
 
 <tabs group="os">
     <tab id="Windows-overwrite" title="Windows" group-key="Windows">
