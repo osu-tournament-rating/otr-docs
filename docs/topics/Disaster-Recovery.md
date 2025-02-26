@@ -57,7 +57,7 @@ Backups are done with `pg_dump` and restores are done with `psql` ([see here](ht
             <li>Remove the <code>public</code> schema:<br/>
                 <code-block>
                 docker exec `
-                -it serene_keller psql `
+                -it [container] psql `
                 -U postgres `
                 -c "DROP SCHEMA public CASCADE;" `
                 -d postgres
