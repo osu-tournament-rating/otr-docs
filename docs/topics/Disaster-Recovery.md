@@ -29,7 +29,7 @@ Backups are done with `pg_dump` and restores are done with `psql` ([see here](ht
             an alternative command prompt to Windows PowerShell-->
     </tab>
     <tab id="Else-backup" title="Linux &amp; macOS" group-key="Else">
-        Backup the database into a zip file.<br/>
+        Backup the database into a compressed archive.<br/>
         <code-block>
         docker exec [container] pg_dump \
         -c \
