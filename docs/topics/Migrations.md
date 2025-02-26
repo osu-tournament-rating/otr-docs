@@ -79,7 +79,7 @@ Migrations must be created and tested when any of the following are modified:
       </code-block>
    </tab>
    <tab id="Else-apply" title="Linux &amp; macOS" group-key="Else">
-      Run the following to apply any pending migrations to the database. In development, ensure the database appears as you expect it to after applying migrations.<br/>
+      Run the following to apply any pending migrations to the database. In development, ensure the database appears as expected after applying migrations.<br/>
       <code-block>
       dotnet ef migrations update \
       --project Database \
