@@ -40,6 +40,9 @@ Migrations must be created and tested when any of the following are modified:
 > 
 > {style="warning"}
 
+> If using JetBrains Rider, take advantage of the built-in [Entity Framework tools](https://www.jetbrains.com/help/rider/Visual_interface_for_EF_Core_commands.html)!
+>
+> {style="tip"}
 ## Removing Migrations
 
 <tabs group="os">
