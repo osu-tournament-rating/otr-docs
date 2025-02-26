@@ -49,7 +49,7 @@ Backups are done with `pg_dump` and restores are done with `psql` ([see here](ht
 >
 {style="note"}
 
-##### Cleaning the database
+##### Clean the database
 
  <tabs group="os">
     <tab id="Windows-Schema" title="Windows" group-key="Windows">
