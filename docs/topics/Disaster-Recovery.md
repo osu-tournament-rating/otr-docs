@@ -46,10 +46,6 @@ Backups are done with `pg_dump` and restores are done with `psql` ([see here](ht
 >
 {style="warning"}
 
-> Cleaning the database is strongly recommended before overwriting it.
->
-{style="note"}
-
 ##### Clean the database
 
  <tabs group="os">
