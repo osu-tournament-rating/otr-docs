@@ -25,8 +25,9 @@ Backups are done with `pg_dump` and restores are done with `psql` ([see here](ht
         -U postgres `
         -d postgres | gzip > /my/dir/dump.gz
         </code-block> 
-        <!-- This command requires a way to execute gzip in Windows, either a software package or 
-            an alternative command prompt to Windows PowerShell-->
+        <tip>
+            gzip needs to be present in the host machine. Alternatively, Windows users can use the Linux/macOS command instructions if executing through the git-bash utility.
+        </tip>
     </tab>
     <tab id="Else-backup" title="Linux &amp; macOS" group-key="Else">
         Backup the database into a compressed archive.<br/>
@@ -106,8 +107,9 @@ Backups are done with `pg_dump` and restores are done with `psql` ([see here](ht
         -U postgres `
         -d postgres
         </code-block>
-        <!-- This command requires a way to execute gunzip in Windows, either a software package or 
-    an alternative command prompt to Windows PowerShell-->
+        <tip>
+            gunzip needs to be present in the host machine. Alternatively, Windows users can use the Linux/macOS command instructions if executing through the git-bash utility.
+        </tip>
     </tab>
     <tab id="Else-overwrite" title="Linux &amp; macOS" group-key="Else">
         Overwrite your database with the dump:<br/>
