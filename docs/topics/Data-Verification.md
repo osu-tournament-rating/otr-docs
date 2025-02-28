@@ -46,14 +46,16 @@ Match data involving players who were restricted, including those who were tourn
 
 ## Modifying submitted data
 
-The o!TR admins have the ability to modify match data in the database, including game scores, tournament names, and match win records. (Note that this is different from simply changing the verification status of a game score, game, match, or tournament.) Any such events will always be clearly documented in admin notes and made publicly available. Below is a list of example cases where this may be done:
+The o!TR admins have the ability to modify match data in the database, including game scores, tournament names, and match win records. (Note that this is different from simply changing the verification status of a game score, game, match, or tournament.) Any such events will always be clearly documented in admin notes and made publicly viewable. Below is a non-exhaustive list of cases where this may be done, pending feature development:
 
 * Renaming a tournament for consistency with past or future iterations,
-* Correcting the EZ (or other mod) multipliers specified in a particular tournament's ruleset by manually changing the appropriate scores,
-* Adding a game score to correct a lobby size mismatch if (1) the player disconnected mid-game but provided a local replay or records of an on-stream score and (2) that data was actually used as the source of truth for tournament proceedings.
+* Correcting the EZ (or other mod) multipliers specified in a particular tournament's ruleset by manually changing the appropriate game scores,
+* Adding a new game score to correct a lobby size mismatch if (1) the player disconnected mid-game but provided a local replay or records of an on-stream score and (2) that data was actually used as the source of truth for tournament proceedings.
+* Removing "phantom mods" that mistakenly appear in game scores (for example, players may mistakenly appear to play a map with the DT mod if the previous map was played with DT),
+* Merging two matches into one if a match was split across two MP links due to technical difficulties.
 
-Any modifications of this kind, as well as any changes to verification status detailed above, will be recorded in audit logs. These logs will include the time the change was made, the user who performed it, and the state of the object before and after the change; thus, any manual edits will be trackable and reversible if needed. While these audit logs will not be available in the [public replicas](Data.md#public-replicas) (since they are attached to specific users), more transparent records are in development.
+Any modifications of this kind, as well as any changes to verification status detailed above, will be recorded in audit logs. These logs will include the time the change was made, the user who performed it, and the state of the object before and after the change; thus, any manual edits will be trackable and reversible if needed. While these audit logs will not be available in the [public replicas](Data.md#public-replicas) (since they are attached to specific users), more transparent record-keeping is in development.
 
 ## Effect on ratings
 
-As mentioned on the [rating calculation](Rating-Calculation.md#when-will-ratings-update) page, changes to ratings and associated statistics occur on a regular schedule (Tuesdays at 12 UTC). Thus, even though changes to verification status, modifications to match data, and admin notes will be viewable on the website immediately, their effects on player ratings will not be instantaneous. This minimizes the ability for an individual to manipulate TR by submitting tickets for individual scores, games, matches, or tournaments.
+As mentioned on the [rating calculation](Rating-Calculation.md#when-will-ratings-update) page, changes to ratings and associated statistics occur on a regular schedule (each week at Tuesday 12:00 UTC). Thus, even though admin notes, changes to verification status, and modifications to match data will be viewable on the website immediately, their effects on player ratings will not be instantaneous. This minimizes the ability for an individual to manipulate TR by submitting tickets for individual scores, games, matches, or tournaments.
