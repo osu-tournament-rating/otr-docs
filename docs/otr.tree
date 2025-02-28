@@ -50,4 +50,7 @@
         <toc-element topic="Getting-Started.md"/>
         <toc-element topic="Contribution.md"/>
     </toc-element>
+    <toc-element topic="o-TR-API-Clients.md">
+        <toc-element topic="Regenerate-Deploy.md"/>
+    </toc-element>
 </instance-profile>
