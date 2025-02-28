@@ -37,5 +37,6 @@ Publish:
 npm login
 npm version patch
 npm publish
-git push
 ```
+
+After these steps, commit and push any changes to the `master` branch.
