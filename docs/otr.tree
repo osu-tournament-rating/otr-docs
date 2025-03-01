@@ -43,14 +43,14 @@
         <toc-element topic="Migrations.md"/>
         <toc-element topic="Disaster-Recovery.md"/>
     </toc-element>
+    <toc-element topic="o-TR-Docs.md">
+        <toc-element topic="Getting-Started.md"/>
+        <toc-element topic="Contribution.md"/>
+    </toc-element>
     <toc-element topic="o-TR-Processor.md">
         <toc-element topic="Processor-Getting-Started.md"/>
     </toc-element>
     <toc-element topic="o-TR-Web.md">
         <toc-element topic="Web-Getting-Started.md"/>
-    </toc-element>
-    <toc-element topic="o-TR-Docs.md">
-        <toc-element topic="Getting-Started.md"/>
-        <toc-element topic="Contribution.md"/>
     </toc-element>
 </instance-profile>
