@@ -16,13 +16,26 @@ docker volume create otr-db
 
 Then, start the database:
 
-```Shell
-docker run \
--d \
--p 5432:5432 \
--v otr-db:/var/lib/postgresql/data \
--e POSTGRES_PASSWORD=password postgres
-```
+<tabs group="os">
+    <tab id="Windows-start" title="Windows" group-key="Windows">
+        <code-block>
+        docker run `
+        -d `
+        -p 5432:5432 `
+        -v otr-db:/var/lib/postgresql/data `
+        -e POSTGRES_PASSWORD=password postgres
+        </code-block>
+    </tab>
+    <tab id="Else-start" title="Linux &amp; macOS" group-key="Else">
+        <code-block>
+        docker run \
+        -d \
+        -p 5432:5432 \
+        -v otr-db:/var/lib/postgresql/data \
+        -e POSTGRES_PASSWORD=password postgres
+        </code-block>
+    </tab>
+</tabs>
 
 ## Connection
 
