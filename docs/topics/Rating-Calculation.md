@@ -76,7 +76,7 @@ Remember that different players specialize in different skillsets and have skill
 
 ### When will ratings update?
 
-Ratings will only be recalculated and updated once weekly at Tuesday 12:00 UTC. This time is chosen so that tournament hosts who close registrations during a weekend will have ample time to screen their players using o!TR-tracked statistics (e.g. rating, total tournaments played within a rank range, etc.).
+Ratings will only be recalculated and updated once weekly at Tuesday 12:00 UTC. This time is chosen so that tournament hosts who close registrations during a weekend will have ample time to [filter](https://osu.ppy.sh/wiki/en/Tournaments/Official_support#registrant-filtering-and-seeding) their players using o!TR-tracked statistics (e.g. rating, total tournaments played within a rank range, etc.).
 
 <warning>
 Even if a player does not participate in any matches, their rating may still change between updates because of retroactive data changes (e.g. a newly added tournament or a removed warmup).
