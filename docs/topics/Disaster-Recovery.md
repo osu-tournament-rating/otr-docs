@@ -2,10 +2,6 @@
 
 This article explains how o!TR manages database backups and details a database disaster recovery plan.
 
-> Windows users may need to delete the `\` characters before executing commands.
-> 
-> {style="note"}
-
 ## Production Backups
 
 Production backups are automated via a script set to run every six hours. The backups are compressed and uploaded to a Google Cloud storage bucket. At this time, only [Stage](https://osu.ppy.sh/users/8191845) can perform production recovery operations.
@@ -16,9 +12,10 @@ Backups are done with `pg_dump` and restores are done with `psql` ([see here](ht
 
 ### Backup the database
 
+Backup the database into a compressed archive.
+
 <tabs group="os">
     <tab id="Windows-backup" title="Windows" group-key="Windows">
-        Backup the database into a zip file.<br/>
         <code-block>
         docker exec [container] pg_dump `
         -c `
@@ -30,7 +27,6 @@ Backups are done with `pg_dump` and restores are done with `psql` ([see here](ht
         </tip>
     </tab>
     <tab id="Else-backup" title="Linux &amp; macOS" group-key="Else">
-        Backup the database into a compressed archive.<br/>
         <code-block>
         docker exec [container] pg_dump \
         -c \
@@ -48,54 +44,58 @@ Backups are done with `pg_dump` and restores are done with `psql` ([see here](ht
 
 ##### Clean the database
 
- <tabs group="os">
-    <tab id="Windows-Schema" title="Windows" group-key="Windows">
-        <ol>
-            <li>Remove the <code>public</code> schema:<br/>
-                <code-block>
-                docker exec `
-                -it [container] psql `
-                -U postgres `
-                -c "DROP SCHEMA public CASCADE;" `
-                -d postgres
-                </code-block><br/></li>
-            <li>Create the <code>public</code> schema:<br/>
-                <code-block>
-                docker exec `
-                > -it [container] psql `
-                > -U postgres `
-                > -c "CREATE SCHEMA public;" `
-                > -d postgres 
-                </code-block><br/></li>
-        </ol>
+Remove the `public` schema:
+
+<tabs group="os">
+    <tab id="Windows-Schema-remove" title="Windows" group-key="Windows">
+        <code-block>
+            docker exec `
+            -it [container] psql `
+            -U postgres `
+            -c "DROP SCHEMA public CASCADE;" `
+            -d postgres
+        </code-block>
     </tab>
-    <tab id="Else-Schema" title="Linux &amp; macOS" group-key="Else">
-        <ol>
-            <li>Remove the <code>public</code> schema:<br/>
-                <code-block>
-                docker exec \
-                -it [container] psql \
-                -U postgres \
-                -c "DROP SCHEMA public CASCADE;" \
-                -d postgres
-                </code-block><br/></li>
-            <li>Create the <code>public</code> schema:<br/>
-                <code-block>
-                docker exec \
-                > -it [container] psql \
-                > -U postgres \
-                > -c "CREATE SCHEMA public;" \
-                > -d postgres 
-                </code-block><br/></li>
-        </ol>
+    <tab id="Else-Schema-remove" title="Linux &amp; macOS" group-key="Else">
+        <code-block>
+            docker exec \
+            -it [container] psql \
+            -U postgres \
+            -c "DROP SCHEMA public CASCADE;" \
+            -d postgres
+        </code-block>
+    </tab>
+</tabs>
+
+Create the `public` schema:
+
+<tabs group="os">
+    <tab id="Windows-Schema-create" title="Windows" group-key="Windows">
+        <code-block>
+            docker exec `
+            > -it [container] psql `
+            > -U postgres `
+            > -c "CREATE SCHEMA public;" `
+            > -d postgres
+        </code-block>
+    </tab>
+    <tab id="Else-Schema-create" title="Linux &amp; macOS" group-key="Else">
+        <code-block>
+            docker exec \
+            > -it [container] psql \
+            > -U postgres \
+            > -c "CREATE SCHEMA public;" \
+            > -d postgres 
+        </code-block>
     </tab>
 </tabs>
 
 ##### Overwrite the database 
 
+Overwrite your database with the dump:
+
 <tabs group="os">
     <tab id="Windows-overwrite" title="Windows" group-key="Windows">
-        Overwrite your database with the dump:<br/>
         <code-block>
         gunzip `
         -c /my/dir/dump.gz | docker exec `
@@ -108,7 +108,6 @@ Backups are done with `pg_dump` and restores are done with `psql` ([see here](ht
         </tip>
     </tab>
     <tab id="Else-overwrite" title="Linux &amp; macOS" group-key="Else">
-        Overwrite your database with the dump:<br/>
         <code-block>
         gunzip \
         -c /my/dir/dump.gz | docker exec \
@@ -118,5 +117,5 @@ Backups are done with `pg_dump` and restores are done with `psql` ([see here](ht
         </code-block>
     </tab>
 </tabs>
-<br/>
+
 Your database should now contain all of the data from the dump file.

@@ -18,7 +18,6 @@ Then, start the database:
 
 <tabs group="os">
     <tab id="Windows-start" title="Windows" group-key="Windows">
-        Command for Windows:<br/>
         <code-block>
         docker run `
         -d `
@@ -28,7 +27,6 @@ Then, start the database:
         </code-block>
     </tab>
     <tab id="Else-start" title="Linux &amp; macOS" group-key="Else">
-        Command for Linux &amp; macOS:<br/>
         <code-block>
         docker run \
         -d \

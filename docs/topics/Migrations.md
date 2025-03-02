@@ -12,9 +12,10 @@ Migrations must be created and tested when any of the following are modified:
 
 ## Creating Migrations
 
+To create a new migration, run the following in the root directory of the repository.
+
 <tabs group="os">
    <tab id="Windows-create" title="Windows" group-key="Windows">
-      To create a new migration, run the following in the root directory of the repository.<br/>
       <code-block>
       dotnet ef migrations add [Entity_ChangesMade] `
       --project Database `
@@ -23,7 +24,6 @@ Migrations must be created and tested when any of the following are modified:
       </code-block>
    </tab>
    <tab id="Else-create" title="Linux &amp; macOS" group-key="Else">
-      To create a new migration, run the following in the root directory of the repository.<br/>
       <code-block>
       dotnet ef migrations add [Entity_ChangesMade] \
       --project Database \
@@ -45,9 +45,10 @@ Migrations must be created and tested when any of the following are modified:
 > {style="tip"}
 ## Removing Migrations
 
+If you need to undo a migration, run the following command to revert the most recent migration.
+
 <tabs group="os">
    <tab id="Windows-remove" title="Windows" group-key="Windows">
-      If you need to undo a migration, run the following command to revert the most recent migration.<br/>
       <code-block>
       dotnet ef migrations remove `
       --project Database `
@@ -56,7 +57,6 @@ Migrations must be created and tested when any of the following are modified:
       </code-block>
    </tab>
    <tab id="Else-remove" title="Linux &amp; macOS" group-key="Else">
-      If you need to undo a migration, run the following command to revert the most recent migration.<br/>
       <code-block>
       dotnet ef migrations remove \
       --project Database \
@@ -68,9 +68,10 @@ Migrations must be created and tested when any of the following are modified:
 
 ## Applying Migrations
 
+Run the following to apply any pending migrations to the database. In development, ensure the database appears as expected after applying migrations.
+
 <tabs group="os">
    <tab id="Windows-apply" title="Windows" group-key="Windows">
-      Run the following to apply any pending migrations to the database. In development, ensure the database appears as expected after applying migrations.<br/>
       <code-block>
       dotnet ef migrations update `
       --project Database `
@@ -79,7 +80,6 @@ Migrations must be created and tested when any of the following are modified:
       </code-block>
    </tab>
    <tab id="Else-apply" title="Linux &amp; macOS" group-key="Else">
-      Run the following to apply any pending migrations to the database. In development, ensure the database appears as expected after applying migrations.<br/>
       <code-block>
       dotnet ef migrations update \
       --project Database \
@@ -95,9 +95,10 @@ The method of applying migrations is different in development than production. T
 
 First, a migrations script is generated via the entity framework CLI. Then, the script is piped into the docker container which hosts our database. This method can also be used to apply migrations in development.
 
+To generate the migrations script, run the following in the root directory of the repository:
+
 <tabs group="os">
    <tab id="Windows-prod" title="Windows" group-key="Windows">
-      To generate the migrations script, run the following in the root directory of the repository:<br/>
       <code-block>
       dotnet ef migrations script `
       --idempotent `
@@ -108,7 +109,6 @@ First, a migrations script is generated via the entity framework CLI. Then, the 
       </code-block>
    </tab>
    <tab id="Else-prod" title="Linux &amp; macOS" group-key="Else">
-      To generate the migrations script, run the following in the root directory of the repository:<br/>
       <code-block>
       dotnet ef migrations script \
       --idempotent \
@@ -126,9 +126,10 @@ First, a migrations script is generated via the entity framework CLI. Then, the 
 >
 > {style="note"}
 
+Apply the migrations:
+
 <tabs group="os">
    <tab id="Windows-prod-apply" title="Windows" group-key="Windows">
-      Apply the migrations:<br/>
       <code-block>
       cat script.sql | docker exec `
       -i [container] psql `
@@ -137,7 +138,6 @@ First, a migrations script is generated via the entity framework CLI. Then, the 
       </code-block>
    </tab>
    <tab id="Else-prod-apply" title="Linux &amp; macOS" group-key="Else">
-      Apply the migrations:<br/>
       <code-block>
       cat script.sql | docker exec \
       -i [container] psql \
