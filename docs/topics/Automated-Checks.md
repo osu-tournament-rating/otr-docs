@@ -195,6 +195,6 @@ Additionally, a web interface exists which allows reviewers to mark an entity - 
 
 One example of where this should happen is [Corsace Open 2023](https://osu.ppy.sh/community/forums/topics/1794106?n=1). This tournament has numerous matches marked as `PreRejected` by the system due to not having matches which consistently use the same prefix. This is a case in which the human reviewer should manually override the system's `PreRejected` status (assuming the `RejectionReason`s are of type `MatchRejectionReason.NamePrefixMismatch`).
 
-![CleanShot 2024-11-29 at 09.12.53@2x.png](../images/co23-example.png)
+![](../images/co23-example.png)
 
 More comprehensive considerations for various rejection reasons are documented on the [](Data-Verification.md) page.
