@@ -12,6 +12,7 @@ Here are our repositories:
 * [o!TR Web](https://github.com/osu-tournament-rating/otr-web)
 * [o!TR Processor](https://github.com/osu-tournament-rating/otr-processor)
 * [o!TR Docs](https://github.com/osu-tournament-rating/otr-docs)
+* [o!TR Api Clients](https://github.com/osu-tournament-rating/otr-api-clients)
 
 ## General contact
 
