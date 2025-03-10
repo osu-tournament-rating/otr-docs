@@ -83,7 +83,7 @@ Create the `public` schema:
         <code-block>
             docker exec \
             -it [container] psql \
-            - postgres \
+            -U postgres \
             -c "CREATE SCHEMA public;" \
             -d postgres
         </code-block>
