@@ -33,11 +33,6 @@ The o!TR Team is a group of people who maintains the o!TR projects, handles data
         <td><a href="https://osu.ppy.sh/users/13269506">https://osu.ppy.sh/users/13269506</a></td>
         <td>Data entry, algorithm refinement, jack of all trades</td>
     </tr>
-    <tr>
-        <td>starlightof</td>
-        <td><a href="https://osu.ppy.sh/users/18618027">https://osu.ppy.sh/users/18618027</a></td>
-        <td>UI/UX design</td>
-    </tr>
 </table>
 
 ## Contributors
@@ -51,14 +46,9 @@ Many people have contributed to the o!TR projects in a multitude of ways. The te
         <td>Role</td>
     </tr>
     <tr>
-        <td>Chiffa</td>
-        <td><a href="https://osu.ppy.sh/users/11482346">https://osu.ppy.sh/users/11482346</a></td>
-        <td>Rust developer</td>
-    </tr>
-    <tr>
-        <td>LoPij</td>
-        <td><a href="https://osu.ppy.sh/users/6892711">https://osu.ppy.sh/users/6892711</a></td>
-        <td>Rust developer</td>
+        <td>ajmosca</td>
+        <td><a href="https://osu.ppy.sh/users/19884809">https://osu.ppy.sh/users/19884809</a></td>
+        <td>Data entry, documentation upkeep</td>
     </tr>
     <tr>
         <td>Convex</td>
@@ -67,21 +57,18 @@ Many people have contributed to the o!TR projects in a multitude of ways. The te
     </tr>
 </table>
 
-### Pre-release feedback
-
-* [FlatPaper](https://osu.ppy.sh/users/11255340)
-* [this1neguy](https://osu.ppy.sh/users/1797189)
-* [Willy](https://osu.ppy.sh/users/3521482)
-
 ### Inactive
 
 These users once helped the o!TR projects but now are no longer involved with the project.
 
 * [Arkyter](https://osu.ppy.sh/users/23983771): Assistance with early mathematics
+* [Chiffa](https://osu.ppy.sh/users/11482346): Rust Development
 * [D I O](https://osu.ppy.sh/users/3958619): Assistance with compliance and mathematics
 * [Eliteronix](https://osu.ppy.sh/users/4520333): Provided dataset used for initial proof of concept
+* [LoPij](https://osu.ppy.sh/users/6892711): Rust Development
 * [onkar](https://osu.ppy.sh/users/7153533): .NET development assistance
 * [ploot](https://osu.ppy.sh/users/7802400): Feedback
 * [Squink](https://osu.ppy.sh/users/12058601): Early development efforts
+* [starlightof](https://osu.ppy.sh/users/18618027): UI/UX Design
 * [Timper](https://osu.ppy.sh/users/11955929): Data entry
 
