@@ -73,19 +73,19 @@ Create the `public` schema:
     <tab id="Windows-Schema-create" title="Windows" group-key="Windows">
         <code-block>
             docker exec `
-            > -it [container] psql `
-            > -U postgres `
-            > -c "CREATE SCHEMA public;" `
-            > -d postgres
+            -it [container] psql `
+            -U postgres `
+            -c "CREATE SCHEMA public;" `
+            -d postgres
         </code-block>
     </tab>
     <tab id="Else-Schema-create" title="Linux &amp; macOS" group-key="Else">
         <code-block>
             docker exec \
-            > -it [container] psql \
-            > -U postgres \
-            > -c "CREATE SCHEMA public;" \
-            > -d postgres 
+            -it [container] psql \
+            - postgres \
+            -c "CREATE SCHEMA public;" \
+            -d postgres
         </code-block>
     </tab>
 </tabs>
