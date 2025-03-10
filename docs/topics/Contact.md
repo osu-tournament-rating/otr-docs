@@ -9,10 +9,11 @@ Please leave all bug reports on the respective repository's issues page. For new
 Here are our repositories:
 
 * [o!TR API](https://github.com/osu-tournament-rating/otr-api)
-* [o!TR Web](https://github.com/osu-tournament-rating/otr-web)
-* [o!TR Processor](https://github.com/osu-tournament-rating/otr-processor)
+* [o!TR API Clients](https://github.com/osu-tournament-rating/otr-api-clients)
 * [o!TR Docs](https://github.com/osu-tournament-rating/otr-docs)
-* [o!TR Api Clients](https://github.com/osu-tournament-rating/otr-api-clients)
+* [o!TR Processor](https://github.com/osu-tournament-rating/otr-processor)
+* [o!TR Web](https://github.com/osu-tournament-rating/otr-web)
+
 
 ## General contact
 
@@ -24,7 +25,7 @@ Users who feel the documentation is missing something should create an issue [he
 
 ## Quick links
 
-* [Website](https://otr.stagec.xyz) (Whitelist only)
-* [Discord](https://discord.gg/R53AwX2tJA)
 * [Bluesky](https://bsky.app/profile/otr.stagec.xyz)
+* [Discord](https://discord.gg/R53AwX2tJA)
 * [Github](https://github.com/osu-tournament-rating)
+* [Website](https://otr.stagec.xyz) (Whitelist only)
