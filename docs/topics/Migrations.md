@@ -73,7 +73,7 @@ Run the following to apply any pending migrations to the database. In developmen
 <tabs group="os">
    <tab id="Windows-apply" title="Windows" group-key="Windows">
       <code-block>
-      dotnet ef migrations update `
+      dotnet ef database update `
       --project Database `
       --startup-project API `
       --context OtrContext
@@ -81,7 +81,7 @@ Run the following to apply any pending migrations to the database. In developmen
    </tab>
    <tab id="Else-apply" title="Linux &amp; macOS" group-key="Else">
       <code-block>
-      dotnet ef migrations update \
+      dotnet ef database update \
       --project Database \
       --startup-project API \
       --context OtrContext
