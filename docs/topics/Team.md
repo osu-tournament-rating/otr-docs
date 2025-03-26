@@ -55,6 +55,11 @@ Many people have contributed to the o!TR projects in a multitude of ways. The te
         <td><a href="https://osu.ppy.sh/users/11292327">https://osu.ppy.sh/users/11292327</a></td>
         <td>Software metrics & monitoring</td>
     </tr>
+    <tr>
+        <td>lefrutit228</td>
+        <td><a href="https://osu.ppy.sh/users/9883156">https://osu.ppy.sh/users/9883156</a></td>
+        <td>.NET developer</td>
+    </tr>
 </table>
 
 ### Inactive
