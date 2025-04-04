@@ -1,68 +1,24 @@
 # Team
 
-<!---  left this as html because it somehow just worked as is -->
-
 The o!TR Team is a group of people who maintains the o!TR projects, handles data validation, and more. These individuals are the core drivers of the project.
 
-<table>
-    <tr>
-        <td>Username</td>
-        <td>osu! Profile</td>
-        <td>Role</td>
-    </tr>
-    <tr>
-        <td>Stage</td>
-        <td><a href="https://osu.ppy.sh/users/8191845">https://osu.ppy.sh/users/8191845</a></td>
-        <td>Project lead, lead developer</td>
-    </tr>
-    <tr>
-        <td>Cytusine</td>
-        <td><a href="https://osu.ppy.sh/users/11557554">https://osu.ppy.sh/users/11557554</a></td>
-        <td>Admin, mathematician</td>
-    </tr>
-    <tr>
-        <td>Myssto</td>
-        <td><a href="https://osu.ppy.sh/users/18068913">https://osu.ppy.sh/users/18068913</a></td>
-        <td>.NET developer</td>
-    </tr>
-    <tr>
-        <td>Akinari</td>
-        <td><a href="https://osu.ppy.sh/users/4001304">https://osu.ppy.sh/users/4001304</a></td>
-        <td>Web developer</td>
-    </tr>
-    <tr>
-        <td>SourMongoose</td>
-        <td><a href="https://osu.ppy.sh/users/13269506">https://osu.ppy.sh/users/13269506</a></td>
-        <td>Data entry, algorithm refinement, jack of all trades</td>
-    </tr>
-</table>
+| Username | osu! Profile | Role |
+| ----- | ----- | ----- |
+| Stage | [https://osu.ppy.sh/users/8191845](https://osu.ppy.sh/users/8191845) | Project lead, lead developer |
+| Cytusine | [https://osu.ppy.sh/users/11557554](https://osu.ppy.sh/users/11557554) | Admin, mathematician |
+| Myssto | [https://osu.ppy.sh/users/18068913](https://osu.ppy.sh/users/18068913) | .NET developer |
+| Akinari | [https://osu.ppy.sh/users/4001304](https://osu.ppy.sh/users/4001304) | Web developer |
+| SourMongoose | [https://osu.ppy.sh/users/13269506](https://osu.ppy.sh/users/13269506) | Data entry, algorithm refinement, jack of all trades |
 
 ## Contributors
 
 Many people have contributed to the o!TR projects in a multitude of ways. The team is very appreciative of these individuals for their efforts.
 
-<table>
-    <tr>
-        <td>Username</td>
-        <td>osu! Profile</td>
-        <td>Role</td>
-    </tr>
-    <tr>
-        <td>ajmosca</td>
-        <td><a href="https://osu.ppy.sh/users/19884809">https://osu.ppy.sh/users/19884809</a></td>
-        <td>Data entry, documentation upkeep</td>
-    </tr>
-    <tr>
-        <td>Convex</td>
-        <td><a href="https://osu.ppy.sh/users/11292327">https://osu.ppy.sh/users/11292327</a></td>
-        <td>Software metrics & monitoring</td>
-    </tr>
-    <tr>
-        <td>lefrutit228</td>
-        <td><a href="https://osu.ppy.sh/users/9883156">https://osu.ppy.sh/users/9883156</a></td>
-        <td>.NET developer</td>
-    </tr>
-</table>
+| Username | osu! Profile | Role |
+| ----- | ----- | ----- |
+| ajmosca | [https://osu.ppy.sh/users/19884809](https://osu.ppy.sh/users/19884809) | Data entry, documentation upkeep |
+| Convex | [https://osu.ppy.sh/users/11292327](https://osu.ppy.sh/users/11292327) | Software metrics & monitoring |
+| lefrutit228 | [https://osu.ppy.sh/users/9883156](https://osu.ppy.sh/users/9883156) | .NET developer |
 
 ### Inactive
 
