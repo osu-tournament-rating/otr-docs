@@ -16,28 +16,25 @@ To create a new migration, run the following in the root directory of the reposi
 
 > [!Powershell]-
 > ```
-  dotnet ef migrations add [Entity_ChangesMade] `
-  --project Database `
-  --startup-project API `
-  --context OtrContext
+dotnet ef migrations add [Entity_ChangesMade] `
+--project Database `
+--startup-project API `
+--context OtrContext
 > ```
 
 > [!Bash]-
 > ```
-  dotnet ef migrations add [Entity_ChangesMade] \
-  --project Database \
-  --startup-project API \
-  --context OtrContext
+dotnet ef migrations add [Entity_ChangesMade] \
+--project Database \
+--startup-project API \
+--context OtrContext
 > ```
-
 
 > [!info]
 >  `[Entity_ChangesMade]` should be replaced with the name of your migration. Migrations should use PascalCase with underscores separating the entity from the changes made. For example, `Player_ConvertIdToInteger` is a good name for a migration as it describes the change made at a glance.
- 
 
 > [!warning] 
 > When a new migration is created, it will not be tracked by git automatically. Ensure you commit the generated files.
-
 
 > [!tip]
 >  If using JetBrains Rider, take advantage of the built-in [Entity Framework tools](https://www.jetbrains.com/help/rider/Visual_interface_for_EF_Core_commands.html)!
@@ -61,7 +58,6 @@ dotnet ef migrations remove \
 --startup-project API \
 --context OtrContext
 > ```
-
 
 ## Applying Migrations
 
@@ -115,7 +111,6 @@ dotnet ef migrations script \
 > The `idempotent` flag tells the script to only apply migrations which have not already been applied.
 > If you want to configure a database from scratch (e.g. no tables are in the `public` schema),
 > remove this flag.
-
 
 Apply the migrations:
 
