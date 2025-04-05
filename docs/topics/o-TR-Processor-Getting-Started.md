@@ -7,8 +7,8 @@ The o!TR processor requires a working o!TR API instance to function correctly. T
 Install the following tools:
 
 - [Rust](https://www.rust-lang.org/)
-- [[o-TR-API | Setup o!TR API]]
-- [[o-TR-Database | Setup Database]]
+- [[o-TR-API|Setup o!TR API]]
+- [[o-TR-Database|Setup Database]]
 
 ## Environment variables
 
@@ -21,7 +21,7 @@ CONNECTION_STRING=
 Setup the environment variables:
 
 1. Rename the `env_example` file provided to `.env`.
-2. Set the `CONNECTION_STRING` to the database connection string as described [[o-TR-Database-Setup | here]]
+2. Set the `CONNECTION_STRING` to the database connection string as described [[o-TR-Database-Setup|here]]
 
 ## Processing data
 
@@ -29,6 +29,6 @@ Once the o!TR API and database are running and the environment variables are con
 
 Run the processor:
 
-```Rust
+```
 cargo run -r
 ```

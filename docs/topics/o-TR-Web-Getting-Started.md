@@ -4,7 +4,7 @@
 
 o!TR Web depends on the API for all web requests. By extension, the database will need to be configured as well. Ensure these processes are running in the background before running o!TR Web:
 
-* [[o-TR-API | o!TR API]]
+* [[o-TR-API|o!TR API]]
 * [Node.js](https://nodejs.org/en) (v21 or later)
 
 ## Environment configuration
@@ -14,21 +14,22 @@ o!TR Web comes with a `.env.example` file. This file configures variables that t
 Configure the `.env` file:
   
 1. Rename `.env.example` to `.env`. It should now look like this:
-	```   
-	REACT_APP_OSU_CLIENT_ID=
-	REACT_APP_OSU_CALLBACK_URL=
-	REACT_APP_API_URL=
-	REACT_APP_ORIGIN_URL=
-	SESSION_SECRET=
-	NODE_ENV= 
-	```
+   
+```   
+REACT_APP_OSU_CLIENT_ID=
+REACT_APP_OSU_CALLBACK_URL=
+REACT_APP_API_URL=
+REACT_APP_ORIGIN_URL=
+SESSION_SECRET=
+NODE_ENV= 
+```
 
 2. Copy your osu! API v2 client id and set `REACT_APP_OSU_CLIENT_ID` equal to that value.
+
 > [!note] 
 > The API instance must also be using the same client id.
 > 
 > This must be the same client used in your running instance of the API.
-
 
 3. Set `REACT_APP_OSU_CALLBACK_URL` to `http://localhost:3000/auth`. The web server runs on port `3000` by default.
 
@@ -41,11 +42,10 @@ Configure the `.env` file:
 
 6. Set `SESSION_SECRET` to any string that is at least 32 characters in length.
 
-   > [!warning]
+> [!warning]
 > This should be a secure string in production. This is the encryption key for session cookies.
 
 7. Set `NODE_ENV` to `development`.
-
 
 Once these values are configured, install the npm packages and run the application:
 

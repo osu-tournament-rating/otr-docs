@@ -14,7 +14,7 @@ Backups are done with `pg_dump` and restores are done with `psql` ([see here](ht
 
 Backup the database into a compressed archive.
 
->[!Powershell]-
+> [!Powershell]-
 >```
 docker exec [container] pg_dump `
 -c `
@@ -33,12 +33,10 @@ docker exec [container] pg_dump \
 > [!warning]
 > gzip needs to be present in the host machine. Alternatively, Windows users can use the Bash command instructions if executing through the git-bash utility.
 
-
 ### Restore the database
 
 > [!danger] 
 > These steps will delete and overwrite your entire database.
-
 
 ##### Clean the database
 

@@ -22,7 +22,7 @@ dotnet tool install --global dotnet-ef
 
 ### PostgreSQL Database
 
-Follow [[o-TR-Database-Setup | this guide]] to set up your local database.
+Follow [[o-TR-Database-Setup|this guide]] to set up your local database.
 
 > [!note] 
 > The database container must be running for the API to function.
@@ -34,14 +34,16 @@ Follow [[o-TR-Database-Setup | this guide]] to set up your local database.
 
 Run the following command:
 
-`docker run -d -p 6379:6379 --name otr-redis redis`
+```
+docker run -d -p 6379:6379 --name otr-redis redis
+```
 
-> [!not] 
+> [!note] 
 > The redis container must be running for the API to function.
 
 ### Configuration
 
-See [[o-TR-API-Configuration | API Configuration]] to configure the API.
+See [[o-TR-API-Configuration|API Configuration]] to configure the API.
 
 ## Run
 

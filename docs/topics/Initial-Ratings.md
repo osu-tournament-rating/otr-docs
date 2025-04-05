@@ -33,4 +33,3 @@ Any players whose rank data cannot be recovered from either osu!track or the osu
 >  Please note that the formula for initial ratings is still tentative. In particular, any discussions surrounding how to account for historical "rank drift" are welcome.
 > 
 > Regardless of initial assignment, the accuracy of one's rating will sharply improve after playing a few tournaments.
->

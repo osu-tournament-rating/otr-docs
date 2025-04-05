@@ -12,7 +12,6 @@ Our goal is to rank players based on real-world tournament performance data. We 
 
 > [!note]
 > We do not aim to answer the question of "Who is the best osu! tournament player?". We instead aim to help players interpret performance history, in particular spotting high performers in lower rank ranges.
->
 
 ### Deranking
 
@@ -28,7 +27,6 @@ To ensure validity of competitive data, tournament matches are only counted afte
 
 > [!warning]
 > Players would need to intentionally influence the outcome of a match to manipulate their TR.
->
 
 ### Website interactivity
 

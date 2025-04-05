@@ -5,7 +5,7 @@ the [[o-TR-API]] repository. This program is a service which continuously polls 
 
 * Fetching match data from the [osu! API](https://osu.ppy.sh/docs/index.html).
 * Fetching historical player data from the [osu!track API](https://github.com/Ameobea/osutrack-api).
-* Running [[Automated-Checks | automated checks]] against tournament data.
+* Running [[Automated-Checks|automated checks]] against tournament data.
 * Performing stat calculations, such as calculating match costs and forming game placements (required by the [[o-TR-Processor]]).
 
 ## Core Principles

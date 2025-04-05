@@ -46,12 +46,8 @@ If running via docker compose, replace `localhost` with the Redis container name
 > 2. Set the fields  ![new-oauth-app-fields.png](new-oauth-app-fields.png)
 > > [!note]
 > > This callback URL is used for otr-web setup.
-> 
-> 
->
 > 3. Sample fields
 > ![sample-oauth-app.png](sample-oauth-app.png)
-
 
 ### JWT
 

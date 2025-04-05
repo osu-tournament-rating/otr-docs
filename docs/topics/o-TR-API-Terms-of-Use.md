@@ -9,14 +9,13 @@ Data which is sourced from us should be credited properly. Misleading users to b
 > [!warning]
 >  For example, informing users of your application that information is provided by osu! officially is not allowed because it is not true.
 
-
 ## Abuse
 
 Users who abuse this service will have their API access revoked. Users found to consistently exceed the rate limit will have their access revoked.
 
 ### Scraping
 
-The API must not be used to scrape information. Scraping data in any form is prohibited and will result in a permanent revocation of API access. Please see the [[o-TR-Database-Data | data]] page for more information on conveniently importing our dataset.
+The API must not be used to scrape information. Scraping data in any form is prohibited and will result in a permanent revocation of API access. Please see the [[o-TR-Database-Data|data]] page for more information on conveniently importing our dataset.
 
 ### Multiple Clients
 
@@ -24,4 +23,4 @@ Multiple clients may be used so long as each client serves separate purposes. Th
 
 ### Rate Limit Increases
 
-If you wish to receive an increase to the API rate limit of your application, please [[Contact | contact us]] with your use case.
+If you wish to receive an increase to the API rate limit of your application, please [[Contact|contact us]] with your use case.

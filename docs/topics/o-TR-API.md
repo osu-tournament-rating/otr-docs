@@ -8,6 +8,6 @@ The [o!TR API](https://github.com/osu-tournament-rating/otr-api) is a [.NET](htt
 
 ## Contents
 
-- [[o-TR-API-Terms-of-Use| Terms of Use]]
-- [[o-TR-API-Development | Development]]
-- [[o-TR-API-Related-Services| Related Services]]
+- [[o-TR-API-Terms-of-Use|Terms of Use]]
+- [[o-TR-API-Development|Development]]
+- [[o-TR-API-Related-Services|Related Services]]

@@ -1,12 +1,12 @@
 # Data Verification
 
-Submitted tournaments run through a series of manual and automated checks before they may be processed for rating calculations. The [[DataWorkerService]] and [[Automated-Checks | Automated Checks]] pages describe most of the automatic flow, while this page details the manual flow for verifying tournament data and provides more transparency on various conditions. 
+Submitted tournaments run through a series of manual and automated checks before they may be processed for rating calculations. The [[DataWorkerService]] and [[Automated-Checks|Automated Checks]] pages describe most of the automatic flow, while this page details the manual flow for verifying tournament data and provides more transparency on various conditions.
 
 ## Verifying or rejecting data
 
 Once data finishes running through automated checks, each score, game, match, and tournament will be marked as either `PreVerified` or `PreRejected`. Typically, `PreVerified` data will end up `Verified` and `PreRejected` data will end up `Rejected` after manual review, and the steps below explain how the o!TR team interprets or modifies these statuses.
 
-1. First, general information about the tournament, such as rank limit, name, and abbreviation, is cross-checked against the tournament's wiki page or forum post. If the tournament does not meet the [[Tournament-Approval#Acceptance criteria | acceptance criteria]], it will be rejected, meaning that none of the match data will factor into ratings.
+1. First, general information about the tournament, such as rank limit, name, and abbreviation, is cross-checked against the tournament's wiki page or forum post. If the tournament does not meet the [[Tournament-Approval#Acceptance criteria|acceptance criteria]], it will be rejected, meaning that none of the match data will factor into ratings.
 
    > [!note]
    > There is currently no strict numerical cutoff for allowed forfeits or minimum match count per tournament. Admin notes will detail the rationale behind verifying or rejecting tournaments which fall into gray areas, such as when there is a high percentage of forfeited matches or if there are concerns regarding the validity of competition.
@@ -34,8 +34,6 @@ Once data finishes running through automated checks, each score, game, match, an
 > [!info or note or something else or just not a note] 
 > Match data involving players who were restricted, including those who were tournament banned for foul play, is handled by the system just like any other match data. However, restricted players will not appear on any rating leaderboards. Depending on the influence of such players on the match, the o!TR team may include or exclude such games or matches from verification on a case-by-case basis.
 
-<br>
-
 ## Modifying submitted data
 
 The o!TR admins have the ability to manually modify match data in the database, including scores, tournament names, and match win records. (Note that this is different from simply changing the verification status of a score, game, match, or tournament.) Any such events will always be clearly documented in admin notes and made publicly viewable. Below is a non-exhaustive list of cases where this may be done, pending feature development:
@@ -47,8 +45,8 @@ The o!TR admins have the ability to manually modify match data in the database, 
 * Removing "phantom mods" that mistakenly appear in scores (for example, players may mistakenly appear to play a map with the DT mod if the previous map was played with DT)
 * Merging two matches into one if a match was split across two MP links due to technical difficulties
 
-Any modifications of this kind, as well as any changes to verification status detailed above, will be recorded in audit logs. These logs include the time the change was made, the user who performed it, and the state of properties before and after the change; thus, any manual edits will be trackable and reversible if needed. While these audit logs will not be available in the [[o-TR-Database-Data#Public Replicas | public replicas]] (since they are attached to specific users), more transparent record-keeping is in development.
+Any modifications of this kind, as well as any changes to verification status detailed above, will be recorded in audit logs. These logs include the time the change was made, the user who performed it, and the state of properties before and after the change; thus, any manual edits will be trackable and reversible if needed. While these audit logs will not be available in the [[o-TR-Database-Data#Public Replicas|public replicas]] (since they are attached to specific users), more transparent record-keeping is in development.
 
 ## Effect on ratings
 
-As mentioned on the [[Rating-Calculation#When will ratings update? | rating calculation]] page, changes to ratings and associated statistics occur on a regular schedule (each week at Tuesday 12:00 UTC). Thus, even though admin notes, changes to verification status, and modifications to match data will be viewable on the website immediately, their effects on player ratings will not be instantaneous. This minimizes the ability for an individual to manipulate TR by submitting tickets for individual scores, games, matches, or tournaments.
+As mentioned on the [[Rating-Calculation#When will ratings update?|rating calculation]] page, changes to ratings and associated statistics occur on a regular schedule (each week at Tuesday 12:00 UTC). Thus, even though admin notes, changes to verification status, and modifications to match data will be viewable on the website immediately, their effects on player ratings will not be instantaneous. This minimizes the ability for an individual to manipulate TR by submitting tickets for individual scores, games, matches, or tournaments.

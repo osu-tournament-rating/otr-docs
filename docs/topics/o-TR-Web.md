@@ -6,4 +6,4 @@ The repository can be viewed [here](https://github.com/osu-tournament-rating/otr
 
 ## Contents
 
-- [[o-TR-Web-Getting-Started | Getting Started]]
+- [[o-TR-Web-Getting-Started|Getting Started]]

@@ -4,13 +4,13 @@ o!TR primarily uses the [OpenSkill algorithm](https://jmlr.csail.mit.edu/papers/
 
 ## Rating
 
-Rating (a.k.a. Tournament Rating or TR) is the number used to quantify an individual's tournament performance. This number, combined with [volatility](#volatility), is used by the OpenSkill model to determine how likely someone is to come out ahead against someone else in a tournament match. Rating changes are more drastic when lower-rated players perform better than higher-rated players.
+Rating (a.k.a. Tournament Rating or TR) is the number used to quantify an individual's tournament performance. This number, combined with [[Rating-Calculation#Volatility|volatility]], is used by the OpenSkill model to determine how likely someone is to come out ahead against someone else in a tournament match. Rating changes are more drastic when lower-rated players perform better than higher-rated players.
 
-The [initial rating](Initial-Ratings.md) each player is assigned is not nearly as important as the subsequent adjustments from tournament performance. Like other games with competitive ladders, players will initially see higher fluctuations in their rating until the system becomes more confident in their abilities. Players should not worry about being stuck at a certain range; a better rating will follow from better match performance.
+The [[Initial-Ratings|initial rating]] each player is assigned is not nearly as important as the subsequent adjustments from tournament performance. Like other games with competitive ladders, players will initially see higher fluctuations in their rating until the system becomes more confident in their abilities. Players should not worry about being stuck at a certain range; a better rating will follow from better match performance.
 
 ## Volatility
 
-Volatility is the number that determines how confident the model is in one's [Rating](#rating). The higher this value, the less confident the model is in one's rating. More precisely, volatility is the standard deviation in the posterior estimate of a player's rating.
+Volatility is the number that determines how confident the model is in one's [[Rating-Calculation#Rating|Rating]]. The higher this value, the less confident the model is in one's rating. More precisely, volatility is the standard deviation in the posterior estimate of a player's rating.
 
 > [!example] 
 > Consider the following:
@@ -20,7 +20,7 @@ Volatility is the number that determines how confident the model is in one's [Ra
 >
 > Based on their performance in tournaments thus far, the model is about 68% sure that this player's true rating is between 1850 and 2150 and about 95% sure it is between 1700 and 2300. This estimate will increase in accuracy as they play more matches.
 
-Players start off with a high volatility value which decreases as they compete in tournaments and increases due to inactivity during [[Rating-Decay | decay]].
+Players start off with a high volatility value which decreases as they compete in tournaments and increases due to inactivity during [[Rating-Decay|decay]].
 
 ## Ranking & rating calculation
 
@@ -50,8 +50,6 @@ Volatility changes are averaged similarly but as a quadratic mean instead.
 > [!note]
 > This part of the process reflects the fact that match performance is not just determined by scores in match but also the degree to which players must "fill in" for their team members. The weighting of 90%-10% is preliminary and may be altered to a dynamic ratio depending on the total number of players in the match.
 
-<br>
-
 ## Further details
 
 ### Rating change formulas
@@ -68,7 +66,7 @@ Quoting from the [paper](https://jmlr.csail.mit.edu/papers/volume12/weng11a/weng
 
 There are various parameters that can be adjusted when setting up the model (see [the code](https://github.com/injae/openskill-rs/blob/main/src/model/plackett_luce.rs#L12) or read the paper for more detailed calculations). In words, $\mu$ and $\sigma$ are the rating and volatility mentioned above, $\beta$ is an "extra volatility" term for calculating head-to-head matchup probabilities, $\kappa$ is used as part of a check that volatility stays positive, and $\tau$ adds a small amount to variance (squared volatility) after each match. Finally, the function $\gamma$ is a dampening factor which causes volatility to decrease less significantly when matchups are large. Intuitively, this can be thought of as not treating a match with 10 players in it as affecting rating as much as 9 separate 1v1s against each opponent.
 
-The Plackett-Luce model allows for arbitrary scalings of parameters, though the OpenSkill documentation recommends that $\sigma$ starts out as 1/3 of $\mu$. We choose a scaling here so that the highest ratings look somewhat similar to chess (solely for aesthetic appeal), though we do choose varying [initial ratings](Initial-Ratings.md) based on osu! rank. While we keep the default values of $\gamma$ and $\kappa$, we currently initialize $\sigma$, $\beta$, and $\tau$ to a smaller fraction of $\mu$ than the default to make it more difficult to farm rating from low-rated players.
+The Plackett-Luce model allows for arbitrary scalings of parameters, though the OpenSkill documentation recommends that $\sigma$ starts out as 1/3 of $\mu$. We choose a scaling here so that the highest ratings look somewhat similar to chess (solely for aesthetic appeal), though we do choose varying [[Initial-Ratings|initial ratings]] based on osu! rank. While we keep the default values of $\gamma$ and $\kappa$, we currently initialize $\sigma$, $\beta$, and $\tau$ to a smaller fraction of $\mu$ than the default to make it more difficult to farm rating from low-rated players.
 
 Remember that different players specialize in different skillsets and have skillcaps at different levels, so please interpret TR not as an absolute skill comparison between two players. In particular, o!TR identifies when people **frequently win** relative to others in their rank range or skill level, so if you see a player with what seems like an unusually high rating, we recommend that you look at their tournament history and check if they're consistently the top performer in their matches.
 
@@ -79,4 +77,4 @@ Ratings will only be recalculated and updated once weekly at Tuesday 12:00 UTC. 
 > [!warning]
 > Even if a player does not participate in any matches, their rating may still change between updates because of retroactive data changes (e.g. a newly added tournament or a removed warmup).
 
-If your questions are not answered by the information provided here, please [[Contact | contact us]].
+If your questions are not answered by the information provided here, please [[Contact|contact us]].

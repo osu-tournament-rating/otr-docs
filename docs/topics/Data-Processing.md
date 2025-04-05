@@ -28,4 +28,4 @@ The o!TR team manipulates raw match data in the following ways:
 
 * Automatically multiply all score values that have the [`EZ` modifier](https://osu.ppy.sh/wiki/en/Gameplay/Game_modifier/Easy) by **1.75x**.
 * When possible, automatically convert 1v1 matches played in the `HeadToHead` team mode to `TeamVS`.
-* Correct match records (such as in the ways described [[Data-Verification#Modifying submitted data | here]]) with corresponding public documentation.
+* Correct match records (such as in the ways described [[Data-Verification#Modifying submitted data|here]]) with corresponding public documentation.
