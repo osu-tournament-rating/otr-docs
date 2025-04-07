@@ -7,7 +7,7 @@ This page is dedicated to carrying out calculations to demonstrate an example of
 > 
 > If you are interested more in the general philosophy of what ratings represent, it is highly recommended to read [[Rating-Calculation.md#Ranking & rating calculation|this page]] instead.
 
-The sample match we will be using is [LC: (H O L A) vs (Ummm)](https://otr.stagec.xyz/matches/33746) ([osu!](https://osu.ppy.sh/community/matches/112506508)). It was chosen for its relatively short length and smaller format—2v2, team size 3—while still effectively illustrating the main ideas.
+The sample match we will be using is [LC: (H O L A) vs (Ummm)](https://otr.stagec.xyz/matches/33746) ([osu! link](https://osu.ppy.sh/community/matches/112506508)). It was chosen for its relatively short length and smaller format—2v2, team size 3—while still effectively illustrating the main ideas.
 
 We will assume the six players who played in the match had the following ratings and rating deviations immediately before this match, and we will calculate their ratings and rating deviations after the match ends. **Please note that these values are not the actual ratings of these players; these are sample numbers for illustration purposes.**
 
@@ -41,9 +41,9 @@ Here, we follow the notation and logic of Algorithm 4 of the paper, found on pag
 
 First, we compute an overall uncertainty constant which the paper calls $c$, which is given by 
 $$c = \sqrt{4\beta^2 + \sigma_{\text{Railgun\_}}^2 + \sigma_{\text{parr0t}}^2 + \sigma_{\text{Isita}}^2 + \sigma_{\text{Skyy}}^2} \approx 614.2.$$
-Here $\beta = 150$ is a constant specified by our [constants file](https://github.com/osu-tournament-rating/otr-processor/blob/master/src/model/constants.rs), and the other four terms in the square roots come from the rating deviations of the four players (before the match). This $c$ is used to compute the predicted probabilities of players placing in various orders. It roughly means that for this game a difference of $c \approx 614.25$ rating points between two players means the higher-rated player has $e \approx 2.7$ times the chance of placing above the lower-rated player.
+Here $\beta = 150$ is a constant specified by our [constants file](https://github.com/osu-tournament-rating/otr-processor/blob/master/src/model/constants.rs), and the other four terms in the square roots come from the rating deviations of the four players (before the match). This $c$ is used to compute the predicted probabilities of players placing in various orders. It roughly means that for this game, a difference of $c \approx 614.25$ rating points between two players means the higher-rated player has $e \approx 2.7$ times the chance of placing above the lower-rated player.
 
-Next, we calculate, in the notation of the paper, two values $\Omega$ and $\Delta$ for each player in the game. These specify an *additive* rating change and a *multiplicative* rating deviation change respectively. Instead of repeating all of the formulas from the paper, we will try to work out examples in understandable words.
+Next, we calculate, in the notation of the paper, two values $\Omega$ and $\Delta$ for each player in the game. These specify an *additive* rating change and a *multiplicative* rating deviation change, respectively. Instead of repeating all of the formulas from the paper, we will try to work out examples in understandable words.
 
 1. First, consider the player who placed highest, Railgun\_ in this case. The model currently thinks the probability that Railgun\_ ranked highest is 
    $$p_{\text{Railgun\_ 1st}} = \frac{e^{\mu_{\text{Railgun\_}}/c}}{e^{\mu_{\text{Railgun\_}}/c} + e^{\mu_{\text{parr0t}}/c}+ e^{\mu_{\text{Isita}}/c} + e^{\mu_{\text{Skyy}}/c}} \approx 0.213,$$
@@ -132,7 +132,7 @@ We will again demonstrate how game rating changes look by calculating the rating
    and with the same formulas as poisonvx we find
    $$\Omega_{\text{Zeer0}} \approx \boxed{-126.2}, \quad \Delta_{\text{Zeer0}} \approx \boxed{0.023}.$$
 
-Here is the table of $\Omega_i$ and $\Delta_i$ values under Method B. Note that we no longer have a column for $c$ because it is the same across all games in this Method (all six players are considered in all games).
+Here is the table of $\Omega_i$ and $\Delta_i$ values under Method B. Note that we no longer have a column for $c$ because it is the same across all games in this method (all six players are considered in all games).
 
 | Game | $\Omega_{\text{Isita}}$ | $\Omega_{\text{parr0t}}$ | $\Omega_{\text{Zeer0}}$ | $\Omega_{\text{Railgun\_}}$ | $\Omega_{\text{poisonvx}}$ | $\Omega_{\text{Skyy}}$ | $\Delta_{\text{Isita}}$ | $\Delta_{\text{parr0t}}$ | $\Delta_{\text{Zeer0}}$ | $\Delta_{\text{Railgun\_}}$ | $\Delta_{\text{poisonvx}}$ | $\Delta_{\text{Skyy}}$ |
 | :--: | ----------------------- | ------------------------ | ----------------------- | --------------------------- | -------------------------- | ---------------------- | ----------------------- | ------------------------ | ----------------------- | --------------------------- | -------------------------- | ---------------------- |
@@ -162,4 +162,4 @@ The table below shows the adjustments to ratings and rating deviations for the s
 | [Railgun\_](https://osu.ppy.sh/users/13817114) | $1000 \to 1053.4$ |       $280 \to 277.4$       |
 | [poisonvx](https://osu.ppy.sh/users/9391047)  |  $700 \to 697.3$  |       $270 \to 269.3$       |
 |   [Skyy](https://osu.ppy.sh/users/7113149)    |  $600 \to 566.1$  |       $270 \to 268.5$       |
-All players' rating deviations have slightly decreased, indicating that the model is slightly more confident about the updated ratings. For example, Railgun\_'s rating has significantly increased due to their high participation and relatively high placement among players throughout the match. The overall rating changes are not precisely zero-sum due to the differences in players' rating deviations.
+All players' rating deviations have slightly decreased, indicating that the model is slightly more confident about the updated ratings. Also notice that Railgun\_'s rating has significantly increased due to their high participation and relatively high placement among players throughout the match. The overall rating changes are not precisely zero-sum due to the differences in players' rating deviations.
