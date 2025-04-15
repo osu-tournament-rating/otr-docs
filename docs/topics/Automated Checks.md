@@ -1,5 +1,3 @@
-# Automated Checks
-
 The [[DataWorkerService]] has numerous responsibilities, one of them being a data processing step known as automated checks. These checks are responsible for identifying, flagging, and in some cases fixing various discrepancies found in our data.
 
 ## Flow
