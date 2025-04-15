@@ -1,5 +1,3 @@
-# Initial Ratings
-
 Starting ratings are based on the closest-known rank according to [osu!track](https://github.com/Ameobea/osutrack-api), or your most recent global rank if none is known. The initial placement is based on the closest point in time relative to when you started playing tournaments. 
 
 These initial ratings follow roughly a bell curve and are roughly linearly dependent on log(rank). Specifically, the following quantity, called the "rank z-score," is first calculated for each player:

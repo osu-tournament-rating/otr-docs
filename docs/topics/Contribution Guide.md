@@ -1,5 +1,3 @@
-# Contribution Guide
-
 Those who wish to make open-source contributions to the API must adhere to this contribution guide.
 
 ## Claiming an Issue

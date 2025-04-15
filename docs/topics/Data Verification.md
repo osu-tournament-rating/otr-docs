@@ -1,5 +1,3 @@
-# Data Verification
-
 Submitted tournaments run through a series of manual and automated checks before they may be processed for rating calculations. The [[DataWorkerService]] and [[Automated Checks|Automated Checks]] pages describe most of the automatic flow, while this page details the manual flow for verifying tournament data and provides more transparency on various conditions.
 
 ## Verifying or rejecting data

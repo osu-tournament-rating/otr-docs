@@ -4,7 +4,7 @@ The o!TR team requires tournaments meet the criteria below before being accepted
 
 > [!note] 
 > A list of all reviewed tournaments may be viewed [here](https://docs.google.com/spreadsheets/d/1F6yBKfVQqkusVxoIEEBP9j4l0h52D0tPHODGXQqCau8/edit?usp=sharing). More details will be accessible on the website during the beta phase.
-> For more details on the verification review process, see [[Data-Verification|this page]].
+> For more details on the verification review process, see [[Data Verification|this page]].
 
 The following is a reference on what constitutes an acceptable tournament and how to submit new data.
 

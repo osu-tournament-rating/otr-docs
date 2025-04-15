@@ -1,5 +1,0 @@
-# Contributions
-
-## Contents
-
-- [[Contribution-Guide]]

@@ -187,4 +187,4 @@ One example of where this should happen is [Corsace Open 2023](https://osu.ppy.s
 
 ![](co23-example.png)
 
-More comprehensive considerations for various rejection reasons are documented on the [[Data-Verification|Data Verification]] page.
+More comprehensive considerations for various rejection reasons are documented on the [[Data Verification|Data Verification]] page.
