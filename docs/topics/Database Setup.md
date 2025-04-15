@@ -1,5 +1,3 @@
-# Setup
-
 o!TR relies on a PostgreSQL database instance to function. This page can be used as a reference for first-time database setup.
 
 It is recommended to run your database inside a docker container.

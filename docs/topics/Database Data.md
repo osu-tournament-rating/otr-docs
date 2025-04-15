@@ -1,5 +1,3 @@
-# Data
-
 The o!TR team maintains a publicly accessible archive of database replicas to support two key objectives:
 
 1. Facilitating development and contributions to the official [o!TR repositories](https://github.com/osu-tournament-rating/).

@@ -1,5 +1,3 @@
-# Code Quality
-
 The `otr-api` project enforces specific formatting rules to ensure code quality. These are enforced via `dotnet format`.
 
 ## Formatting

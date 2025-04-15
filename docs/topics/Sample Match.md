@@ -1,5 +1,3 @@
-# Sample Match
-
 This page is dedicated to carrying out calculations to demonstrate an example of rating changes from a single match. We will be following the logic described [[Rating-Calculation.md#Ranking & rating calculation|here]], so it is advised to read that page first. This page will focus on detailing the actual calculations used in the [paper](https://jmlr.csail.mit.edu/papers/volume12/weng11a/weng11a.pdf) which introduces this rating model. 
 
 > [!note]

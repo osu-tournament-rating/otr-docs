@@ -1,8 +1,6 @@
-# osu! Tournament Rating (o!TR)
-
 Welcome to the official o!TR documentation! Here you can learn about our APIs, algorithms, how to contribute, and more.
 
-## Overview
+# Overview
 
 o!TR is a fully-featured rating system & data visualization suite for [osu!](https://osu.ppy.sh/) tournaments and their players. This tool was created to serve the osu! tournament community by providing useful metrics on players' abilities, tournament statistics, and more.
 

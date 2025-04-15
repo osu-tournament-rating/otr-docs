@@ -1,5 +1,3 @@
-# Tournament Approval
-
 The o!TR team requires tournaments meet the criteria below before being accepted into our rating system. Please note that the team reserves the final say on whether a specific tournament is deemed fair for acceptance into our system.
 
 > [!note] 

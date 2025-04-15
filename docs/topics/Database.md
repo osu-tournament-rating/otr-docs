@@ -1,6 +1,4 @@
-# o!TR Database
-
-## Contents
+# Contents
 
 - [[o-TR-Database-Setup|Setup]]
 - [[o-TR-Database-Data|Data]]

@@ -1,5 +1,3 @@
-# o!TR Processor
-
 *This page is under construction!*
 
 The [o!TR Processor](https://github.com/osu-tournament-rating/otr-processor) is a [Rust](https://www.rust-lang.org/) program that accomplishes the following:

@@ -1,8 +1,6 @@
-# Terms of Use
-
 By using the o!TR API, you agree to abide by these terms of use. The o!TR API is provided by the osu! Tournament Rating Team ("o!TR Team", "us", "our") for free.
 
-## Accreditation
+# Accreditation
 
 Data which is sourced from us should be credited properly. Misleading users to believe data created by us is provided by another source, or failing to credit this information as being created by us, is not allowed. While we do source our input data from osu!, the service we provide as a result of curating and processing this data is our own creation.
 

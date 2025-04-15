@@ -1,8 +1,6 @@
-# Disaster Recovery
-
 This article explains how o!TR manages database backups and details a database disaster recovery plan.
 
-## Production Backups
+# Production Backups
 
 Production backups are automated via a script set to run every six hours. The backups are compressed and uploaded to a Google Cloud storage bucket. At this time, only [Stage](https://osu.ppy.sh/users/8191845) can perform production recovery operations.
 

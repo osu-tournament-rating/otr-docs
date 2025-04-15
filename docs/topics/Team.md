@@ -1,5 +1,3 @@
-# Team
-
 The o!TR Team is a group of people who maintains the o!TR projects, handles data validation, and more. These individuals are the core drivers of the project.
 
 | Username | osu! Profile | Role |

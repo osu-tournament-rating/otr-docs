@@ -1,5 +1,3 @@
-# Regenerate & Deploy
-
 > [!note]
 >  This is non-sensitive internal documentation meant for use by the [[Team|o!TR Team]].
 

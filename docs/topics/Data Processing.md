@@ -1,6 +1,6 @@
 The o!TR suite of tools processes various amounts of data in various ways.
 
-## Tournament Data
+# Tournament Data
 
 We process data from osu! multiplayer lobbies. This data comes from tournament data. Any osu! player who has participated in any of the lobbies submitted to o!TR will have some of their account information stored in our system.
 

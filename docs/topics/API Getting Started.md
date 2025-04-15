@@ -1,6 +1,4 @@
-# Getting Started
-
-## Prerequisites
+# Prerequisites
 
 * Install [git](https://git-scm.com/downloads)
 * Install [.NET 9](https://dotnet.microsoft.com/en-us/download/dotnet/9.0)
