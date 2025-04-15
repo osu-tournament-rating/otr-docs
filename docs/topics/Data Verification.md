@@ -1,6 +1,6 @@
 Submitted tournaments run through a series of manual and automated checks before they may be processed for rating calculations. The [[DataWorkerService]] and [[Automated Checks|Automated Checks]] pages describe most of the automatic flow, while this page details the manual flow for verifying tournament data and provides more transparency on various conditions.
 
-## Verifying or rejecting data
+# Verifying or rejecting data
 
 Once data finishes running through automated checks, each score, game, match, and tournament will be marked as either `PreVerified` or `PreRejected`. Typically, `PreVerified` data will end up `Verified` and `PreRejected` data will end up `Rejected` after manual review, and the steps below explain how the o!TR team interprets or modifies these statuses.
 

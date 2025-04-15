@@ -1,6 +1,6 @@
 Contact the o!TR team here!
 
-# Bug reports & new features
+## Bug reports & new features
 
 Please leave all bug reports on the respective repository's issues page. For new features, please create a [Github discussion](https://docs.github.com/en/discussions/collaborating-with-your-community-using-discussions/about-discussions) on the appropriate repository.
 

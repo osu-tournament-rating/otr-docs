@@ -1,6 +1,6 @@
 Those who wish to make open-source contributions to the API must adhere to this contribution guide.
 
-## Claiming an Issue
+# Claiming an Issue
 
 If you're a first-time contributor, we encourage you to start by working on low-priority tasks. This helps you familiarize yourself with the project without the pressure of tackling more urgent issues.
 
