@@ -1,8 +1,8 @@
-While the osu! Tournament Rating (o!TR) platform does not directly solicit personal information from individuals, there is a very basic amount of data we use to provide our services. Users[^1] who log into our website using the [osu!](https://osu.ppy.sh/) OAuth platform have a different amount of data collected than players[^2].
+While the osu! Tournament Rating (o!TR) platform does not directly solicit personal information from individuals, we do use and collect some data in order to provide our services. Users[^1] who log into our website using the [osu!](https://osu.ppy.sh/) OAuth platform have a different amount of data collected than players[^2].
 
 # Overview
 
-When osu! match data is processed, a player entity is automatically created which is tied to a specific osu! user identifier. If a player exists in our database without them ever logging into our platform, they will never become a user. A player becomes a user when they log in to our platform for the first time. Similarly, if a first-time user does not have any data in our database already, a player and user object is created for them simultaneously.
+When osu! match data is processed, a player entity is automatically created which is then tied to a specific osu! user identifier. If a player exists in our database without having first logged into our platform, they will never become a user. A player becomes a user when they log in to our platform for the first time. Similarly, if a first-time user does not have any data in our database already, a player and user object is created for them simultaneously. This allows us to then link osu! match data to them should they participate in matches relevant to us in the future.
 
 By logging in to our platform, you are consenting to the data which is collected below in the [[#Users]] section.
 
@@ -44,7 +44,7 @@ We use basic, mandatory cookies to provide users basic services, such as to stor
 
 # Data Storage
 
-Our platform is currently hosted and stores data in the United States of America.
+Our platform operates in and stores data within the United States of America.
 
 # Data Deletion
 
@@ -58,13 +58,13 @@ Outside of what is defined in the below sections, we do not engage with, sell, s
 
 ## Compliance
 
-We do archive and share a subset of our data publicly, specifically for the purpose of complying with [rules](https://osu.ppy.sh/wiki/en/Tournaments/Official_support#programs) outlined by the [osu! Tournament Committee](https://osu.ppy.sh/wiki/en/People/Tournament_Committee). This includes, but is not limited to:
+We periodically archive and share a subset of our data publicly, specifically for the purpose of complying with [rules](https://osu.ppy.sh/wiki/en/Tournaments/Official_support#programs) outlined by the [osu! Tournament Committee](https://osu.ppy.sh/wiki/en/People/Tournament_Committee). This includes, but is not limited to:
 
 - Match and player data fetched from the [osu!](https://osu.ppy.sh/docs/index.html) and [osu!track](https://github.com/Ameobea/osutrack-api) APIs.
 
 ## Donations
 
-Users who choose to donate via [Buy Me a Coffee](buymeacoffee.com/stagecodes) will have their personal information processed by Buy Me a Coffee and Stripe. That personal information will be stored in accordance with their policies.
+Users who choose to donate via [Buy Me a Coffee](buymeacoffee.com/stagecodes) will have their personal information processed by Buy Me a Coffee and Stripe. That personal information will be stored in accordance with their policies and is not stored by us.
 
 [^1]: A user is an osu! user who has logged into our platform via osu! OAuth.
 [^2]: A player is an osu! user whose data is automatically stored as part of our tournament submission process.
