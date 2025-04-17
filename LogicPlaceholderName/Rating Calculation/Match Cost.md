@@ -1,3 +1,5 @@
+#math 
+
 Although not used in rating calculations directly, o!TR does keep track of match costs for use in other statistics, such as gauging performance across tournaments. The formula is as follows.
 
 # Formula

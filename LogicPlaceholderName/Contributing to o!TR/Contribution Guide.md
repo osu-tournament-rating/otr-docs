@@ -1,4 +1,4 @@
-Those who wish to make open-source contributions to the API must adhere to this contribution guide.
+Those who wish to make open-source contributions to any o!TR repository must adhere to this contribution guide.
 
 # Claiming an Issue
 
@@ -24,7 +24,7 @@ The o!TR team expects the following from pull request (PR) authors:
 3. Create new issues for the item you want to work on, if approved.
 4. Write small PRs (touching 5-10 files at most).
 
-### Don'ts
+### Don't
 
 1. Create PRs without consulting the o!TR team.
 2. Leave the description field blank.

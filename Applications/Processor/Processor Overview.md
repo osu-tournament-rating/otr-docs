@@ -7,6 +7,3 @@ The [o!TR Processor](https://github.com/osu-tournament-rating/otr-processor) is 
     * Rating calculation
 2. Hosts the algorithm by which ratings are changed
 
-## Contents
-
- - [[o-TR-Processor-Getting-Started|Getting Started]]

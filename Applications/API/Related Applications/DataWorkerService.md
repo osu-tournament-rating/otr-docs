@@ -1,5 +1,4 @@
-The [DataWorkerService](https://github.com/osu-tournament-rating/otr-api/tree/master/DataWorkerService) is a program which is part of
-the [[o-TR-API]] repository. This program is a service which continuously polls the database for items which need to be processed. This includes the following processes:
+The [DataWorkerService](https://github.com/osu-tournament-rating/otr-api/tree/master/DataWorkerService) is a program which is part of the [[o-TR-API]] repository. This program is a service which continuously polls the database for items which need to be processed. This includes the following processes:
 
 * Fetching match data from the [osu! API](https://osu.ppy.sh/docs/index.html).
 * Fetching historical player data from the [osu!track API](https://github.com/Ameobea/osutrack-api).
