@@ -1,10 +1,10 @@
 #math 
-This page is dedicated to carrying out calculations to demonstrate an example of rating changes from a single match. We will be following the logic described [[Rating-Calculation.md#Ranking & rating calculation|here]], so it is advised to read that page first. This page will focus on detailing the actual calculations used in the [paper](https://jmlr.csail.mit.edu/papers/volume12/weng11a/weng11a.pdf) which introduces this rating model. 
+This page is dedicated to carrying out calculations to demonstrate an example of rating changes from a single match. We will be following the logic described [[Rating Calculation Overview#Ranking & rating calculation|here]], so it is advised to read that page first. This page will focus on detailing the actual calculations used in the [paper](https://jmlr.csail.mit.edu/papers/volume12/weng11a/weng11a.pdf) which introduces this rating model. 
 
 > [!note]
 > It is not necessary to understand every calculation on this page to get a good sense of what the rating model is doing. This documentation exists primarily for those who are curious about the mathematics, and also so that the rating assignment process is more transparent than only specifying "the ratings are fed into a model and numbers come out of it."
 > 
-> If you are interested more in the general philosophy of what ratings represent, it is highly recommended to read [[Rating-Calculation.md#Ranking & rating calculation|this page]] instead.
+> If you are interested more in the general philosophy of what ratings represent, it is highly recommended to read [[Rating Calculation Overview#Ranking & rating calculation|this page]] instead.
 
 The sample match we will be using is [LC: (H O L A) vs (Ummm)](https://otr.stagec.xyz/matches/33746) ([osu! link](https://osu.ppy.sh/community/matches/112506508)). It was chosen for its relatively short length and smaller format—2v2, team size 3—while still effectively illustrating the main ideas.
 

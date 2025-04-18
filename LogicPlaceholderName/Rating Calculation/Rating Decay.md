@@ -1,6 +1,6 @@
 Rating decay is the process by which we handle inactivity in o!TR. The o!TR team does not believe in letting players keep their rating values forever, even without further tournament activity.
 
-Every player is assigned a [[Rating-Calculation#Rating|rating]] and [[Rating-Calculation#Volatility|volatility]]. Players [[#Decay|decay]] if there is a prolonged period of inactivity. Decay retroactively applies for the entire inactivity period once a user begins to decay.
+Every player is assigned a [[Rating Calculation Overview#Rating|rating]] and [[Rating Calculation Overview#Volatility|volatility]]. Players [[#Decay|decay]] if there is a prolonged period of inactivity. Decay retroactively applies for the entire inactivity period once a user begins to decay.
 
 ## Decay
 
