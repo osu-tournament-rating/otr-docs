@@ -13,7 +13,7 @@ Users who abuse this service will have their API access revoked. Users found to 
 
 ### Scraping
 
-The API must not be used to scrape information. Scraping data in any form is prohibited and will result in a permanent revocation of API access. Please see the [[o-TR-Database-Data|data]] page for more information on conveniently importing our dataset.
+The API must not be used to scrape information. Scraping data in any form is prohibited and will result in a permanent revocation of API access. Please see the [[Data|data]] page for more information on conveniently importing our dataset.
 
 ### Multiple Clients
 

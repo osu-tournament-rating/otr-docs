@@ -1,3 +1,17 @@
+#internal
+
+The o!TR team maintains auto-generated wrappers which enable connectivity to the [[Applications/API/Overview|o!TR API]].
+
+These clients are hosted on GitHub [here](https://github.com/osu-tournament-rating/otr-api-clients).
+
+# Languages
+
+The following languages are supported:
+
+- TypeScript
+
+# Regenerate and Deploy
+
 > [!note]
 >  This is non-sensitive internal documentation meant for use by the [[Team|o!TR Team]].
 
@@ -5,15 +19,15 @@ This document outlines the process for regenerating and deploying API clients fo
 
 ## Prerequisites
 
-* A working [[o-TR-API|o!TR API]] instance running locally.
+* A working [[Applications/API/Overview|o!TR API]] instance running locally.
 * [npm](https://www.npmjs.com/)
 * [NSwag](https://github.com/RicoSuter/NSwag) (`npm install nswag -g` recommended)
 
-1. Launch the [[o-TR-API|o!TR API]]
+1. Launch the [[Applications/API/Overview|o!TR API]]
 
    > [!note] 
    > Ensure that `ASPNETCORE_ENVIRONMENT=Development` is configured to launch swagger.
-   > See the [[o-TR-API-Development|setup documentation]] for more information.
+   > See the [[Applications/API/Getting Started#Environment variables|setup documentation]] for more information.
 
 2. From the Swagger UI, download the `swagger.json` file and replace the existing file in the root directory of the repository.
 

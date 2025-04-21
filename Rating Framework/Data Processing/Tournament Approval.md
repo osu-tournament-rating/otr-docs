@@ -90,7 +90,7 @@ Additionally, keep the following in mind for tiered tournaments or tournaments t
 
 ### How far back can submissions be from?
 
-Any tournament may be submitted from any time period. Make sure to do quality checks against our [[Tournament-Approval#Acceptance criteria|acceptance criteria]].
+Any tournament may be submitted from any time period. Make sure to do quality checks against our [[Tournament Approval#Acceptance criteria|acceptance criteria]].
 
 ### What if the tournament I want to submit is missing matches?
 

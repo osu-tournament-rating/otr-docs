@@ -1,3 +1,5 @@
+#internal 
+
 The o!TR team maintains a publicly accessible archive of database replicas to support two key objectives:
 
 1. Facilitating development and contributions to the official [o!TR repositories](https://github.com/osu-tournament-rating/).
@@ -16,7 +18,7 @@ These public replicas omit the following information due to security and user pr
 5. User friends (who an osu! user is following)
 6. Users (of the o!TR platform)
 
-Refer to the [[o-TR-Database-Disaster-Recovery|disaster recovery]] guide for instructions on importing a replica locally.
+Refer to the [[Disaster Recovery|disaster recovery]] guide for instructions on importing a replica locally.
 
 > [!note]
 > By downloading a public replica, you agree to comply with our [terms of use](https://data.otr.stagec.xyz/).

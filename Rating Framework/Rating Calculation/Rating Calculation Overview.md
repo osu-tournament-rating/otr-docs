@@ -1,14 +1,16 @@
+#math 
+
 o!TR primarily uses the [OpenSkill algorithm](https://jmlr.csail.mit.edu/papers/volume12/weng11a/weng11a.pdf), specifically using the Plackett-Luce ranking model. The implementation source code can be found [here](https://crates.io/crates/openskill/0.0.1). In short, OpenSkill is a system similar to the [Elo](https://en.wikipedia.org/wiki/Elo_rating_system) or [Glicko/Glicko-2](https://en.wikipedia.org/wiki/Glicko_rating_system) rating systems used in games like chess. It assigns each player an approximate rating and rating deviation, where a higher rating deviation means more opportunity for the rating to increase or decrease. Rating updates are performed based on relative performance of players in a match.
 
 # Rating
 
-Rating (a.k.a. Tournament Rating or TR) is the number used to quantify an individual's tournament performance. This number, combined with [[Rating-Calculation#Volatility|volatility]], is used by the OpenSkill model to determine how likely someone is to come out ahead against someone else in a tournament match. Rating changes are more drastic when lower-rated players perform better than higher-rated players.
+Rating (a.k.a. Tournament Rating or TR) is the number used to quantify an individual's tournament performance. This number, combined with [[Rating Calculation Overview#Volatility|volatility]], is used by the OpenSkill model to determine how likely someone is to come out ahead against someone else in a tournament match. Rating changes are more drastic when lower-rated players perform better than higher-rated players.
 
 The [[Initial Ratings|initial rating]] each player is assigned is not nearly as important as the subsequent adjustments from tournament performance. Like other games with competitive ladders, players will initially see higher fluctuations in their rating until the system becomes more confident in their abilities. Players should not worry about being stuck at a certain range; a better rating will follow from better match performance.
 
 ## Volatility
 
-Volatility is the number that determines how confident the model is in one's [[Rating-Calculation#Rating|Rating]]. The higher this value, the less confident the model is in one's rating. More precisely, volatility is the standard deviation in the posterior estimate of a player's rating.
+Volatility is the number that determines how confident the model is in one's [[Rating Calculation Overview#Rating|Rating]]. The higher this value, the less confident the model is in one's rating. More precisely, volatility is the standard deviation in the posterior estimate of a player's rating.
 
 > [!example] 
 > Consider the following:
@@ -18,7 +20,7 @@ Volatility is the number that determines how confident the model is in one's [[R
 >
 > Based on their performance in tournaments thus far, the model is about 68% sure that this player's true rating is between 1850 and 2150 and about 95% sure it is between 1700 and 2300. This estimate will increase in accuracy as they play more matches.
 
-Players start off with a high volatility value which decreases as they compete in tournaments and increases due to inactivity during [[Rating-Decay|decay]].
+Players start off with a high volatility value which decreases as they compete in tournaments and increases due to inactivity during [[Rating Decay|decay]].
 
 ## Ranking & rating calculation
 
