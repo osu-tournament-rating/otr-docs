@@ -10,6 +10,6 @@ Usage of the o!TR API must abide by our [[Applications/API/Terms of Use|Terms of
 
 For setup of the API for development, refer to the following articles:
 
-- [[Getting Started]]
+- [[Applications/API/Getting Started]]
 - [[Configuration]]
 - [[Code Quality]]

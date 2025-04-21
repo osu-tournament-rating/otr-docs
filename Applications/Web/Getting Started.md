@@ -6,7 +6,7 @@ The repository can be viewed [here](https://github.com/osu-tournament-rating/otr
 
 o!TR Web depends on the API for all web requests. By extension, the database will need to be configured as well. Ensure these processes are running in the background before running o!TR Web:
 
-* [[Overview|o!TR API]]
+* [[Applications/API/Overview|o!TR API]]
 * [Node.js](https://nodejs.org/en) (v21 or later)
 
 ## Environment configuration
