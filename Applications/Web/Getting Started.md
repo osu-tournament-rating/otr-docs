@@ -18,15 +18,15 @@ Configure the `.env` file:
 1. Rename `.env.example` to `.env`. It should now look like this:
 
    ```
-OSU_CLIENT_ID=
-AUTH_SECRET=
-OTR_API_ROOT=
+   OSU_CLIENT_ID=
+   AUTH_SECRET=
+   OTR_API_ROOT=
    ```
 
-2. Copy your osu! API v2 client id and set `OSU_CLIENT_ID` equal to that value.
+2. Copy your osu! oAuth client ID and set `OSU_CLIENT_ID` equal to that value.
 
    > [!note] 
-> The API instance must also be using the same client id.
+> The API instance must also be using the same client ID.
 > 
 > This must be the same client used in your running instance of the API.
 
@@ -35,8 +35,7 @@ OTR_API_ROOT=
    > [!warning]
 > This should be a secure string in production. This is the encryption key for session cookies.
 
-5. Set `OTR_API_ROOT` to `http://localhost:5075`. The API runs on port `5075` by default.
-
+4. Set `OTR_API_ROOT` to `http://localhost:5075`. The API runs on port `5075` by default.
 
 Once these values are configured, install the npm packages and run the application:
 
