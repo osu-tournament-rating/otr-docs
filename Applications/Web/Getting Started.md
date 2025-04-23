@@ -16,38 +16,26 @@ o!TR Web comes with a `.env.example` file. This file configures variables that t
 Configure the `.env` file:
   
 1. Rename `.env.example` to `.env`. It should now look like this:
-   
-```   
-REACT_APP_OSU_CLIENT_ID=
-REACT_APP_OSU_CALLBACK_URL=
-REACT_APP_API_URL=
-REACT_APP_ORIGIN_URL=
-SESSION_SECRET=
-NODE_ENV= 
-```
 
-2. Copy your osu! API v2 client id and set `REACT_APP_OSU_CLIENT_ID` equal to that value.
+   ```
+   OSU_CLIENT_ID=
+   AUTH_SECRET=
+   OTR_API_ROOT=
+   ```
 
-> [!note] 
-> The API instance must also be using the same client id.
+2. Copy your osu! OAuth client ID and set `OSU_CLIENT_ID` equal to that value.
+
+   > [!note] 
+> The API instance must also be using the same client ID.
 > 
 > This must be the same client used in your running instance of the API.
 
-3. Set `REACT_APP_OSU_CALLBACK_URL` to `http://localhost:3000/auth`. The web server runs on port `3000` by default.
+3. Set `AUTH_SECRET` to any string that is at least 32 characters in length.
 
-   > [!note] 
-> Ensure this value is included as a callback URL on the osu! API client.
-
-4. Set `REACT_APP_API_URL` to `http://localhost:5075/api/v1`. The API runs on port `5075` by default.
-
-5. Set `REACT_APP_ORIGIN_URL` to `http://localhost:3000`.
-
-6. Set `SESSION_SECRET` to any string that is at least 32 characters in length.
-
-> [!warning]
+   > [!warning]
 > This should be a secure string in production. This is the encryption key for session cookies.
 
-7. Set `NODE_ENV` to `development`.
+4. Set `OTR_API_ROOT` to `http://localhost:5075`. The API runs on port `5075` by default.
 
 Once these values are configured, install the npm packages and run the application:
 
