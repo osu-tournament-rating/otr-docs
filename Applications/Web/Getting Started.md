@@ -23,7 +23,7 @@ Configure the `.env` file:
    OTR_API_ROOT=
    ```
 
-2. Copy your osu! oAuth client ID and set `OSU_CLIENT_ID` equal to that value.
+2. Copy your osu! OAuth client ID and set `OSU_CLIENT_ID` equal to that value.
 
    > [!note] 
 > The API instance must also be using the same client ID.
