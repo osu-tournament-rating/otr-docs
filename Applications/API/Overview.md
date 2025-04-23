@@ -4,7 +4,7 @@ The [o!TR API](https://github.com/osu-tournament-rating/otr-api) is a [.NET](htt
 * [[DataWorkerService]] 
 * OsuApiClient
 
-Usage of the o!TR API must abide by our [[Applications/API/Terms of Use|Terms of Use]]
+Usage of the o!TR API must abide by our [[Terms of Use#API Terms of Use|API Terms of Use]]
 
 # Development
 
