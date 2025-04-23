@@ -21,4 +21,4 @@ These public replicas omit the following information due to security and user pr
 Refer to the [[Disaster Recovery|disaster recovery]] guide for instructions on importing a replica locally.
 
 > [!note]
-> By downloading a public replica, you agree to comply with our [terms of use](https://data.otr.stagec.xyz/).
+> By downloading a public replica, you agree to abide by our [[Terms of Use#Database Terms of Use|Database Terms of Use]].
