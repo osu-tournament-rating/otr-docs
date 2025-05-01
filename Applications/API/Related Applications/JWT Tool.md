@@ -2,28 +2,36 @@
 aliases:
   - API.Utils.Jwt
 ---
-The JWT Tool is a simple CLI utility written in [.NET](https://learn.microsoft.com/en-us/dotnet/) which allows users to generate JSON Web Tokens (JWTs) for use in development of the [[Applications/API/Overview|API]]. This tool also supports reading and decoding JWTs to display their properties, useful for debugging JWTs produced by the API.
+The JWT Tool is a command-line interface utility written in [.NET](https://learn.microsoft.com/en-us/dotnet/). It generates JSON Web Tokens (JWTs) for use in [[Applications/API/Overview|API]] development. The tool also decodes JWTs and displays their properties which is useful for debugging JWTs created by the API.
+
+JWTs are decoded API-side to identify who is making the request and authorize access to endpoints based on the roles they have.
 
 # Usage
 
-The JWT this tool outputs can be used as a `Bearer` authorization token when making requests to API endpoints locally. Thus, it can be plugged into Swagger for convenient local authorization during API development.
+The tool generates JWTs which function as `Bearer` authorization tokens. A common use case is to pass the JWT into Swagger's authorization dialog. This grants access to protected API endpoints (almost all of which require the `user` scope at a minimum).
 
 ![[swagger-bearer-auth-example.png]]
 
 >[!tip]
 >It is highly recommended to point to a pre-configured `appsettings.json` file. This utility can read all necessary properties directly from that file.
+>
+>Note: The file name does not matter so long as the content conforms to the [[Configuration|configuration]].
 
 >[!warning]
->There must be a user present in the `users` database table in order for the tool to work. This user's ID is what you will pass as an argument below.
->
+>The tool will not work unless a valid user ID is passed as an argument. Ensure the `users` table is populated with at least one user before proceeding.
 
-If you have not already done so, configure the API's `appsettings.Development.json` file (see [[Configuration|configuration]]).
+## Prerequisites
+
+- If you have not already done so, configure the API's `appsettings` file (see [[Configuration]]).
 
 To run, navigate to the `API.Utils.JWT` project folder located in the root of the `otr-api` repository. Then run the following command to generate an admin-level authorization token for a given user:
 
 ```shell
 dotnet run -- --subject <userID> --roles admin -c /path/to/your/appsettings.json
 ```
+
+> [!tip]
+> Multiple roles can be listed, e.g. `admin,verifier`
 
 ## Output
 
@@ -41,7 +49,7 @@ The encoded string above is your JWT.
 
 # Reading
 
-To read (decode) a JWT and display its properties, run the following, where `token` is a JWT:
+To read a JWT and display its properties, run the following, where `token` is a JWT:
 
 ```
 dotnet run -- read -t <token>
@@ -49,7 +57,7 @@ dotnet run -- read -t <token>
 
 # Other options
 
-To view all of the program options, see below.
+All program options can be viewed using the below commands.
 
 ## Generation options
 
