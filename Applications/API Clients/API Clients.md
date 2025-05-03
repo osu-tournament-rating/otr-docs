@@ -27,7 +27,7 @@ This document outlines the process for regenerating and deploying API clients fo
 - [npm](https://www.npmjs.com/)
 - [NSwag](https://github.com/RicoSuter/NSwag) (`npm install nswag -g` recommended)
 
-1. Launch the [[Applications/API/Overview|o!TR API]]
+1. Launch the [[Applications/API/Overview|o!TR API]].
 
    > [!note]
    > Ensure that `ASPNETCORE_ENVIRONMENT=Development` is configured to launch swagger.
