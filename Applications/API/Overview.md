@@ -1,4 +1,5 @@
 The [o!TR API](https://github.com/osu-tournament-rating/otr-api) repository contains multiple [.NET](https://learn.microsoft.com/en-us/dotnet/) applications:
+
 - API
 - [[JWT Tool|API.Utils.Jwt]] ("JWT Tool")
 - [[DataWorkerService]]
