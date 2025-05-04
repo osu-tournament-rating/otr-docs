@@ -1,8 +1,8 @@
 # Prerequisites
 
-* Install [git](https://git-scm.com/downloads)
-* Install [.NET 9](https://dotnet.microsoft.com/en-us/download/dotnet/9.0)
-* Install [Docker](https://www.docker.com/)
+- Install [git](https://git-scm.com/downloads)
+- Install [.NET 9](https://dotnet.microsoft.com/en-us/download/dotnet/9.0)
+- Install [Docker](https://www.docker.com/)
 
 ## Setup
 
@@ -22,10 +22,10 @@ dotnet tool install --global dotnet-ef
 
 Follow [[Applications/Database/Setup|this guide]] to set up your local database.
 
-> [!note] 
+> [!note]
 > The database container must be running for the API to function.
 
-> [!tip] 
+> [!tip]
 > The connection string at the end of the database setup guide may be used as the `ConnectionStrings.DefaultConnection` value in `appsettings.Development.json`.
 
 ### Redis
@@ -36,7 +36,7 @@ Run the following command:
 docker run -d -p 6379:6379 --name otr-redis redis
 ```
 
-> [!note] 
+> [!note]
 > The redis container must be running for the API to function.
 
 ### Configuration

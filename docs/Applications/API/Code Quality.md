@@ -8,7 +8,7 @@ To format code to our standards, simply execute the following from the root fold
 dotnet format --severity info
 ```
 
-There are some enforced rules that will *not* be automatically fixed by dotnet-format. If experiencing any issues, detailed descriptions of violations can be found by running the following command from the root folder.
+There are some enforced rules that will _not_ be automatically fixed by dotnet-format. If experiencing any issues, detailed descriptions of violations can be found by running the following command from the root folder.
 
 ```
 dotnet format --severity info --verify-no-changes --verbosity detailed

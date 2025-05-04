@@ -1,6 +1,6 @@
 The o!TR team requires tournaments meet the criteria below before being accepted into our rating system. Please note that the team reserves the final say on whether a specific tournament is deemed fair for acceptance into our system.
 
-> [!note] 
+> [!note]
 > A list of all reviewed tournaments may be viewed [here](https://docs.google.com/spreadsheets/d/1F6yBKfVQqkusVxoIEEBP9j4l0h52D0tPHODGXQqCau8/edit?usp=sharing). More details will be accessible on the website during the beta phase.
 > For more details on the verification review process, see [[Data Verification|this page]].
 
@@ -13,19 +13,22 @@ In order for a tournament to be accepted into the o!TR system for rating calcula
 1. Feature a bracket size of at least Round of 8 double elimination.
 2. Publicly document all match links to an acceptable standard, such as through a public Google sheet.
 3. Not have significant lapses in data, such as missing a full round of matches.
-> [!note]
-> Exceptions are made for very old tournaments for the sake of preservation.
+
+   > [!note]
+   > Exceptions are made for very old tournaments for the sake of preservation.
 
 4. Be organized to an acceptable standard.
-> [!example]
-> Tournaments that have been rigged or have serious foul play issues will not be included.
 
-5. Target an acceptable skill range of players.  
+   > [!example]
+   > Tournaments that have been rigged or have serious foul play issues will not be included.
+
+5. Target an acceptable skill range of players.
+
    - For osu!, the minimum rank restriction is `#150,000+` (`#75,000+` for regional tournaments).
    - For osu!taiko, osu!catch, and osu!mania, there is no restriction on rank range
-   
-   > [!note] 
-> This restriction is present to avoid "farming" of rating in isolated pockets of newer players in the tournament community.
+
+   > [!note]
+   > This restriction is present to avoid "farming" of rating in isolated pockets of newer players in the tournament community.
 
 6. Have a forum post or wiki page hosted on the osu! website.
 
@@ -38,9 +41,10 @@ In order for a tournament to be accepted into the o!TR system for rating calcula
 10. Not feature asynchronous matches.
 
 11. Not stray too far from traditional competitive standards.
-> [!example]
-> - [BATBALL's Gimmick Emporium](https://osu.ppy.sh/community/forums/topics/1767170?n=1) is considered barely acceptable despite restrictions on how many maps each player may win for their team.
-> - [Pokémon Battle Tournament](https://osu.ppy.sh/community/forums/topics/1790791?n=1) is considered barely unacceptable due to the special HP / targeting rules.
+    > [!example]
+    >
+    > - [BATBALL's Gimmick Emporium](https://osu.ppy.sh/community/forums/topics/1767170?n=1) is considered barely acceptable despite restrictions on how many maps each player may win for their team.
+    > - [Pokémon Battle Tournament](https://osu.ppy.sh/community/forums/topics/1790791?n=1) is considered barely unacceptable due to the special HP / targeting rules.
 
 > [!note]
 > Tournaments do not need to be badge-eligible in order to be accepted.
@@ -58,17 +62,19 @@ When submitting a tournament, follow these steps:
 
 1. Ensure the tournament is finished.
 2. Gather all match links from bracket stages (and group stages if applicable).
-> [!danger] 
-> Never submit links from qualifiers, tryouts, show matches, or asynchronous matches.
+
+   > [!danger]
+   > Never submit links from qualifiers, tryouts, show matches, or asynchronous matches.
 
    > [!note]
    > There is no need to worry about warmups or other erroneous data in otherwise valid matches during the initial submission.
 
-3. Gather all beatmap IDs pooled in the tournament, *including qualifiers* and group stages.
-> [!warning] 
-> Remember to use the beatmap ID rather than the beatmapset ID. For example, enter 75 rather than 1 for [this beatmap](https://osu.ppy.sh/beatmapsets/1#osu/75). 
+3. Gather all beatmap IDs pooled in the tournament, _including qualifiers_ and group stages.
 
-   > [!note] 
+   > [!warning]
+   > Remember to use the beatmap ID rather than the beatmapset ID. For example, enter 75 rather than 1 for [this beatmap](https://osu.ppy.sh/beatmapsets/1#osu/75).
+
+   > [!note]
    > Beatmap IDs are used as part of automated checks to filter out warmups from match data.
 
 4. Enter the above data along with requested general tournament information on the [website submission form](https://otr.stagec.xyz/submit).
@@ -76,13 +82,14 @@ When submitting a tournament, follow these steps:
 Additionally, keep the following in mind for tiered tournaments or tournaments that feature multiple divisions:
 
 > [!warning]
->  Carefully check how the tournament defines the word "tier". The o!TR team considers "tiered" tournaments to be **tournaments where multiple rank ranges are participating within the same bracket** (usually on the same team). In cases where multiple brackets are used, we use the term **division**.
+> Carefully check how the tournament defines the word "tier". The o!TR team considers "tiered" tournaments to be **tournaments where multiple rank ranges are participating within the same bracket** (usually on the same team). In cases where multiple brackets are used, we use the term **division**.
 
 1. Tiered tournaments must be submitted as a single tournament. In this case, for the rank range field, denote the rank as the top-end rank restriction for the tournament.
 2. For divisional tournaments, submit them as separate tournaments - **one submission per bracket**. Append "Division 1", "Division 2", etc. to the tournament's title when submitting.
 
-> [!example] 
+> [!example]
 > For example, say "Test Tournament" has 2 divisions, one that is open rank and one that is for players #1,000+.
+>
 > - The first submission would be titled "Test Tournament Division 1" with a rank of "1" on the submission form.
 > - The second division would be titled "Test Tournament Division 2" with a rank range of "1000" on the submission form.
 
@@ -108,12 +115,12 @@ If a tournament uses inconsistent abbreviations, please inform an o!TR team memb
 
 We know how time-consuming it is to gather links. There's a few methods we use for this:
 
-* Contact the tournament host, spreadsheet owner, referee, or anyone else who may have access to that tournament's match data. Kindly ask them for a list of links or match ids.
-* Assuming the data may be on a Google sheet, an alternative is to use the `=IMPORTRANGE()` function on the cells with the match links to import them to a new sheet.
-   > [!info] 
-   > You'll then have a list of cells which each include a hyperlink. From here, you can extract the links with a script detailed in this [Stack Overflow answer](https://stackoverflow.com/a/67206954).
+- Contact the tournament host, spreadsheet owner, referee, or anyone else who may have access to that tournament's match data. Kindly ask them for a list of links or match ids.
+- Assuming the data may be on a Google sheet, an alternative is to use the `=IMPORTRANGE()` function on the cells with the match links to import them to a new sheet.
+  > [!info]
+  > You'll then have a list of cells which each include a hyperlink. From here, you can extract the links with a script detailed in this [Stack Overflow answer](https://stackoverflow.com/a/67206954).
 
-> [!tip] 
+> [!tip]
 > When in doubt, have the tournament's spreadsheet maintainers contact us or ask in our [[Contact#Quick links|Discord Server]].
 
 ### How can invalid data be flagged for review?

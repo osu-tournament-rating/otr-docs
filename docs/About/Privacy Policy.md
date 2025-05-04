@@ -8,31 +8,33 @@ By logging in to our platform, you are consenting to the data which is collected
 
 ## Information
 
->[!important]
->All data is associated with your osu! profile. Player data cannot exist in our system without an osu! profile to attach it to.
+> [!important]
+> All data is associated with your osu! profile. Player data cannot exist in our system without an osu! profile to attach it to.
 
 ### Players
 
 The following information is stored if any submitted tournament contains any matches by which you are a participant:
 
 - Publicly-available osu! profile information, such as:
-	- ID
-	- Username
-	- Country code
-	- Performance points
-	- Global and country ranks
+  - ID
+  - Username
+  - Country code
+  - Performance points
+  - Global and country ranks
 - Publicly-available information provided by [osu!track](https://ameobea.me/osutrack/), such as historical global rank
 
 Using this information, we are able to build a network of:
+
 - Which osu! tournaments, matches, and games you have participated in
 - Which scores you have set in these games
 - Various metrics regarding the above, including:
-	- Your performance in tournaments
-	- Who you play tournaments with the most frequently
+  - Your performance in tournaments
+  - Who you play tournaments with the most frequently
 
 ### Users
 
 We associate the following information with your player profile after you log into our platform:
+
 - Last login date
 - Who you follow on osu! (coming soon)
 - The tournament data you have submitted to us

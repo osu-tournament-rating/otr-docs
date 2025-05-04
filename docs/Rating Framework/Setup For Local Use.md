@@ -1,7 +1,6 @@
+This is all giga WIP
 
-This is all giga WIP 
-
-Using a placeholder name for now until I come up with a good description of the changes. 
+Using a placeholder name for now until I come up with a good description of the changes.
 
 Why:
 

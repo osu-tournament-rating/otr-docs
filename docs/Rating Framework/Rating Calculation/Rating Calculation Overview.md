@@ -2,6 +2,7 @@
 tags:
   - math
 ---
+
 o!TR primarily uses the [OpenSkill algorithm](https://jmlr.csail.mit.edu/papers/volume12/weng11a/weng11a.pdf), specifically using the Plackett-Luce ranking model. The implementation source code can be found [here](https://crates.io/crates/openskill/0.0.1). In short, OpenSkill is a system similar to the [Elo](https://en.wikipedia.org/wiki/Elo_rating_system) or [Glicko/Glicko-2](https://en.wikipedia.org/wiki/Glicko_rating_system) rating systems used in games like chess. It assigns each player an approximate rating and rating deviation, where a higher rating deviation means more opportunity for the rating to increase or decrease. Rating updates are performed based on relative performance of players in a match.
 
 # Rating
@@ -14,11 +15,11 @@ The [[Initial Ratings|initial rating]] each player is assigned is not nearly as 
 
 Volatility is the number that determines how confident the model is in one's [[Rating Calculation Overview#Rating|Rating]]. The higher this value, the less confident the model is in one's rating. More precisely, volatility is the standard deviation in the posterior estimate of a player's rating.
 
-> [!example] 
+> [!example]
 > Consider the following:
-> 
-> * Rating is 2000
-> * Volatility is 150
+>
+> - Rating is 2000
+> - Volatility is 150
 >
 > Based on their performance in tournaments thus far, the model is about 68% sure that this player's true rating is between 1850 and 2150 and about 95% sure it is between 1700 and 2300. This estimate will increase in accuracy as they play more matches.
 
@@ -35,7 +36,6 @@ Each player receives a single rating update for each match that they play. Howev
 2. Feed the rankings and rating snapshots into the model (see below for more details).
 
 3. Store the results (changes in rating & volatility) for lookup later. If a player played in the match but did not play in this game, the changes for the game are marked as zero.
-
 
 The results are then averaged over all games to obtain an overall rating and volatility change, which we call "rating change A". However, using these numbers alone would cause specialists who play only a few games (and perform well) to be over-rated compared to generalists. Thus, a second set of overall rating changes are also computed, where not playing a game is now considered tying for last. We call these numbers "rating change B."
 
@@ -56,9 +56,9 @@ Volatility changes are averaged similarly but as a quadratic mean instead.
 
 ### Rating change formulas
 
-The rating system itself is based on OpenSkill, which is a Bayesian approximation algorithm. Without going too deep into details, the algorithm assigns each player a rating $\mu$ and volatility $\sigma$, which together describe a distribution of predicted "true ratings" for that player. 
+The rating system itself is based on OpenSkill, which is a Bayesian approximation algorithm. Without going too deep into details, the algorithm assigns each player a rating $\mu$ and volatility $\sigma$, which together describe a distribution of predicted "true ratings" for that player.
 
-When players compete against each other, a formula is used to calculate the probability of various outcomes (that is, of various relative rankings). The players' $\mu$ and $\sigma$ values are then adjusted based on how "surprising" the match outcome was. 
+When players compete against each other, a formula is used to calculate the probability of various outcomes (that is, of various relative rankings). The players' $\mu$ and $\sigma$ values are then adjusted based on how "surprising" the match outcome was.
 
 In o!TR's case, this formula comes from the Plackett-Luce model, whose fundamental assumption is "irrelevance of alternatives". Specifically, Plackett-Luce is based on the idea that player A outperforms player B with the same probability, no matter who else is in the lobby. While this assumption is not completely true (as teammates may influence how often one participates), Plackett-Luce is still a model used in real-world ranking systems like poker standings where this assumption does not hold.
 
