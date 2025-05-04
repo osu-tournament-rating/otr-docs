@@ -1,3 +1,4 @@
 [submodule "quartz"]
 	path = quartz
-	url = https://github.com/jackyzha0/quartz.git
+	url = https://github.com/osu-tournament-rating/otr-docs.git
+	branch = quartz/v4
