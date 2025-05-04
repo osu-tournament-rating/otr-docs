@@ -16,7 +16,7 @@ The easiest way to lint your files is by using the [markdownlint plugin](https:/
 
 ![[Pasted image 20250504170904.png]]
 
-Below is a non-exhaustive list of rules to follow when writing markdown.
+Below is a non-exhaustive list of rules to follow when writing Markdown.
 
 ### Headings
 
@@ -52,7 +52,7 @@ Below is a non-exhaustive list of rules to follow when writing markdown.
 ### Links and Aliases
 
 - When linking using `[[wikilink]]` syntax, if used in the middle of a sentence, alias the link to fit the flow of the sentence. For example, `[[Team]]` is often aliased as `team` to maintain sentence structure. Links can be aliased like so: `[[Team|team]]`.
-    - This applies to capitalization and wording of the link entirely. Consider the following example: `"Read our [[Setup For Local Use|setup guide]] for more information."`
+  - This applies to capitalization and wording of the link entirely. Consider the following example: `"Read our [[Setup For Local Use|setup guide]] for more information."`
 
 ## Tags
 
