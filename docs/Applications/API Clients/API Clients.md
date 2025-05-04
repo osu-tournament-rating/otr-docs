@@ -29,9 +29,9 @@ This document outlines the process for regenerating and deploying API clients fo
 
 1. Launch the [[Applications/API/Overview|o!TR API]].
 
-   > [!note]
-   > Ensure that `ASPNETCORE_ENVIRONMENT=Development` is configured to launch swagger.
-   > See the [[Applications/API/Getting Started#Environment variables|setup documentation]] for more information.
+> [!note]
+> Ensure that `ASPNETCORE_ENVIRONMENT=Development` is configured to launch swagger.
+> See the [[Applications/API/Getting Started#Environment variables|setup documentation]] for more information.
 
 2. From the Swagger UI, download the `swagger.json` file and replace the existing file in the root directory of the repository.
 

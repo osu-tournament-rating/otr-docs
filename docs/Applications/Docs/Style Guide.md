@@ -1,0 +1,37 @@
+Our docs are written using [Obsidian](https://obsidian.md/). While we do not rely on any plugins, we do utilize [markdownlint](https://github.com/DavidAnson/markdownlint) to check over our formatting before merging. Please ensure the below style rules are followed while working on the docs.
+
+### Linting
+
+The easiest way to lint your files is by using the [markdownlint plugin](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint) for [VS Code](https://code.visualstudio.com/). Then, from VS Code, run `Ctrl+Shift+P` -> `Lint all Markdown files in the workspace with markdownlint`. This will generate a report of what needs to be changed.
+
+![[Pasted image 20250504170904.png]]
+
+Below is a non-exhaustive list of rules to follow when writing markdown.
+
+### Headings
+
+- There should never be any `#`-level headings in any document.
+- The largest heading must be `##`.
+- There must not be any headings smaller than `##` without a parent heading.
+- Each subheading must increment by exactly one step (`##` -> `###`).
+- There must be one empty line before and after each heading.
+- There must always be plain text at the top of the file before introducing a `##` heading.
+
+### Lists
+
+- All list items containing independent clauses must end with a period.
+- All lists must have a blank line surrounding them.
+- Nested lists are okay.
+
+#### Ordered Lists
+
+- Ordered lists must be in `1. 1. 1.` format.
+
+#### Unordered Lists
+
+- Unordered list items must use dashes (`-`) in front of line items.
+
+### Links and Aliases
+
+- When linking using `[[wikilink]]` syntax, if used in the middle of a sentence, alias the link to fit the flow of the sentence. For example, `[[Team]]` is often aliased as `team` to maintain sentence structure. Links can be aliased like so: `[[Team|team]]`.
+	- This applies to capitalization and wording of the link entirely. Consider the following example: `"Read our [[Setup For Local Use|setup guide]] for more information."`
