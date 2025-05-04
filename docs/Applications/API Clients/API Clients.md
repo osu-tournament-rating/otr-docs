@@ -1,5 +1,7 @@
-#internal
-
+---
+tags:
+  - internal
+---
 The o!TR team maintains auto-generated wrappers which enable connectivity to the [[Applications/API/Overview|o!TR API]].
 
 These clients are hosted on GitHub [here](https://github.com/osu-tournament-rating/otr-api-clients).

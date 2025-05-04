@@ -1,4 +1,7 @@
-#math 
+---
+tags:
+  - math
+---
 
 Starting ratings are based on the closest-known rank according to [osu!track](https://github.com/Ameobea/osutrack-api), or your most recent global rank if none is known. The initial placement is based on the closest point in time relative to when you started playing tournaments. 
 

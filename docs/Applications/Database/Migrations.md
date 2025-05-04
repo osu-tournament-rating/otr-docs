@@ -1,5 +1,7 @@
-#internal 
-
+---
+tags:
+  - internal
+---
 Migrations are handled by [Entity Framework](https://learn.microsoft.com/en-us/aspnet/entity-framework). These are auto-generated files and configurations which enable code-first changes to the database.
 
 # Creating / Editing Entities

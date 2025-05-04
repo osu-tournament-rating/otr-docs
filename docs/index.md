@@ -1,3 +1,6 @@
+---
+title: Home
+---
 Welcome to the official o!TR documentation! Here you can learn about our APIs, algorithms, how to contribute, and more.
 
 # Overview
