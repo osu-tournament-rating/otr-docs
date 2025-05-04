@@ -1,21 +1,13 @@
-name: Build documentation
+name: Deploy
 
 on:
   push:
-    branches: ["master"]
-
-permissions:
-  id-token: write
-  pages: write
-
-env:
-  INSTANCE: ${{ secrets.INSTANCE }}
-  ARTIFACT: ${{ secrets.ARTIFACT }}
-  DOCKER_VERSION: ${{ secrets.DOCKER_VERSION }}
+    branches:
+      - master
 
 jobs:
   build:
-    name: Build & Publish
+    name: Build and publish
     runs-on: ubuntu-latest
 
     steps:
@@ -25,20 +17,19 @@ jobs:
       - name: Login to DockerHub
         uses: docker/login-action@v3
         with:
-          username: stagecodes
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Build and Push Docker Image
-        uses: docker/build-push-action@v3
+        uses: docker/build-push-action@v6
         with:
           push: true
-          tags: stagecodes/otr-docs-prod:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKER_IMAGE_NAME }}:latest
 
   deploy:
     name: Deploy
-    environment: Production
-    needs: build
     runs-on: ubuntu-latest
+
     steps:
       - name: Deploy
         uses: appleboy/ssh-action@master
@@ -47,7 +38,8 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
           script: |
-            docker stop otr-docs || true
-            docker rm otr-docs || true
-            docker pull stagecodes/otr-docs-prod:latest
-            docker run -d -p 3800:80 --restart always --name otr-docs stagecodes/otr-docs-prod:latest
+            docker pull ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKER_IMAGE_NAME }}
+            docker stop ${{ secrets.DOCKER_IMAGE_NAME }} || true
+            docker rm ${{ secrets.DOCKER_IMAGE_NAME }} || true
+            docker run -d -p 8080:8080 --restart always --name ${{ secrets.DOCKER_IMAGE_NAME }} \
+            ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKER_IMAGE_NAME }}:latest
