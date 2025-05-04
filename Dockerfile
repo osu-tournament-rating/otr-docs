@@ -1,21 +1,14 @@
-FROM registry.jetbrains.team/p/writerside/builder/writerside-builder:241.16003 as build
+FROM node:22-slim AS builder
+WORKDIR /usr/src/app
 
-ARG INSTANCE=docs/otr
+RUN ls
+COPY ./quartz/package.json ./quartz/package-lock.json* ./
+RUN npm ci
 
-RUN mkdir /opt/sources
+FROM node:22-slim
+WORKDIR /usr/src/app
+COPY --from=builder /usr/src/app/ /usr/src/app/
+COPY ./quartz .
+COPY ./docs ./content
 
-WORKDIR /opt/sources
-
-ADD docs ./docs
-
-RUN export DISPLAY=:99 && \
-Xvfb :99 & \
-/opt/builder/bin/idea.sh helpbuilderinspect -source-dir /opt/sources --product $INSTANCE --runner other --output-dir /opt/wrs-output/
-
-WORKDIR /opt/wrs-output
-
-RUN unzip webHelpOTR2-all.zip -d /opt/wrs-output/unzipped-artifact
-
-FROM httpd:2.4 as http-server
-
-COPY --from=build /opt/wrs-output/unzipped-artifact/ /usr/local/apache2/htdocs/
+CMD ["npx", "quartz", "build", "--serve"]
