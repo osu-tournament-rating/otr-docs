@@ -1,6 +1,7 @@
 ---
 title: Home
 ---
+
 Welcome to the official osu! Tournament Rating (o!TR) documentation! Here you can learn about our API, applications, algorithms, how to contribute, and more.
 
 # Overview
@@ -35,7 +36,7 @@ All collected match data and rating histories are accessible via the o!TR websit
 
 ### Fundamental interpretation
 
-There are other third-party tools which analyze tournament players' match performances. For example, [Elitebotix (ETX)](https://osu.ppy.sh/users/31050083) estimates a star rating level that one can play comfortably, and [Skill Issue (SIP)](https://osu.ppy.sh/community/forums/topics/1891677?n=1) measures relative ability across various skills. o!TR is specifically designed to gauge competitive performance. 
+There are other third-party tools which analyze tournament players' match performances. For example, [Elitebotix (ETX)](https://osu.ppy.sh/users/31050083) estimates a star rating level that one can play comfortably, and [Skill Issue (SIP)](https://osu.ppy.sh/community/forums/topics/1891677?n=1) measures relative ability across various skills. o!TR is specifically designed to gauge competitive performance.
 
 In contrast to both ETX and SIP, o!TR intentionally does not take map difficulty into account. One effect of this is that players with significantly better o!TR ranking compared to ETX or SIP may likely be playing in tournaments significantly below their skill level.
 
