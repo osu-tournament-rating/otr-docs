@@ -1,6 +1,16 @@
 Our docs are written using [Obsidian](https://obsidian.md/). While we do not rely on any plugins, we do utilize [markdownlint](https://github.com/DavidAnson/markdownlint) to check over our formatting before merging. Please ensure the below style rules are followed while working on the docs.
 
-### Linting
+## Obsidian Settings
+
+The following Obsidian settings are recommended to ensure formatting is applied correctly:
+
+| Path                                    | Value | Enforced |
+| --------------------------------------- | ----- | -------- |
+| Editor > Display > Show line numbers    | true  |          |
+| Editor > Behavior > Indent using tabs   | false | Yes      |
+| Editor > Behavior > Indent visual width | 4     |          |
+
+## Linting
 
 The easiest way to lint your files is by using the [markdownlint plugin](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint) for [VS Code](https://code.visualstudio.com/). Then, from VS Code, run `Ctrl+Shift+P` -> `Lint all Markdown files in the workspace with markdownlint`. This will generate a report of what needs to be changed.
 
@@ -31,7 +41,26 @@ Below is a non-exhaustive list of rules to follow when writing markdown.
 
 - Unordered list items must use dashes (`-`) in front of line items.
 
+### Code blocks
+
+- All multi-line code blocks must have one blank line before and after them.
+
+### Files
+
+- Each file must have one blank line at the end.
+
 ### Links and Aliases
 
 - When linking using `[[wikilink]]` syntax, if used in the middle of a sentence, alias the link to fit the flow of the sentence. For example, `[[Team]]` is often aliased as `team` to maintain sentence structure. Links can be aliased like so: `[[Team|team]]`.
-	- This applies to capitalization and wording of the link entirely. Consider the following example: `"Read our [[Setup For Local Use|setup guide]] for more information."`
+    - This applies to capitalization and wording of the link entirely. Consider the following example: `"Read our [[Setup For Local Use|setup guide]] for more information."`
+
+## Tags
+
+All tags must be listed as file properties as follows:
+
+```
+---
+tags:
+  - math
+---
+```
