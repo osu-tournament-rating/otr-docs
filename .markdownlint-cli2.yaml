@@ -9,3 +9,8 @@ config:
   no-blanks-blockquote: false
 
 gitignore: true
+globs:
+  - "./docs/**/*.md"
+ignores:
+  - "./quartz/"
+  - ".aider*.md"
