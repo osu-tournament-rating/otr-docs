@@ -14,7 +14,7 @@ The following Obsidian settings are recommended to ensure formatting is applied 
 
 The easiest way to lint your files is by using the [markdownlint plugin](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint) for [VS Code](https://code.visualstudio.com/). Then, from VS Code, run `Ctrl+Shift+P` -> `Lint all Markdown files in the workspace with markdownlint`. This will generate a report of what needs to be changed.
 
-![[Pasted image 20250504170904.png]]
+![[vscode-markdownlint-example.png]]
 
 Below is a non-exhaustive list of rules to follow when writing Markdown.
 
