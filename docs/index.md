@@ -1,7 +1,6 @@
 ---
 title: Home
 ---
-
 Welcome to the official osu! Tournament Rating (o!TR) documentation! Here you can learn about our API, applications, algorithms, how to contribute, and more.
 
 ## Overview
