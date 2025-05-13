@@ -29,7 +29,7 @@ Using this information, we are able to build a network of:
 - Which scores you have set in these games
 - Various metrics regarding the above, including:
     - Your performance in tournaments
-    - Who you play tournaments with the most frequently
+    - Who you play tournaments with most frequently
 
 ### Users
 

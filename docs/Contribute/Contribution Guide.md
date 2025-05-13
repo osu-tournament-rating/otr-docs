@@ -4,7 +4,7 @@ If you've never made an open-source contribution before, here's how:
 
 ## Prerequisites
 
-1. Install [`git`](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git). If you're on MacOS or Linux, `git` is already installed. If on Windows, it's a great idea to follow all of our instructions using git bash as that terminal supports Linux commands.
+1. Install [`git`](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git). If you're on MacOS or Linux, `git` is already installed. If on Windows, it's a great idea to follow all of our instructions using Git Bash, as that terminal supports Linux commands.
 2. If needed, install a `git` helper, such as [GitHub Desktop](https://github.com/apps/desktop).
 3. Create a [GitHub account](https://github.com/signup).
 
@@ -24,6 +24,6 @@ If there is an issue on our board with no assignee, feel free to pick it up by l
 
 When creating a pull request, please ensure the following (where applicable):
 
-- The changes made have been double checked and thoroughly tested.
+- The changes made have been double-checked and thoroughly tested.
 - Altered code is inspected for quality issues, bugs, and possible performance issues.
 - The pull request title and description are clear.

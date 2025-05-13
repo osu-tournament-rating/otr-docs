@@ -30,7 +30,7 @@ Below is a non-exhaustive list of rules to follow when writing Markdown.
 ### Lists
 
 - All list items containing independent clauses must end with a period.
-- All lists must have a blank line surrounding them.
+- All lists must have a blank line before and after them.
 - Nested lists are okay.
 
 #### Ordered Lists
