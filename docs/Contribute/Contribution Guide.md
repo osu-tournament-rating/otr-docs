@@ -1,32 +1,29 @@
-Those who wish to make open-source contributions to any o!TR repository must adhere to this contribution guide.
+The [[Team|team]] is more than happy to accept contributions from anyone! This article covers how to contribute effectively and defines what the team expects from all contributors.
 
-# Claiming an Issue
+If you've never made an open-source contribution before, here's how:
 
-If you're a first-time contributor, we encourage you to start by working on low-priority tasks. This helps you familiarize yourself with the project without the pressure of tackling more urgent issues.
+## Prerequisites
 
-Contributors with a history of consistent code submissions are welcome to take on medium or high-priority issues. Critical issues, however, should be reserved for the o!TR team.
+1. Install [`git`](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git). If you're on MacOS or Linux, `git` is already installed. If on Windows, it's a great idea to follow all of our instructions using Git Bash, as that terminal supports Linux commands.
+2. If needed, install a `git` helper, such as [GitHub Desktop](https://github.com/apps/desktop).
+3. Create a [GitHub account](https://github.com/signup).
+
+## Forks & Pull Requests
+
+1. Browse our repositories [here](https://github.com/osu-tournament-rating).
+2. [Fork](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo#forking-a-repository) any repositories you wish to contribute to.
+3. Clone the forked repository using [these instructions](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo#cloning-your-forked-repository).
+4. Once cloned, create a new feature branch (e.g. `feature/my-cool-change`). Make your code changes, then [commit](https://www.w3schools.com/git/git_commit.asp) and [push](https://docs.github.com/en/get-started/using-git/pushing-commits-to-a-remote-repository) those changes to your fork.
+5. Open a [pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork). This will allow the [[Team|team]] to review your code before merging any changes. Once your code is merged, celebrate! You just made o!TR better for everyone.
+
+## Claiming an Issue
+
+If there is an issue on our board with no assignee, feel free to pick it up by leaving a comment on the issue stating your intention to work on it. Please provide updates on your progress by commenting on the issue, especially if you decide to stop working on it.
 
 ## Pull Requests
 
-The o!TR team expects the following from pull request (PR) authors:
+When creating a pull request, please ensure the following (where applicable):
 
-1. Titles must be clear and concise.
-2. Changes must be listed in the description box.
-3. If a PR closes a specific branch, include this in the description: `closes #x`.
-4. All PRs must target the master branch.
-
-## Dos and Don'ts
-
-### Do
-
-1. Write descriptive PRs.
-2. Get approval to work on an issue or new feature (even if it's not currently on the board) from an o!TR team member.
-3. Create new issues for the item you want to work on, if approved.
-4. Write small PRs (touching 5-10 files at most).
-
-### Don't
-
-1. Create PRs without consulting the o!TR team.
-2. Leave the description field blank.
-3. Claim high priority issues without communicating with the o!TR team / as a first-time contributor.
-4. Make database schema changes without approval from the o!TR team.
+- The changes made have been double-checked and thoroughly tested.
+- Altered code is inspected for quality issues, bugs, and possible performance issues.
+- The pull request title and description are clear.
