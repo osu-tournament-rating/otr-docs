@@ -4,11 +4,10 @@ Our docs are written using [Obsidian](https://obsidian.md/). While we do not rel
 
 The following Obsidian settings are recommended to ensure formatting is applied correctly:
 
-| Path                                    | Value | Enforced |
-| --------------------------------------- | ----- | -------- |
-| Editor > Display > Show line numbers    | true  |          |
-| Editor > Behavior > Indent using tabs   | false | Yes      |
-| Editor > Behavior > Indent visual width | 4     |          |
+| Path                                  | Value | Enforced |
+| ------------------------------------- | ----- | -------- |
+| Editor > Display > Show line numbers  | true  |          |
+| Editor > Behavior > Indent using tabs | false | Yes      |
 
 ## Linting
 
@@ -51,8 +50,8 @@ Below is a non-exhaustive list of rules to follow when writing Markdown.
 
 ### Links and Aliases
 
-- When linking using `[[wikilink]]` syntax, if used in the middle of a sentence, alias the link to fit the flow of the sentence. For example, `[[Team]]` is often aliased as `team` to maintain sentence structure. Links can be aliased like so: `[[Team|team]]`.
-    - This applies to capitalization and wording of the link entirely. Consider the following example: `"Read our [[Setup For Local Use|setup guide]] for more information."`
+- When using `[[wikilink]]` syntax to include links in the middle of a sentence, alias them to match the surrounding wording. For example, `[[Team]]` is often aliased as `team` to maintain sentence structure. Links can be aliased like so: `[[Team|team]]`.
+    - This applies to both capitalization and wording of the entire link. Consider the following example: `"Read our [[Setup For Local Use|setup guide]] for more information."`
 
 ## Tags
 
