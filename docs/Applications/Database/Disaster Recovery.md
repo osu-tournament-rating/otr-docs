@@ -24,9 +24,6 @@ Backup the database into a compressed archive.
  -d postgres | gzip > /my/dir/dump.gz
  ```
 
-> [!warning]
-> gzip needs to be present in the host machine.
-
 #### Restore the database
 
 > [!danger]
@@ -65,8 +62,5 @@ Overwrite your database with the dump:
  -U postgres \
  -d postgres
  ```
-
-> [!warning]
-> gunzip needs to be present in the host machine.
 
 Your database should now contain all of the data from the dump file.
