@@ -14,25 +14,13 @@ docker volume create otr-db
 
 Then, start the database:
 
-> [!Powershell]-
->
-> ```
-> docker run `
-> -d `
-> -p 5432:5432 `
-> -v otr-db:/var/lib/postgresql/data `
-> -e POSTGRES_PASSWORD=password postgres
-> ```
-
-> [!Bash]-
->
-> ```
-> docker run \
-> -d \
-> -p 5432:5432 \
-> -v otr-db:/var/lib/postgresql/data \
-> -e POSTGRES_PASSWORD=password postgres
-> ```
+ ```
+ docker run \
+ -d \
+ -p 5432:5432 \
+ -v otr-db:/var/lib/postgresql/data \
+ -e POSTGRES_PASSWORD=password postgres
+ ```
 
 ## Connection
 
