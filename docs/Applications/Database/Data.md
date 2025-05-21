@@ -17,7 +17,7 @@ These public replicas omit the following information due to security and user pr
 1. Admin notes
 2. Audit logs (tracks the state of entities over time)
 3. Logs (general purpose logs)
-4. OAuth clients
+4. API clients
 5. User friends (who an osu! user is following)
 6. Users (of the o!TR platform)
 
