@@ -17,7 +17,6 @@ Migrations must be created and tested when any of the following are modified:
 
 To create a new migration, run the following in the root directory of the repository.
 
-
  ```
  dotnet ef migrations add [Entity_ChangesMade] \
  --project Database \

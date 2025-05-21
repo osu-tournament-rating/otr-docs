@@ -25,7 +25,7 @@ Backup the database into a compressed archive.
  ```
 
 > [!warning]
-> gzip needs to be present in the host machine. 
+> gzip needs to be present in the host machine.
 
 #### Restore the database
 
@@ -67,6 +67,6 @@ Overwrite your database with the dump:
  ```
 
 > [!warning]
-> gunzip needs to be present in the host machine. 
+> gunzip needs to be present in the host machine.
 
 Your database should now contain all of the data from the dump file.
