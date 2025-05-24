@@ -51,7 +51,7 @@ Volatility changes are calculated similarly but use a quadratic mean instead.
 
 > [!note]
 > This part of the process reflects the fact that match performance is not only determined by raw scores, but also the degree to which players must "fill in" for their team members. The weighting of $90\%$:$10\%$ is preliminary and may be altered to a dynamic ratio depending on the total number of players in the match. The same is true for the "game correction constant" $0.5$ in the exponent.
-> 
+>
 > Other additional weighting factors may be added based on community feedback in the future. For example, official tournaments such as the osu! world cups may be given more impact if the tournament scene deems it healthier to emphasize those high-stakes environments.
 
 ## Further details
