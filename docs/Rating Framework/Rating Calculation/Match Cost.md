@@ -6,7 +6,7 @@ Although not used in rating calculations directly, o!TR does keep track of match
 
 # Formula
 
-The match cost formula is inspired by Bathbot's formula, simplified to remove factors that are not relevant for our purposes. For each map played, each player receives a map score between 0.5 and 1.5, specifically
+The match cost formula is inspired by [Bathbot](https://github.com/MaxOhn/Bathbot)'s formula, simplified to remove factors that are not relevant for our purposes. For each map played, each player receives a map score between $0.5$ and $1.5$, specifically
 $$
 \begin{equation}
     \text{map score} = 0.5 + \text{normcdf}\left(\frac{\text{score} - \text{avg}(\text{scores on map})}{\text{stddev}(\text{scores on map})}\right).
@@ -19,7 +19,7 @@ $$
 \end{equation}
 $$
 
-Thus, match cost values will range from 0.5 to 1.95, with a typical value being around 1.2.
+Thus, match cost values will range from $0.5$ to $1.95$, with a typical value being around $1.2$.
 
 > [!note]
 > Some other match cost formulas include bonus factors for playing in tiebreaker or playing a variety of different mods during a match. We do not include such factors so that our formula primarily reflects relative performance rather than contribution towards winning. In our formula, the winner of a 1v1 match will always have a higher match cost, even if they won their maps by much smaller margins.

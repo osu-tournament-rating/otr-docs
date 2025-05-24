@@ -3,9 +3,9 @@ tags:
   - math
 ---
 
-o!TR primarily uses the [OpenSkill algorithm](https://jmlr.csail.mit.edu/papers/volume12/weng11a/weng11a.pdf), specifically using the Plackett-Luce ranking model. The implementation source code can be found [here](https://crates.io/crates/openskill/0.0.1). In short, OpenSkill is a system similar to the [Elo](https://en.wikipedia.org/wiki/Elo_rating_system) or [Glicko/Glicko-2](https://en.wikipedia.org/wiki/Glicko_rating_system) rating systems used in games like chess. It assigns each player an approximate rating and rating deviation, where a higher rating deviation means more opportunity for the rating to increase or decrease. Rating updates are performed based on relative performance of players in a match.
+o!TR primarily uses the [OpenSkill algorithm](https://jmlr.csail.mit.edu/papers/volume12/weng11a/weng11a.pdf), specifically using the Plackett-Luce ranking model. The implementation source code can be found [here](https://github.com/osu-tournament-rating/otr-processor/blob/master/src/model/otr_model.rs). In short, OpenSkill is a system similar to the [Elo](https://en.wikipedia.org/wiki/Elo_rating_system) or [Glicko/Glicko-2](https://en.wikipedia.org/wiki/Glicko_rating_system) rating systems used in games like chess. It assigns each player an approximate rating and volatility, where a higher volatility means more opportunity for the rating to increase or decrease. Rating updates are performed based on relative performance of players in a match.
 
-# Rating
+## Rating
 
 Rating (a.k.a. Tournament Rating or TR) is the number used to quantify an individual's tournament performance. This number, combined with [[Rating Calculation Overview#Volatility|volatility]], is used by the OpenSkill model to determine how likely someone is to come out ahead against someone else in a tournament match. Rating changes are more drastic when lower-rated players perform better than higher-rated players.
 
@@ -18,10 +18,10 @@ Volatility is the number that determines how confident the model is in one's [[R
 > [!example]
 > Consider the following:
 >
-> - Rating is 2000
-> - Volatility is 150
+> - Rating is $2000$
+> - Volatility is $150$
 >
-> Based on their performance in tournaments thus far, the model is about 68% sure that this player's true rating is between 1850 and 2150 and about 95% sure it is between 1700 and 2300. This estimate will increase in accuracy as they play more matches.
+> Based on their performance in tournaments thus far, the model is about $68\%$ sure that this player's true rating is between $1850$ and $2150$ and about $95\%$ sure it is between $1700$ and $2300$. This estimate will increase in accuracy as they play more matches.
 
 Players start off with a high volatility value which decreases as they compete in tournaments and increases due to inactivity during [[Rating Decay|decay]].
 
@@ -39,18 +39,20 @@ Each player receives a single rating update for each match that they play. Howev
 
 The results are then averaged over all games to obtain an overall rating and volatility change, which we call "rating change A". However, using these numbers alone would cause specialists who play only a few games (and perform well) to be over-rated compared to generalists. Thus, a second set of overall rating changes are also computed, where not playing a game is now considered tying for last. We call these numbers "rating change B."
 
-Finally, these two sets of changes are combined at a weighted average of 90%-10%. In other words, the actual change stored in a player's rating history is
+Finally, these two sets of changes are combined at a weighted average of $90\%$:$10\%$. This result is then scaled by game count so that longer matches have a more substantial impact on rating changes. More concretely, the actual change stored in a player's rating history is
 
 $$
 \begin{equation}
-    \text{rating change} = 0.9 \cdot \text{rating change A} + 0.1 \cdot \text{rating change B}.
+    \text{rating change} = \left(\frac{\text{\# games}}{8}\right)^{0.5}\cdot (0.9 \cdot \text{rating change A} + 0.1 \cdot \text{rating change B}).
 \end{equation}
 $$
 
-Volatility changes are averaged similarly but as a quadratic mean instead.
+Volatility changes are calculated similarly but use a quadratic mean instead.
 
 > [!note]
-> This part of the process reflects the fact that match performance is not just determined by scores in match but also the degree to which players must "fill in" for their team members. The weighting of 90%-10% is preliminary and may be altered to a dynamic ratio depending on the total number of players in the match.
+> This part of the process reflects the fact that match performance is not only determined by raw scores, but also the degree to which players must "fill in" for their team members. The weighting of $90\%$:$10\%$ is preliminary and may be altered to a dynamic ratio depending on the total number of players in the match. The same is true for the "game correction constant" $0.5$ in the exponent.
+>
+> Other additional weighting factors may be added based on community feedback in the future. For example, official tournaments such as the osu! world cups may be given more impact if the tournament scene deems it healthier to emphasize those high-stakes environments.
 
 ## Further details
 
@@ -66,9 +68,9 @@ Quoting from the [paper](https://jmlr.csail.mit.edu/papers/volume12/weng11a/weng
 
 ### Choosing model parameters
 
-There are various parameters that can be adjusted when setting up the model (see [the code](https://github.com/injae/openskill-rs/blob/main/src/model/plackett_luce.rs#L12) or read the paper for more detailed calculations). In words, $\mu$ and $\sigma$ are the rating and volatility mentioned above, $\beta$ is an "extra volatility" term for calculating head-to-head matchup probabilities, $\kappa$ is used as part of a check that volatility stays positive, and $\tau$ adds a small amount to variance (squared volatility) after each match. Finally, the function $\gamma$ is a dampening factor which causes volatility to decrease less significantly when matchups are large. Intuitively, this can be thought of as not treating a match with 10 players in it as affecting rating as much as 9 separate 1v1s against each opponent.
+There are various parameters that can be adjusted when setting up the model (see [the code](https://github.com/injae/openskill-rs/blob/main/src/model/plackett_luce.rs#L12) or read the paper for more detailed calculations). In words, $\mu$ and $\sigma$ are the rating and volatility mentioned above, $\beta$ is an "extra volatility" term for calculating head-to-head matchup probabilities, $\kappa$ is used as part of a check that volatility stays positive, and $\tau$ adds a small amount to variance (squared volatility) after each match. Finally, the function $\gamma$ is a dampening factor which causes volatility to decrease less significantly when matchups are large. Intuitively, this can be thought of as not treating a match with $10$ players as affecting rating as much as $9$ separate 1v1s against each opponent.
 
-The Plackett-Luce model allows for arbitrary scalings of parameters, though the OpenSkill documentation recommends that $\sigma$ starts out as 1/3 of $\mu$. We choose a scaling here so that the highest ratings look somewhat similar to chess (solely for aesthetic appeal), though we do choose varying [[Initial Ratings|initial ratings]] based on osu! rank. While we keep the default values of $\gamma$ and $\kappa$, we currently initialize $\sigma$, $\beta$, and $\tau$ to a smaller fraction of $\mu$ than the default to make it more difficult to farm rating from low-rated players.
+The Plackett-Luce model allows for arbitrary scalings of parameters, though the OpenSkill documentation recommends that $\sigma$ starts out as $1/3$ of $\mu$. We choose a scaling here so that the highest ratings look somewhat similar to chess (solely for aesthetic appeal), though we do choose varying [[Initial Ratings|initial ratings]] based on osu! rank. While we keep the default values of $\gamma$ and $\kappa$, we currently initialize $\sigma$, $\beta$, and $\tau$ to a smaller fraction of $\mu$ than the default to make it more difficult to farm rating from low-rated players.
 
 Remember that different players specialize in different skillsets and have skillcaps at different levels, so please interpret TR not as an absolute skill comparison between two players. In particular, o!TR identifies when people **frequently win** relative to others in their rank range or skill level, so if you see a player with what seems like an unusually high rating, we recommend that you look at their tournament history and check if they're consistently the top performer in their matches.
 

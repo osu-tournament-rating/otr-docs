@@ -12,22 +12,22 @@ This page is dedicated to carrying out calculations to demonstrate an example of
 
 The sample match we will be using is [LC: (H O L A) vs (Ummm)](https://otr.stagec.xyz/matches/33746) ([osu! link](https://osu.ppy.sh/community/matches/112506508)). It was chosen for its relatively short length and smaller format—2v2, team size 3—while still effectively illustrating the main ideas.
 
-We will assume the six players who played in the match had the following ratings and rating deviations immediately before this match, and we will calculate their ratings and rating deviations after the match ends. **Please note that these values are not the actual ratings of these players; these are sample numbers for illustration purposes.**
+We will assume the six players who played in the match had the following ratings and volatilities immediately before this match, and we will calculate their ratings and volatilities after the match ends. **Please note that these values are not the actual ratings of these players; these are sample numbers for illustration purposes.**
 
-|                     Player                     | Rating ($\mu$) | Rating Deviation ($\sigma$) |
-| :--------------------------------------------: | :------------: | :-------------------------: |
-|   [Isita](https://osu.ppy.sh/users/13973026)   |     $1450$     |            $240$            |
-|  [parr0t](https://osu.ppy.sh/users/23729699)   |     $1050$     |            $280$            |
-|   [Zeer0](https://osu.ppy.sh/users/16085717)   |     $1000$     |            $290$            |
-| [Railgun\_](https://osu.ppy.sh/users/13817114) |     $1000$     |            $280$            |
-|  [poisonvx](https://osu.ppy.sh/users/9391047)  |     $700$      |            $270$            |
-|    [Skyy](https://osu.ppy.sh/users/7113149)    |     $600$      |            $270$            |
+|                     Player                     | Rating ($\mu$) | Volatility ($\sigma$) |
+| :--------------------------------------------: | :------------: | :-------------------: |
+|   [Isita](https://osu.ppy.sh/users/13973026)   |     $1450$     |         $240$         |
+|  [parr0t](https://osu.ppy.sh/users/23729699)   |     $1050$     |         $280$         |
+|   [Zeer0](https://osu.ppy.sh/users/16085717)   |     $1000$     |         $290$         |
+| [Railgun\_](https://osu.ppy.sh/users/13817114) |     $1000$     |         $280$         |
+|  [poisonvx](https://osu.ppy.sh/users/9391047)  |     $700$      |         $270$         |
+|    [Skyy](https://osu.ppy.sh/users/7113149)    |     $600$      |         $270$         |
 
 Note that all games in this match were verified, so all of them will be used for rating calculation. If there were a game with incorrect lobby sizes (because of a disconnect) or an incorrect beatmap ID (because of a warmup), those would be excluded for the corresponding rejection reasons.
 
 ## Rating changes under Method A
 
-In Method A of calculating rating changes, we first look at the four players of each game and rank their scores from highest to lowest. The teams that the players play for and the mods that they use are irrelevant, except that EZ scores (in this case, parr0t's score in the first game) are multiplied by 1.75. Thus the rankings are as shown:
+In Method A of calculating rating changes, we first look at the four players of each game and rank their scores from highest to lowest. The teams that the players play for and the mods that they use are irrelevant, except that EZ scores (in this case, parr0t's score in the first game) are multiplied by $1.75$. Thus the rankings are as shown:
 
 | Game |    1st    |    2nd    |    3rd    |  4th  |
 | :--: | :-------: | :-------: | :-------: | :---: |
@@ -44,17 +44,17 @@ Here, we follow the notation and logic of Algorithm 4 of the paper, found on pag
 
 First, we compute an overall uncertainty constant which the paper calls $c$, which is given by
 $$c = \sqrt{4\beta^2 + \sigma_{\text{Railgun\_}}^2 + \sigma_{\text{parr0t}}^2 + \sigma_{\text{Isita}}^2 + \sigma_{\text{Skyy}}^2} \approx 614.2.$$
-Here $\beta = 150$ is a constant specified by our [constants file](https://github.com/osu-tournament-rating/otr-processor/blob/master/src/model/constants.rs), and the other four terms in the square roots come from the rating deviations of the four players (before the match). This $c$ is used to compute the predicted probabilities of players placing in various orders. It roughly means that for this game, a difference of $c \approx 614.25$ rating points between two players means the higher-rated player has $e \approx 2.7$ times the chance of placing above the lower-rated player.
+Here $\beta = 150$ is a constant specified by our [constants file](https://github.com/osu-tournament-rating/otr-processor/blob/master/src/model/constants.rs), and the other four terms in the square roots come from the volatilities of the four players (before the match). This $c$ is used to compute the predicted probabilities of players placing in various orders. It roughly means that for this game, a difference of $c \approx 614.25$ rating points between two players means the higher-rated player has $e \approx 2.7$ times the chance of placing above the lower-rated player.
 
-Next, we calculate, in the notation of the paper, two values $\Omega$ and $\Delta$ for each player in the game. These specify an _additive_ rating change and a _multiplicative_ rating deviation change, respectively. Instead of repeating all of the formulas from the paper, we will try to work out examples in understandable words.
+Next, we calculate, in the notation of the paper, two values $\Omega$ and $\Delta$ for each player in the game. These specify an _additive_ rating change and a _multiplicative_ volatility change, respectively. Instead of repeating all of the formulas from the paper, we will try to work out examples in understandable words.
 
 1. First, consider the player who placed highest, Railgun\_ in this case. The model currently thinks the probability that Railgun\_ ranked highest is
    $$p_{\text{Railgun\_ 1st}} = \frac{e^{\mu_{\text{Railgun\_}}/c}}{e^{\mu_{\text{Railgun\_}}/c} + e^{\mu_{\text{parr0t}}/c}+ e^{\mu_{\text{Isita}}/c} + e^{\mu_{\text{Skyy}}/c}} \approx 0.213,$$
-   where we are plugging in the pre-match ratings from our table above. This is slightly smaller than 1/4, mostly because Isita's pre-match rating is much higher than Railgun\_'s. Railgun\_'s suggested rating change from this game is then
+   where we are plugging in the pre-match ratings from our table above. This is slightly smaller than $\frac{1}{4}$, mostly because Isita's pre-match rating is much higher than Railgun\_'s. Railgun\_'s suggested rating change from this game is then
    $$\Omega_{\text{Railgun\_}} = \frac{\sigma_{\text{Railgun\_}}^2}{c} (1 - p_{\text{Railgun\_ 1st}}) \approx \boxed{100.4},$$
-   and the factor by which their rating variance (that is, rating deviation squared) should be decreased is
+   and the factor by which their rating variance (that is, squared volatility) should be decreased is
    $$\Delta_{\text{Railgun\_}} = \frac{\sigma_{\text{Railgun\_}}^2}{4c^2}p_{\text{Railgun\_ 1st}}(1 - p_{\text{Railgun\_ 1st}}) \approx \boxed{0.008}.$$
-   The prefactor of $\frac{1}{4}$ is the "variance damping factor" $\gamma_q = \frac{1}{k}$ as discussed on page 26 of the paper. Notice that the less likely the model thinks it is for Railgun\_ to place first, and also the higher their rating deviation, the higher their suggested rating change.
+   The prefactor of $\frac{1}{4}$ is the "variance damping factor" $\gamma_q = \frac{1}{k}$ as discussed on page 26 of the paper. Notice that the less likely the model thinks it is for Railgun\_ to place first, and also the higher their volatility, the higher their suggested rating change.
 
 2. Next, consider the second-highest-ranking player, parr0t. The model now cares about the probability of parr0t ranking highest,
    $$p_{\text{parr0t 1st}} = \frac{e^{\mu_{\text{parr0t}}/c}}{e^{\mu_{\text{Railgun\_}}/c} + e^{\mu_{\text{parr0t}}/c}+ e^{\mu_{\text{Isita}}/c} + e^{\mu_{\text{Skyy}}/c}} \approx 0.231,$$
@@ -182,32 +182,35 @@ Comparing to the previous table, we can see that rating changes are more positiv
 
 ## Overall rating change
 
-Finally, we essentially do a weighted average of all of these numbers to determine the final rating changes for the whole match. For simplicity, we will demonstrate this just for one of the players, parr0t. Their final rating is obtained by averaging the values of $\Omega_{\text{parr0t}}$ across Methods A and B at a 90:10 ratio, then adding that to their initial rating:
+Finally, we essentially do a weighted average of all of these numbers to determine the final rating changes for the whole match. For simplicity, we will demonstrate this just for one of the players, parr0t.
+
+We first average the values of $\Omega_{\text{parr0t}}$ across Methods A and B at a $90\%$:$10\%$ ratio to get an "effective average $\Omega$"
 
 $$
-\begin{align*}\mu_{\text{parr0t}}^{\text{new}} &= 1050 + 0.9\left(\frac{60.5 + 55.1 + 0 -41.2 + 99.3 + 55.1}{6}\right) \\
-&+ 0.1\left(\frac{63.7 + 59.7 - 115.4 + 26.7 + 85.1 + 59.7}{6}\right) \approx \boxed{1087.3}.\end{align*}
+\begin{align*}\Omega_{\text{eff}} = 0.9&\left(\frac{60.5 + 55.1 + 0 -41.2 + 99.3 + 55.1}{6}\right) \\
+&+ 0.1\left(\frac{63.7 + 59.7 - 115.4 + 26.7 + 85.1 + 59.7}{6}\right) \approx 37.3.\end{align*}
 $$
 
-The final rating deviation is obtained in a slightly more complicated way because the rating model would typically multiply the initial deviation by $\sqrt{1 - \Delta}$ to get the final deviation. Thus, we first obtain an "effective averaged $\Delta$" by calculating
+Similarly, we first obtain an "effective averaged $\Delta$" by calculating
 
 $$
-\begin{align*}\Delta_{\text{eff}} = 0.9&\left(\frac{0.020 + 0.020 + 0 + 0.033 + 0.008 + 0.020}{6}\right) \\ &+ 0.1\left(\frac{0.007 + 0.007 + 0.023 + 0.012 + 0.003 + 0.007}{6}\right) \approx 0.0161,\end{align*}
+\begin{align*}\Delta_{\text{eff}} = 0.9&\left(\frac{0.020 + 0.020 + 0 + 0.033 + 0.008 + 0.020}{6}\right) \\ &+ 0.1\left(\frac{0.007 + 0.007 + 0.023 + 0.012 + 0.003 + 0.007}{6}\right) \approx 0.0162.\end{align*}
 $$
 
-so that parr0t's final rating deviation is $\sqrt{1 - \Delta_{\text{eff}}}$ times their initial rating deviation:
+Finally, parr0t's final rating and volatility are calculated by the following formulas:
 
-$$\sigma_{\text{parr0t}}^{\text{new}} = 280 \sqrt{1 - \Delta_{\text{eff}}} \approx \boxed{277.7}.$$
+$$\begin{align*}\mu_{\text{parr0t}}^{\text{new}} &= 1050 + \left(\frac{6}{8}\right)^{0.5} \Omega_{\text{eff}} \approx \boxed{1082.3},\\
+\sigma_{\text{parr0t}}^{\text{new}} &= 280 \sqrt{1 - \left(\frac{6}{8}\right)^{0.5} \Delta_{\text{eff}}} \approx \boxed{278.0}.\end{align*}$$
 
-The table below shows the adjustments to ratings and rating deviations for the six players of this match.
+The factor of $\left(\frac{\text{games}}{8}\right)^{0.5}$ increases rating changes for longer games, so because this match ended quickly, the rating changes are slightly dampened. The table below shows the resulting adjustments to ratings and volatilities for all six players of this match, rounded to the nearest tenth.
 
-|                     Player                     |  Rating ($\mu$)   | Rating Deviation ($\sigma$) |
-| :--------------------------------------------: | :---------------: | :-------------------------: |
-|   [Isita](https://osu.ppy.sh/users/13973026)   | $1450 \to 1455.9$ |       $240 \to 238.2$       |
-|  [parr0t](https://osu.ppy.sh/users/23729699)   | $1050 \to 1087.3$ |       $280 \to 277.7$       |
-|   [Zeer0](https://osu.ppy.sh/users/16085717)   | $1000 \to 936.4$  |       $290 \to 287.5$       |
-| [Railgun\_](https://osu.ppy.sh/users/13817114) | $1000 \to 1053.4$ |       $280 \to 277.4$       |
-|  [poisonvx](https://osu.ppy.sh/users/9391047)  |  $700 \to 697.3$  |       $270 \to 269.3$       |
-|    [Skyy](https://osu.ppy.sh/users/7113149)    |  $600 \to 566.1$  |       $270 \to 268.5$       |
+|                     Player                     |  Rating ($\mu$)   | Volatility ($\sigma$) |
+| :--------------------------------------------: | :---------------: | :-------------------: |
+|   [Isita](https://osu.ppy.sh/users/13973026)   | $1450 \to 1455.1$ |    $240 \to 238.4$    |
+|  [parr0t](https://osu.ppy.sh/users/23729699)   | $1050 \to 1082.3$ |    $280 \to 278.0$    |
+|   [Zeer0](https://osu.ppy.sh/users/16085717)   | $1000 \to 944.9$  |    $290 \to 287.9$    |
+| [Railgun\_](https://osu.ppy.sh/users/13817114) | $1000 \to 1046.2$ |    $280 \to 277.7$    |
+|  [poisonvx](https://osu.ppy.sh/users/9391047)  |  $700 \to 697.7$  |    $270 \to 269.4$    |
+|    [Skyy](https://osu.ppy.sh/users/7113149)    |  $600 \to 570.6$  |    $270 \to 268.7$    |
 
-All players' rating deviations have slightly decreased, indicating that the model is slightly more confident about the updated ratings. Also notice that Railgun\_'s rating has significantly increased due to their high participation and relatively high placement among players throughout the match. The overall rating changes are not precisely zero-sum due to the differences in players' rating deviations.
+All players' volatilities have slightly decreased, indicating that the model is slightly more confident about the updated ratings. Also notice that Railgun\_'s rating has significantly increased due to their high participation and relatively high placement among players throughout the match. The overall rating changes are not precisely zero-sum due to the differences in players' volatilities.
