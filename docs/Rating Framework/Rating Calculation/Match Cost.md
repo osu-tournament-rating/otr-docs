@@ -6,7 +6,7 @@ Although not used in rating calculations directly, o!TR does keep track of match
 
 # Formula
 
-The match cost formula is inspired by Bathbot's formula, simplified to remove factors that are not relevant for our purposes. For each map played, each player receives a map score between $0.5$ and $1.5$, specifically
+The match cost formula is inspired by [Bathbot](https://github.com/MaxOhn/Bathbot)'s formula, simplified to remove factors that are not relevant for our purposes. For each map played, each player receives a map score between $0.5$ and $1.5$, specifically
 $$
 \begin{equation}
     \text{map score} = 0.5 + \text{normcdf}\left(\frac{\text{score} - \text{avg}(\text{scores on map})}{\text{stddev}(\text{scores on map})}\right).

@@ -39,7 +39,7 @@ Each player receives a single rating update for each match that they play. Howev
 
 The results are then averaged over all games to obtain an overall rating and volatility change, which we call "rating change A". However, using these numbers alone would cause specialists who play only a few games (and perform well) to be over-rated compared to generalists. Thus, a second set of overall rating changes are also computed, where not playing a game is now considered tying for last. We call these numbers "rating change B."
 
-Finally, these two sets of changes are combined at a weighted average of $90\%$-$10\%$, and the result is additionally scaled by game count to increase the influence of longer matches. More concretely, the actual change stored in a player's rating history is
+Finally, these two sets of changes are combined at a weighted average of $90\%$:$10\%$. This result is then scaled by game count so that longer matches have a more substantial impact on rating changes. More concretely, the actual change stored in a player's rating history is
 
 $$
 \begin{equation}
@@ -47,10 +47,10 @@ $$
 \end{equation}
 $$
 
-Volatility changes are calculated similarly but using a quadratic mean instead.
+Volatility changes are calculated similarly but use a quadratic mean instead.
 
 > [!note]
-> This part of the process reflects the fact that match performance is not just determined by scores in match but also the degree to which players must "fill in" for their team members. The weighting of $90\%$-$10\%$ is preliminary and may be altered to a dynamic ratio depending on the total number of players in the match, and so is the exponent of $0.5$.
+> This part of the process reflects the fact that match performance is not only determined by raw scores, but also the degree to which players must "fill in" for their team members. The weighting of $90\%$:$10\%$ is preliminary and may be altered to a dynamic ratio depending on the total number of players in the match. The same is true for the "game correction constant" $0.5$ in the exponent.
 > 
 > Other additional weighting factors may be added based on community feedback in the future. For example, official tournaments such as the osu! world cups may be given more impact if the tournament scene deems it healthier to emphasize those high-stakes environments.
 

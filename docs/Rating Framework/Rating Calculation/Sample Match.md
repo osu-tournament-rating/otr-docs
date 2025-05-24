@@ -182,9 +182,9 @@ Comparing to the previous table, we can see that rating changes are more positiv
 
 ## Overall rating change
 
-Finally, we essentially do a weighted average of all of these numbers to determine the final rating changes for the whole match. For simplicity, we will demonstrate this just for one of the players, parr0t. 
+Finally, we essentially do a weighted average of all of these numbers to determine the final rating changes for the whole match. For simplicity, we will demonstrate this just for one of the players, parr0t.
 
-We first average the values of $\Omega_{\text{parr0t}}$ across Methods A and B at a $90\%$-$10\%$ ratio to get an "effective average $\Omega$"
+We first average the values of $\Omega_{\text{parr0t}}$ across Methods A and B at a $90\%$:$10\%$ ratio to get an "effective average $\Omega$"
 
 $$
 \begin{align*}\Omega_{\text{eff}} = 0.9&\left(\frac{60.5 + 55.1 + 0 -41.2 + 99.3 + 55.1}{6}\right) \\
@@ -197,12 +197,12 @@ $$
 \begin{align*}\Delta_{\text{eff}} = 0.9&\left(\frac{0.020 + 0.020 + 0 + 0.033 + 0.008 + 0.020}{6}\right) \\ &+ 0.1\left(\frac{0.007 + 0.007 + 0.023 + 0.012 + 0.003 + 0.007}{6}\right) \approx 0.0162.\end{align*}
 $$
 
-We can now finally get parr0t's final rating and volatility via the following formulas:
+Finally, parr0t's final rating and volatility are calculated by the following formulas:
 
 $$\begin{align*}\mu_{\text{parr0t}}^{\text{new}} &= 1050 + \left(\frac{6}{8}\right)^{0.5} \Omega_{\text{eff}} \approx \boxed{1082.3},\\
 \sigma_{\text{parr0t}}^{\text{new}} &= 280 \sqrt{1 - \left(\frac{6}{8}\right)^{0.5} \Delta_{\text{eff}}} \approx \boxed{278.0}.\end{align*}$$
 
-(The factor of $\left(\frac{\text{games}}{8}\right)^{0.5}$ increases rating changes for longer games, so because this match ended quickly, the rating changes are slightly dampened.) The table below shows the resulting adjustments to ratings and volatilities for all six players of this match.
+The factor of $\left(\frac{\text{games}}{8}\right)^{0.5}$ increases rating changes for longer games, so because this match ended quickly, the rating changes are slightly dampened. The table below shows the resulting adjustments to ratings and volatilities for all six players of this match, rounded to the nearest tenth.
 
 |                     Player                     |  Rating ($\mu$)   | Volatility ($\sigma$) |
 | :--------------------------------------------: | :---------------: | :-------------------: |
