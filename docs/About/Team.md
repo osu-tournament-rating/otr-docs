@@ -4,7 +4,6 @@ The o!TR Team is a group of people who maintains the o!TR projects, handles data
 | ------------------------------------------------- | --------------------------------------------------- |
 | [Stage](https://osu.ppy.sh/users/8191845)         | Project lead, lead developer, documentation, DevOps |
 | [Cytusine](https://osu.ppy.sh/users/11557554)     | Admin, mathematician, documentation, data entry, QA |
-| [Myssto](https://osu.ppy.sh/users/18068913)       | Admin, .NET developer, web developer                |
 | [SourMongoose](https://osu.ppy.sh/users/13269506) | Admin, data entry, QA                               |
 
 ## Contributors
@@ -33,6 +32,7 @@ These users previously contributed their time and expertise to the project, but 
 | [D I O](https://osu.ppy.sh/users/3958619)        | Compliance and mathematics assistance     |
 | [Eliteronix](https://osu.ppy.sh/users/4520333)   | Initial proof of concept dataset provider |
 | [LoPij](https://osu.ppy.sh/users/6892711)        | Rust developer                            |
+| [Myssto](https://osu.ppy.sh/users/18068913)      | Admin, .NET developer, web developer      |
 | [onkar](https://osu.ppy.sh/users/7153533)        | Early development assistance              |
 | [ploot](https://osu.ppy.sh/users/7802400)        | Early feedback                            |
 | [Squink](https://osu.ppy.sh/users/12058601)      | Early developer                           |
