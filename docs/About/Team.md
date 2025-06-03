@@ -32,7 +32,7 @@ These users previously contributed their time and expertise to the project, but 
 | [D I O](https://osu.ppy.sh/users/3958619)        | Compliance and mathematics assistance     |
 | [Eliteronix](https://osu.ppy.sh/users/4520333)   | Initial proof of concept dataset provider |
 | [LoPij](https://osu.ppy.sh/users/6892711)        | Rust developer                            |
-| [Myssto](https://osu.ppy.sh/users/18068913)      | Admin, .NET developer, web developer      |
+| [Myssto](https://osu.ppy.sh/users/18068913)      | Outstanding contributions to all areas of development for more than one year|
 | [onkar](https://osu.ppy.sh/users/7153533)        | Early development assistance              |
 | [ploot](https://osu.ppy.sh/users/7802400)        | Early feedback                            |
 | [Squink](https://osu.ppy.sh/users/12058601)      | Early developer                           |
