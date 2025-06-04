@@ -17,6 +17,9 @@ Configure the `.env` file:
 
 1. Rename `.env.example` to `.env`. It should now be identical to [this file](https://github.com/osu-tournament-rating/otr-web/blob/master/.env.example). By default, this configuration will work in development.
 
+> [!note]
+> The `IS_RESTRICTED_ENV` flag is used to determine whether the environment should be accessible by users without the `whitelist` role. This is used so end users cannot access our staging environment.
+
 Once the `.env` file is made, install all packages:
 
 - `npm i --legacy-peer-deps`
