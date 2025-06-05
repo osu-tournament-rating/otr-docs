@@ -1,6 +1,6 @@
-o!TR Web is a [NextJS](https://nextjs.org/) application that serves as a website for users to interact with.
+o!TR Web is a [NextJS](https://nextjs.org/) frontend where end users can interact with data provided by the [[Applications/API/Overview|API]].
 
-The repository can be viewed [here](https://github.com/osu-tournament-rating/otr-web).
+The `otr-web` repository can be viewed [here](https://github.com/osu-tournament-rating/otr-web).
 
 # Prerequisites
 
@@ -15,31 +15,17 @@ o!TR Web comes with a `.env.example` file. This file configures variables that t
 
 Configure the `.env` file:
 
-1. Rename `.env.example` to `.env`. It should now look like this:
+1. Rename `.env.example` to `.env`. It should now be identical to [this file](https://github.com/osu-tournament-rating/otr-web/blob/master/.env.example). By default, this configuration will work in development.
 
-   ```
-   OSU_CLIENT_ID=
-   AUTH_SECRET=
-   OTR_API_ROOT=
-   ```
+> [!note]
+> The `IS_RESTRICTED_ENV` flag is used to determine whether the environment should be accessible by users without the `whitelist` role. This is used so end users cannot access our staging environment.
 
-2. Copy your osu! OAuth client ID and set `OSU_CLIENT_ID` equal to that value.
+Once the `.env` file is made, install all packages:
 
-   > [!note]
-   > The API instance must also be using the same client ID.
-   >
-   > This must be the same client used in your running instance of the API.
+- `npm i --legacy-peer-deps`
 
-3. Set `AUTH_SECRET` to any string that is at least 32 characters in length.
+Then start the application:
 
-   > [!warning]
-   > This should be a secure string in production. This is the encryption key for session cookies.
-
-4. Set `OTR_API_ROOT` to `http://localhost:5075`. The API runs on port `5075` by default.
-
-Once these values are configured, install the npm packages and run the application:
-
-- `npm i`
 - `npm run dev`
 
-The website should now be accessible at `http://localhost:3000`.
+The website should now be accessible at `http://localhost:3000`. Ensure the [[Applications/API/Overview|API]] is configured and running in the background in order to serve data, sign in, and so on.
