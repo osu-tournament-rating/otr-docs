@@ -19,7 +19,7 @@ We will assume the six players who played in the match had the following ratings
 |   [Isita](https://osu.ppy.sh/users/13973026)   |     $1450$     |         $240$         |
 |  [parr0t](https://osu.ppy.sh/users/23729699)   |     $1050$     |         $280$         |
 |   [Zeer0](https://osu.ppy.sh/users/16085717)   |     $1000$     |         $290$         |
-| [Railgun\_](https://osu.ppy.sh/users/13817114) |     $1000$     |         $280$         |
+| Player 4                                       |     $1000$     |         $280$         |
 |  [poisonvx](https://osu.ppy.sh/users/9391047)  |     $700$      |         $270$         |
 |    [Skyy](https://osu.ppy.sh/users/7113149)    |     $600$      |         $270$         |
 
@@ -31,44 +31,44 @@ In Method A of calculating rating changes, we first look at the four players of 
 
 | Game |    1st    |    2nd    |    3rd    |  4th  |
 | :--: | :-------: | :-------: | :-------: | :---: |
-| $1$  | Railgun\_ |  parr0t   |   Isita   | Skyy  |
-| $2$  |   Isita   |  parr0t   | Railgun\_ | Zeer0 |
-| $3$  | Railgun\_ |   Isita   | poisonvx  | Skyy  |
-| $4$  |   Isita   | Railgun\_ |  parr0t   | Skyy  |
-| $5$  |  parr0t   | Railgun\_ |   Isita   | Zeer0 |
-| $6$  |   Isita   |  parr0t   | Railgun\_ | Zeer0 |
+| $1$  | Player 4 |  parr0t   |   Isita   | Skyy  |
+| $2$  |   Isita   |  parr0t   | Player 4 | Zeer0 |
+| $3$  | Player 4 |   Isita   | poisonvx  | Skyy  |
+| $4$  |   Isita   | Player 4 |  parr0t   | Skyy  |
+| $5$  |  parr0t   | Player 4 |   Isita   | Zeer0 |
+| $6$  |   Isita   |  parr0t   | Player 4 | Zeer0 |
 
 These rankings are the only information taken into account for rating calculations (individual scores are not considered). For each game, the players who play in it will be given a "game rating change." All games are calculated in the same way, so we will demonstrate this process for the first game.
 
 Here, we follow the notation and logic of Algorithm 4 of the paper, found on page 21 of [the paper](https://jmlr.csail.mit.edu/papers/volume12/weng11a/weng11a.pdf). The description also references Algorithm 1, which can be found on page 15.
 
 First, we compute an overall uncertainty constant which the paper calls $c$, which is given by
-$$c = \sqrt{4\beta^2 + \sigma_{\text{Railgun\_}}^2 + \sigma_{\text{parr0t}}^2 + \sigma_{\text{Isita}}^2 + \sigma_{\text{Skyy}}^2} \approx 614.2.$$
+$$c = \sqrt{4\beta^2 + \sigma_{\text{Player 4}}^2 + \sigma_{\text{parr0t}}^2 + \sigma_{\text{Isita}}^2 + \sigma_{\text{Skyy}}^2} \approx 614.2.$$
 Here $\beta = 150$ is a constant specified by our [constants file](https://github.com/osu-tournament-rating/otr-processor/blob/master/src/model/constants.rs), and the other four terms in the square roots come from the volatilities of the four players (before the match). This $c$ is used to compute the predicted probabilities of players placing in various orders. It roughly means that for this game, a difference of $c \approx 614.25$ rating points between two players means the higher-rated player has $e \approx 2.7$ times the chance of placing above the lower-rated player.
 
 Next, we calculate, in the notation of the paper, two values $\Omega$ and $\Delta$ for each player in the game. These specify an _additive_ rating change and a _multiplicative_ volatility change, respectively. Instead of repeating all of the formulas from the paper, we will try to work out examples in understandable words.
 
-1. First, consider the player who placed highest, Railgun\_ in this case. The model currently thinks the probability that Railgun\_ ranked highest is
-   $$p_{\text{Railgun\_ 1st}} = \frac{e^{\mu_{\text{Railgun\_}}/c}}{e^{\mu_{\text{Railgun\_}}/c} + e^{\mu_{\text{parr0t}}/c}+ e^{\mu_{\text{Isita}}/c} + e^{\mu_{\text{Skyy}}/c}} \approx 0.213,$$
-   where we are plugging in the pre-match ratings from our table above. This is slightly smaller than $\frac{1}{4}$, mostly because Isita's pre-match rating is much higher than Railgun\_'s. Railgun\_'s suggested rating change from this game is then
-   $$\Omega_{\text{Railgun\_}} = \frac{\sigma_{\text{Railgun\_}}^2}{c} (1 - p_{\text{Railgun\_ 1st}}) \approx \boxed{100.4},$$
+1. First, consider the player who placed highest, Player 4 in this case. The model currently thinks the probability that Player 4 ranked highest is
+   $$p_{\text{Player 4 1st}} = \frac{e^{\mu_{\text{Player 4}}/c}}{e^{\mu_{\text{Player 4}}/c} + e^{\mu_{\text{parr0t}}/c}+ e^{\mu_{\text{Isita}}/c} + e^{\mu_{\text{Skyy}}/c}} \approx 0.213,$$
+   where we are plugging in the pre-match ratings from our table above. This is slightly smaller than $\frac{1}{4}$, mostly because Isita's pre-match rating is much higher than Player 4's. Player 4's suggested rating change from this game is then
+   $$\Omega_{\text{Player 4}} = \frac{\sigma_{\text{Player 4}}^2}{c} (1 - p_{\text{Player 4 1st}}) \approx \boxed{100.4},$$
    and the factor by which their rating variance (that is, squared volatility) should be decreased is
-   $$\Delta_{\text{Railgun\_}} = \frac{\sigma_{\text{Railgun\_}}^2}{4c^2}p_{\text{Railgun\_ 1st}}(1 - p_{\text{Railgun\_ 1st}}) \approx \boxed{0.008}.$$
-   The prefactor of $\frac{1}{4}$ is the "variance damping factor" $\gamma_q = \frac{1}{k}$ as discussed on page 26 of the paper. Notice that the less likely the model thinks it is for Railgun\_ to place first, and also the higher their volatility, the higher their suggested rating change.
+   $$\Delta_{\text{Player 4}} = \frac{\sigma_{\text{Player 4}}^2}{4c^2}p_{\text{Player 4 1st}}(1 - p_{\text{Player 4 1st}}) \approx \boxed{0.008}.$$
+   The prefactor of $\frac{1}{4}$ is the "variance damping factor" $\gamma_q = \frac{1}{k}$ as discussed on page 26 of the paper. Notice that the less likely the model thinks it is for Player 4 to place first, and also the higher their volatility, the higher their suggested rating change.
 
 2. Next, consider the second-highest-ranking player, parr0t. The model now cares about the probability of parr0t ranking highest,
-   $$p_{\text{parr0t 1st}} = \frac{e^{\mu_{\text{parr0t}}/c}}{e^{\mu_{\text{Railgun\_}}/c} + e^{\mu_{\text{parr0t}}/c}+ e^{\mu_{\text{Isita}}/c} + e^{\mu_{\text{Skyy}}/c}} \approx 0.231,$$
-   as well as the probability of parr0t ranking highest except for Railgun\_,
+   $$p_{\text{parr0t 1st}} = \frac{e^{\mu_{\text{parr0t}}/c}}{e^{\mu_{\text{Player 4}}/c} + e^{\mu_{\text{parr0t}}/c}+ e^{\mu_{\text{Isita}}/c} + e^{\mu_{\text{Skyy}}/c}} \approx 0.231,$$
+   as well as the probability of parr0t ranking highest except for Player 4,
    $$p_{\text{parr0t 2nd}} = \frac{e^{\mu_{\text{parr0t}}/c}}{e^{\mu_{\text{parr0t}}/c}+ e^{\mu_{\text{Isita}}/c} + e^{\mu_{\text{Skyy}}/c}} \approx 0.294.$$
    parr0t's suggested rating change from this game is then
    $$\Omega_{\text{parr0t}} = \frac{\sigma_{\text{parr0t}}^2}{c} (1 - p_{\text{parr0t 1st}} - p_{\text{parr0t 2nd}}) \approx \boxed{60.5},$$
    and their variance decrease factor is $$\Delta_{\text{parr0t}} = \frac{\sigma_{\text{parr0t}}^2}{4c^2}\Big(p_{\text{parr0t 1st}}(1 - p_{\text{parr0t 1st}}) + p_{\text{parr0t 2nd}}(1 - p_{\text{parr0t 2nd}})\Big) \approx \boxed{0.020}.$$
-   Notice that this suggested rating change is smaller than Railgun\_'s suggested rating change, since placing second means the formula for $\Omega$ "subtracts off two probabilities instead of one."
+   Notice that this suggested rating change is smaller than Player 4's suggested rating change, since placing second means the formula for $\Omega$ "subtracts off two probabilities instead of one."
 
    > [!note]
-   > The quantity $p_{\text{parr0t 2nd}}$ is _not_ the overall probability of parr0t placing 2nd among the four players, but instead the probability that _assuming_ Railgun\_ placed first, parr0t did better than the remaining players. We use this slightly less precise language for readability.
+   > The quantity $p_{\text{parr0t 2nd}}$ is _not_ the overall probability of parr0t placing 2nd among the four players, but instead the probability that _assuming_ Player 4 placed first, parr0t did better than the remaining players. We use this slightly less precise language for readability.
 
-3. Next, to calculate rating changes for the third-highest-ranking player Isita, the model cares about the probability of Isita ranking highest, ranking highest except for Railgun\_, and also ranking highest except for Railgun\_ and parr0t. The resulting numbers are
+3. Next, to calculate rating changes for the third-highest-ranking player Isita, the model cares about the probability of Isita ranking highest, ranking highest except for Player 4, and also ranking highest except for Player 4 and parr0t. The resulting numbers are
    $$p_{\text{Isita 1st}} \approx 0.444, \quad p_{\text{Isita 2nd}} \approx 0.564, \quad p_{\text{Isita 3rd}} \approx 0.800.$$
    From this, we get that Isita's suggested rating change is
    $$\Omega_{\text{Isita}} = \frac{\sigma_{\text{Isita}}^2}{c} (1 - p_{\text{Isita 1st}} - p_{\text{Isita 2nd}} - p_{\text{Isita 3rd}}) \approx \boxed{-75.8},$$
@@ -84,7 +84,7 @@ Next, we calculate, in the notation of the paper, two values $\Omega$ and $\Delt
 
 Remember that all of this was done just for the first game of the match, but the exact same procedure works for all of the other games in the match. Here are the resulting values of $c$, $\Omega_i$, and $\Delta_i$ for each one, rounded for readability (if a player did not play in a game, then the corresponding cells are left blank):
 
-| Game | $c$     | $\Omega_{\text{Isita}}$ | $\Omega_{\text{parr0t}}$ | $\Omega_{\text{Zeer0}}$ | $\Omega_{\text{Railgun\_}}$ | $\Omega_{\text{poisonvx}}$ | $\Omega_{\text{Skyy}}$ | $\Delta_{\text{Isita}}$ | $\Delta_{\text{parr0t}}$ | $\Delta_{\text{Zeer0}}$ | $\Delta_{\text{Railgun\_}}$ | $\Delta_{\text{poisonvx}}$ | $\Delta_{\text{Skyy}}$ |
+| Game | $c$     | $\Omega_{\text{Isita}}$ | $\Omega_{\text{parr0t}}$ | $\Omega_{\text{Zeer0}}$ | $\Omega_{\text{Player 4}}$ | $\Omega_{\text{poisonvx}}$ | $\Omega_{\text{Skyy}}$ | $\Delta_{\text{Isita}}$ | $\Delta_{\text{parr0t}}$ | $\Delta_{\text{Zeer0}}$ | $\Delta_{\text{Player 4}}$ | $\Delta_{\text{poisonvx}}$ | $\Delta_{\text{Skyy}}$ |
 | :--: | ------- | ----------------------- | ------------------------ | ----------------------- | --------------------------- | -------------------------- | ---------------------- | ----------------------- | ------------------------ | ----------------------- | --------------------------- | -------------------------- | ---------------------- |
 | $1$  | $614.2$ | $-75.8$                 | $60.5$                   |                         | $100.4$                     |                            | $-53.8$                | $0.025$                 | $0.020$                  |                         | $0.009$                     |                            | $0.018$                |
 | $2$  | $623.3$ | $55.4$                  | $55.1$                   | $-137.5$                | $-2.4$                      |                            |                        | $0.009$                 | $0.020$                  | $0.034$                 | $0.032$                     |                            |                        |
@@ -99,29 +99,29 @@ In Method B of calculating rating changes, we again begin by ranking scores from
 
 | Game |    1st    |    2nd    |    3rd    |  4th  | Tied 5th        |
 | :--: | :-------: | :-------: | :-------: | :---: | --------------- |
-| $1$  | Railgun\_ |  parr0t   |   Isita   | Skyy  | poisonvx, Zeer0 |
-| $2$  |   Isita   |  parr0t   | Railgun\_ | Zeer0 | poisonvx, Skyy  |
-| $3$  | Railgun\_ |   Isita   | poisonvx  | Skyy  | parr0t, Zeer0   |
-| $4$  |   Isita   | Railgun\_ |  parr0t   | Skyy  | poisonvx, Zeer0 |
-| $5$  |  parr0t   | Railgun\_ |   Isita   | Zeer0 | poisonvx, Skyy  |
-| $6$  |   Isita   |  parr0t   | Railgun\_ | Zeer0 | poisonvx, Skyy  |
+| $1$  | Player 4 |  parr0t   |   Isita   | Skyy  | poisonvx, Zeer0 |
+| $2$  |   Isita   |  parr0t   | Player 4 | Zeer0 | poisonvx, Skyy  |
+| $3$  | Player 4 |   Isita   | poisonvx  | Skyy  | parr0t, Zeer0   |
+| $4$  |   Isita   | Player 4 |  parr0t   | Skyy  | poisonvx, Zeer0 |
+| $5$  |  parr0t   | Player 4 |   Isita   | Zeer0 | poisonvx, Skyy  |
+| $6$  |   Isita   |  parr0t   | Player 4 | Zeer0 | poisonvx, Skyy  |
 
 We will again demonstrate how game rating changes look by calculating the rating changes for the first game. This time, we have the overall uncertainty factor
 
-$$c = \sqrt{6\beta^2 + \sigma_{\text{Railgun\_}}^2 + \sigma_{\text{parr0t}}^2 + \sigma_{\text{Isita}}^2 + \sigma_{\text{Skyy}}^2 + \sigma_{\text{poisonvx}}^2 + \sigma_{\text{Zeer0}}^2} \approx 761.1.$$
+$$c = \sqrt{6\beta^2 + \sigma_{\text{Player 4}}^2 + \sigma_{\text{parr0t}}^2 + \sigma_{\text{Isita}}^2 + \sigma_{\text{Skyy}}^2 + \sigma_{\text{poisonvx}}^2 + \sigma_{\text{Zeer0}}^2} \approx 761.1.$$
 
 With this, $\Omega$ and $\Delta$ values are calculated for all six players based on the rankings in game 1:
 
-The highest-ranking player, Railgun\_, now has
-$$p_{\text{Railgun\_ 1st}} = \frac{e^{\mu_{\text{Railgun\_}}/c}}{e^{\mu_{\text{Railgun\_}}/c} + e^{\mu_{\text{parr0t}}/c}+ e^{\mu_{\text{Isita}}/c} + e^{\mu_{\text{Skyy}}/c} + e^{\mu_{\text{poisonvx}}/c} + e^{\mu_{\text{Zeer0}}/c}} \approx 0.163,$$
+The highest-ranking player, Player 4, now has
+$$p_{\text{Player 4 1st}} = \frac{e^{\mu_{\text{Player 4}}/c}}{e^{\mu_{\text{Player 4}}/c} + e^{\mu_{\text{parr0t}}/c}+ e^{\mu_{\text{Isita}}/c} + e^{\mu_{\text{Skyy}}/c} + e^{\mu_{\text{poisonvx}}/c} + e^{\mu_{\text{Zeer0}}/c}} \approx 0.163,$$
 
 so that (very similarly to above)
 
-$$\Omega_{\text{Railgun\_}} = \frac{\sigma_{\text{Railgun\_}}^2}{c} (1 - p_{\text{Railgun\_ 1st}}) \approx \boxed{86.2}$$
+$$\Omega_{\text{Player 4}} = \frac{\sigma_{\text{Player 4}}^2}{c} (1 - p_{\text{Player 4 1st}}) \approx \boxed{86.2}$$
 
 and (the $4$ has been replaced with $6$ because of the change in number of players being considered)
 
-$$\Delta_{\text{Railgun\_}} = \frac{\sigma_{\text{Railgun\_}}^2}{6c^2}p_{\text{Railgun\_ 1st}}(1 - p_{\text{Railgun\_ 1st}}) \approx \boxed{0.003}.$$
+$$\Delta_{\text{Player 4}} = \frac{\sigma_{\text{Player 4}}^2}{6c^2}p_{\text{Player 4 1st}}(1 - p_{\text{Player 4 1st}}) \approx \boxed{0.003}.$$
 
 The calculations for players 2 through 4 are very similar. For the second-highest-ranking player parr0t, we find
 
@@ -169,7 +169,7 @@ $$\Omega_{\text{Zeer0}} \approx \boxed{-126.2}, \quad \Delta_{\text{Zeer0}} \app
 
 Here is the table of $\Omega_i$ and $\Delta_i$ values under Method B. Note that we no longer have a column for $c$ because it is the same across all games in this method (all six players are considered in all games).
 
-| Game | $\Omega_{\text{Isita}}$ | $\Omega_{\text{parr0t}}$ | $\Omega_{\text{Zeer0}}$ | $\Omega_{\text{Railgun\_}}$ | $\Omega_{\text{poisonvx}}$ | $\Omega_{\text{Skyy}}$ | $\Delta_{\text{Isita}}$ | $\Delta_{\text{parr0t}}$ | $\Delta_{\text{Zeer0}}$ | $\Delta_{\text{Railgun\_}}$ | $\Delta_{\text{poisonvx}}$ | $\Delta_{\text{Skyy}}$ |
+| Game | $\Omega_{\text{Isita}}$ | $\Omega_{\text{parr0t}}$ | $\Omega_{\text{Zeer0}}$ | $\Omega_{\text{Player 4}}$ | $\Omega_{\text{poisonvx}}$ | $\Omega_{\text{Skyy}}$ | $\Delta_{\text{Isita}}$ | $\Delta_{\text{parr0t}}$ | $\Delta_{\text{Zeer0}}$ | $\Delta_{\text{Player 4}}$ | $\Delta_{\text{poisonvx}}$ | $\Delta_{\text{Skyy}}$ |
 | :--: | ----------------------- | ------------------------ | ----------------------- | --------------------------- | -------------------------- | ---------------------- | ----------------------- | ------------------------ | ----------------------- | --------------------------- | -------------------------- | ---------------------- |
 | $1$  | $-6.8$                  | $63.7$                   | $-126.2$                | $86.2$                      | $-58.1$                    | $36.6$                 | $0.011$                 | $0.007$                  | $0.023$                 | $0.003$                     | $0.017$                    | $0.011$                |
 | $2$  | $53.4$                  | $59.7$                   | $-15.6$                 | $30.9$                      | $-76.8$                    | $-61.5$                | $0.003$                 | $0.007$                  | $0.019$                 | $0.012$                     | $0.018$                    | $0.017$                |
@@ -209,8 +209,8 @@ The factor of $\left(\frac{\text{games}}{8}\right)^{0.5}$ increases rating chang
 |   [Isita](https://osu.ppy.sh/users/13973026)   | $1450 \to 1455.1$ |    $240 \to 238.4$    |
 |  [parr0t](https://osu.ppy.sh/users/23729699)   | $1050 \to 1082.3$ |    $280 \to 278.0$    |
 |   [Zeer0](https://osu.ppy.sh/users/16085717)   | $1000 \to 944.9$  |    $290 \to 287.9$    |
-| [Railgun\_](https://osu.ppy.sh/users/13817114) | $1000 \to 1046.2$ |    $280 \to 277.7$    |
+|  Player 4                                      | $1000 \to 1046.2$ |    $280 \to 277.7$    |
 |  [poisonvx](https://osu.ppy.sh/users/9391047)  |  $700 \to 697.7$  |    $270 \to 269.4$    |
 |    [Skyy](https://osu.ppy.sh/users/7113149)    |  $600 \to 570.6$  |    $270 \to 268.7$    |
 
-All players' volatilities have slightly decreased, indicating that the model is slightly more confident about the updated ratings. Also notice that Railgun\_'s rating has significantly increased due to their high participation and relatively high placement among players throughout the match. The overall rating changes are not precisely zero-sum due to the differences in players' volatilities.
+All players' volatilities have slightly decreased, indicating that the model is slightly more confident about the updated ratings. Also notice that Player 4's rating has significantly increased due to their high participation and relatively high placement among players throughout the match. The overall rating changes are not precisely zero-sum due to the differences in players' volatilities.
