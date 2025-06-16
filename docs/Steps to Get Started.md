@@ -22,16 +22,33 @@ docker run -d \
 
 ## Step 2: Import Database Dump
 
-Browse to [https://data.otr.stagec.xyz](https://data.otr.stagec.xyz) to find the most recent dump dated before the tournament's registration period. Download and import:
+Browse to [https://data.otr.stagec.xyz](https://data.otr.stagec.xyz) to find the most recent dump dated before the tournament's registration period. Download and prepare for import.
+
+### Clean the database
+
+First, remove and recreate the `public` schema to ensure a clean import:
+
+```bash
+# Remove the public schema
+docker exec -it otr-postgres psql -U postgres -c "DROP SCHEMA public CASCADE;" -d postgres
+
+# Create the public schema
+docker exec -it otr-postgres psql -U postgres -c "CREATE SCHEMA public;" -d postgres
+```
+
+### Import the dump
 
 ```bash
 # Import the compressed dump
 gunzip -c your-dump.gz | docker exec -i otr-postgres psql -U postgres -d postgres
 ```
 
+> [!note]
+> Any errors can be safely ignored
+
 ## Step 3: Run the Processor
 
-Browse the [releases](https://github.com/osu-tournament-rating/otr-processor/releases) to find the most recent processor version released before the tournament used ratings for seeding or filtering. This is typically the day registrations end, though the tournament should specify clearly.
+Browse the [releases page](https://github.com/osu-tournament-rating/otr-processor/releases) to find the most recent processor version released before the day the tournament used o!TR to filter and/or seed participants. This is typically the day registrations end, though the tournament should specify clearly.
 
 ```bash
 # Pull and run the processor (replace YYYY.MM.DD with the appropriate version)
@@ -39,13 +56,13 @@ docker pull stagecodes/otr-processor:YYYY.MM.DD
 docker run --rm \
   --name otr-processor \
   --network host \
-  stagecodes/otr-processor:YYYY.MM.DD \
-  -i --connection-string "postgresql://postgres:postgres@localhost:5432/postgres"
+  -e CONNECTION_STRING="postgresql://postgres:postgres@localhost:5432/postgres" \
+  stagecodes/otr-processor:YYYY.MM.DD
 ```
 
 ## Step 4: Export Player Ratings
 
-Export player ratings for verification. Replace `ruleset` values: 0=osu!, 1=taiko, 2=catch, 4=mania 4K, 5=mania 7K.
+Export player ratings for verification. Replace `ruleset` values as follows: 0=osu!, 1=taiko, 2=catch, 4=mania 4K, 5=mania 7K.
 
 ### Export All Ratings
 
@@ -114,14 +131,18 @@ Verifying ratings for a tournament with registrations closing March 1, 2024:
 docker volume create otr-db
 docker run -d --name otr-postgres -p 5432:5432 -e POSTGRES_PASSWORD=postgres -v otr-db:/var/lib/postgresql/data postgres:17
 
-# 2. Import database dump from https://data.otr.stagec.xyz
+# 2. Clean the database
+docker exec -it otr-postgres psql -U postgres -c "DROP SCHEMA public CASCADE;" -d postgres
+docker exec -it otr-postgres psql -U postgres -c "CREATE SCHEMA public;" -d postgres
+
+# 3. Import database dump from https://data.otr.stagec.xyz
 gunzip -c your-dump.gz | docker exec -i otr-postgres psql -U postgres -d postgres
 
-# 3. Run processor (version from before March 1, 2024)
+# 4. Run processor (version from before March 1, 2024)
 docker pull stagecodes/otr-processor:YYYY.MM.DD
-docker run --rm --name otr-processor --network host stagecodes/otr-processor:YYYY.MM.DD -i --connection-string "postgresql://postgres:postgres@localhost:5432/postgres"
+docker run --rm --name otr-processor --network host -e CONNECTION_STRING="postgresql://postgres:postgres@localhost:5432/postgres" stagecodes/otr-processor:YYYY.MM.DD
 
-# 4. Export ratings (ruleset: 0=osu!, 1=taiko, 2=catch, 3=mania)
+# 5. Export ratings (ruleset: 0=osu!, 1=taiko, 2=catch, 3=mania)
 docker exec -it otr-postgres psql -U postgres -d postgres -c "\
 COPY (
     SELECT p.osu_id, p.username, p.country, pr.rating, pr.global_rank
@@ -131,6 +152,6 @@ COPY (
     ORDER BY pr.rating DESC
 ) TO STDOUT WITH CSV HEADER;" > tournament_verification.csv
 
-# 5. Cleanup
+# 6. Cleanup
 docker stop otr-postgres && docker rm otr-postgres && docker volume rm otr-db
 ```
