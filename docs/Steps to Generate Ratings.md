@@ -1,4 +1,4 @@
-This guide provides instructions for running the [[Applications/Processor/Overview|otr-processor]] locally to generate player ratings from publicly-available datasets. This enables independent verification of tournaments which use our platform for filtering and/or seeding.
+This guide provides instructions for running the [[Applications/Processor/Overview|processor]] locally to generate player ratings from publicly-available datasets. This enables independent verification of tournaments which use our platform for filtering and/or seeding.
 
 > [!important]
 > The `otr-processor` version must be the most recent version released **before** the tournament's registration period. The processor uses date-based versioning in `YYYY.MM.DD` format. Different processor versions may produce different results due to algorithm updates.

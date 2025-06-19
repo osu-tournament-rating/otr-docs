@@ -9,33 +9,26 @@ This article explains how we manage database backups and details a database disa
 
 Production backups are automated via a script set to run every six hours. The backups are compressed and uploaded to a Google Cloud Storage bucket. These scripts are part of an internal repository.
 
-## Restore the database
+## Import the database
 
 > [!note]- Internal disaster recovery process
 >
 > ### Using the disaster recovery script
 >
-> For environments with the o!TR scripts repository set up, use the automated disaster recovery script:
+> For environments with the otr-scripts repository set up, use the automated disaster recovery script:
 >
 > ```bash
-> # This script will automatically:
-> # - Download the latest dump from Google Cloud Storage
-> # - Drop and recreate the database
-> # - Import the dump
-> # - Clean up temporary files
 > # From the otr-scripts directory:
 > ./src/db/disaster-recovery.sh
 > ```
 
-### Manual restoration
+### Manual import
 
 > [!danger]
-> These steps will delete and overwrite the entire database.
+> These steps will overwrite the current database state.
 
 > [!tip]
-> It is safe to ignore any errors displayed in the console during the import process.
-
-If you have a database dump file and need to restore manually:
+> It is safe to ignore any errors displayed in the console during the import process so long as the operation does not fail due to the error.
 
 #### One-line import (recommended)
 
