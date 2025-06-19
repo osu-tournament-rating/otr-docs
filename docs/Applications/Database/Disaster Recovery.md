@@ -3,7 +3,7 @@ tags:
   - internal
 ---
 
-This article explains how o!TR manages database backups and details a database disaster recovery plan.
+This article explains how we manage database backups and details a database disaster recovery plan.
 
 ## Production Backups
 
@@ -11,29 +11,29 @@ Production backups are automated via a script set to run every six hours. The ba
 
 ## Restore the database
 
-> [!danger]
-> These steps will delete and overwrite your entire database.
-
->[!note]- Internal disaster recovery process
+> [!note]- Internal disaster recovery process
 >
->##### Using the disaster recovery script
+> ### Using the disaster recovery script
 >
->For environments with the o!TR scripts repository set up, use the automated disaster recovery script:
+> For environments with the o!TR scripts repository set up, use the automated disaster recovery script:
 >
 > ```bash
-># This script will automatically:
-># - Download the latest dump from Google Cloud Storage
-># - Drop and recreate the database
-># - Import the dump
-># - Clean up temporary files
-># From the otr-scripts directory:
+> # This script will automatically:
+> # - Download the latest dump from Google Cloud Storage
+> # - Drop and recreate the database
+> # - Import the dump
+> # - Clean up temporary files
+> # From the otr-scripts directory:
 > ./src/db/disaster-recovery.sh
 > ```
 
 ### Manual restoration
 
->[!tip]
->It is safe to ignore any errors displayed in the console during the import process.
+> [!danger]
+> These steps will delete and overwrite the entire database.
+
+> [!tip]
+> It is safe to ignore any errors displayed in the console during the import process.
 
 If you have a database dump file and need to restore manually:
 
