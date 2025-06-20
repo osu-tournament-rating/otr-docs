@@ -21,13 +21,13 @@ docker run -d \
   postgres:17
 ```
 
-## Step 2: Import Database Dump
+## Step 2: Import Database Replica
 
-Public database dumps are available [here](https://data.otr.stagec.xyz). These weekly replicas exclude most data, but provide enough data to verify a tournament's use of o!TR.
+Public database replicas are published [here](https://data.otr.stagec.xyz). These weekly replicas exclude most data, but provide enough data to verify a tournament's use of o!TR.
 
-Download the most recent dump dated before the tournament closed registrations. If the tournament provides another date by which ratings are taken from, use that date instead.
+Download the most recent replica dated before the tournament closed registrations. If the tournament provides another date by which ratings are taken from, use that date instead.
 
-### Import the dump
+### Import the replica
 
 Use this command to overwrite your `otr-postgres` volume data.
 
@@ -56,6 +56,8 @@ docker run --rm \
 
 > [!tip]
 > To run pre-production changes, use the `:staging` tag. To run the latest production version, use the `:latest` tag.
+> 
+> Example: `docker run ... stagecodes/otr-processor:staging`
 
 ## Step 4: Export Player Ratings
 
@@ -86,7 +88,7 @@ COPY (
     WHERE pr.ruleset = 0
 --                    ^^^ == Edit ruleset here ==
     ORDER BY pr.rating DESC
-) TO STDOUT WITH CSV HEADER;" > ratings_osu.csv
+) TO STDOUT WITH CSV HEADER;" > ratings.csv
 ```
 
 ### Export All Ratings
@@ -111,7 +113,7 @@ COPY (
     FROM public.players p
     JOIN public.player_ratings pr ON p.id = pr.player_id
     ORDER BY pr.ruleset, pr.rating DESC
-) TO STDOUT WITH CSV HEADER;" > all_ratings.csv
+) TO STDOUT WITH CSV HEADER;" > ratings.csv
 ```
 
 > [!tip]
@@ -119,18 +121,16 @@ COPY (
 
 ## Step 5: Filter Ratings for Specific Players
 
-After exporting ratings to CSV files, you may want to filter them for specific players. This is useful when verifying ratings for tournament participants.
+After exporting ratings, you may want to filter them for specific players. This is useful verifying the ratings of tournament participants.
 
 ### Method 1: Filter Using a List File
 
-If you have many IDs, create a text file called `player_ids.txt` with one osu! ID per line:
+If you have many IDs, create a text file called `player_ids.txt` with one osu! ID per line.
 
+Then, filter `ratings.csv` for IDs present in `player_ids.txt`.
 ```bash
-# Create a file with osu! IDs
-echo -e "8191845\n11557554\n7823498" > player_ids.txt
-
-# Filter using the ID list
-head -1 all_ratings.csv > filtered_ratings.csv && grep -f player_ids.txt all_ratings.csv >> filtered_ratings.csv
+# For each osu! ID in player_ids.txt, print the ratings.csv entry
+head -1 ratings.csv > filtered_ratings.csv && grep -f player_ids.txt ratings.csv >> filtered_ratings.csv
 ```
 
 ### Method 2: Filter by Individual osu! IDs
@@ -140,7 +140,7 @@ head -1 all_ratings.csv > filtered_ratings.csv && grep -f player_ids.txt all_rat
 
 ```bash
 # Filter for specific osu! IDs (replace 12345|67890 with actual IDs).
-head -1 all_ratings.csv > filtered_ratings.csv && grep -E "^(12345|67890|11111)" all_ratings.csv >> filtered_ratings.csv
+head -1 ratings.csv > filtered_ratings.csv && grep -E "^(12345|67890)" ratings.csv >> filtered_ratings.csv
 ```
 
 ### Example Output
