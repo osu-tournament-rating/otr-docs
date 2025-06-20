@@ -128,6 +128,7 @@ After exporting ratings, you may want to filter them for specific players. This 
 If you have many IDs, create a text file called `player_ids.txt` with one osu! ID per line.
 
 Then, filter `ratings.csv` for IDs present in `player_ids.txt`.
+
 ```bash
 # For each osu! ID in player_ids.txt, print the ratings.csv entry
 head -1 ratings.csv > filtered_ratings.csv && grep -f player_ids.txt ratings.csv >> filtered_ratings.csv
