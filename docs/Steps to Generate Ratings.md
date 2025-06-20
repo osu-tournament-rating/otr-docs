@@ -56,7 +56,7 @@ docker run --rm \
 
 > [!tip]
 > To run pre-production changes, use the `:staging` tag. To run the latest production version, use the `:latest` tag.
-> 
+>
 > Example: `docker run ... stagecodes/otr-processor:staging`
 
 ## Step 4: Export Player Ratings
