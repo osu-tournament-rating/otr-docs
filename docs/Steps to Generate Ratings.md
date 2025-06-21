@@ -14,7 +14,7 @@ This guide provides instructions for running the [[Applications/Processor/Overvi
 # Create database volume and container
 docker volume create otr-db
 docker run -d \
-  --name otr-postgres \
+  --name otr-db \
   -p 5432:5432 \
   -e POSTGRES_PASSWORD=password \
   -v otr-db:/var/lib/postgresql/data \
