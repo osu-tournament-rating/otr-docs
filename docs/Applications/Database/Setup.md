@@ -17,6 +17,7 @@ Then, start the database:
  ```
  docker run \
  -d \
+ --name otr-db \
  -p 5432:5432 \
  -v otr-db:/var/lib/postgresql/data \
  -e POSTGRES_PASSWORD=password postgres
