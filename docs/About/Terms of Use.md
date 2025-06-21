@@ -15,7 +15,7 @@ Users who abuse this service will have their API access revoked without warning.
 
 ##### Scraping
 
-The API must not be used to scrape information. Scraping data in any form is prohibited and will result in a permanent revocation of API access. Please see the [[Data|data]] page for more information on conveniently importing our dataset.
+The API must not be used to scrape information. Scraping data in any form is prohibited and will result in a permanent revocation of API access. Please see the [[Replicas|data]] page for more information on conveniently importing our dataset.
 
 ##### Multiple Clients
 
@@ -36,17 +36,17 @@ By using our API, you hereby consent to us logging the activity of all API clien
 
 ## Database Terms of Use
 
-By using any of the o!TR database's public replicas offered [here](https://data.otr.stagec.xyz/), you agree to abide by these terms of use.
+By using any of the public replicas offered [here](https://data.otr.stagec.xyz/), you agree to abide by these terms of use.
 
 ### Restrictions
 
-These replicas are provided explicitly for those who are doing the following:
+These replicas are provided explicitly for those who are doing the following and for no other purpose:
 
 1. Testing or modifying one or more official osu! Tournament Rating [(o!TR)](https://github.com/osu-tournament-rating) programs with the intention of testing and contributing to the official repositories.
-2. Validating a tournament's usage of the o!TR system by inspecting a dataset from a specific time period as needed.
+2. Validating a tournament's usage of the o!TR platform by inspecting a dataset from a specific time period as needed.
 
 > [!info]
-> Certain Data is omitted to protect user privacy. Refer to [[Data#Public Replicas|this page]] for more specifics.
+> Certain data is omitted to protect user privacy. Refer to [[Replicas#Public Replicas|this page]] for more specifics.
 
 #### Permissions
 
