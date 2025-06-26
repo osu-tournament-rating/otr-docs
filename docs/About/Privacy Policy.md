@@ -41,8 +41,8 @@ Upon logging into the platform using osu! OAuth, we create a Player profile for 
 Additionally, the following information is associated with you:
 
 - Data you submit to us voluntarily.
-	- This includes [[Registrant Filtering]] submissions, tournament submissions, and other similar submissions.
-	- Logs of edited and deleted tournaments, matches, games, scores, beatmaps, and any other data type we choose to manage on our platform. This is only relevant to users who have heightened permissions (admins).
+    - This includes [[Registrant Filtering]] submissions, tournament submissions, and other similar submissions.
+    - Logs of edited and deleted tournaments, matches, games, scores, beatmaps, and any other data type we choose to manage on our platform. This is only relevant to users who have heightened permissions (admins).
 - Your user settings and preferences (coming soon).
 
 # Cookies
