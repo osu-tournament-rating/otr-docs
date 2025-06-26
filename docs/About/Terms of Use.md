@@ -53,3 +53,12 @@ These replicas are provided explicitly for those who are doing the following and
 Permission to use this dataset in third-party applications, outside of the above exceptions, is not implicitly granted. Please [[Contact#Quick links|contact us]] with your use case before integrating our dataset into any of your applications.
 
 If such permission is granted, the osu! Tournament Rating project must be [[Terms of Use#Accreditation|properly credited]] anywhere our dataset is used.
+
+## Website Terms of Use
+
+Users who misuse our platform may have their access limited or stripped altogether without warning.
+
+Here are some examples of what constitute misuse:
+
+- Spam submissions
+- Scraping data
