@@ -18,6 +18,12 @@ We do not support filtering against osu! statistics, such as global rank, for th
 
 Please use one of the publicly-available spreadsheet templates to support other custom filtering options. These spreadsheets typically allow you to enter your own osu! API key to do the data fetching yourself. See the [Community Resources](https://osu.ppy.sh/community/forums/topics/2012941?n=1) osu! forum post for more information.
 
+## Using the Tool
+
+To use the tool, simply select the ruleset of your tournament, input your filter criteria, and paste a list containing the osu! IDs of all tournament registrants.
+
+A report is then generated for review. Reports can be downloaded as a `.csv` file for import into a spreadsheet. The ID linked to the report can be looked up by anyone using our Filter Report tool.
+
 ## Notice to Tournament Hosts
 
 You **must**:
