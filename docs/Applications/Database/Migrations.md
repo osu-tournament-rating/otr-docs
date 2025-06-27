@@ -24,8 +24,9 @@ To create a new migration, run the following in the root directory of the reposi
  --context OtrContext
  ```
 
-> [!info]
-> `[Entity_ChangesMade]` should be replaced with the name of your migration. Migrations should use PascalCase with underscores separating the entity from the changes made. For example, `Player_ConvertIdToInteger` is a good name for a migration as it describes the change made at a glance.
+ `[Entity_ChangesMade]` should be replaced with the name of your migration. Migrations should use PascalCase with underscores separating the entity from the changes made. 
+ 
+ For example, `Player_ConvertIdToInteger` is a good name for a migration as it describes the change made at a glance.
 
 > [!warning]
 > When a new migration is created, it will not be tracked by git automatically. Ensure you commit the generated files.
@@ -74,10 +75,9 @@ To generate the migrations script, run the following in the root directory of th
 
 > [!note]
 > The `idempotent` flag tells the script to only apply migrations which have not already been applied.
-> If you want to configure a database from scratch (e.g. no tables are in the `public` schema),
-> remove this flag.
+> If you want to configure a database from scratch (e.g. no tables are in the `public` schema), remove this flag.
 
-Apply the migrations:
+Then, apply the migrations:
 
  ```
  cat script.sql | docker exec \
