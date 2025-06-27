@@ -9,7 +9,7 @@ The JWT Tool is a command-line interface utility written in [.NET](https://learn
 
 JWTs are decoded API-side to identify who is making the request and authorize access to endpoints based on the roles they have.
 
-# Usage
+## Usage
 
 The tool generates JWTs which function as `Bearer` authorization tokens. A common use case is to pass the JWT into Swagger's authorization dialog. This grants access to protected API endpoints (almost all of which require the `user` scope at a minimum, which the JWT tool encodes by default).
 
@@ -20,7 +20,7 @@ The tool generates JWTs which function as `Bearer` authorization tokens. A commo
 >
 > Alternatively, all arguments may be specified individually. Pass the `--help` argument to see all possible arguments with descriptions.
 
-## Prerequisites
+### Prerequisites
 
 - If passing an `appsettings.json` file, ensure the file passed conforms to the [[Configuration]].
 
@@ -37,7 +37,7 @@ dotnet run -- --subject <userID> --roles admin -c /path/to/your/appsettings.json
 > If the user provided does not exist in the database, the tool will still work, but any API endpoints which depend on a specific user (such as `/me`) will break.
 > %% When we have a page for setting up a user in the db, this should link there %%
 
-## Output
+### Output
 
 The output will look something like this, with the encoded string below serving as the JWT.
 
@@ -49,7 +49,7 @@ The output will look something like this, with the encoded string below serving 
 [23:34:00 INF] ----------------------------------------
 ```
 
-## Options
+### Options
 
 To see all options:
 
@@ -57,7 +57,7 @@ To see all options:
 dotnet run -- generate --help
 ```
 
-# Reading
+## Reading
 
 To read a JWT and display its properties, run the following, where `token` is a JWT:
 
@@ -65,7 +65,7 @@ To read a JWT and display its properties, run the following, where `token` is a 
 dotnet run -- read -t <token>
 ```
 
-## Output
+### Output
 
 The output will look something like this:
 
@@ -99,7 +99,7 @@ The output will look something like this:
 [13:07:52 INF] Sig: '0KfPH9XiLv-5YXf2THdXVIClvw-Tb52UhiHdXQAkJq4'
 ```
 
-### Fields
+#### Fields
 
 The below table explains each output field.
 
@@ -108,7 +108,7 @@ The below table explains each output field.
 | Header  | Describes the token's algorithm and type. In the above example, the algorithm is `HS256` and the type is `JWT`. The example in section 3.1 of [RFC-7519](https://datatracker.ietf.org/doc/html/rfc7519) goes into more detail about this field. |
 | Payload | Contains all other encoded JWT properties. See sections 3 and 4 of [RFC-7519](https://datatracker.ietf.org/doc/html/rfc7519) for a thorough explanation of each field with examples.                                                            |
 
-## Options
+### Options
 
 To see all options:
 

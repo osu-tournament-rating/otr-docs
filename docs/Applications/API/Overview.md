@@ -6,7 +6,7 @@ The [o!TR API](https://github.com/osu-tournament-rating/otr-api) repository cont
 
 Usage of the public API must abide by our [[Terms of Use#API Terms of Use|API Terms of Use]].
 
-# Development
+## Development
 
 For setup of the API for development, refer to the following articles:
 

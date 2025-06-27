@@ -4,7 +4,7 @@ tags:
 ---
 Although not used in rating calculations directly, o!TR does keep track of match costs for use in other statistics, such as gauging performance across tournaments. The formula is as follows.
 
-# Formula
+## Formula
 
 The match cost formula is inspired by [Bathbot](https://github.com/MaxOhn/Bathbot)'s formula, simplified to remove factors that are not relevant for our purposes. For each map played, each player receives a map score between $0.5$ and $1.5$, specifically
 $$

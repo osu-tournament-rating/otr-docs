@@ -5,7 +5,7 @@ tags:
 
 Migrations are handled by [Entity Framework](https://learn.microsoft.com/en-us/aspnet/entity-framework). These are auto-generated files and configurations which enable code-first changes to the database.
 
-# Creating / Editing Entities
+## Creating / Editing Entities
 
 Migrations must be created and tested when any of the following are modified:
 
@@ -13,7 +13,7 @@ Migrations must be created and tested when any of the following are modified:
    - Only create a migration when the changes modify the entity such that a database change is required. For example, adding a new field requires a migration, but modifying basic comments do not.
 2. `OtrContext.cs`, if there are modifications which change entity relationships.
 
-## Creating Migrations
+### Creating Migrations
 
 To create a new migration, run the following in the root directory of the repository.
 
@@ -33,7 +33,7 @@ To create a new migration, run the following in the root directory of the reposi
 > [!tip]
 > If using JetBrains Rider, take advantage of the built-in [Entity Framework tools](https://www.jetbrains.com/help/rider/Visual_interface_for_EF_Core_commands.html)!
 
-## Removing Migrations
+### Removing Migrations
 
 If you need to undo a migration, run the following command to revert the most recent migration.
 
@@ -44,7 +44,7 @@ If you need to undo a migration, run the following command to revert the most re
  --context OtrContext
  ```
 
-## Applying Migrations
+### Applying Migrations
 
 Run the following to apply any pending migrations to the database. In development, ensure the database appears as expected after applying migrations.
 
@@ -55,7 +55,7 @@ Run the following to apply any pending migrations to the database. In developmen
  --context OtrContext
  ```
 
-## Apply Migrations in Production
+### Apply Migrations in Production
 
 The method of applying migrations is different in development than production. This is because the pipeline does not have access to a running database.
 

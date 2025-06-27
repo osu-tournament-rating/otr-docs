@@ -1,11 +1,11 @@
 The o!TR Docs serve to document anything and everything related to the o!TR project and are written using [Obsidian](https://obsidian.md/). This guide details the setup process.
 
-# Prerequisites
+## Prerequisites
 
 - **Git:** Ensure Git is installed on your system.
 - **Obsidian:** Download and install Obsidian from [https://obsidian.md/](https://obsidian.md/).
 
-# Cloning the Repository
+## Cloning the Repository
 
 > [!NOTE]
 > If you want to contribute to the docs and you are not part of our organization, you must first [fork](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo) our [repository](https://github.com/osu-tournament-rating/otr-docs) and clone the version tied to your GitHub account.
@@ -20,16 +20,16 @@ The o!TR Docs serve to document anything and everything related to the o!TR proj
 git clone <YOUR FORK, OR https://github.com/osu-tournament-rating/otr-docs.git>
 ```
 
-# Opening in Obsidian
+## Opening in Obsidian
 
 1. Open Obsidian.
 2. Select “Open folder as vault” and navigate to the cloned `otr-docs` folder. Obsidian will then index and display the documentation.
 
-# Optional: Git Plugin
+## Optional: Git Plugin
 
 The Git plugin enables version control directly within Obsidian, allowing you to track changes, create branches, and manage your changes with ease. If you prefer not to use version control within Obsidian, feel free to skip this section.
 
-## Plugin Installation
+### Plugin Installation
 
 1. Navigate to Obsidian settings.
 2. Click "Community plugins".

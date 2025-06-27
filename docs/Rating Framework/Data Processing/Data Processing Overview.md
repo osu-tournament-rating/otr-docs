@@ -1,6 +1,6 @@
 The o!TR suite of tools processes various amounts of data in various ways.
 
-# Tournament Data
+## Tournament Data
 
 We process data from osu! multiplayer lobbies. This data comes from tournament data. Any osu! player who has participated in any of the lobbies submitted to o!TR will have some of their account information stored in our system.
 
@@ -20,7 +20,7 @@ This data includes:
   > [!note]
   This is for players who have tournament data for a given ruleset. The closest known rank is the closest available rank from osu!track compared to the date of the first tournament match a player participated in.
 
-## Data manipulation
+### Data manipulation
 
 The o!TR team manipulates raw match data in the following ways:
 
