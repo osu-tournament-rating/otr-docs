@@ -17,8 +17,8 @@ Next, matches that have been `PreRejected` or otherwise flagged are considered. 
 After that, reasons for rejection in any `PreRejected` games in verified matches are looked at more closely. One of the two most common reasons is a lobby size mismatch due to a mid-game disconnect or a "showmap" played at the end of the match for fun; in both cases, since we do not have full information on the true performance of the players, we do indeed reject the game from data.
 
 > [!info]
-> A minimum score check excludes players who were not playing during a game, so that in-lobby referees do not cause a lobby size mismatch. 
-> 
+> A minimum score check excludes players who were not playing during a game, so that in-lobby referees do not cause a lobby size mismatch.
+>
 > If this causes any legitimate plays to be discarded, then a closer look is taken at the performance of the player overall and whether they were playing legitimately.
 
 The other common reason is that the beatmap was detected not to be in the list of beatmap IDs provided at submission. This almost always means a game was played at the beginning or end of the match for fun (and this automation process catches almost all such cases), but if this error is detected for a game in the middle of the match, we double-check whether the list of mappool IDs for the tournament is missing data and add to it if necessary.
@@ -30,7 +30,7 @@ Finally, any remaining `PreVerified` data is marked as `Verified`, and any remai
 
 ### Restricted player data
 
-Match data involving players who were restricted, including those who were tournament banned for foul play, is handled by the system just like any other match data. However, restricted players will not appear on any rating leaderboards. Depending on the influence of such players on the match, the o!TR team may include or exclude such games or matches from verification on a case-by-case basis. 
+Match data involving players who were restricted, including those who were tournament banned for foul play, is handled by the system just like any other match data. However, restricted players will not appear on any rating leaderboards. Depending on the influence of such players on the match, the o!TR team may include or exclude such games or matches from verification on a case-by-case basis.
 
 ### Modifying submitted data
 

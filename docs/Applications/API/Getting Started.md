@@ -35,7 +35,6 @@ Run the following command:
 docker run -d -p 6379:6379 --name otr-redis redis
 ```
 
-
 The redis container must be running for the API to function.
 
 ### Configuration

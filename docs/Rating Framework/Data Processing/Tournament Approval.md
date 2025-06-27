@@ -20,7 +20,7 @@ In order for a tournament to be accepted into the o!TR system for rating calcula
 3. Not have significant lapses in data, such as missing a full round of matches or a large amount of forfeits.
     - Exceptions are made for older tournaments for the sake of preservation
 
-4. Not present any signs of serious foul play or rigging. 
+4. Not present any signs of serious foul play or rigging.
 
 5. Target an acceptable skill range of players[^1].
     - For osu!, the minimum rank restriction is `#150,000+` (`#75,000+` for regional tournaments).
@@ -35,7 +35,7 @@ In order for a tournament to be accepted into the o!TR system for rating calcula
 9. Not use variable lobby sizes or [game modes](https://osu.ppy.sh/wiki/en/Game_mode). Examples include:
     - "Battle Royale" tournaments.
     - Multi-mode tournaments.
-    - Free For All tournaments. 
+    - Free For All tournaments.
 
 10. Feature a format that allows players to play at their full competitive strength throughout the whole match.
 
@@ -59,10 +59,10 @@ When submitting a tournament, follow these steps:
 
 1. Ensure the tournament is finished.
 2. Gather all match links from bracket stages (and group stages if applicable).
-    - Exclude links from qualifiers, tryouts, or show matches. 
+    - Exclude links from qualifiers, tryouts, or show matches.
 
 3. Gather all beatmap IDs pooled in the tournament, _including qualifiers_ and group stages[^2].
-    - Note that we are asking for the *beatmap* ID and not the *beatmapset* ID. For example, enter 75 rather than 1 for [this beatmap](https://osu.ppy.sh/beatmapsets/1#osu/75)
+    - Note that we are asking for the _beatmap_ ID and not the _beatmapset_ ID. For example, enter 75 rather than 1 for [this beatmap](https://osu.ppy.sh/beatmapsets/1#osu/75)
 
 4. Enter the above data along with requested general tournament information on the [website submission form](https://otr.stagec.xyz/submit).
 
@@ -75,7 +75,7 @@ Additionally, keep the following in mind for tiered tournaments or tournaments t
     - [Here's](https://otr.stagec.xyz/tournaments/525) an example of a tiered tournament.
 
 2. For divisional tournaments, submit them as separate tournaments - **one submission per bracket**. Append "Division 1", "Division 2", etc. to the tournament's title when submitting.
-    - [Here](https://otr.stagec.xyz/tournaments/2349) [are](https://otr.stagec.xyz/tournaments/2350) [examples](https://otr.stagec.xyz/tournaments/2351) of multiple divisions of the same tournament. 
+    - [Here](https://otr.stagec.xyz/tournaments/2349) [are](https://otr.stagec.xyz/tournaments/2350) [examples](https://otr.stagec.xyz/tournaments/2351) of multiple divisions of the same tournament.
 
 ## FAQ
 
@@ -101,12 +101,11 @@ We know how time-consuming it is to gather links. There's a few methods we use f
 
 - Contact the tournament host, spreadsheet owner, referee, or anyone else who may have access to that tournament's match data. Kindly ask them for a list of links or match ids.
 - Assuming the data may be on a Google sheet, an alternative is to use the `=IMPORTRANGE()` function on the cells with the match links to import them to a new sheet. You can then extract the links in the new sheet with a script detailed in [here](https://stackoverflow.com/a/67206954).
-- When in doubt, have the tournament's spreadsheet maintainers [[Contact|Contact us]]. 
+- When in doubt, have the tournament's spreadsheet maintainers [[Contact|Contact us]].
 
 ### How can invalid data be flagged for review?
 
 Invalid data, such as warmups, show matches, or any other data that should not be in our system are mostly being detected via [[Automated Checks|automated checks]] and will also be reportable in the future. For now, know that this data does not significantly affect rating values, but please note it down so you can let us know later!
 
-
 [^1]: This restriction exists in order to avoid “farming” of rating in isolated pockets of newer tournament players.
-[^2]: This data is used as part of our [[Automated Checks|automated checks]] to filter out warmups and generate additional tournament statistics. 
+[^2]: This data is used as part of our [[Automated Checks|automated checks]] to filter out warmups and generate additional tournament statistics.

@@ -24,8 +24,8 @@ To create a new migration, run the following in the root directory of the reposi
  --context OtrContext
  ```
 
- `[Entity_ChangesMade]` should be replaced with the name of your migration. Migrations should use PascalCase with underscores separating the entity from the changes made. 
- 
+ `[Entity_ChangesMade]` should be replaced with the name of your migration. Migrations should use PascalCase with underscores separating the entity from the changes made.
+
  For example, `Player_ConvertIdToInteger` is a good name for a migration as it describes the change made at a glance.
 
 > [!warning]
