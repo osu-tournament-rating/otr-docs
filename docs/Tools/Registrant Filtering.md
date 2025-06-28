@@ -12,8 +12,8 @@ Filters can be applied against:
 
 We do not support filtering against osu! statistics, such as global rank or badge count, for these reasons:
 
-1. If we do not have a player's osu! data at the time of filtering, we would have to fetch it on-demand. This can quickly get out of hand and introduce significant slowdowns.
-2. We fetch osu! data periodically, the team has decided to not allow filtering against outdated information.
+1. If we do not have a player's osu! data at the time of filtering, it would have to be fetched on-demand, introducing significant slowdowns.
+2. As osu! data is only fetched periodically, the filter may check against outdated information.
 3. Supporting [BWS](https://osu.ppy.sh/wiki/en/Tournaments/Badge-weighted_seeding) and other custom criteria significantly increases the complexity of the tool, going beyond our scope and introducing too many edge cases.
 
 If you would like to filter using osu! statistics in addition to o!TR statistics, we recommend using one of the publicly-available spreadsheet templates. These spreadsheets typically allow you to enter your own osu! API key to do the data fetching yourself. You can then combine the two filtering methods for a final list of eligible players. See the [Community Resources](https://osu.ppy.sh/community/forums/topics/2012941?n=1) osu! forum post for more information.

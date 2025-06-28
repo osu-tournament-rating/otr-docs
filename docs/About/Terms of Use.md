@@ -58,7 +58,7 @@ If such permission is granted, the osu! Tournament Rating project must be [[Term
 
 Users who misuse our platform may have their access limited or stripped altogether without warning.
 
-Here are some examples of what constitute misuse:
+Examples of misuse:
 
 - Spam submissions
 - Scraping data

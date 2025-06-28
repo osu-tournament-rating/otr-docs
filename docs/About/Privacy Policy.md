@@ -13,7 +13,9 @@ By logging in to our platform, you are consenting to the data which is collected
 
 ### Players
 
-The following information is stored if any submitted tournament contains any matches by which you are a participant:
+Players are defined as osu! users whose data is stored by us, regardless of whether they have logged into our platform. Player profiles are accessible to the public and are searchable.
+
+The following information is stored for all player profiles, provided we are able to fetch it via osu! and/or osu!track.
 
 - Publicly-available osu! profile information, such as:
     - ID
@@ -22,36 +24,51 @@ The following information is stored if any submitted tournament contains any mat
     - Performance points
     - Global and country ranks
 - Publicly-available information provided by [osu!track](https://ameobea.me/osutrack/), such as historical global rank
+- Publicly-available osu! match data, such as scores made in matches submitted to us.
 
-Using this information, we are able to build a network of:
+By processing this data, we are able to build relationships between you, other users, tournaments, matches, and so on. As an example, we are able to identify:
 
-- Which osu! tournaments, matches, and games you have participated in
-- Which scores you have set in these games
+- Which osu! tournaments, matches, and games you have participated in.
+- Which scores you have set in these games.
 - Various metrics regarding the above, including:
-    - Your performance in tournaments
-    - Who you play tournaments with most frequently
+    - Your performance in tournaments.
+    - Who you play tournaments with most frequently.
 
 ### Users
 
-Upon logging into the platform using osu! OAuth, we create a Player profile for you if it doesn't exist. This will allow your profile to be searchable and accessible on our platform, even if we do not have any of your information already. We associate the following information with your player profile after you log into our platform:
+Upon logging into the platform using osu! OAuth, we create a user profile for you if it doesn't exist. If you do not have any data in our system at the time of logging in, a [[#Players|player]] profile is created for you simultaneously. We associate the following information with your user profile:
 
 - Last login date
 - Who you follow on osu! (coming soon)
-
-Additionally, the following information is associated with you:
-
 - Data you submit to us voluntarily.
     - This includes [[Registrant Filtering]] submissions, tournament submissions, and other similar submissions.
-    - Logs of edited and deleted tournaments, matches, games, scores, beatmaps, and any other data type we choose to manage on our platform. This is only relevant to users who have heightened permissions (admins).
+    - Logs of edited and deleted tournaments, matches, games, scores, beatmaps, and any other data type we choose to manage on our platform. This is only relevant to users who have heightened permissions.
 - Your user settings and preferences (coming soon).
 
 # Cookies
 
 We use basic, mandatory cookies to provide users basic services, such as to store user sessions. If we didn't, users would be forced to log in each time they visit the site which doesn't align with the experience we wish to provide.
 
-# Data Storage
+## Data Storage
 
-Our platform operates in and stores data within the United States of America.
+All operations and data storage occur within the United States of America.
+
+## Logging
+
+The following information is logged in order to provide our services:
+- Web and API client requests you make. Normal web browsing activity does trigger these logs. These logs are stored even when users are signed out. Signing out fully anonymizes these logs. This information is not saved in our database. The following information is stored within such logs:
+    - A "Trace ID" and "Span ID" which allows us to map your request to database queries (used to diagnose performance issues across different parts of our system).
+    - Your User ID, if signed in.
+    - Request metadata, such as endpoint, response code, response time, and other relevant, non-identifying information.
+    - Timestamp
+- Error and warning logs of various nature, including API requests, are stored in our database.
+
+## Data Access
+
+These users have elevated access to system data[^3]:
+
+- [Stage](https://osu.ppy.sh/users/8191845) (Superadmin, full access to all systems)
+- [Convex](https://osu.ppy.sh/users/11292327) (Read-only access to production database & logs)
 
 # Data Deletion
 
@@ -75,3 +92,5 @@ Users who choose to donate via [Buy Me a Coffee](buymeacoffee.com/stagecodes) wi
 
 [^1]: A user is an osu! user who has logged into our platform via osu! OAuth.
 [^2]: A player is an osu! user whose data is automatically stored as part of our tournament submission process.
+
+[^3]: See [[Team]] for more information on member roles.

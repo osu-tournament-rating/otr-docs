@@ -1,8 +1,8 @@
-The o!TR Team is a group of people who maintains the o!TR projects, handles data validation, and more. These individuals are the core drivers of the project.
+The o!TR Team is a small group who function as core drivers of the osu! Tournament Rating project.
 
 | Username                                          | Role                                                |
 | ------------------------------------------------- | --------------------------------------------------- |
-| [Stage](https://osu.ppy.sh/users/8191845)         | Project lead, lead developer, documentation, DevOps |
+| [Stage](https://osu.ppy.sh/users/8191845)         | Project lead, lead developer, admin, operations     |
 | [Cytusine](https://osu.ppy.sh/users/11557554)     | Admin, mathematician, documentation, data entry, QA |
 | [SourMongoose](https://osu.ppy.sh/users/13269506) | Admin, data entry, QA                               |
 
@@ -12,15 +12,14 @@ Many people have contributed to the o!TR projects in a multitude of ways. The te
 
 ### Active
 
-These users are active members of our organization.
+These users are active contributors to the project.
 
-| Username                                        | Role                             |
-| ----------------------------------------------- | -------------------------------- |
-| [Akinari](https://osu.ppy.sh/users/4001304)     | Web developer, UI/UX design      |
-| [Artrix](https://osu.ppy.sh/users/28730120)     | Web developer, UI/UX design      |
-| [ajmosca](https://osu.ppy.sh/users/19884809)    | Data entry, documentation upkeep |
-| [Convex](https://osu.ppy.sh/users/11292327)     | Metrics & monitoring             |
-| [lefrutit228](https://osu.ppy.sh/users/9883156) | .NET developer                   |
+| Username                                        | Role                        |
+| ----------------------------------------------- | --------------------------- |
+| [Artrix](https://osu.ppy.sh/users/28730120)     | Web developer, UI/UX design |
+| [ajmosca](https://osu.ppy.sh/users/19884809)    | Data entry, documentation   |
+| [Convex](https://osu.ppy.sh/users/11292327)     | Metrics & monitoring        |
+| [lefrutit228](https://osu.ppy.sh/users/9883156) | .NET developer              |
 
 ### Inactive
 
@@ -28,6 +27,7 @@ These users previously contributed their time and expertise to the project, but 
 
 | Username                                         | Role                                                                         |
 | ------------------------------------------------ | ---------------------------------------------------------------------------- |
+| [Akinari](https://osu.ppy.sh/users/4001304)      | Web developer, UI/UX design                                                  |
 | [Arkyter](https://osu.ppy.sh/users/23983771)     | Early mathematics assistance                                                 |
 | [Chiffa](https://osu.ppy.sh/users/11482346)      | Rust developer                                                               |
 | [D I O](https://osu.ppy.sh/users/3958619)        | Compliance and mathematics assistance                                        |
