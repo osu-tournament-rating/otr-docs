@@ -56,6 +56,7 @@ All operations and data storage occur within the United States of America.
 ## Logging
 
 The following information is logged in order to provide our services:
+
 - Web and API client requests you make. Normal web browsing activity does trigger these logs. These logs are stored even when users are signed out. Signing out fully anonymizes these logs. This information is not saved in our database. The following information is stored within such logs:
     - A "Trace ID" and "Span ID" which allows us to map your request to database queries (used to diagnose performance issues across different parts of our system).
     - Your User ID, if signed in.
