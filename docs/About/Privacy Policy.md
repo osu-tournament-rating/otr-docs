@@ -24,15 +24,15 @@ The following information is stored for all player profiles, provided we are abl
     - Performance points
     - Global and country ranks
 - Publicly-available information provided by [osu!track](https://ameobea.me/osutrack/), such as historical global rank
-- Publicly-available osu! match data, such as scores made in matches submitted to us.
+- Publicly-available osu! match data, such as scores set in matches submitted to us.
 
 By processing this data, we are able to build relationships between you, other users, tournaments, matches, and so on. As an example, we are able to identify:
 
-- Which osu! tournaments, matches, and games you have participated in.
-- Which scores you have set in these games.
+- Which osu! tournaments, matches, and games you have participated in
+- Which scores you have set in these games
 - Various metrics regarding the above, including:
-    - Your performance in tournaments.
-    - Who you play tournaments with most frequently.
+    - Your performance in tournaments
+    - Who you play tournaments with most frequently
 
 ### Users
 
@@ -40,10 +40,10 @@ Upon logging into the platform using osu! OAuth, we create a user profile for yo
 
 - Last login date
 - Who you follow on osu! (coming soon)
-- Data you submit to us voluntarily.
-    - This includes [[Registrant Filtering]] submissions, tournament submissions, and other similar submissions.
-    - Logs of edited and deleted tournaments, matches, games, scores, beatmaps, and any other data type we choose to manage on our platform. This is only relevant to users who have heightened permissions.
-- Your user settings and preferences (coming soon).
+- Data you submit to us voluntarily, including:
+    - [[Registrant Filtering]] submissions, tournament submissions, and other similar submissions
+    - (Admins only) Logs of edited and deleted tournaments, matches, games, scores, beatmaps, and any other data type we choose to manage on our platform are stored.
+- Your user settings and preferences (coming soon)
 
 # Cookies
 
@@ -51,16 +51,16 @@ We use basic, mandatory cookies to provide users basic services, such as to stor
 
 ## Data Storage
 
-All operations and data storage occur within the United States of America.
+All data is stored within the United States of America.
 
 ## Logging
 
 The following information is logged in order to provide our services:
 
 - Web and API client requests you make. Normal web browsing activity does trigger these logs. These logs are stored even when users are signed out. Signing out fully anonymizes these logs. This information is not saved in our database. The following information is stored within such logs:
-    - A "Trace ID" and "Span ID" which allows us to map your request to database queries (used to diagnose performance issues across different parts of our system).
-    - Your User ID, if signed in.
-    - Request metadata, such as endpoint, response code, response time, and other relevant, non-identifying information.
+    - A "Trace ID" and "Span ID" which allows us to map your request to database queries (used to diagnose performance issues across different parts of our system)
+    - Your User ID, if signed in
+    - Request metadata, such as endpoint, response code, response time, and other relevant, non-identifying information
     - Timestamp
 - Error and warning logs of various nature, including API requests, are stored in our database.
 
