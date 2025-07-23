@@ -10,8 +10,11 @@ Migrations are handled by [Entity Framework](https://learn.microsoft.com/en-us/a
 Migrations must be created and tested when any of the following are modified:
 
 1. Files in `Database/Entities`. These objects directly link to a database table.
-   - Only create a migration when the changes modify the entity such that a database change is required. For example, adding a new field requires a migration, but modifying basic comments do not.
-2. `OtrContext.cs`, if there are modifications which change entity relationships.
+   - Only create a migration when the changes modify the entity such that a database change is required.
+   
+   > [!example]
+   > Adding a new field requires a migration, but modifying basic comments do not.
+1. `OtrContext.cs`, if there are modifications which change entity relationships.
 
 ### Creating Migrations
 

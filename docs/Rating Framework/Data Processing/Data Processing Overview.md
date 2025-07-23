@@ -10,9 +10,8 @@ This data includes:
     - Scores
     - Games participated
 
-- osu! profile information (id, username, country, global ranks for all rulesets)
-- osu!track information
-    - Closest known global rank (compared to date of first tournament match) and timestamp for all rulesets
+- osu! profile information: Player ID, username, country, and global ranks for all rulesets
+- osu!track information: Closest global rank (with timestamp) on or after first date of play in a verified tournament for all rulesets
 
 ### Data Manipulation
 

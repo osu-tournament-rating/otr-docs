@@ -18,7 +18,7 @@ In order for a tournament to be accepted into the o!TR system for rating calcula
 1. Publicly document all match links to an acceptable standard, such as through a public Google sheet.
 
 1. Not have significant lapses in data, such as missing a full round of matches or a large amount of forfeits.
-    - Exceptions are made for older tournaments for the sake of preservation
+    - Exceptions are made for older tournaments for the sake of preservation.
 
 1. Show no evidence of match fixing, collusion, or other forms of competitive integrity violations.
 
@@ -35,7 +35,7 @@ In order for a tournament to be accepted into the o!TR system for rating calcula
 1. Not use variable lobby sizes or [game modes](https://osu.ppy.sh/wiki/en/Game_mode). Examples include:
     - Battle royale style tournaments.
     - Multi-mode tournaments.
-    - Free For All tournaments.
+    - Free-for-all tournaments.
 
 1. Feature a format that allows players to play at their full competitive strength throughout all matches.
 
@@ -73,10 +73,13 @@ Additionally, keep the following in mind for tiered tournaments or tournaments t
 1. Tiered tournaments must be submitted as a single tournament. In this case, for the rank range field, denote the rank as the top-end rank restriction for the tournament.
     - [Broccoli Cup 3](https://otr.stagec.xyz/tournaments/525) is an example of a tiered tournament.
 
-2. For divisional tournaments, submit them as separate tournaments - **one submission per bracket**. Append "Division 1", "Division 2", etc. to the tournament's title when submitting. Here are examples of multiple submissions for different divisions from the same tournament:
-    - [hubba's hidden hooplah (Master Division)](https://otr.stagec.xyz/tournaments/2349)
-    - [hubba's hidden hooplah (Weasel Division)](https://otr.stagec.xyz/tournaments/2350)
-    - [hubba's hidden hooplah (Ninja Division)](https://otr.stagec.xyz/tournaments/2351)
+1. For divisional tournaments, submit them as separate tournaments - **one submission per bracket**. Append "(Division 1)", "(Division 2)", etc. to the tournament's title when submitting.
+
+> [!example]
+> Here are examples of multiple submissions for different divisions from the same tournament:
+> - [hubba's hidden hooplah (Master Division)](https://otr.stagec.xyz/tournaments/2349)
+> - [hubba's hidden hooplah (Weasel Division)](https://otr.stagec.xyz/tournaments/2350)
+> - [hubba's hidden hooplah (Ninja Division)](https://otr.stagec.xyz/tournaments/2351)
 
 ## FAQ
 
