@@ -34,14 +34,14 @@ Match data involving players who were restricted, including those who were tourn
 
 The o!TR admins have the ability to manually modify match data in the database, including scores, tournament names, and match win records. (Note that this is different from simply changing the verification status of a score, game, match, or tournament.) Any such events will always be clearly documented in admin notes and made publicly viewable. Below is a non-exhaustive list of cases where this may be done, pending feature development:
 
-- Renaming a tournament for consistency with past or future iterations
-- Renaming individual match names to fix prefix inconsistencies
-- Correcting the EZ (or other mod) multipliers specified in a particular tournament's ruleset by manually changing the appropriate scores
-- Adding a new score to correct a lobby size mismatch if (1) the player disconnected mid-game but provided a local replay or records of an on-stream score and (2) that data was actually used as the source of truth for tournament proceedings
-- Assigning team rosters to a 1v1 match played in the `HeadToHead` team mode so that the match may be converted to `TeamVS`
-- Reassigning team rosters in a `TeamVS` match in case a player mistakenly assigned themselves the wrong team color for a game
-- Removing "phantom mods" that mistakenly appear in scores (for example, players may mistakenly appear to play a map with the DT mod if the previous map was played with DT)
-- Merging two matches into one if a match was split across two MP links due to technical difficulties
+- Renaming a tournament for consistency with past or future iterations.
+- Renaming individual match names to fix prefix inconsistencies.
+- Correcting the EZ (or other mod) multipliers specified in a particular tournament's ruleset by manually changing the appropriate scores.
+- Adding a new score to correct a lobby size mismatch if (1) the player disconnected mid-game but provided a local replay or records of an on-stream score and (2) that data was actually used as the source of truth for tournament proceedings.
+- Assigning team rosters to a 1v1 match played in the `HeadToHead` team mode so that the match may be converted to `TeamVS`.
+- Reassigning team rosters in a `TeamVS` match in case a player mistakenly assigned themselves the wrong team color for a game.
+- Removing "phantom mods" that mistakenly appear in scores (for example, players may mistakenly appear to play a map with the DT mod if the previous map was played with DT).
+- Merging two matches into one if a match was split across two MP links due to technical difficulties.
 
 Any modifications of this kind, as well as any changes to verification status detailed above, will be recorded in audit logs. These logs include the time the change was made, the user who performed it, and the state of properties before and after the change; thus, any manual edits will be trackable and reversible if needed. While these audit logs will not be available in the [[Replicas#Public Replicas|public replicas]] (since they are attached to specific users), more transparent record-keeping is in development.
 
