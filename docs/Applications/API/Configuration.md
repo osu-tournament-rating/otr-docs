@@ -1,6 +1,6 @@
 Configure the o!TR API with configuration files.
 
-## Configuration file
+## Configuration File
 
 Duplicate the `example.appsettings.json` file and rename to `appsettings.Development.json`. Configure the fields as described below.
 

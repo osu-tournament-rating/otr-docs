@@ -45,7 +45,7 @@ If you need to undo a migration, run the following command to revert the most re
  --context OtrContext
  ```
 
-### Applying Migrations
+### Applying Migrations in Development
 
 Run the following to apply any pending migrations to the database. In development, ensure the database appears as expected after applying migrations.
 
@@ -56,7 +56,7 @@ Run the following to apply any pending migrations to the database. In developmen
  --context OtrContext
  ```
 
-### Apply Migrations in Production
+### Applying Migrations in Production
 
 The method of applying migrations is different in development than production. This is because the pipeline does not have access to a running database.
 

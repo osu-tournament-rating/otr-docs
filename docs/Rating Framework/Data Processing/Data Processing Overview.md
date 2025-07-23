@@ -12,10 +12,9 @@ This data includes:
 
 - osu! profile information (id, username, country, global ranks for all rulesets)
 - osu!track information
-    - Closest known global rank for all rulesets (with timestamp)
-        - The closest known rank is the closest available rank from osu!track compared to the date of the first tournament match a player participated in.
+    - Closest known global rank (compared to date of first tournament match) and timestamp for all rulesets
 
-### Data manipulation
+### Data Manipulation
 
 The o!TR team manipulates raw match data in the following ways:
 

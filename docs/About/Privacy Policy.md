@@ -6,12 +6,10 @@ When osu! match data is processed, a player entity is automatically created whic
 
 By logging in to our platform, you are consenting to the data which is collected below in the [[#Users]] section.
 
-### Information
-
 > [!important]
 > All data is associated with your osu! profile. Player data cannot exist in our system without an osu! profile to attach it to.
 
-#### Players
+### Players
 
 Players are defined as osu! users whose data is stored by us, regardless of whether they have logged into our platform. Player profiles are accessible to the public and are searchable.
 
@@ -34,7 +32,7 @@ By processing this data, we are able to build relationships between you, other u
     - Your performance in tournaments
     - Who you play tournaments with most frequently
 
-#### Users
+### Users
 
 Upon logging into the platform using osu! OAuth, we create a user profile for you if it doesn't exist. If you do not have any data in our system at the time of logging in, a [[#Players|player]] profile is created for you simultaneously. We associate the following information with your user profile:
 
