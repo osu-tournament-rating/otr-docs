@@ -42,6 +42,7 @@ In order for a tournament to be accepted into the o!TR system for rating calcula
 1. Features no asynchronous matches.
 
 > [!example]
+>
 > - [BATBALL's Gimmick Emporium](https://osu.ppy.sh/community/forums/topics/1767170?n=1) is considered barely acceptable despite restrictions on how many maps each player may win for their team.
 > - [Pokémon Battle Tournament](https://osu.ppy.sh/community/forums/topics/1790791?n=1) is considered barely unacceptable due to the special HP / targeting rules.
 
@@ -77,6 +78,7 @@ Additionally, keep the following in mind for tiered tournaments or tournaments t
 
 > [!example]
 > Here are examples of multiple submissions for different divisions from the same tournament:
+>
 > - [hubba's hidden hooplah (Master Division)](https://otr.stagec.xyz/tournaments/2349)
 > - [hubba's hidden hooplah (Weasel Division)](https://otr.stagec.xyz/tournaments/2350)
 > - [hubba's hidden hooplah (Ninja Division)](https://otr.stagec.xyz/tournaments/2351)
