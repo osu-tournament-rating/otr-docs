@@ -2,7 +2,7 @@ o!TR Web is a [NextJS](https://nextjs.org/) frontend where end users can interac
 
 The `otr-web` repository can be viewed [here](https://github.com/osu-tournament-rating/otr-web).
 
-# Prerequisites
+## Prerequisites
 
 o!TR Web depends on the API for all web requests. By extension, the database will need to be configured as well. Ensure these processes are running in the background before running o!TR Web:
 

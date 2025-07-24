@@ -16,9 +16,6 @@ The following languages are supported:
 
 ## Regenerate and Deploy
 
-> [!note]
-> This is non-sensitive internal documentation meant for use by the [[Team|o!TR Team]].
-
 This document outlines the process for regenerating and deploying API clients for the o!TR API. Currently, deployments are handled manually.
 
 ### Prerequisites
@@ -30,6 +27,8 @@ This document outlines the process for regenerating and deploying API clients fo
 > [!note]
 > Ensure that `ASPNETCORE_ENVIRONMENT=Development` is configured.
 > See the [[Applications/API/Getting Started#Environment variables|setup documentation]] for more information.
+
+### Setup
 
 1. Launch the [[Applications/API/Overview|o!TR API]].
 2. From the Swagger UI, download the `swagger.json` file and replace the existing file in the root directory of the repository.

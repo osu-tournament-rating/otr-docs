@@ -1,15 +1,15 @@
 Configure the o!TR API with configuration files.
 
-# Configuration file
+## Configuration File
 
 Duplicate the `example.appsettings.json` file and rename to `appsettings.Development.json`. Configure the fields as described below.
 
 > [!note]
 > Ensure the file is located in the `API` project folder (the same folder which contains `API.csproj`).
 
-## Configuration Sections
+### Configuration Sections
 
-### Connection Strings
+#### Connection Strings
 
 1. `DefaultConnection`
    - The `DefaultConnection` connection string format is as follows:
@@ -26,7 +26,7 @@ Duplicate the `example.appsettings.json` file and rename to `appsettings.Develop
 
 If running via docker compose, replace `localhost` with the Redis container name.
 
-### Osu
+#### Osu
 
 > [!note]
 > If you have not already done so, you must [create an osu! account](https://osu.ppy.sh/wiki/en/Registration) and create an API v2 client.
@@ -49,7 +49,7 @@ If running via docker compose, replace `localhost` with the Redis container name
 > > [!note]
 > > This callback URL is used for otr-web setup.
 
-### JWT
+#### JWT
 
 1. `Key`
 
@@ -62,12 +62,12 @@ If running via docker compose, replace `localhost` with the Redis container name
 3. `Issuer`
    - Defines who issues the JWT. This can be any non-empty string in development, but should be set to a proper resource in production.
 
-### Auth
+#### Auth
 
 1. `EnforceWhitelist`
    - Whether to restrict web access to `User`s with the `whitelist` scope. Will be obsolete after the public beta is released.
 
-### Rate Limit
+#### Rate Limit
 
 1. `PermitLimit`
 

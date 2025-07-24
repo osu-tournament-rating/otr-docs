@@ -1,4 +1,4 @@
-# Prerequisites
+## Prerequisites
 
 - Install [git](https://git-scm.com/downloads)
 - Install [.NET 9](https://dotnet.microsoft.com/en-us/download/dotnet/9.0)
@@ -20,10 +20,7 @@ dotnet tool install --global dotnet-ef
 
 ### PostgreSQL Database
 
-Follow [[Applications/Database/Setup|this guide]] to set up your local database.
-
-> [!note]
-> The database container must be running for the API to function.
+Follow [[Applications/Database/Setup|this guide]] to set up your local database. The database and redis containers must be running before proceeding.
 
 > [!tip]
 > The connection string at the end of the database setup guide may be used as the `ConnectionStrings.DefaultConnection` value in `appsettings.Development.json`.
@@ -35,9 +32,6 @@ Run the following command:
 ```
 docker run -d -p 6379:6379 --name otr-redis redis
 ```
-
-> [!note]
-> The redis container must be running for the API to function.
 
 ### Configuration
 
