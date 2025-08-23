@@ -1,10 +1,10 @@
 This page is meant to answer quick questions about how to interpret TR or understand the general trend of rating changes. Everything here is a summarized version of other pages, so please read [[Rating Calculation Overview|the more detailed docs]] if you're curious about the details.
 
-We know the system isn't perfect, and we're happy to chat in [Discord](https://discord.gg/R53AwX2tJA) to take feedback and answer further questions! But read through this first, since hopefully this will give some insight into the overall choices made. 
+We know the system isn't perfect, and we're happy to chat in [Discord](https://discord.gg/R53AwX2tJA) to take feedback and answer further questions! But read through this first, since hopefully this will give some insight into the overall choices made.
 
 ## Why is my rating so high / low?
 
-**High placements** in matches (that is, scoring higher in games than teammates and opponents) will lead to rating gain. So will **high participation rate**  (that is, playing games over teammates instead of sitting out). 
+**High placements** in matches (that is, scoring higher in games than teammates and opponents) will lead to rating gain. So will **high participation rate**  (that is, playing games over teammates instead of sitting out).
 
 o!TR intentionally does not take difficulty of maps into account for determining rating. This is because we wish to measure **performance rather than skill**: "sandbaggers" who play in low-rank-range tournaments will likely have inflated ratings. This makes it sensible for o!TR to be used as a **filtering tool** for tournaments who wish to exclude those sandbaggers.
 
