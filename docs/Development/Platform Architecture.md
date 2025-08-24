@@ -36,7 +36,7 @@ The DWS natively supports message queue priority, which the platform also relies
 
 ## Processor
 
-The processor is a [Rust](https://www.rust-lang.org/) project which is designed to be infrequently called by a cron job. This application looks at all verified tournament data and builds a rating network from individual match data by utilizing OpenSkill, an open-source multiplayer rating algorithm. The Rust processor also generates placements at runtime, which are effectively match standings. These are saved in the database at the score level and are a record of how the processor "ranked" each participant (which directly influences who gains or loses rating).
+The processor is a [Rust](https://www.rust-lang.org/) project which is designed to be infrequently called by a cron job. This application looks at all verified tournament data and builds a rating network from individual match data by utilizing [OpenSkill](https://jmlr.csail.mit.edu/papers/volume12/weng11a/weng11a.pdf), an open-source multiplayer rating algorithm. The Rust processor also generates placements at runtime, which are effectively match standings. These are saved in the database at the score level and are a record of how the processor "ranked" each participant (which directly influences who gains or loses rating).
 
 ## Web
 
