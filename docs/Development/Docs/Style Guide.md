@@ -2,12 +2,14 @@ Our docs are written using [Obsidian](https://obsidian.md/). While we do not rel
 
 ## Obsidian Settings
 
-The following Obsidian settings are recommended to ensure formatting is applied correctly:
+The following Obsidian settings are recommended to ensure formatting and other rules are applied correctly:
 
-| Path                                  | Value | Enforced |
-| ------------------------------------- | ----- | -------- |
-| Editor > Display > Show line numbers  | true  |          |
-| Editor > Behavior > Indent using tabs | false | Yes      |
+| Path                                                   | Value                             | Enforced |
+| ------------------------------------------------------ | --------------------------------- | -------- |
+| Editor > Display > Show line numbers                   | true                              |          |
+| Editor > Behavior > Indent using tabs                  | false                             | Yes      |
+| Files and Links > Default location for new attachments | In subfolder under current folder | Yes      |
+| Files and Links > Subfolder name                       | attachments                       | Yes      |
 
 ## Linting
 
@@ -63,3 +65,7 @@ tags:
   - math
 ---
 ```
+
+## Images
+
+All images must be under an `attachments/` subfolder under the directory of the file which uses the image.
