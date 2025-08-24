@@ -39,7 +39,7 @@ To get started with local development, start by cloning each repository. It's re
 > [!important]
 > If you are a maintainer, you can clone and commit to the main repositories (using branches). **If you are not a maintainer, you must create a fork** of each repository before cloning.
 
-Clone the `otr-api`,  `otr-web` and `otr-processor` repositories.****
+Clone the `otr-api`,  `otr-web` and `otr-processor` repositories.
 
 ```
 mkdir -p (your-directory)/otr
