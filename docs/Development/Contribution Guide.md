@@ -10,7 +10,7 @@ If you've never made an open-source contribution before, here's how:
 
 ## Forks & Pull Requests
 
-1. Browse our repositories [here](https://github.com/osu-tournament-rating).
+1. Browse our repositories on [GitHub](https://github.com/osu-tournament-rating).
 2. [Fork](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo#forking-a-repository) any repositories you wish to contribute to.
 3. Clone the forked repository using [these instructions](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo#cloning-your-forked-repository).
 4. Once cloned, create a new feature branch (e.g. `feature/my-cool-change`). Make your code changes, then [commit](https://www.w3schools.com/git/git_commit.asp) and [push](https://docs.github.com/en/get-started/using-git/pushing-commits-to-a-remote-repository) those changes to your fork.
