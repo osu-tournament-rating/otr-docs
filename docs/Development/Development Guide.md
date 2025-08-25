@@ -74,6 +74,14 @@ Run these three tools by running `docker compose --profile staging up db redis r
 >[!note]
 > This is a PostgreSQL database, please ensure your database browser supports this.
 
+#### Database Import
+
+Once the `db` container is running, import the downloaded database dump with the following command:
+
+```shell
+gunzip -c /path/to/replica.gz | docker exec -i db bash -c "psql -U postgres -d template1 -c 'DROP DATABASE IF EXISTS postgres;' && psql -U postgres -d template1 -c 'CREATE DATABASE postgres;' && psql -U postgres -d postgres"
+```
+
 ### API Configuration
 
 Next up is the API. Dotnet uses the `appsettings.json` file format, the `.env` format is reserved for production use, so feel free to ignore it.
