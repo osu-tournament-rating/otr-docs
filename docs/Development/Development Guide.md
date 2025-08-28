@@ -10,20 +10,20 @@ This document covers:
 - Working with background services conveniently (database, redis, RabbitMQ)
 - Tips from the maintainers
 
-By the end of this guide, you will be able to run and debug all of our software. The author of this guide is also the lead maintainer and it details exactly how to replicate the same setup. If you haven't already done so, read through [[Platform Architecture]] to understand how each application is designed and how the data flows between applications.
+By the end of this guide, you will be able to run and debug all of our software. The author of this guide is also the lead maintainer, so these steps detail exactly how to replicate the same setup. If you haven't already done so, read through [[Platform Architecture]] to understand how each application is designed and how the data flows between applications.
 
-While it is recommended to setup everything, you can skip some application setup depending on your use case:
+While it is recommended to set everything up, you may skip some applications depending on your use case:
 
 - If you are only interested in web development, you will still need to run everything besides the processor.
 - If you are only interested in generating rating outputs to the database directly, you can run the processor without RabbitMQ, though stats will not be generated.
 
 ## Local Development
 
-This section covers each step required to get started with running and debugging platform code. Here's a high level overview of what needs to be done to get started with local development:
+This section covers each step required to get started with running and debugging platform code. Here is a high-level overview of what needs to be done to get started with local development:
 
 - Install all prerequisites
 - Clone relevant repositories
-- Setup necessary configuration files
+- Set up necessary configuration files
 - Use `docker compose` to conveniently manage the database, redis, and RabbitMQ
 
 ### Prerequisites
@@ -52,7 +52,7 @@ git clone https://github.com/osu-tournament-rating/otr-processor.git
 
 ### Database, Redis, and RabbitMQ
 
-The easiest part to setup is each of these three tools. They will run in the background and will be kept alive so long as Docker is running on the host machine.
+These three tools will run in the background and will be kept alive so long as Docker is running on the host machine. They are the easiest part of the project to set up.
 
 #### Configuration
 
@@ -72,7 +72,7 @@ Run these three tools by running `docker compose --profile staging up db redis r
 ![[Screenshot_20250824_134335.png]]
 
 >[!note]
-> This is a PostgreSQL database, please ensure your database browser supports this.
+> This is a PostgreSQL database; please ensure your database browser supports this.
 
 #### Database Import
 
@@ -84,7 +84,7 @@ gunzip -c /path/to/replica.gz | docker exec -i db bash -c "psql -U postgres -d t
 
 ### API Configuration
 
-Next up is the API. Dotnet uses the `appsettings.json` file format, the `.env` format is reserved for production use, so feel free to ignore it.
+Next up is the API. Dotnet uses the `appsettings.json` file format. The `.env` format is reserved for production use, so feel free to ignore it.
 
 Create an `appsettings.json` file under `otr-api/API` with the following content, replacing `Osu.ClientId` and `Osu.ClientSecret` with your actual [osu! API v2](https://osu.ppy.sh/docs/index.html) client:
 
@@ -222,7 +222,7 @@ Next, install the packages with `npm i --legacy-peer-deps`.
 
 ## Verify Setup
 
-To verify everything is setup correctly:
+To verify that everything is set up correctly:
 
 - Navigate to `otr-api/` and run `dotnet test`
 - Navigate to `otr-processor/` and run `cargo test`
@@ -234,13 +234,13 @@ If both of those succeed without any issues, we can run everything in tandem:
 - In a second terminal, run `cd otr-api/DWS && dotnet run`
 - In a third terminal, run `cd otr-web && npm run dev`
 
-At this point, everything should be good to go. You can navigate to `http://localhost:3000` to use the website (signing in with osu! should work normally), and `http://localhost:5075/swagger` to interact with the API.
+At this point, everything should be good to go. You can navigate to `http://localhost:3000` to use the website (signing in with osu! should work normally) and `http://localhost:5075/swagger` to interact with the API.
 
 ## Tips
 
 ### Swagger
 
-To use swagger for endpoint testing, first, sign into the website to ensure a `user` entity is created for you in the database.
+To use swagger for endpoint testing, first sign in to the website to ensure a `user` entity is created for you in the database.
 
 After signing in locally, query for your user id with this command:
 
@@ -255,15 +255,15 @@ dotnet run --project (your-directory)/otr-api/API.Utils.Jwt -- --subject your-us
 http://localhost:3000 -i http://localhost:5075 --roles admin
 ```
 
-The last bit, `--roles admin` will allow you to simulate being an admin (how neat)! Most features are locked behind admin-only permissions. If you want to simulate being a normal user, just remove the `--roles` flag entirely.
+The last bit, `--roles admin`, will allow you to simulate being an admin (how neat)! Most features are locked behind admin-only permissions. If you want to simulate being a normal user, just remove the `--roles` flag entirely.
 
 >[!Author's note]
->I store the above JWT command as a shell alias called `jwt`. Whenever I need a JWT for testing (which is everytime I have to refresh swagger), I just type `jwt`.
+>I store the above JWT command as a shell alias called `jwt`. Whenever I need a JWT for testing (which is every time I have to refresh swagger), I just type `jwt`.
 
 ### VSCode Workspaces
 
 Having a single folder with all of the `otr` repositories is quite convenient, as a workspace file can then be created. If you convert the parent folder into a git repository, this enables VSCode to see all of the subdirectory git statuses simultaneously.
 
-Workspaces also enable custom run configurations which can debug the API, DWS and Website in one click.
+Workspaces also enable custom-run configurations which can debug the API, DWS and website in one click.
 
 ![[Screenshot_20250824_143926.png]]
