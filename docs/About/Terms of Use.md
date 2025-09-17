@@ -15,7 +15,7 @@ Users who abuse this service will have their API access revoked without warning.
 
 ##### Scraping
 
-The API must not be used to scrape information. Scraping data in any form is prohibited and will result in a permanent revocation of API access. Please see the [[Replicas|data]] page for more information on conveniently importing our dataset.
+The API must not be used to scrape information. Scraping data in any form is prohibited and will result in a permanent revocation of API access. Please see the [public replicas site](https://data.otr.stagec.xyz) for more information on conveniently importing our dataset.
 
 ##### Multiple Clients
 
@@ -46,7 +46,7 @@ These replicas are provided explicitly for those who are doing the following and
 2. Validating a tournament's usage of the o!TR platform by inspecting a dataset from a specific time period as needed.
 
 > [!info]
-> Certain data is omitted to protect user privacy. Refer to [[Replicas#Public Replicas|this page]] for more specifics.
+> Certain data is omitted to protect user privacy. Refer to the [Public Replicas](https://data.otr.stagec.xyz) page for more specifics.
 
 #### Permissions
 

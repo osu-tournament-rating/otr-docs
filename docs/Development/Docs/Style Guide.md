@@ -53,7 +53,7 @@ Below is a non-exhaustive list of rules to follow when writing Markdown.
 ### Links and Aliases
 
 - When using `[[wikilink]]` syntax to include links in the middle of a sentence, alias them to match the surrounding wording. For example, `[[Team]]` is often aliased as `team` to maintain sentence structure. Links can be aliased like so: `[[Team|team]]`.
-    - This applies to both capitalization and wording of the entire link. Consider the following example: `"Read our [[Setup For Local Use|setup guide]] for more information."`
+    - This applies to both capitalization and wording of the entire link. Consider the following example: `"Read our [[Development/Docs/Setup|setup guide]] for more information."`
 
 ## Tags
 

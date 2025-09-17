@@ -1,10 +1,10 @@
-Submitted tournaments run through a series of manual and automated checks before they may be processed for rating calculations. The [[DataWorkerService]] and [[Automated Checks|Automated Checks]] pages describe most of the automatic flow, while this page details the manual flow for verifying tournament data and provides more transparency on various conditions.
+Submitted tournaments run through a series of manual and automated checks before they may be processed for rating calculations. The [[Development/Platform Architecture#DWS|Data Worker Service]] and [[Automated Checks|Automated Checks]] pages describe most of the automatic flow, while this page details the manual flow for verifying tournament data and provides more transparency on various conditions.
 
 ## Verifying or rejecting data
 
 Once data finishes running through automated checks, each score, game, match, and tournament will be marked as either `PreVerified` or `PreRejected`. Typically, `PreVerified` data will end up `Verified` and `PreRejected` data will end up `Rejected` after manual review, and the steps below explain how the o!TR team interprets or modifies these statuses.
 
-First, general information about the tournament, such as rank limit, name, and abbreviation, is cross-checked against the tournament's wiki page or forum post. If the tournament does not meet the [[Tournament-Approval#Acceptance criteria|acceptance criteria]], it will be rejected, meaning that none of the match data will factor into ratings.
+First, general information about the tournament, such as rank limit, name, and abbreviation, is cross-checked against the tournament's wiki page or forum post. If the tournament does not meet the [[Tournament Approval#Acceptance criteria|acceptance criteria]], it will be rejected, meaning that none of the match data will factor into ratings.
 
 > [!note]
 > There is currently no strict numerical cutoff for allowed forfeits or minimum match count per tournament. Admin notes will detail the rationale behind verifying or rejecting tournaments which fall into gray areas.
@@ -43,7 +43,7 @@ The o!TR admins have the ability to manually modify match data in the database, 
 - Removing "phantom mods" that mistakenly appear in scores (for example, players may mistakenly appear to play a map with the DT mod if the previous map was played with DT)
 - Merging two matches into one if a match was split across two MP links due to technical difficulties
 
-Any modifications of this kind, as well as any changes to verification status detailed above, will be recorded in audit logs. These logs include the time the change was made, the user who performed it, and the state of properties before and after the change; thus, any manual edits will be trackable and reversible if needed. While these audit logs will not be available in the [[Replicas#Public Replicas|public replicas]] (since they are attached to specific users), more transparent record-keeping is in development.
+Any modifications of this kind, as well as any changes to verification status detailed above, will be recorded in audit logs. These logs include the time the change was made, the user who performed it, and the state of properties before and after the change; thus, any manual edits will be trackable and reversible if needed. While these audit logs will not be available in the [public replicas](https://data.otr.stagec.xyz) (since they are attached to specific users), more transparent record-keeping is in development.
 
 ### Effect on ratings
 
