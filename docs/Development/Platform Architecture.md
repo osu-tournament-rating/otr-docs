@@ -1,6 +1,6 @@
 The o!TR platform relies on multiple projects and technologies to function. These projects were recently overhauled to incorporate [queueing](https://en.wikipedia.org/wiki/Message_queue). This is a very important aspect of our architecture to be aware of in order to understand how data flows throughout the system.
 
-This section details the high-level architecture of the platform and each software project. To skip straight to development, jump to [[#Local Development]].
+This section details the high-level architecture of the platform and each software project. To skip straight to development, jump to the [[Development/Development Guide|development guide]].
 
 ### Queueing
 

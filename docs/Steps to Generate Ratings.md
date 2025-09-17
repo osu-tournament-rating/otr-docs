@@ -1,4 +1,4 @@
-This guide provides instructions for running the [[Applications/Processor/Overview|processor]] locally to generate player ratings from publicly-available datasets. This enables independent verification of tournaments which use our platform for filtering and/or seeding.
+This guide provides instructions for running the [[Development/Platform Architecture#processor|processor]] locally to generate player ratings from publicly-available datasets. This enables independent verification of tournaments which use our platform for filtering and/or seeding.
 
 > [!important]
 > The `otr-processor` version must be the most recent version released **before** the tournament's registration period. The processor uses date-based versioning in `YYYY.MM.DD` format. Different processor versions may produce different results due to algorithm updates.
@@ -55,7 +55,7 @@ docker run --rm \
 ```
 
 > [!example]
-> If the [[Applications/Processor/Overview|otr-processor]] version is `2025.06.19`, run using the `otr-processor:2025.06.19` image.
+> If the [[Development/Platform Architecture#processor|otr-processor]] version is `2025.06.19`, run using the `otr-processor:2025.06.19` image.
 
 > [!tip]
 > To run pre-production changes, use the `:staging` tag. To run the latest production version, use the `:latest` tag.
@@ -169,5 +169,5 @@ docker volume rm otr-db
 ## Troubleshooting
 
 - **Database connection refused**: Ensure PostgreSQL container is running with `docker ps`
-- **Processor runs but crashes**: Ensure the `IGNORE_CONSTRAINTS=true` environment variable is set (using `-e`). If other unexpected issues occur, please [[contact|contact us]].
+- **Processor runs but crashes**: Ensure the `IGNORE_CONSTRAINTS=true` environment variable is set (using `-e`). If other unexpected issues occur, please [[Contact|contact us]].
 - **Export produces empty files**: Verify the database import completed successfully
