@@ -46,7 +46,7 @@ These replicas are provided explicitly for those who are doing the following and
 2. Validating a tournament's usage of the o!TR platform by inspecting a dataset from a specific time period as needed.
 
 > [!info]
-> Certain data is omitted to protect user privacy. Refer to the [Public Replicas](https://data.otr.stagec.xyz) page for more specifics.
+> Certain data is omitted to protect user privacy. Refer to the [public replicas site](https://data.otr.stagec.xyz) for more specifics.
 
 #### Permissions
 
