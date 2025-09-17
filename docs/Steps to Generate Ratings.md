@@ -42,6 +42,9 @@ gunzip -c /path/to/replica.gz | docker exec -i otr-postgres bash -c "psql -U pos
 
 Browse the [releases page](https://github.com/osu-tournament-rating/otr-processor/releases) to find a processor version to use. Then, take the name of the release and replace the `YYYY.MM.DD` text below with that value.
 
+> [!note]
+> The processor publishes queue messages to generate stats for processed tournaments. Its management console lives at `http://localhost:15672/`. Under `Queues and Streams`, you can see the status of all queues.
+
 ```bash
 docker run --rm \
   --name otr-processor \
