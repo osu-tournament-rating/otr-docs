@@ -1,269 +1,150 @@
-Want to setup the o!TR tools for development? You're in the right place!
+Want to set up the o!TR tools for development? You're in the right place!
 
 ## Overview
 
 This document covers:
 
-- Setting up all codebases locally for all core projects (`otr-api/API` ("API"), `otr-api/DWS` ("Data Worker Service", "DWS"), `otr-web` ("web", "website"), `otr-processor` ("processor"))
-- What these applications do, at a high level
-- Configuring all necessary environment variables
-- Working with background services conveniently (database, redis, RabbitMQ)
+- Setting up the `otr-web` monorepo locally (web application + data worker)
+- Preparing `otr-processor` if you intend to publish ratings
+- Configuring environment variables shared across services
+- Running Postgres and RabbitMQ with `docker compose`
 - Tips from the maintainers
 
-By the end of this guide, you will be able to run and debug all of our software. The author of this guide is also the lead maintainer, so these steps detail exactly how to replicate the same setup. If you haven't already done so, read through [[Platform Architecture]] to understand how each application is designed and how the data flows between applications.
+By the end of this guide, you will be able to run and debug the software that powers the platform the same way the lead maintainer does. If you have not already done so, read through [[Platform Architecture]] to understand how each application is designed and how the data flows between components.
 
-While it is recommended to set everything up, you may skip some applications depending on your use case:
+While it is recommended to set everything up, you may skip pieces depending on your focus:
 
-- If you are only interested in web development, you will still need to run everything besides the processor.
-- If you are only interested in generating rating outputs to the database directly, you can run the processor without RabbitMQ, though stats will not be generated.
+- Web-only contributions still requires everything besides the processor.
+- If you only intend to generate rating outputs directly, you can run the processor alongside Postgres and RabbitMQ while skipping the web stack.
 
-## Local Development
+## Local development
 
-This section covers each step required to get started with running and debugging platform code. Here is a high-level overview of what needs to be done to get started with local development:
+This section covers the steps required to get started with local development:
 
-- Install all prerequisites
-- Clone relevant repositories
-- Set up necessary configuration files
-- Use `docker compose` to conveniently manage the database, redis, and RabbitMQ
+- Install prerequisites
+- Clone the repositories you will work in
+- Configure environment files
+- Start supporting services with Docker
+- Install dependencies and run the applications
 
 ### Prerequisites
 
 - Install [git](https://git-scm.com/downloads)
-- Install [Docker](https://www.docker.com/)
-- Install [.NET 9](https://dotnet.microsoft.com/en-us/download/dotnet/9.0)
-- Install the latest LTS version of [Node](https://nodejs.org/en/download)
-- Download the latest available [public replica](https://data.otr.stagec.xyz/)
+- Install [Docker Desktop](https://www.docker.com/) or another Docker distribution with `docker compose`
+- Install [Bun](https://bun.sh/) 1.1 or later (used for the web app and data worker)
+- Download the latest [public replica](https://data.otr.stagec.xyz/)
 
-To get started with local development, start by cloning each repository. It's recommended to make an `otr/` folder for organization of these projects:
+### Clone repositories
 
-> [!important]
-> If you are a maintainer, you can clone and commit to the main repositories (using branches). **If you are not a maintainer, you must create a fork** of each repository before cloning.
-
-Clone the `otr-api`,  `otr-web` and `otr-processor` repositories.
+Maintainers may clone the main repositories directly. External contributors should fork each repository first and clone their fork. Organise the projects under a single `otr/` directory if you have not already done so:
 
 ```
 mkdir -p (your-directory)/otr
 cd (your-directory)/otr
 
-git clone https://github.com/osu-tournament-rating/otr-api.git
 git clone https://github.com/osu-tournament-rating/otr-web.git
 git clone https://github.com/osu-tournament-rating/otr-processor.git
 ```
 
-### Database, Redis, and RabbitMQ
+### Environment files
 
-These three tools will run in the background and will be kept alive so long as Docker is running on the host machine. They are the easiest part of the project to set up.
-
-#### Configuration
-
-Navigate to the `otr-api/cfg` directory and copy the template `.env` files:
+Navigate to `otr-web/` and copy the example environment file:
 
 ```
-cp db.env.example db.env
-cp rabbitmq.env.example rabbitmq.env
+cd (your-directory)/otr/otr-web
+cp .env.example .env
 ```
 
-Replace the content of `db.env` with `POSTGRES_PASSWORD=password`. No modifications to `rabbitmq.env` are necessary, and redis does not have any configuration.
+Populate the `WEB_OSU_CLIENT_ID` and `WEB_OSU_CLIENT_SECRET` variables. The same client ID and client secret can be used in the `DATA_WORKER_OSU_CLIENT_ID` and `DATA_WORKER_OSU_CLIENT_SECRET` variables as well.
 
-#### Run
+Don't modify any other defaults.
 
-Run these three tools by running `docker compose --profile staging up db redis rabbitmq -d`. You should see something like this screenshot. If you don't, follow these steps again carefully, or [[Contact|contact us]] in Discord for assistance.
+### Start Postgres and RabbitMQ
 
-![[Screenshot_20250824_134335.png]]
+From the `otr-web/` directory, run:
 
->[!note]
-> This is a PostgreSQL database; please ensure your database browser supports this.
+```
+docker compose up -d db rabbitmq
+```
 
-#### Database Import
+This starts Postgres 17 and RabbitMQ 4 with the management UI enabled at `http://localhost:15672/` (default user `admin`, password `admin`).
 
-Once the `db` container is running, import the downloaded database dump with the following command:
+#### Database import
+
+Import the replica downloaded from earlier as follows:
 
 ```shell
 gunzip -c /path/to/replica.gz | docker exec -i db bash -c "psql -U postgres -d template1 -c 'DROP DATABASE IF EXISTS postgres;' && psql -U postgres -d template1 -c 'CREATE DATABASE postgres;' && psql -U postgres -d postgres"
 ```
 
-### API Configuration
+To test the system without importing a dump, uncomment the SQL in `apps/web/drizzle/0000_brave_hex.sql` (SQL starts at line 5) before running the migrations. Keep in mind that there will be no data and all IDs & permissions will be reset.
 
-Next up is the API. Dotnet uses the `appsettings.json` file format. The `.env` format is reserved for production use, so feel free to ignore it.
+#### Run migrations
 
-Create an `appsettings.json` file under `otr-api/API` with the following content, replacing `Osu.ClientId` and `Osu.ClientSecret` with your actual [osu! API v2](https://osu.ppy.sh/docs/index.html) client:
+Apply the latest schema changes so the web app and worker match production:
 
-```json
-"Logging": {
-    "LogLevel": {
-        "Default": "Trace",
-        "Microsoft.AspNetCore": "Warning"
-    }
-},
-"ConnectionStrings": {
-    "DefaultConnection": "Server=localhost;Port=5432;User Id=postgres;Password=password;Include Error Detail=true;",
-    "CollectorConnection": "http://localhost:1234",
-    "RedisConnection": "localhost:6379",
-    "LokiConnection": "test"
-},
-"Osu": {
-    "ClientId": "your-client-id",
-    "ClientSecret": "your-client-secret"
-},
-"Jwt": {
-    "Audience": "http://localhost:3000",
-    "Issuer": "http://localhost:5075",
-    "Key": "7a960b94-ae48-4591-92f2-bd9c1a300cd8"
-},
-"Auth": {
-    "AllowedHosts": ["http://localhost:3000", "https://www.foobar.xyz"],
-    "AuthorizationApiKey": "abcdefgh",
-    "EnforceWhitelist": false,
-    "PersistDataProtectionKeys": true
-},
-"RateLimit": {
-    "PermitLimit": 100,
-    "Window": 60
-},
-"RabbitMq": {
-    "Host": "localhost",
-    "Username": "admin",
-    "Password": "admin"
-}
+```
+docker compose --profile migrate run --rm migrate
 ```
 
-### DWS Configuration
+The `migrate` profile builds the web image and executes `scripts/run-migrations.sh`, which installs dependencies if needed and runs pending Drizzle migrations.
 
-Create a configuration file under `otr-api/DWS` called `appsettings.Development.json` with the following content, again replacing the `Osu.ClientId` and `Osu.ClientSecret` fields with your actual [osu! API v2](https://osu.ppy.sh/docs/index.html) client credentials:
+### Install dependencies
 
-```json
-{
-    "Logging": {
-        "LogLevel": {
-            "Default": "Information",
-            "Microsoft.Hosting.Lifetime": "Information"
-        }
-    },
-    "Serilog": {
-        "MinimumLevel": {
-            "Default": "Information",
-            "Override": {
-                "Microsoft": "Warning",
-                "Microsoft.Hosting.Lifetime": "Information",
-                "Microsoft.EntityFrameworkCore": "Warning",
-                "MassTransit": "Information",
-                "MassTransit.Messages": "Warning"
-            }
-        }
-    },
-    "ConnectionStrings": {
-        "DefaultConnection": "Host=localhost;Port=5432;Database=postgres;Username=postgres;Password=password",
-        "CollectorConnection": "Host=localhost;Port=5432;Database=postgres;Username=postgres;Password=password",
-        "RedisConnection": "localhost:6379",
-        "LokiConnection": "http://localhost:3100"
-    },
-    "RabbitMq": {
-        "Host": "localhost",
-        "Username": "admin",
-        "Password": "admin"
-    },
-    "Osu": {
-        "ClientId": "your-client-id",
-        "ClientSecret": "your-client-secret",
-        "RedirectUrl": "http://localhost:5075/api/v1/auth/callback",
-        "OsuRateLimit": 120,
-        "OsuTrackRateLimit": 100
-    },
-    "PlayerUpdateService": {
-        "Enabled": false,
-        "OutdatedAfterDays": 14,
-        "BatchSize": 100,
-        "CheckIntervalSeconds": 3600,
-        "MaxMessagesPerCycle": 50,
-        "MessagePriority": 0
-    },
-    "PlayerOsuTrackUpdateService": {
-        "Enabled": false,
-        "OutdatedAfterDays": 14,
-        "CheckIntervalSeconds": 30,
-        "MaxMessagesPerCycle": 30,
-        "MessagePriority": 0
-    },
-    "ConsumerConcurrency": {
-        "BeatmapFetchConsumers": 1,
-        "MatchFetchConsumers": 1,
-        "PlayerFetchConsumers": 1,
-        "PlayerOsuTrackFetchConsumers": 1,
-        "TournamentAutomationCheckConsumers": 1,
-        "TournamentStatsConsumers": 10
-    }
-}
+With Postgres and RabbitMQ running, install workspace dependencies once:
+
+```
+bun install --frozen-lockfile
 ```
 
-### Processor Configuration
+### Run the web app and data worker
 
-Create a `.env` file in the root of the `otr-processor/` directory with the following content:
+> [!important]
+> Windows users who are not using [WSL](https://learn.microsoft.com/en-us/windows/wsl/install) need to run
+> the two `bun run --filter ...` commands in separate terminals.
+
+Use the combined development script to start both applications:
+
+```
+bun run dev
+```
+
+The script traps `SIGINT`/`SIGTERM` and stops both processes when you press `Ctrl+C`. If you only need one side:
+
+```
+bun run --filter web dev
+bun run --filter data-worker dev
+```
+
+The web app listens on `http://localhost:3000`. The data worker runs in the background and connects to the RabbitMQ instance.
+
+### Verify the setup
+
+Visit `http://localhost:3000` and sign in with osu! to confirm BetterAuth is configured correctly. RabbitMQ queues and message activity are visible at `http://localhost:15672/`.
+
+### Processor configuration (optional)
+
+If you plan to run the processor locally, create a `.env` file in the `otr-processor/` directory with the following content:
 
 ```
 CONNECTION_STRING=postgresql://postgres:password@localhost:5432/postgres
 RUST_LOG=info
-IGNORE_CONSTRAINTS=false
+IGNORE_CONSTRAINTS=true
 RABBITMQ_URL=amqp://admin:admin@localhost:5672
 RABBITMQ_ROUTING_KEY=processing.stats.tournaments
 ```
 
-### Web Configuration
+Then run:
 
-Create a `.env` file in the root of the `otr-web/` directory with the following content:
+- `cargo test` to verify the processor builds and passes its suite
+- `cargo run -r -- --help` to review runtime options before generating ratings
 
-```
-NEXT_PUBLIC_API_BASE_URL="http://localhost:5075"
-NEXT_PUBLIC_APP_BASE_URL="http://localhost:3000"
-IS_RESTRICTED_ENV=false
-API_KEY=abcdefgh
-```
+The processor uses the same RabbitMQ instance to queue tournament stat regeneration jobs. Its published messages will be consumed by the data worker when it is running.
 
-Next, install the packages with `npm i --legacy-peer-deps`.
+### Running the full stack
 
-## Verify Setup
+To exercise the entire pipeline after completing the steps above:
 
-To verify that everything is set up correctly:
-
-- Navigate to `otr-api/` and run `dotnet test`
-- Navigate to `otr-processor/` and run `cargo test`
-
-If both of those succeed without any issues, we can run everything in tandem:
-
-- Open up a few terminal windows under the directory where all repositories are cloned.
-- In one terminal, run `cd otr-api/API && dotnet run`
-- In a second terminal, run `cd otr-api/DWS && dotnet run`
-- In a third terminal, run `cd otr-web && npm run dev`
-
-At this point, everything should be good to go. You can navigate to `http://localhost:3000` to use the website (signing in with osu! should work normally) and `http://localhost:5075/swagger` to interact with the API.
-
-## Tips
-
-### Swagger
-
-To use swagger for endpoint testing, first sign in to the website to ensure a `user` entity is created for you in the database.
-
-After signing in locally, query for your user id with this command:
-
-```sql
-SELECT u.id FROM users u JOIN players p ON p.user_id = u.id WHERE p.osu_id = <your_osu_id>;
-```
-
-Then, run this command to generate a JWT which can be used in swagger:
-
-```
-dotnet run --project (your-directory)/otr-api/API.Utils.Jwt -- --subject your-user-id-here -k 7a960b94-ae48-4591-92f2-bd9c1a300cd8 -a  
-http://localhost:3000 -i http://localhost:5075 --roles admin
-```
-
-The last bit, `--roles admin`, will allow you to simulate being an admin (how neat)! Most features are locked behind admin-only permissions. If you want to simulate being a normal user, just remove the `--roles` flag entirely.
-
->[!Author's note]
->I store the above JWT command as a shell alias called `jwt`. Whenever I need a JWT for testing (which is every time I have to refresh swagger), I just type `jwt`.
-
-### VSCode Workspaces
-
-Having a single folder with all of the `otr` repositories is quite convenient, as a workspace file can then be created. If you convert the parent folder into a git repository, this enables VSCode to see all of the subdirectory git statuses simultaneously.
-
-Workspaces also enable custom-run configurations which can debug the API, DWS and website in one click.
-
-![[Screenshot_20250824_143926.png]]
+1. Ensure Postgres and RabbitMQ are running via Docker (`docker ps`).
+2. Start the web app and data worker with `bun run dev`.
+3. Launch the processor when you need fresh rating outputs and/or stats (`cargo run --release`).

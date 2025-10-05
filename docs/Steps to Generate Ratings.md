@@ -23,7 +23,7 @@ docker run -d \
 
 ## Step 2: Import Database Replica
 
-Public database replicas are published [here](https://data.otr.stagec.xyz). These weekly replicas exclude most data, but provide enough data to verify a tournament's use of o!TR.
+Public database replicas are published on the [public replicas site](https://data.otr.stagec.xyz). These weekly replicas exclude most data, but provide enough data to verify a tournament's use of o!TR.
 
 Download the most recent replica dated before the tournament closed registrations. If the tournament provides another date by which ratings are taken from, use that date instead.
 

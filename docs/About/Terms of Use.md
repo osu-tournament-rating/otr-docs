@@ -36,7 +36,7 @@ By using our API, you hereby consent to us logging the activity of all API clien
 
 ## Database Terms of Use
 
-By using any of the public replicas offered [here](https://data.otr.stagec.xyz/), you agree to abide by these terms of use.
+By using any of the public replicas offered on the [public replicas site](https://data.otr.stagec.xyz/), you agree to abide by these terms of use.
 
 ### Restrictions
 
