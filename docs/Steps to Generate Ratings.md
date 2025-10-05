@@ -140,7 +140,7 @@ head -1 ratings.csv > filtered_ratings.csv && grep -f player_ids.txt ratings.csv
 ### Method 2: Filter by Individual osu! IDs
 
 > [!warning]
-> This regex will partially match on any **row**, meaning `^(11)` will include every row containing `11`. If full osu! IDs are provided, accurate rows will be returned.
+> This regex will partially match on any **row**, meaning `^(11)` will include every row containing `11`. If full osu! IDs are provided, accurate rows will be returned in most cases.
 
 ```bash
 # Filter for specific osu! IDs (replace 12345|67890 with actual IDs).
