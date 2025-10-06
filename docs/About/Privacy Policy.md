@@ -36,8 +36,10 @@ By processing this data, we are able to build relationships between you, other u
 
 Upon logging into the platform using osu! OAuth, we create a user profile for you if it doesn't exist. If you do not have any data in our system at the time of logging in, a [[#Players|player]] profile is created for you simultaneously. We associate the following information with your user profile:
 
+- IP address (session management / rate limiting, handled by [BetterAuth](https://www.better-auth.com/docs/reference/security#ip-address-headers))
+- osu! API access and refresh tokens (so that we can fetch data on your behalf)
 - Last login date
-- Who you follow on osu! (coming soon)
+- Your osu! friends / mutuals
 - Data you submit to us voluntarily, including:
     - [[Registrant Filtering]] submissions, tournament submissions, and other similar submissions
     - (Admins only) Logs of edited and deleted tournaments, matches, games, scores, beatmaps, and any other data type we choose to manage on our platform are stored.
