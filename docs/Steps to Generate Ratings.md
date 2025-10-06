@@ -8,7 +8,7 @@ This guide provides instructions for running the [[Development/Platform Architec
 - [Docker](https://www.docker.com/get-started/)
 - (Windows only) [Git Bash](https://git-scm.com/downloads) or [WSL](https://learn.microsoft.com/en-us/windows/wsl/install) - required because these commands use Unix-style syntax not supported by Windows Command Prompt or PowerShell.
 
-## Step 1: Start the Database
+## Step 1: Start the database
 
 ```bash
 # Create database volume and container
@@ -21,9 +21,9 @@ docker run -d \
   postgres:17
 ```
 
-## Step 2: Import Database Replica
+## Step 2: Import database replica
 
-Public database replicas are published [here](https://data.otr.stagec.xyz). These weekly replicas exclude most data, but provide enough data to verify a tournament's use of o!TR.
+Public database replicas are published on the [public replicas site](https://data.otr.stagec.xyz). These weekly replicas exclude most data, but provide enough data to verify a tournament's use of o!TR.
 
 Download the most recent replica dated before the tournament closed registrations. If the tournament provides another date by which ratings are taken from, use that date instead.
 
@@ -38,7 +38,7 @@ gunzip -c /path/to/replica.gz | docker exec -i otr-postgres bash -c "psql -U pos
 > [!tip]
 > Some errors, such as `ERROR: role [...] does not exist`, can be safely ignored.
 
-## Step 3: Run the Processor
+## Step 3: Run the processor
 
 Browse the [releases page](https://github.com/osu-tournament-rating/otr-processor/releases) to find a processor version to use. Then, take the name of the release and replace the `YYYY.MM.DD` text below with that value.
 
@@ -62,7 +62,7 @@ docker run --rm \
 >
 > Example: `docker run ... stagecodes/otr-processor:staging`
 
-## Step 4: Export Player Ratings
+## Step 4: Export player ratings
 
 Export player ratings for verification. Replace `ruleset` values as follows:
 
@@ -73,7 +73,7 @@ Export player ratings for verification. Replace `ruleset` values as follows:
 - 4=osu!mania 4K
 - 5=osu!mania 7K
 
-### Export Specific Game Mode (Recommended)
+### Export specific game mode (recommended)
 
 ```bash
 # Export osu! ratings (ruleset = 0)
@@ -94,7 +94,7 @@ COPY (
 ) TO STDOUT WITH CSV HEADER;" > ratings.csv
 ```
 
-### Export All Ratings
+### Export all ratings
 
 > [!warning]
 > Be aware that one player may have multiple ratings, one per ruleset.
@@ -122,11 +122,11 @@ COPY (
 > [!tip]
 > Import this data into a spreadsheet for analysis.
 
-## Step 5: Filter Ratings for Specific Players
+## Step 5: Filter ratings for specific players
 
 After exporting ratings, you may want to filter them for specific players. This is useful verifying the ratings of tournament participants.
 
-### Method 1: Filter Using a List File
+### Method 1: Filter using a list file
 
 If you have many IDs, create a text file called `player_ids.txt` with one osu! ID per line.
 
@@ -137,17 +137,17 @@ Then, filter `ratings.csv` for IDs present in `player_ids.txt`.
 head -1 ratings.csv > filtered_ratings.csv && grep -f player_ids.txt ratings.csv >> filtered_ratings.csv
 ```
 
-### Method 2: Filter by Individual osu! IDs
+### Method 2: Filter by individual osu! IDs
 
 > [!warning]
-> This regex will partially match on any **row**, meaning `^(11)` will include every row containing `11`. If full osu! IDs are provided, accurate rows will be returned.
+> This regex will partially match on any **row**, meaning `^(11)` will include every row containing `11`. If full osu! IDs are provided, accurate rows will be returned in most cases.
 
 ```bash
 # Filter for specific osu! IDs (replace 12345|67890 with actual IDs).
 head -1 ratings.csv > filtered_ratings.csv && grep -E "^(12345|67890)" ratings.csv >> filtered_ratings.csv
 ```
 
-### Example Output
+### Example output
 
 After filtering, your CSV will contain only the specified players:
 

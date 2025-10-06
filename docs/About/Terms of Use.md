@@ -17,14 +17,14 @@ Users who abuse this service will have their API access revoked without warning.
 
 The API must not be used to scrape information. Scraping data in any form is prohibited and will result in a permanent revocation of API access. Please see the [public replicas site](https://data.otr.stagec.xyz) for more information on conveniently importing our dataset.
 
-##### Multiple Clients
+##### Multiple clients
 
 Multiple clients may be used so long as each client serves a distinct, separate purpose. The use of multiple clients for a single application is prohibited unless approved in writing by [[Team|Stage]].
 
 > [!tip]
 > If you are a tournament host, you may create one API client per tournament assuming the client's usage is restricted to tournament operations only.
 
-##### Rate Limit Increases
+##### Rate limit increases
 
 The standard rate limit for a given client is \*\*\*\*
 
@@ -36,7 +36,7 @@ By using our API, you hereby consent to us logging the activity of all API clien
 
 ## Database Terms of Use
 
-By using any of the public replicas offered [here](https://data.otr.stagec.xyz/), you agree to abide by these terms of use.
+By using any database replica downloads offered on the [public replicas site](https://data.otr.stagec.xyz/), you agree to abide by these terms of use.
 
 ### Restrictions
 
@@ -56,7 +56,7 @@ If such permission is granted, the osu! Tournament Rating project must be [[Term
 
 ## Website Terms of Use
 
-Users who misuse our platform may have their access limited or stripped altogether without warning.
+Users who misuse our platform may have their access limited or blocked without warning.
 
 Examples of misuse:
 
