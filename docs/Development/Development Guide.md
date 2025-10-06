@@ -119,9 +119,11 @@ The web app listens on `http://localhost:3000`. The data worker runs in the back
 
 Visit `http://localhost:3000` and sign in with osu! to confirm BetterAuth is configured correctly. RabbitMQ queues and message activity are visible at `http://localhost:15672/`.
 
-### Processor configuration (optional)
+You should have no issues logging in and viewing your profile, but you will notice that no ratings are present. To generate ratings locally, follow the steps below to run the processor.
 
-If you plan to run the processor locally, create a `.env` file in the `otr-processor/` directory with the following content:
+### Processor configuration
+
+Create a `.env` file in the `otr-processor/` directory with the following content:
 
 ```
 CONNECTION_STRING=postgresql://postgres:password@localhost:5432/postgres
@@ -133,15 +135,12 @@ RABBITMQ_ROUTING_KEY=processing.stats.tournaments
 
 Then run:
 
-- `cargo test` to verify the processor builds and passes its suite
-- `cargo run -r -- --help` to review runtime options before generating ratings
-
-The processor uses the same RabbitMQ instance to queue tournament stat regeneration jobs. Its published messages will be consumed by the data worker when it is running.
+- `cargo test` to verify the processor builds and passes its suite.
 
 ### Running the full stack
 
 To run the entire pipeline after completing the steps above:
 
 1. Ensure Postgres and RabbitMQ are running via Docker (`docker ps`).
-2. Start the web app and data worker with `bun run dev`.
-3. Launch the processor when you need fresh rating outputs and/or stats (`cargo run -r`).
+2. Start the web app and data worker with `bun run dev` (or workaround if not in a Linux environment).
+3. Start the processor with `cargo run -r` in the `otr-processor` directory
