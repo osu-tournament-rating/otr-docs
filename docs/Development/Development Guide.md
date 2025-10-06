@@ -14,7 +14,7 @@ By the end of this guide, you will be able to run and debug the software that po
 
 While it is recommended to set everything up, you may skip pieces depending on your focus:
 
-- Web-only contributions still requires everything besides the processor.
+- Web-only contributions still require everything besides the processor.
 - If you only intend to generate rating outputs directly, you can run the processor alongside Postgres and RabbitMQ while skipping the web stack.
 
 ## Local development
