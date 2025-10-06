@@ -39,19 +39,17 @@ This section covers the steps required to get started with local development:
 Maintainers may clone the main repositories directly. External contributors should fork each repository first and clone their fork. Organise the projects under a single `otr/` directory if you have not already done so:
 
 ```
-mkdir -p (your-directory)/otr
-cd (your-directory)/otr
-
+mkdir otr && cd otr
 git clone https://github.com/osu-tournament-rating/otr-web.git
 git clone https://github.com/osu-tournament-rating/otr-processor.git
 ```
 
 ### Environment files
 
-Navigate to `otr-web/` and copy the example environment file:
+Create a `.env` file:
 
 ```
-cd (your-directory)/otr/otr-web
+cd otr-web
 cp .env.example .env
 ```
 
@@ -69,6 +67,9 @@ docker compose up -d db rabbitmq
 
 This starts Postgres 17 and RabbitMQ 4 with the management UI enabled at `http://localhost:15672/` (default user `admin`, password `admin`).
 
+> [!note]
+> `db` and `rabbitmq` will persist through restarts so long as the docker daemon is running. To stop them, run `docker compose down`.
+
 #### Database import
 
 Import the replica downloaded from earlier as follows:
@@ -79,22 +80,18 @@ gunzip -c /path/to/replica.gz | docker exec -i db bash -c "psql -U postgres -d t
 
 To test the system without importing a dump, uncomment the SQL in `apps/web/drizzle/0000_brave_hex.sql` (SQL starts at line 5) before running the migrations. Keep in mind that there will be no data and all IDs & permissions will be reset.
 
+### Install dependencies
+
+```
+bun i --frozen-lockfile
+```
+
 #### Run migrations
 
 Apply the latest database migrations so the web app and data worker match production:
 
 ```
-docker compose --profile migrate run --rm migrate
-```
-
-The `migrate` profile builds the web image and executes `scripts/run-migrations.sh`, which installs dependencies if needed and runs pending Drizzle migrations.
-
-### Install dependencies
-
-With Postgres and RabbitMQ running, install workspace dependencies once:
-
-```
-bun install --frozen-lockfile
+bunx drizzle-kit migrate
 ```
 
 ### Run the web app and data worker
