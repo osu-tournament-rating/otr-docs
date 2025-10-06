@@ -16,11 +16,11 @@ Feedback of all kind is greatly appreciated. Long-form feedback should be left i
 
 ## Improving the docs
 
-Users who feel the documentation is missing something should create an issue on the [otr-docs repository](https://github.com/osu-tournament-rating/otr-docs/issues).
+Users who feel the documentation is missing something should create an issue in the [otr-docs repository](https://github.com/osu-tournament-rating/otr-docs/issues).
 
 ## Quick links
 
 * [Bluesky](https://bsky.app/profile/otr.stagec.xyz)
 * [Discord](https://discord.gg/R53AwX2tJA)
 * [Github](https://github.com/osu-tournament-rating)
-* [Website](https://otr.stagec.xyz) (Whitelist only)
+* [Website](https://otr.stagec.xyz)

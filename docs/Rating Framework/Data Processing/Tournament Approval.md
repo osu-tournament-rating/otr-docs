@@ -1,7 +1,7 @@
 The o!TR team requires tournaments meet the criteria below before being accepted into our rating system. Please note that the team reserves the final say on whether a specific tournament is deemed fair for acceptance into our system.
 
 > [!note]
-> A comprehensive page of all submitted tournaments and their respective approval status can be seen on the [tournament submissions page](https://otr.stagec.xyz/tournaments)
+> A comprehensive page of all submitted tournaments and their respective approval statuses can be seen on the [tournament listing](https://otr.stagec.xyz/tournaments)
 > For more details on the verification review process, see [[Data Verification|this page]].
 
 The following is a reference on what constitutes an acceptable tournament and how to submit new data.

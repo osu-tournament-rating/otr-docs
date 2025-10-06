@@ -81,7 +81,7 @@ To test the system without importing a dump, uncomment the SQL in `apps/web/driz
 
 #### Run migrations
 
-Apply the latest schema changes so the web app and worker match production:
+Apply the latest database migrations so the web app and data worker match production:
 
 ```
 docker compose --profile migrate run --rm migrate
@@ -143,8 +143,8 @@ The processor uses the same RabbitMQ instance to queue tournament stat regenerat
 
 ### Running the full stack
 
-To exercise the entire pipeline after completing the steps above:
+To run the entire pipeline after completing the steps above:
 
 1. Ensure Postgres and RabbitMQ are running via Docker (`docker ps`).
 2. Start the web app and data worker with `bun run dev`.
-3. Launch the processor when you need fresh rating outputs and/or stats (`cargo run --release`).
+3. Launch the processor when you need fresh rating outputs and/or stats (`cargo run -r`).
