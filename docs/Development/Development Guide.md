@@ -142,5 +142,5 @@ Then run:
 To run the entire pipeline after completing the steps above:
 
 1. Ensure Postgres and RabbitMQ are running via Docker (`docker ps`).
-2. Start the web app and data worker with `bun run dev` (or workaround if not in a Linux environment).
+2. Start the web app and data worker with `bun run dev` (or `bun run --filter [web/data-worker]` if not in a Linux environment).
 3. Start the processor with `cargo run -r` in the `otr-processor` directory
