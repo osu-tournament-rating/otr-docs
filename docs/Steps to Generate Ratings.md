@@ -10,15 +10,11 @@ This guide provides instructions for running the [[Development/Platform Architec
 
 ## Step 1: Start the database
 
+Follow the setup instructions in the [[Development/Development Guide|development guide]] so you have the `otr-web` repository available locally. Then start Postgres and RabbitMQ from that repository:
+
 ```bash
-# Create database volume and container
-docker volume create otr-db
-docker run -d \
-  --name otr-db \
-  -p 5432:5432 \
-  -e POSTGRES_PASSWORD=password \
-  -v otr-db:/var/lib/postgresql/data \
-  postgres:17
+# From the `otr-web` repository
+docker compose up -d db rabbitmq
 ```
 
 ## Step 2: Import database replica
@@ -29,10 +25,8 @@ Download the most recent replica dated before the tournament closed registration
 
 ### Import the replica
 
-Use this command to overwrite your `otr-postgres` volume data.
-
 ```bash
-gunzip -c /path/to/replica.gz | docker exec -i otr-postgres bash -c "psql -U postgres -d template1 -c 'DROP DATABASE IF EXISTS postgres;' && psql -U postgres -d template1 -c 'CREATE DATABASE postgres;' && psql -U postgres -d postgres"
+gunzip -c /path/to/replica.gz | docker exec -i db bash -c "psql -U postgres -d template1 -c 'DROP DATABASE IF EXISTS postgres;' && psql -U postgres -d template1 -c 'CREATE DATABASE postgres;' && psql -U postgres -d postgres"
 ```
 
 > [!tip]
@@ -77,7 +71,7 @@ Export player ratings for verification. Replace `ruleset` values as follows:
 
 ```bash
 # Export osu! ratings (ruleset = 0)
-docker exec -it otr-postgres psql -U postgres -d postgres -c "\
+docker exec -it db psql -U postgres -d postgres -c "\
 COPY (
     SELECT
         p.osu_id,
@@ -101,7 +95,7 @@ COPY (
 
 ```bash
 # Export all player ratings to CSV
-docker exec -it otr-postgres psql -U postgres -d postgres -c "\
+docker exec -it db psql -U postgres -d postgres -c "\
 COPY (
     SELECT
         p.osu_id,
@@ -160,10 +154,7 @@ osu_id,username,country,ruleset,rating,volatility,percentile,global_rank,country
 ## Cleanup
 
 ```bash
-# Stop and remove containers and volumes
-docker stop otr-postgres
-docker rm otr-postgres
-docker volume rm otr-db
+docker compose down
 ```
 
 ## Troubleshooting
