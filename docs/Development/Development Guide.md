@@ -80,6 +80,17 @@ gunzip -c /path/to/replica.gz | docker exec -i db bash -c "psql -U postgres -d t
 
 To test the system without importing a dump, uncomment the SQL in `apps/web/drizzle/0000_brave_hex.sql` (SQL starts at line 5) before running the migrations. Keep in mind that there will be no data and all IDs & permissions will be reset.
 
+##### Troubleshooting
+
+If this error occurs:
+
+```
+ERROR:  database "postgres" is being accessed by other users
+DETAIL:  There are 2 other sessions using the database.
+```
+
+Run `docker stop db && docker start db`, then try the import again.
+
 ### Install dependencies
 
 ```
