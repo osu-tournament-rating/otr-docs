@@ -19,10 +19,11 @@ In order for a tournament to be accepted into the o!TR system for rating calcula
     - Exceptions are made for older tournaments for the sake of preservation.
 1. Show no evidence of match fixing, collusion, or other forms of competitive integrity violations.
 1. Target an acceptable skill range of players[^1].
-    - For osu!, the minimum rank restriction is `#150,000+` (`#75,000+` for regional tournaments).
+    - For osu!, the minimum rank restriction is `#150,000+` (`#75,000+` for regional tournaments). The team reserves the right to make exceptions for tournaments up to a ceiling of `#300,000+`.
     - For osu!taiko, osu!catch, and osu!mania, there is no restriction on rank range.
 1. Have a forum post or wiki page hosted on the osu! website.
 1. Use the [ScoreV2](https://osu.ppy.sh/wiki/en/Gameplay/Game_modifier/ScoreV2) win condition throughout the tournament.
+    - A maximum of one pooled beatmap per round may be tied to an alternate win condition (such as accuracy). Games featuring such beatmaps will be rejected.
 1. Avoid using unconventional mods such as Sudden Death, Perfect, Relax, and AutoPilot.
 1. Not use variable lobby sizes or [game modes](https://osu.ppy.sh/wiki/en/Game_mode). Examples include:
     - Battle royale style tournaments.
