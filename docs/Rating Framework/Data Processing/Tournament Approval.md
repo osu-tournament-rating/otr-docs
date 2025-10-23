@@ -14,31 +14,21 @@ In order for a tournament to be accepted into the o!TR system for rating calcula
 > Badge eligibility is **not** a requirement for acceptance.
 
 1. Feature a bracket size of at least Round of 8 double elimination.
-
 1. Publicly document all match links to an acceptable standard, such as through a public Google sheet.
-
 1. Not have significant lapses in data, such as missing a full round of matches or a large amount of forfeits.
     - Exceptions are made for older tournaments for the sake of preservation.
-
 1. Show no evidence of match fixing, collusion, or other forms of competitive integrity violations.
-
 1. Target an acceptable skill range of players[^1].
     - For osu!, the minimum rank restriction is `#150,000+` (`#75,000+` for regional tournaments).
     - For osu!taiko, osu!catch, and osu!mania, there is no restriction on rank range.
-
 1. Have a forum post or wiki page hosted on the osu! website.
-
 1. Use the [ScoreV2](https://osu.ppy.sh/wiki/en/Gameplay/Game_modifier/ScoreV2) win condition throughout the tournament.
-
 1. Avoid using unconventional mods such as Sudden Death, Perfect, Relax, and AutoPilot.
-
 1. Not use variable lobby sizes or [game modes](https://osu.ppy.sh/wiki/en/Game_mode). Examples include:
     - Battle royale style tournaments.
     - Multi-mode tournaments.
     - Free-for-all tournaments.
-
 1. Feature a format that allows players to play at their full competitive strength throughout all matches.
-
 1. Features no asynchronous matches.
 
 > [!example]
