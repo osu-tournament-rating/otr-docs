@@ -22,8 +22,8 @@ In order for a tournament to be accepted into the o!TR system for rating calcula
     - For osu!, the upper rank restriction should be no lower than `#150,000+`. The team reserves the right to make exceptions up to a ceiling of `#300,000+` if the tournament is particularly central to the competitive scene.
     - For all other game modes, there is no restriction on rank range.
 1. Have a forum post or wiki page hosted on the osu! website.
-1. Use the [ScoreV2](https://osu.ppy.sh/wiki/en/Gameplay/Game_modifier/ScoreV2) win condition and avoid unconventional mods such as Sudden Death, Perfect, Relax, and AutoPilot throughout the tournament.
-    1. A maximum of one pooled beatmap per round may be tied to an alternate win condition (such as accuracy) or unconventional mod. Games featuring such beatmaps will be rejected, but the rest of the match and the tournament as a whole may still pass verification.
+1. Use the [ScoreV2](https://osu.ppy.sh/wiki/en/Gameplay/Game_modifier/ScoreV2) win condition and avoid unconventional mods such as Sudden Death or Relax throughout the tournament.
+    1. A maximum of one pooled beatmap per round may be tied to an alternate win condition (such as Accuracy or ScoreV1) or unconventional mod. Games featuring such beatmaps will be rejected, but the rest of the match and the tournament as a whole may still pass verification.
 1. Not use variable lobby sizes or [game modes](https://osu.ppy.sh/wiki/en/Game_mode). Examples include:
     - Battle royale style tournaments.
     - Multi-mode tournaments.
@@ -39,7 +39,7 @@ In order for a tournament to be accepted into the o!TR system for rating calcula
 > - [Pokémon Battle Tournament](https://osu.ppy.sh/community/forums/topics/1790791?n=1) is considered barely unacceptable due to the special HP / targeting rules creating alternate win conditions.
 
 > [!note]
-> While the o!TR processor typically converts 1v1 tournaments that are played in the Head-to-head [team mode](https://osu.ppy.sh/wiki/en/Client/Interface/Multiplayer#team-mode-gameplay) to TeamVS, it will be unable to do so if each team has more than one player because there are no indicators of which team each player is assigned to. Thus, some "1v1 team size>1" tournaments (such as [BATBALL's Gimmick Emporium](https://osu.ppy.sh/community/forums/topics/1767170?n=1)) currently cannot be accepted and will not count towards ratings unless manual roster adjustment becomes possible.
+> While the o!TR processor typically converts 1v1 tournaments that are played in the Head-to-head [team mode](https://osu.ppy.sh/wiki/en/Client/Interface/Multiplayer#team-mode-gameplay) to Team VS, it will be unable to do so if each team has more than one player because there are no indicators of which team each player is assigned to. Thus, some 1v1 tournaments with a team size larger than 1 (such as [BATBALL's Gimmick Emporium](https://osu.ppy.sh/community/forums/topics/1767170?n=1)) currently cannot be accepted and will not count towards ratings unless manual roster adjustment becomes possible.
 
 ### osu!mania
 
@@ -105,6 +105,6 @@ We know how time-consuming it is to gather links. There's a few methods we use f
 
 Invalid data, such as warmups, show matches, or any other data that should not be in the system are primarily detected via [[Automated Checks|automated checks]]. In the future, users will be able to report invalid data for correction. Until then, know that this data does not significantly affect rating values, but please note it down so you can let us know later!
 
-[^1]: This restriction exists in order to avoid “farming” rating from isolated pockets of newer tournament players, keeping in mind that most players below this rank range rarely play in subsequent tournaments.
+[^1]: This restriction exists in order to avoid "farming" rating from isolated pockets of newer tournament players, keeping in mind that most players below this rank range rarely play in subsequent tournaments.
 [^2]: This data is used during the [[Automated Checks|automated checks]] process to flag warmups and generate additional tournament statistics.
 [^3]: While free-for-all tournaments (e.g. 1v1v1v1) maintain a constant lobby size and do not cause issues with the rating algorithm itself, the presence of multiple opposing teams does not fit into the current framework for win-loss records, teammate/opponent statistics, and so on. The question of adding support for more complex rosters is still an open point of discussion.
