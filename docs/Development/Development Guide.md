@@ -33,6 +33,7 @@ This section covers the steps required to get started with local development:
 - Install [Docker Desktop](https://www.docker.com/) or another Docker distribution with `docker compose`
 - Install [Bun](https://bun.sh/) 1.1 or later (used for the web app and data worker)
 - Download the latest [public replica](https://data.otr.stagec.xyz/)
+- Create an [osu! API v2 client](https://osu.ppy.sh/home/account/edit) and set the `Application Callback URLs` field to `http://localhost:3000/api/auth/oauth2/callback/osu`.
 
 ### Clone repositories
 
@@ -53,7 +54,7 @@ cd otr-web
 cp .env.example .env
 ```
 
-Populate the `WEB_OSU_CLIENT_ID` and `WEB_OSU_CLIENT_SECRET` variables. The same client ID and client secret can be used in the `DATA_WORKER_OSU_CLIENT_ID` and `DATA_WORKER_OSU_CLIENT_SECRET` variables as well.
+Populate the `WEB_OSU_CLIENT_ID` and `WEB_OSU_CLIENT_SECRET` variables using the information from your osu! API v2 client. The same client ID and client secret can be used in the `DATA_WORKER_OSU_CLIENT_ID` and `DATA_WORKER_OSU_CLIENT_SECRET` variables as well.
 
 Don't modify any other defaults.
 
