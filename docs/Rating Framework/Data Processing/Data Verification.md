@@ -24,6 +24,8 @@ The other common reason is that the beatmap was detected not to be in the list o
 > [!note]
 > We do not ask for beatmap IDs to be separated by round during submission. This means that a warmup game may very rarely be counted as a verified game if the corresponding beatmap was pooled in a different round in the same tournament; if you notice this, please submit a ticket to the o!TR team.
 
+At any point in this process, individual games or matches falling under the exceptions detailed in the [[Tournament Approval#Acceptance criteria|acceptance criteria]] may also be additionally verified or rejected, and appropriate admin note documentation will always be provided in such cases.
+
 Finally, any remaining `PreVerified` data is marked as `Verified`, and any remaining `PreRejected` data is marked as `Rejected`.
 
 ### Restricted player data
