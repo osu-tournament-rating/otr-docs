@@ -23,6 +23,30 @@ Public database replicas are published on the [public replicas site](https://dat
 
 Download the most recent replica dated before the tournament closed registrations. If the tournament provides another date by which ratings are taken from, use that date instead.
 
+### Verify the download (optional)
+
+As of November 26, 2025, each replica is accompanied by a `.sha256` checksum file and a `.sig` GPG signature file. These allow you to verify the data hasn't been tampered with.
+
+**SHA-256 verification (integrity only):**
+
+Download the `.sha256` file for your replica and run:
+
+```bash
+sha256sum -c otr-public-replica_YYYY_MM_DD_HH_MM_SS.gz.sha256
+```
+
+**GPG signature verification (integrity + origin):**
+
+Download the public key (one-time) and the `.sig` file for your replica:
+
+```bash
+curl -O https://storage.googleapis.com/otr-public-replica/otr-public-key.asc
+gpg --import otr-public-key.asc
+gpg --verify otr-public-replica_YYYY_MM_DD_HH_MM_SS.gz.sig otr-public-replica_YYYY_MM_DD_HH_MM_SS.gz
+```
+
+If verification succeeds, the output will contain `Good signature from "o!TR Public Data Signing Key"`. You may also see a warning about the key not being certified with a trusted signature - this is expected and can be ignored.
+
 ### Import the replica
 
 ```bash
