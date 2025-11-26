@@ -25,7 +25,7 @@ Download the most recent replica dated before the tournament closed registration
 
 ### Verify the download (optional)
 
-As of November 26, 2025, each replica is accompanied by a `.sha256` checksum file and a `.sig` GPG signature file. These allow you to verify the data hasn't been tampered with.
+As of November 26, 2025, each replica is accompanied by a `.sha256` checksum file and a `.sig` GPG signature file. These allow you to verify that the data hasn't been tampered with.
 
 **SHA-256 verification (integrity only):**
 
@@ -45,7 +45,7 @@ gpg --import otr-public-key.asc
 gpg --verify otr-public-replica_YYYY_MM_DD_HH_MM_SS.gz.sig otr-public-replica_YYYY_MM_DD_HH_MM_SS.gz
 ```
 
-If verification succeeds, the output will contain `Good signature from "o!TR Public Data Signing Key"`. You may also see a warning about the key not being certified with a trusted signature - this is expected and can be ignored.
+If verification succeeds, the output will contain `Good signature from "o!TR Public Data Signing Key"`. You may also see a warning about the key not being certified with a trusted signature—this is expected and can be ignored.
 
 ### Import the replica
 
