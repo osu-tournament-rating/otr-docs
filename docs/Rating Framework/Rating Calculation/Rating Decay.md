@@ -4,7 +4,7 @@ Every player is assigned a [[Rating Calculation Overview#Rating|rating]] $\mu$ a
 
 ## Volatility Decay
 
-Every week at Wednesday 12:00 UTC after a player's first match, their volatility increases slightly. More precisely, $\sigma^2$ increases by $500$, up to a maximum of the starting volatility for a new player. Therefore, players who are more active (that is, play in more verified matches per week) will have their volatility settle at a lower equilibrium. 
+Every week at Wednesday 12:00 UTC after a player's first match, their volatility increases slightly. More precisely, $\sigma^2$ increases by $500$, up to a maximum of the starting volatility for a new player. Therefore, players who are more active (that is, play in more verified matches per week) will have their volatility settle at a lower equilibrium.
 
 > [!note]
 > A typical match decreases a player's volatility by roughly $2\%$ (with lots of variation depending on participation and placement). Therefore, players who play one verified match per week will settle at a volatility around $112$, which is much lower than the starting volatility of $400$.
@@ -13,7 +13,7 @@ Every week at Wednesday 12:00 UTC after a player's first match, their volatility
 
 If a player does not play in any verified tournaments in our dataset for a consecutive period of roughly **six months**, they will begin to decay. Such players will also be marked inactive and not appear on any rating leaderboards until their next match.
 
-While a player is decaying, their rating decreases by a small constant each week, down to a predetermined minimum. This minimum is set higher for players with higher peak ratings. More precisely, along with the [[Rating Decay#Volatility Decay|volatility decay]] mentioned above, $\mu$ decreases by $3$ points, down to $\frac{1}{2}(1000 + \text{player peak rating})$. 
+While a player is decaying, their rating decreases by a small constant each week, down to a predetermined minimum. This minimum is set higher for players with higher peak ratings. More precisely, along with the [[Rating Decay#Volatility Decay|volatility decay]] mentioned above, $\mu$ decreases by $3$ points, down to $\frac{1}{2}(1000 + \text{player peak rating})$.
 
 ## Concerns
 
