@@ -23,7 +23,7 @@ Volatility is the number that determines how confident the model is in one's [[R
 >
 > Based on their performance in tournaments thus far, the model is about $68\%$ sure that this player's true rating is between $1850$ and $2150$ and about $95\%$ sure it is between $1700$ and $2300$. This estimate will increase in accuracy as they play more matches.
 
-Players start off with a high volatility value which decreases as they compete in tournaments and increases due to inactivity during [[Rating Decay|decay]].
+Players start off with a high volatility value which decreases as they compete in tournaments and increases due to [[Rating Decay|decay]].
 
 ## Ranking & rating calculation
 
@@ -37,22 +37,22 @@ Each player receives a single rating update for each match that they play. Howev
 
 3. Store the results (changes in rating & volatility) for lookup later. If a player played in the match but did not play in this game, the changes for the game are marked as zero.
 
-The results are then averaged over all games to obtain an overall rating and volatility change, which we call "rating change A". However, using these numbers alone would cause specialists who play only a few games (and perform well) to be over-rated compared to generalists. Thus, a second set of overall rating changes are also computed, where not playing a game is now considered tying for last. We call these numbers "rating change B."
+The results are then averaged over all games to obtain an overall rating and volatility change, which we call "Method A." However, using these numbers alone would cause specialists who play only a few games (and perform well) to be over-rated compared to generalists. Thus, a second set of overall rating changes are also computed, where not playing a game is now considered tying for last. We call these numbers "Method B."
 
 Finally, these two sets of changes are combined at a weighted average of $90\%$:$10\%$. This result is then scaled by game count so that longer matches have a more substantial impact on rating changes. More concretely, the actual change stored in a player's rating history is
 
 $$
 \begin{equation}
-    \text{rating change} = \left(\frac{\text{\# games}}{8}\right)^{0.5}\cdot (0.9 \cdot \text{rating change A} + 0.1 \cdot \text{rating change B}).
+    \text{rating change} = \left(\frac{\text{\# games}}{8}\right)^{0.5}\cdot (0.9 \cdot \text{rating change from method A} + 0.1 \cdot \text{rating change from method B}).
 \end{equation}
 $$
 
 Volatility changes are calculated similarly but use a quadratic mean instead.
 
 > [!note]
-> This part of the process reflects the fact that match performance is not only determined by raw scores, but also the degree to which players must "fill in" for their team members. The weighting of $90\%$:$10\%$ is preliminary and may be altered to a dynamic ratio depending on the total number of players in the match. The same is true for the "game correction constant" $0.5$ in the exponent.
+> This two-part process reflects how match performance is not only determined by raw scores, but also the degree to which players must "fill in" for their team members. Many of the choices of constants, such as the weighting of $90\%$:$10\%$ and the game correction constant $0.5$, are not absolutely essential to the validity of the rating algorithm; we make a particular choice here to have something concrete.
 >
-> Other additional weighting factors may be added based on community feedback in the future. For example, official tournaments such as the osu! world cups may be given more impact if the tournament scene deems it healthier to emphasize those high-stakes environments.
+> Other additional weighting factors, such as a higher weight for official tournaments like the osu! world cups, were considered but rejected for simplicity and ease of maintenance.
 
 ## Further details
 
@@ -70,11 +70,19 @@ Quoting from the [paper](https://jmlr.csail.mit.edu/papers/volume12/weng11a/weng
 
 There are various parameters that can be adjusted when setting up the model (see [the code](https://github.com/injae/openskill-rs/blob/main/src/model/plackett_luce.rs#L12) or read the paper for more detailed calculations). In words, $\mu$ and $\sigma$ are the rating and volatility mentioned above, $\beta$ is an "extra volatility" term for calculating head-to-head matchup probabilities, $\kappa$ is used as part of a check that volatility stays positive, and $\tau$ adds a small amount to variance (squared volatility) after each match. Finally, the function $\gamma$ is a dampening factor which causes volatility to decrease less significantly when matchups are large. Intuitively, this can be thought of as not treating a match with $10$ players as affecting rating as much as $9$ separate 1v1s against each opponent.
 
-The Plackett-Luce model allows for arbitrary scalings of parameters, though the OpenSkill documentation recommends that $\sigma$ starts out as $1/3$ of $\mu$. We choose a scaling here so that the highest ratings look somewhat similar to chess (solely for aesthetic appeal), though we do choose varying [[Initial Ratings|initial ratings]] based on osu! rank. While we keep the default values of $\gamma$ and $\kappa$, we currently initialize $\sigma$, $\beta$, and $\tau$ to a smaller fraction of $\mu$ than the default to make it more difficult to farm rating from low-rated players.
+The Plackett-Luce model allows for arbitrary scalings of parameters, though the OpenSkill documentation recommends that $\sigma$ starts out as $1/3$ of $\mu$. We choose a scaling here so that the distribution looks somewhat similar to chess (solely for aesthetic appeal), though we do choose varying [[Initial Ratings|initial ratings]] based on osu! rank. Other than this, we keep the default scaling of all parameters except the volatility increase factor $\tau$ and dampening factor $\gamma$, which we completely remove. This is because $\tau$ and $\gamma$ do not show up in the original mathematical derivation for this model and were instead included to improve simulations where $\sigma$ decreased too rapidly. We instead resolve this issue through [[Rating Decay|decay]].
 
 Remember that different players specialize in different skillsets and have skillcaps at different levels, so please interpret TR not as an absolute skill comparison between two players. In particular, o!TR identifies when people **frequently win** relative to others in their rank range or skill level, so if you see a player with what seems like an unusually high rating, we recommend that you look at their tournament history and check if they're consistently the top performer in their matches.
 
-### When will ratings update?
+### Interpretation of Method B
+
+The inclusion of Method B in the rating algorithm should be thought of more as a bonus for plying in the lobby, rather than as an estimate of the score you would receive if you were to ply in a match. It is included in this way so that rating changes are still essentially zero-sum (up to differences in players' volatility), and also so that someone who plays in every game and always gets the highest score in the lobby will always gain rating no matter what. Such a bonus is necessary so that pure specialists are not buffed too much by only showing up for their specific skillsets.
+
+A common concern brought up with Method B is that in very lopsided matches (e.g. a seed 1 vs seed 32 matchup), specialist players on the seed 1 team will lose a disproportionate amount of rating due to being benched against lower-performing teams. This is an instance where o!TR aims to measure "performance, not skill." While it is true that the 5th player on a seed 1 team would typically score higher than the 5th player on a seed 32 team, in some sense this does not actually matter for performance in matches, and "performance" partially captures the value that players contribute towards causing a win.
+
+Remembering that o!TR is designed to filter out "sandbaggers" who are playing in tournaments below their skill level. Players being consistently debuffed by method B because of these high-low seed situations are generally not the ones who are individually sandbagging the most because they are not the central reason that their team is winning. On the other hand, players who are consistently buffed by method B are the all-rounders who have very high lobby participation; for those players the method A numbers will be the dominant factor because of the $90\%$:$10\%$ weighting.
+
+### Rating update schedule
 
 Ratings will only be recalculated and updated once weekly at Tuesday 12:00 UTC. This time is chosen so that tournament hosts who close registrations during a weekend will have ample time to [filter](https://osu.ppy.sh/wiki/en/Tournaments/Official_support#registrant-filtering-and-seeding) their players using o!TR-tracked statistics (e.g. rating, total tournaments played within a rank range, etc.).
 
