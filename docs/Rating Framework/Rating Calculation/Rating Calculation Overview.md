@@ -37,13 +37,13 @@ Each player receives a single rating update for each match that they play. Howev
 
 3. Store the results (changes in rating & volatility) for lookup later. If a player played in the match but did not play in this game, the changes for the game are marked as zero.
 
-The results are then averaged over all games to obtain an overall rating and volatility change, which we call "rating change A". However, using these numbers alone would cause specialists who play only a few games (and perform well) to be over-rated compared to generalists. Thus, a second set of overall rating changes are also computed, where not playing a game is now considered tying for last. We call these numbers "rating change B."
+The results are then averaged over all games to obtain an overall rating and volatility change, which we call "Method A." However, using these numbers alone would cause specialists who play only a few games (and perform well) to be over-rated compared to generalists. Thus, a second set of overall rating changes are also computed, where not playing a game is now considered tying for last. We call these numbers "Method B."
 
 Finally, these two sets of changes are combined at a weighted average of $90\%$:$10\%$. This result is then scaled by game count so that longer matches have a more substantial impact on rating changes. More concretely, the actual change stored in a player's rating history is
 
 $$
 \begin{equation}
-    \text{rating change} = \left(\frac{\text{\# games}}{8}\right)^{0.5}\cdot (0.9 \cdot \text{rating change A} + 0.1 \cdot \text{rating change B}).
+    \text{rating change} = \left(\frac{\text{\# games}}{8}\right)^{0.5}\cdot (0.9 \cdot \text{rating change from method A} + 0.1 \cdot \text{rating change from method B}).
 \end{equation}
 $$
 
@@ -74,7 +74,15 @@ The Plackett-Luce model allows for arbitrary scalings of parameters, though the 
 
 Remember that different players specialize in different skillsets and have skillcaps at different levels, so please interpret TR not as an absolute skill comparison between two players. In particular, o!TR identifies when people **frequently win** relative to others in their rank range or skill level, so if you see a player with what seems like an unusually high rating, we recommend that you look at their tournament history and check if they're consistently the top performer in their matches.
 
-### When will ratings update?
+### Interpretation of Method B
+
+The inclusion of Method B in the rating algorithm should be thought of more as a bonus for plying in the lobby, rather than as an estimate of the score you would receive if you were to ply in a match. It is included in this way so that rating changes are still essentially zero-sum (up to differences in players' volatility), and also so that someone who plays in every game and always gets the highest score in the lobby will always gain rating no matter what. Such a bonus is necessary so that pure specialists are not buffed too much by only showing up for their specific skillsets.
+
+A common concern brought up with Method B is that in very lopsided matches (e.g. a seed 1 vs seed 32 matchup), specialist players on the seed 1 team will lose a disproportionate amount of rating due to being benched against lower-performing teams. This is an instance where o!TR aims to measure "performance, not skill." While it is true that the 5th player on a seed 1 team would typically score higher than the 5th player on a seed 32 team, in some sense this does not actually matter for performance in matches, and "performance" partially captures the value that players contribute towards causing a win.
+
+Remembering that o!TR is designed to filter out "sandbaggers" who are playing in tournaments below their skill level. Players being consistently debuffed by method B because of these high-low seed situations are generally not the ones who are individually sandbagging the most because they are not the central reason that their team is winning. On the other hand, players who are consistently buffed by method B are the all-rounders who have very high lobby participation; for those players the method A numbers will be the dominant factor because of the $90\%$:$10\%$ weighting.
+
+### Rating update schedule
 
 Ratings will only be recalculated and updated once weekly at Tuesday 12:00 UTC. This time is chosen so that tournament hosts who close registrations during a weekend will have ample time to [filter](https://osu.ppy.sh/wiki/en/Tournaments/Official_support#registrant-filtering-and-seeding) their players using o!TR-tracked statistics (e.g. rating, total tournaments played within a rank range, etc.).
 
