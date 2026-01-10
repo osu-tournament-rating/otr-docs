@@ -1,18 +1,19 @@
-Rating decay is the process by which we handle inactivity in o!TR. The o!TR team does not believe in letting players keep their rating values forever, even without further tournament activity.
+Rating decay is the process by which we handle inactivity in o!TR. Much like analogous systems in other competitive games, decay addresses the fact that player performance becomes more uncertain and typically declines as time passes.
 
-Every player is assigned a [[Rating Calculation Overview#Rating|rating]] and [[Rating Calculation Overview#Volatility|volatility]]. Players [[#Decay|decay]] if there is a prolonged period of inactivity. Decay retroactively applies for the entire inactivity period once a user begins to decay.
+Every player is assigned a [[Rating Calculation Overview#Rating|rating]] $\mu$ and [[Rating Calculation Overview#Volatility|volatility]] $\sigma$, and decay affects both of these quantities.
+
+## Volatility Decay
+
+Every week at Wednesday 12:00 UTC after a player's first match, their volatility increases slightly. More precisely, $\sigma^2$ increases by $500$, up to a maximum of the starting volatility for a new player. Therefore, players who are more active (that is, play in more verified matches per week) will have their volatility settle at a lower equilibrium. 
+
+> [!note]
+> A typical match decreases a player's volatility by roughly $2\%$ (with lots of variation depending on participation and placement). Therefore, players who play one verified match per week will settle at a volatility around $112$, which is much lower than the starting volatility of $400$.
 
 ## Decay
 
-If a player does not play in any tournaments in our dataset for a period of **six months**, they will begin to decay.
+If a player does not play in any verified tournaments in our dataset for a consecutive period of roughly **six months**, they will begin to decay. Such players will also be marked inactive and not appear on any rating leaderboards until their next match.
 
-While a player is decaying, the following occurs every week:
-
-1. The player's rating decreases by a small constant, down to a predetermined minimum. This minimum is set higher for players with higher peak ratings.
-
-2. The player's volatility increases by a small amount, up to a predetermined maximum (the starting volatility for a new player).
-
-Such players will also be marked inactive and not appear on any rating leaderboards until their next match.
+While a player is decaying, their rating decreases by a small constant each week, down to a predetermined minimum. This minimum is set higher for players with higher peak ratings. More precisely, along with the [[Rating Decay#Volatility Decay|volatility decay]] mentioned above, $\mu$ decreases by $3$ points, down to $\frac{1}{2}(1000 + \text{player peak rating})$. 
 
 ## Concerns
 
