@@ -30,9 +30,11 @@ with an enforced minimum and maximum rating of $500$ and $2000$. The reason for 
 > [!info]
 > For reference, players ranked near $\#22,000$ in osu! will have a rank z-score around $0$ and receive an initial rating of approximately $1200$.
 
+While this formula does not account for historical rank drift [^1], this approximation is still good enough for our purposes especially because [[Rating Decay|rating decay]] applies to inactive players.
+
 Any players whose rank data cannot be recovered from either osu!track or the osu! API are given a default initial rating of $1000$. This may occur because they are restricted, have no plays for that ruleset, or are inactive and have no osu!track data.
 
 > [!note]
-> While this formula does not account for historical "rank drift" (a player at a certain rank today displays a higher skill level than a player at that same rank years ago), this approximation is still good enough for our purposes especially because of [[Rating Decay|rating decay]] for inactive players.
->
 > Regardless of initial assignment, the accuracy of one's rating will improve after playing a few tournaments.
+
+[^1]: This term refers to how a player at a certain rank today typically displays a higher skill level than a player at that same rank years ago.

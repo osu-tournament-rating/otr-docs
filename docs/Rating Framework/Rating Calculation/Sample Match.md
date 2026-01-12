@@ -3,7 +3,7 @@ tags:
   - math
 ---
 
-This page is dedicated to carrying out calculations to demonstrate an example of rating changes from a single match. We will be following the logic described [[Rating Calculation Overview#Ranking & rating calculation|here]], so it is advised to read that page first. This page will focus on detailing the actual calculations used in the [paper](https://jmlr.csail.mit.edu/papers/volume12/weng11a/weng11a.pdf) which introduces this rating model.
+This page is dedicated to carrying out calculations to demonstrate an example of rating changes from a single match. We will be following the logic described [[Rating Calculation Overview#Ranking & rating calculation|here]], so it is advised to read that page first. This page will focus on detailing the actual calculations used in the paper[^1] which introduces this rating model.
 
 > [!note]
 > It is not necessary to understand every calculation on this page to get a good sense of what the rating model is doing. This documentation exists primarily for those who are curious about the mathematics, and also so that the rating assignment process is more transparent than only specifying "the ratings are fed into a model and numbers come out of it."
@@ -40,15 +40,15 @@ In Method A of calculating rating changes, we first look at the four players of 
 
 These rankings are the only information taken into account for rating calculations (individual scores are not considered). For each game, the players who play in it will be given a "game rating change." All games are calculated in the same way, so we will demonstrate this process for the first game.
 
-Here, we follow the notation and logic of Algorithm 4 of the paper, found on page 21 of [the paper](https://jmlr.csail.mit.edu/papers/volume12/weng11a/weng11a.pdf). The description also references Algorithm 1, which can be found on page 15.
+Here, we follow the notation and logic of Algorithm 4 of the paper (found on page 21 in the link[^1]). The description also references Algorithm 1, which can be found on page 15.
 
-First, we compute an overall uncertainty constant which the paper calls $c$, which is given by
+First, we compute an overall uncertainty constant $c$, which is given by
 
 $$c = \sqrt{4\beta^2 + \sigma_{\text{thighhigh}}^2 + \sigma_{\text{glixh\_hunt3r}}^2 + \sigma_{\text{Miori Celesta}}^2 + \sigma_{\text{PotjeNutella}}^2} \approx \boxed{639.45}.$$
 
 Here $\beta = 200$ is a constant specified by our [constants file](https://github.com/osu-tournament-rating/otr-processor/blob/master/src/model/constants.rs), and the other four terms in the square roots come from the volatilities of the four players (before the match). This $c$ is used to compute the predicted probabilities of players placing in various orders. It roughly means that for this game, a difference of $c \approx 639.45$ rating points between two players means the higher-rated player has $e \approx 2.7$ times the chance of placing above the lower-rated player.
 
-Next, we calculate, in the notation of the paper, two values $\Omega$ and $\Delta$ for each player in the game. These specify an _additive_ rating change and a _multiplicative_ volatility change, respectively. Instead of repeating all of the formulas from the paper, we will try to work out an example in understandable words.
+Next, we calculate two values $\Omega$ and $\Delta$ for each player in the game. These specify an _additive_ rating change and a _multiplicative_ volatility change, respectively. Instead of repeating all of the formulas from the paper, we will try to work out an example in understandable words.
 
 First, consider the player who placed highest, thighhigh in this case. The model currently thinks the probability that thighhigh will rank highest is
 
@@ -62,7 +62,7 @@ and the factor by which their rating variance (that is, squared volatility) shou
 
 $$\Delta_{\text{thighhigh}} = \frac{\sigma_{\text{thighhigh}}^2}{c^2}p_{\text{thighhigh 1st}}(1 - p_{\text{thighhigh 1st}}) \approx \boxed{0.036}.$$
 
-We do not include the "variance damping factor" $\gamma_q$ discussed on page 26 of the paper because volatility is instead increased by decay outside of matches. Notice that the less likely the model thinks it is for thighhigh to place first, and also the higher their volatility, the higher their suggested rating change.
+We do not include the "variance damping factor" $\gamma_q$ found on page 26 of the paper[^1], because volatility is instead increased by decay outside of matches. Notice that the less likely the model thinks it is for thighhigh to place first, and also the higher their volatility, the higher their suggested rating change.
 
 Next, consider the second-highest-ranking player, glixh\_hunt3r. The model now cares about both the probability of glixh\_hunt3r ranking highest (notice this is slightly lower than $\frac{1}{4}$ because glixh\_hunt3r has the lowest pre-match rating),
 
@@ -238,3 +238,5 @@ The factor of $\left(\frac{\text{games}}{8}\right)^{0.5}$ increases rating chang
 | [glixh\_hunt3r](https://osu.ppy.sh/users/27298689) | $1250 \to 1206.6$ |    $340 \to 323.0$    |
 
 All players' volatilities have decreased, indicating that the model is slightly more confident about the updated ratings. The player thighhigh's rating has significantly increased due to their relatively high participation and placement among players throughout the match. Note that overall rating changes are not precisely zero-sum due to the differences in players' volatilities.
+
+[^1]: Weng, Ruby & Lin, Chih-Jen. (2011). A Bayesian Approximation Method for Online Ranking. Journal of Machine Learning Research. 12. 267-300. https://jmlr.csail.mit.edu/papers/volume12/weng11a/weng11a.pdf

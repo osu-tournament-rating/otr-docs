@@ -16,7 +16,7 @@ Additionally, higher-rated players may lose rating if they perform **worse than 
 
 ## Why are my rating changes larger / smaller than other players?
 
-In addition to rating, we also track players' **volatility**, which measures how confident the system is about a player's rating. Volatility decreases as players compete in matches, and it increases slowly over time. The higher a player's volatility, the more their ratings will change each match.
+In addition to rating, we also track players' **volatility**, which measures how confident the system is about a player's rating. Volatility decreases as players compete in matches, and it increases slowly over time. The higher a player's volatility, the more their rating will change each match.
 
 ## What are the differences between o!TR and Skill Issue?
 
