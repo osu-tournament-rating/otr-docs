@@ -25,7 +25,7 @@ We will assume the six players who played in the match had the following ratings
 
 Note that all games in this match were verified, so all of them will be used for rating calculation. If there were a game with incorrect lobby sizes (because of a disconnect) or an incorrect beatmap ID (because of a warmup), those would be excluded for the corresponding rejection reasons.
 
-## Rating changes under Method A
+## Method A Calculation
 
 In Method A of calculating rating changes, we first look at the four players of each game and rank their scores from highest to lowest. The teams that the players play for and the mods that they use are irrelevant, since no maps were played with the EZ mod (which would receive a 1.75x multiplier). Thus the rankings are as shown:
 
@@ -46,7 +46,7 @@ First, we compute an overall uncertainty constant $c$, which is given by
 
 $$c = \sqrt{4\beta^2 + \sigma_{\text{thighhigh}}^2 + \sigma_{\text{glixh\_hunt3r}}^2 + \sigma_{\text{Miori Celesta}}^2 + \sigma_{\text{PotjeNutella}}^2} \approx \boxed{639.45}.$$
 
-Here $\beta = 200$ is a constant specified by our [constants file](https://github.com/osu-tournament-rating/otr-processor/blob/master/src/model/constants.rs), and the other four terms in the square roots come from the volatilities of the four players (before the match). This $c$ is used to compute the predicted probabilities of players placing in various orders. It roughly means that for this game, a difference of $c \approx 639.45$ rating points between two players means the higher-rated player has $e \approx 2.7$ times the chance of placing above the lower-rated player.
+Here $\beta = 200$ is a constant specified by our [constants file](https://github.com/osu-tournament-rating/otr-processor/blob/master/src/model/constants.rs), and the other four terms in the square roots come from the volatilities of the four players prior to the match. This $c$ is used to compute the predicted probabilities of players placing in various orders. It roughly means that for this game, a difference of $c \approx 639.45$ rating points between two players means the higher-rated player has $e \approx 2.7$ times the chance of placing above the lower-rated player.
 
 Next, we calculate two values $\Omega$ and $\Delta$ for each player in the game. These specify an _additive_ rating change and a _multiplicative_ volatility change, respectively. Instead of repeating all of the formulas from the paper, we will try to work out an example in understandable words.
 
@@ -54,11 +54,11 @@ First, consider the player who placed highest, thighhigh in this case. The model
 
 $$p_{\text{thighhigh 1st}} = \frac{e^{\mu_{\text{thighhigh}}/c}}{e^{\mu_{\text{thighhigh}}/c} + e^{\mu_{\text{glixh\_hunt3r}}/c}+ e^{\mu_{\text{Miori Celesta}}/c} + e^{\mu_{\text{PotjeNutella}}/c}} \approx 0.254,$$
 
-where we are plugging in the pre-match ratings from our table above. This is roughly $\frac{1}{4}$because all four players have similar pre-match ratings. thighhigh's suggested rating change from this game is then
+where we are plugging in the pre-match ratings from our table above. This is roughly $\frac{1}{4}$ because all four players have similar pre-match ratings. thighhigh's suggested rating change from this game is then
 
 $$\Omega_{\text{thighhigh}} = \frac{\sigma_{\text{thighhigh}}^2}{c} (1 - p_{\text{thighhigh 1st}}) \approx \boxed{91.4},$$
 
-and the factor by which their rating variance (that is, squared volatility) should be decreased is
+and the factor by which their rating variance (squared volatility) should be decreased is
 
 $$\Delta_{\text{thighhigh}} = \frac{\sigma_{\text{thighhigh}}^2}{c^2}p_{\text{thighhigh 1st}}(1 - p_{\text{thighhigh 1st}}) \approx \boxed{0.036}.$$
 
@@ -116,7 +116,7 @@ Remember that all of this was done just for the first game of the match, but the
 | $5$  | $609.7$ | $94.1$                      | $-15.4$                        | $15.3$                          |                          | $-110.1$                       |                                 | $0.041$                     | $0.060$                        | $0.025$                         |                          | $0.124$                        |                                 |
 | $6$  | $644.4$ | $-16.8$                     | $36.2$                         |                                 | $21.1$                   |                                | $-188.9$                        | $0.127$                     | $0.016$                        |                                 | $0.027$                  |                                | $0.182$                         |
 
-## Rating changes under Method B
+## Method B Calculation
 
 In Method B of calculating rating changes, we again begin by ranking scores from highest to lowest, but we now treat any players who did not play a game as tying for last place. This yields the following table:
 
@@ -204,7 +204,7 @@ Here is the table of $\Omega_i$ and $\Delta_i$ values under Method B. Note that 
 
 Comparing to the previous table, we can see that rating changes are typically more positive in Method B for players who played in a game, and they are very negative for players who did not play.
 
-## Overall rating change
+## Overall Changes
 
 Finally, we essentially do a weighted average of all of these numbers to determine the final rating changes for the whole match. For simplicity, we will demonstrate this just for one of the players, Piemanray314.
 
