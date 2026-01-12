@@ -239,4 +239,4 @@ The factor of $\left(\frac{\text{games}}{8}\right)^{0.5}$ increases rating chang
 
 All players' volatilities have decreased, indicating that the model is slightly more confident about the updated ratings. The player thighhigh's rating has significantly increased due to their relatively high participation and placement among players throughout the match. Note that overall rating changes are not precisely zero-sum due to the differences in players' volatilities.
 
-[^1]: Weng, Ruby & Lin, Chih-Jen. (2011). A Bayesian Approximation Method for Online Ranking. Journal of Machine Learning Research. 12. 267-300. https://jmlr.csail.mit.edu/papers/volume12/weng11a/weng11a.pdf
+[^1]: Weng, Ruby & Lin, Chih-Jen. (2011). A Bayesian Approximation Method for Online Ranking. Journal of Machine Learning Research. 12. 267-300. <https://jmlr.csail.mit.edu/papers/volume12/weng11a/weng11a.pdf>.
