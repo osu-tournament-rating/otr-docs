@@ -34,4 +34,6 @@ Further, it natively supports message queue priority. The platform utilizes prio
 
 ### Processor
 
-The processor is a [Rust](https://www.rust-lang.org/) project which is designed to be called by a cron job. It looks at all verified tournament data and builds a rating network from individual match data by utilizing [OpenSkill](https://jmlr.csail.mit.edu/papers/volume12/weng11a/weng11a.pdf), an open-source multiplayer rating algorithm ([source code](https://crates.io/crates/openskill)). For each game the processor hasn't processed before, placements for the game's scores are stored in the `game_scores` table.
+The processor is a [Rust](https://www.rust-lang.org/) project which is designed to be called by a cron job. It looks at all verified tournament data and builds a rating network from individual match data by utilizing OpenSkill[^1], an open-source multiplayer rating algorithm ([source code](https://crates.io/crates/openskill)). For each game the processor hasn't processed before, placements for the game's scores are stored in the `game_scores` table.
+
+[^1]: Weng, Ruby & Lin, Chih-Jen. (2011). A Bayesian Approximation Method for Online Ranking. Journal of Machine Learning Research. 12. 267-300. <https://jmlr.csail.mit.edu/papers/volume12/weng11a/weng11a.pdf>.
