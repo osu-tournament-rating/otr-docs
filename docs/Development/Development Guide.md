@@ -107,6 +107,7 @@ The web app listens on `http://localhost:3000`. The data worker runs in the back
 Visit `http://localhost:3000` and sign in with osu! to confirm BetterAuth is configured correctly. RabbitMQ queues and message activity are visible at `http://localhost:15672/`.
 
 Note that ratings will not appear until the processor is run successfully.
+
 ### Processor configuration
 
 In the `otr-processor` directory, copy the `.env.example` file into `.env`:
