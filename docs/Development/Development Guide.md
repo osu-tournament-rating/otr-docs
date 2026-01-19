@@ -1,16 +1,19 @@
 ## Overview
 
-This article details how to clone and configure the website, data worker, and processor projects.
+This article details how to clone and configure the website, data worker, and processor projects. By the end, these projects will be ready for local execution via docker or standalone commands.
+
+> [!note]
+> Testing locally with an outdated database replica is out of this article's scope. In short, checkout the latest tag created prior to the date of the replica. See [[Steps to Generate Ratings]] for more information on this.
 
 ### Prerequisites
 
 > [!warning]
-> Windows users may encounter difficulty installing Docker and Rust as they behave differently. Docker requires virtualization settings to be enabled while Rust may require editing the system PATH variable manually.
+> Windows users may encounter difficulty installing Docker and Rust as they require additional configuration. Docker requires virtualization settings to be enabled while Rust may require editing the system PATH variable manually.
 
 - Install [git](https://git-scm.com/downloads)
-- Install [Docker Desktop](https://www.docker.com/) or another Docker distribution with `docker compose`
-- Install [Bun](https://bun.sh/) 1.1 or later (used for the web app and data worker)
-- Instlal [Rust](https://rust-lang.org/tools/install/) (for the processor)
+- Install [Docker Desktop](https://www.docker.com/)
+- Install [Bun](https://bun.sh/) 1.1 or later
+- Install [Rust](https://rust-lang.org/tools/install/)
 - Download the latest [public replica](https://data.otr.stagec.xyz/) (`.gz` file)
 - Create an [osu! API v2 client](https://osu.ppy.sh/home/account/edit) and set the `Application Callback URLs` field to `http://localhost:3000/api/auth/oauth2/callback/osu`.
 
@@ -79,14 +82,6 @@ Run `docker stop db && docker start db`, then try the import again.
 bun i --frozen-lockfile
 ```
 
-#### Run migrations
-
-Apply the latest database migrations so the web app and data worker match production:
-
-```
-bunx drizzle-kit migrate
-```
-
 ### Run the web app and data worker
 
 > [!important]
@@ -112,7 +107,6 @@ The web app listens on `http://localhost:3000`. The data worker runs in the back
 Visit `http://localhost:3000` and sign in with osu! to confirm BetterAuth is configured correctly. RabbitMQ queues and message activity are visible at `http://localhost:15672/`.
 
 Note that ratings will not appear until the processor is run successfully.
-
 ### Processor configuration
 
 In the `otr-processor` directory, copy the `.env.example` file into `.env`:
@@ -125,7 +119,7 @@ cp .env.example .env
 
 Use these commands to test and run the processor:
 
-- `cargo test`- run tests.
+- `cargo test`- run tests, all should pass.
 - `cargo run -r` - run the processor.
 
-After running the processor and revisiting the website locally, ratings should be present and the leaderboard will be established.
+After running the processor and revisiting the website locally, ratings should be present and the leaderboard will be populated.
