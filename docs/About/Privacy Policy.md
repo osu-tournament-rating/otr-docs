@@ -89,7 +89,7 @@ We periodically archive and share a subset of our data publicly, specifically fo
 
 ### Donations
 
-Users who choose to donate via [Buy Me a Coffee](buymeacoffee.com/stagecodes) will have their personal information processed by Buy Me a Coffee and Stripe. That personal information will be stored in accordance with their policies and is not stored by us.
+Users who choose to donate via [Buy Me a Coffee](https://buymeacoffee.com/stagecodes) will have their personal information processed by Buy Me a Coffee and Stripe. That personal information will be stored in accordance with their policies and is not stored by us.
 
 [^1]: A user is an osu! user who has logged into our platform via osu! OAuth.
 [^2]: A player is an osu! user whose data is automatically stored as part of our tournament submission process.
