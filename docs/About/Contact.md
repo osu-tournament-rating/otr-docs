@@ -2,7 +2,7 @@ Contact the o!TR team here!
 
 ## Bug reports & new features
 
-Please leave all bug reports on the respective repository's issues page. For new features, please create a [Github discussion](https://docs.github.com/en/discussions/collaborating-with-your-community-using-discussions/about-discussions) on the appropriate repository.
+Please leave all bug reports on the respective repository's issues page. For new features, please create a [GitHub discussion](https://docs.github.com/en/discussions/collaborating-with-your-community-using-discussions/about-discussions) on the appropriate repository.
 
 Here are our repositories:
 
@@ -22,5 +22,5 @@ Users who feel the documentation is missing something should create an issue in 
 
 * [Bluesky](https://bsky.app/profile/otr.stagec.xyz)
 * [Discord](https://discord.gg/R53AwX2tJA)
-* [Github](https://github.com/osu-tournament-rating)
+* [GitHub](https://github.com/osu-tournament-rating)
 * [Website](https://otr.stagec.xyz)
