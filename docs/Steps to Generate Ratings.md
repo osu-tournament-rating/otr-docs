@@ -7,10 +7,11 @@ This guide provides instructions for running the [[Development/Platform Architec
 
 - [Docker](https://www.docker.com/get-started/)
 - (Windows only) [Git Bash](https://git-scm.com/downloads) or [WSL](https://learn.microsoft.com/en-us/windows/wsl/install) - required because these commands use Unix-style syntax not supported by Windows Command Prompt or PowerShell.
+- Follow the setup instructions in the [[Development/Development Guide|development guide]] so you have the `otr-web` and `otr-processor` repositories available locally.
 
 ## Step 1: Start the database
 
-Follow the setup instructions in the [[Development/Development Guide|development guide]] so you have the `otr-web` repository available locally. Then start Postgres and RabbitMQ from that repository:
+Start Postgres and RabbitMQ from the `otr-web` repository directory:
 
 ```bash
 # From the `otr-web` repository
@@ -72,8 +73,8 @@ docker run --rm \
   stagecodes/otr-processor:YYYY.MM.DD
 ```
 
-> [!example]
-> If the [[Development/Platform Architecture#processor|otr-processor]] version is `2025.06.19`, run using the `otr-processor:2025.06.19` image.
+> [!tip]
+> Replace `YYYY.MM.DD` with the processor  release version.
 
 > [!tip]
 > To run pre-production changes, use the `:staging` tag. To run the latest production version, use the `:latest` tag.
@@ -114,8 +115,8 @@ COPY (
 
 ### Export all ratings
 
-> [!warning]
-> Be aware that one player may have multiple ratings, one per ruleset.
+> [!note]
+> One player may have multiple ratings, one per ruleset.
 
 ```bash
 # Export all player ratings to CSV
@@ -137,48 +138,12 @@ COPY (
 ) TO STDOUT WITH CSV HEADER;" > ratings.csv
 ```
 
-> [!tip]
-> Import this data into a spreadsheet for analysis.
-
-## Step 5: Filter ratings for specific players
-
-After exporting ratings, you may want to filter them for specific players. This is useful verifying the ratings of tournament participants.
-
-### Method 1: Filter using a list file
-
-If you have many IDs, create a text file called `player_ids.txt` with one osu! ID per line.
-
-Then, filter `ratings.csv` for IDs present in `player_ids.txt`.
-
-```bash
-# For each osu! ID in player_ids.txt, print the ratings.csv entry
-head -1 ratings.csv > filtered_ratings.csv && grep -f player_ids.txt ratings.csv >> filtered_ratings.csv
-```
-
-### Method 2: Filter by individual osu! IDs
-
-> [!warning]
-> This regex will partially match on any **row**, meaning `^(11)` will include every row containing `11`. If full osu! IDs are provided, accurate rows will be returned in most cases.
-
-```bash
-# Filter for specific osu! IDs (replace 12345|67890 with actual IDs).
-head -1 ratings.csv > filtered_ratings.csv && grep -E "^(12345|67890)" ratings.csv >> filtered_ratings.csv
-```
-
-### Example output
-
-After filtering, your CSV will contain only the specified players:
-
-```csv
-osu_id,username,country,ruleset,rating,volatility,percentile,global_rank,country_rank
-11557554,Cytusine,US,0,1471.6847685949424,221.60678571859532,96.70174677226863,608,107
-8191845,Stage,US,0,1116.3175053076163,276.7000024131878,82.53770207225777,3219,522
-```
-
 ## Cleanup
 
+Remove the created containers and volumes (to keep the database and other volumes, remove `-v`).
+
 ```bash
-docker compose down
+docker compose down -v
 ```
 
 ## Troubleshooting
