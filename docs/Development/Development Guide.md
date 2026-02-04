@@ -124,3 +124,11 @@ Use these commands to test and run the processor:
 - `cargo run -r` - run the processor.
 
 After running the processor and revisiting the website locally, ratings should be present and the leaderboard will be populated.
+
+### Run the entire stack
+
+It is possible to run the entire stack locally identically to how it runs in production. To run the stack in a production-like state, run these commands inside `otr-web/`:
+
+- Build the `otr-web:local` and `otr-data-worker:local` images: `./scripts/local-up.sh`
+- (Linux only) Start the compose stack with system monitoring `docker compose --profile node-exporter up`
+- (Windows & MacOS) Start the compose stack `docker compose up`
