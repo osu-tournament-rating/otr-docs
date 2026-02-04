@@ -1,7 +1,7 @@
 The o!TR team requires tournaments meet the criteria below before being accepted into our rating system. Please note that the team reserves the final say on whether a specific tournament is deemed fair for acceptance into our system.
 
 > [!note]
-> A comprehensive page of all submitted tournaments and their respective approval statuses can be seen on the [tournament listing](https://otr.stagec.xyz/tournaments).
+> A comprehensive page of all submitted tournaments and their respective approval statuses can be seen on the [tournament listing](https://otr.stagec.net/tournaments).
 > For more details on the verification review process, see [[Data Verification|this page]].
 
 The following is a reference on what constitutes an acceptable tournament and how to submit new data.
@@ -56,7 +56,7 @@ When submitting a tournament, follow these steps:
     - Exclude links from qualifiers, tryouts, or show matches.
 1. Gather all beatmap IDs pooled in the tournament, including qualifiers and group stages[^2].
     - Note that the _beatmap_ ID, rather than the _beatmapset_ ID, must be provided. For example, enter `75` rather than `1` for [this beatmap](https://osu.ppy.sh/beatmapsets/1#osu/75).
-1. Enter the above data along with requested general tournament information on the [website submission form](https://otr.stagec.xyz/tournaments/submit).
+1. Enter the above data along with requested general tournament information on the [website submission form](https://otr.stagec.net/tournaments/submit).
 
 Additionally, keep the following in mind for tiered tournaments or tournaments that feature multiple divisions:
 
@@ -64,15 +64,15 @@ Additionally, keep the following in mind for tiered tournaments or tournaments t
 > Carefully check how the tournament defines the word "tier". The o!TR team considers "tiered" tournaments to be **tournaments where multiple rank ranges are participating within the same bracket** (usually on the same team). In cases where multiple brackets are used, we use the term **division**.
 
 1. Tiered tournaments must be submitted as a single tournament. In this case, for the rank range field, denote the rank as the top-end rank restriction for the tournament.
-    - [Broccoli Cup 3](https://otr.stagec.xyz/tournaments/525) is an example of a tiered tournament.
+    - [Broccoli Cup 3](https://otr.stagec.net/tournaments/525) is an example of a tiered tournament.
 1. For divisional tournaments, submit them as separate tournaments - **one submission per bracket**. Append "(Division 1)", "(Division 2)", etc. to the tournament's title when submitting.
 
 > [!example]
 > Here are examples of multiple submissions for different divisions from the same tournament:
 >
-> - [hubba's hidden hooplah (Master Division)](https://otr.stagec.xyz/tournaments/2349)
-> - [hubba's hidden hooplah (Weasel Division)](https://otr.stagec.xyz/tournaments/2350)
-> - [hubba's hidden hooplah (Ninja Division)](https://otr.stagec.xyz/tournaments/2351)
+> - [hubba's hidden hooplah (Master Division)](https://otr.stagec.net/tournaments/2349)
+> - [hubba's hidden hooplah (Weasel Division)](https://otr.stagec.net/tournaments/2350)
+> - [hubba's hidden hooplah (Ninja Division)](https://otr.stagec.net/tournaments/2351)
 
 ## FAQ
 

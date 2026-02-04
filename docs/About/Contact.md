@@ -20,7 +20,6 @@ Users who feel the documentation is missing something should create an issue in 
 
 ## Quick links
 
-* [Bluesky](https://bsky.app/profile/otr.stagec.xyz)
 * [Discord](https://discord.gg/R53AwX2tJA)
 * [GitHub](https://github.com/osu-tournament-rating)
-* [Website](https://otr.stagec.xyz)
+* [Website](https://otr.stagec.net)

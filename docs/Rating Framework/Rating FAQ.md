@@ -26,4 +26,4 @@ Skill Issue evaluates head-to-head matchups similarly to o!TR, but it does so at
 
 All data must be submitted to the o!TR database and manually verified before it is included in rating calculations. Some tournaments do not meet the [[Tournament Approval#Acceptance criteria|acceptance criteria]] and thus will not be included, while other tournaments may be "pre-verified" (that is, pending manual review) and will be looked at soon. We only submit tournaments after all matches have concluded.
 
-Feel free to check the list of [tournaments](https://otr.stagec.xyz/tournaments) on the website and let us know of any inaccuracies or confusing decisions. We're doing our best to keep the most accurate records possible!
+Feel free to check the list of [tournaments](https://otr.stagec.net/tournaments) on the website and let us know of any inaccuracies or confusing decisions. We're doing our best to keep the most accurate records possible!

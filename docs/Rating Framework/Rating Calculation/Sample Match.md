@@ -10,7 +10,7 @@ This page is dedicated to carrying out calculations to demonstrate an example of
 >
 > If you are interested more in the general philosophy of what ratings represent, it is highly recommended to read [[Rating Calculation Overview#Ranking & rating calculation|this page]] instead.
 
-The sample match we will be using is [TYC: (I love happy dreams) vs (ben)](https://otr.stagec.xyz/matches/128654) ([osu! link](https://osu.ppy.sh/community/matches/112506508)). It was chosen for its relatively short length and smaller format—2v2, team size 3—while still effectively illustrating the main ideas.
+The sample match we will be using is [TYC: (I love happy dreams) vs (ben)](https://otr.stagec.net/matches/128654) ([osu! link](https://osu.ppy.sh/community/matches/112506508)). It was chosen for its relatively short length and smaller format—2v2, team size 3—while still effectively illustrating the main ideas.
 
 We will assume the six players who played in the match had the following ratings and volatilities immediately before this match, and we will calculate their ratings and volatilities after the match ends. **Please note that these values are not the actual ratings of these players; these are sample numbers for illustration purposes.**
 
