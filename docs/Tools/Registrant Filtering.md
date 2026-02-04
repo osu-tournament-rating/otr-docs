@@ -34,4 +34,4 @@ You **must**:
 
 You should **consider**:
 
-1. Saving the most recent public archive from the [public replicas site](https://data.otr.stagec.xyz) at the time of making the filter request. In the event of a disaster on our end, hosts are expected to provide the dataset to the [Tournament Committee](https://osu.ppy.sh/wiki/en/People/Tournament_Committee) when it comes time to review for badge eligibility.
+1. Saving the most recent public archive from the [public replicas site](https://data.otr.stagec.net) at the time of making the filter request. In the event of a disaster on our end, hosts are expected to provide the dataset to the [Tournament Committee](https://osu.ppy.sh/wiki/en/People/Tournament_Committee) when it comes time to review for badge eligibility.
