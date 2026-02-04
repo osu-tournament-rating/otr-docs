@@ -14,7 +14,7 @@ This article details how to clone and configure the website, data worker, and pr
 - Install [Docker Desktop](https://www.docker.com/)
 - Install [Bun](https://bun.sh/) 1.1 or later
 - Install [Rust](https://rust-lang.org/tools/install/)
-- Download the latest [public replica](https://data.otr.stagec.xyz/) (`.gz` file)
+- Download the latest [public replica](https://data.otr.stagec.net/) (`.gz` file)
 - Create an [osu! API v2 client](https://osu.ppy.sh/home/account/edit) and set the `Application Callback URLs` field to `http://localhost:3000/api/auth/oauth2/callback/osu`.
 
 ### Clone repositories

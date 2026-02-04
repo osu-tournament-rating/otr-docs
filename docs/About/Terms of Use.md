@@ -15,7 +15,7 @@ Users who abuse this service will have their API access revoked without warning.
 
 ##### Scraping
 
-The API must not be used to scrape information. Scraping data in any form is prohibited and will result in a permanent revocation of API access. Please see the [public replicas site](https://data.otr.stagec.xyz) for more information on conveniently importing our dataset.
+The API must not be used to scrape information. Scraping data in any form is prohibited and will result in a permanent revocation of API access. Please see the [public replicas site](https://data.otr.stagec.net) for more information on conveniently importing our dataset.
 
 ##### Multiple clients
 
@@ -36,23 +36,7 @@ By using our API, you hereby consent to us logging the activity of all API clien
 
 ## Database Terms of Use
 
-By using any database replica downloads offered on the [public replicas site](https://data.otr.stagec.xyz/), you agree to abide by these terms of use.
-
-### Restrictions
-
-These replicas are provided explicitly for those who are doing the following and for no other purpose:
-
-1. Testing or modifying one or more official osu! Tournament Rating [(o!TR)](https://github.com/osu-tournament-rating) programs with the intention of testing and contributing to the official repositories.
-2. Validating a tournament's usage of the o!TR platform by inspecting a dataset from a specific time period as needed.
-
-> [!info]
-> Certain data is omitted to protect user privacy. Refer to the [public replicas site](https://data.otr.stagec.xyz) for more specifics.
-
-#### Permissions
-
-Permission to use this dataset in third-party applications, outside of the above exceptions, is not implicitly granted. Please [[Contact#Quick links|contact us]] with your use case before integrating our dataset into any of your applications.
-
-If such permission is granted, the osu! Tournament Rating project must be [[Terms of Use#Accreditation|properly credited]] anywhere our dataset is used.
+By using any database replica downloads offered on the [public replicas site](https://data.otr.stagec.net/), you agree to abide by the terms of use displayed on that page.
 
 ## Website Terms of Use
 

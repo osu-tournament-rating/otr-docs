@@ -20,7 +20,7 @@ docker compose up -d db rabbitmq
 
 ## Step 2: Import database replica
 
-Public database replicas are published on the [public replicas site](https://data.otr.stagec.xyz). These weekly replicas exclude most data, but provide enough data to verify a tournament's use of o!TR.
+Public database replicas are published on the [public replicas site](https://data.otr.stagec.net). These weekly replicas exclude most data, but provide enough data to verify a tournament's use of o!TR.
 
 Download the most recent replica dated before the tournament closed registrations. If the tournament provides another date by which ratings are taken from, use that date instead.
 
