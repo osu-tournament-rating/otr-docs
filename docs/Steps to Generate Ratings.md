@@ -74,7 +74,7 @@ docker run --rm \
 ```
 
 > [!tip]
-> Replace `YYYY.MM.DD` with the processor  release version.
+> Replace `YYYY.MM.DD` with the processor release version.
 
 > [!tip]
 > To run pre-production changes, use the `:staging` tag. To run the latest production version, use the `:latest` tag.
