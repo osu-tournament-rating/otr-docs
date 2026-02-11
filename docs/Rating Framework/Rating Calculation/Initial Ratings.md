@@ -20,7 +20,7 @@ $$
     \text{initial rating} =
         \begin{cases}
             1200 + 200 \cdot z_{\text{rank}}, & \text{if }z_{\text{rank}} \ge 0, \\
-            1200 - 250 \cdot z_{\text{rank}}, & \text{otherwise},
+            1200 + 250 \cdot z_{\text{rank}}, & \text{otherwise},
         \end{cases}
 \end{equation}
 $$
