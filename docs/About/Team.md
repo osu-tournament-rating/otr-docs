@@ -16,7 +16,7 @@ These users are active contributors to the project.
 
 | Username                                        | Role                        |
 | ----------------------------------------------- | --------------------------- |
-| [ajmosca](https://osu.ppy.sh/users/19884809)    | Data entry, documentation   |
+| [ajmosca](https://osu.ppy.sh/users/19884809)    | Data entry[^1], documentation   |
 | [Myssto](https://osu.ppy.sh/users/18068913)     | Developer                   |
 
 ### Inactive
@@ -39,3 +39,5 @@ These users previously contributed their time and expertise to the project, but 
 | [Squink](https://osu.ppy.sh/users/12058601)      | Early developer                                                              |
 | [starlightof](https://osu.ppy.sh/users/18618027) | Early UI/UX designer                                                         |
 | [Timper](https://osu.ppy.sh/users/11955929)      | Data verification                                                            |
+
+[^1]: Has data editing permissions, overseen by Admins.
