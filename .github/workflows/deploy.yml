@@ -43,6 +43,7 @@ jobs:
           oauth-secret: ${{ secrets.TS_OAUTH_SECRET }}
           tags: tag:ci
           ping: ${{ secrets.SSH_HOST }}
+      
       - name: Deploy
         env:
           SSH_USER: ${{ secrets.SSH_USER }}
