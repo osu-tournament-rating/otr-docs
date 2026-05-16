@@ -36,15 +36,24 @@ jobs:
     environment: production
 
     steps:
-      - name: Deploy
-        uses: appleboy/ssh-action@master
+      - name: Connect to tailscale
+        uses: tailscale/github-action@v4
         with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USER }}
-          key: ${{ secrets.SSH_KEY }}
-          script: |
+          oauth-client-id: ${{ secrets.TS_OAUTH_CLIENT_ID }}
+          oauth-secret: ${{ secrets.TS_OAUTH_SECRET }}
+          tags: tag:ci
+          ping: ${{ secrets.SSH_HOST }}
+      
+      - name: Deploy
+        env:
+          SSH_USER: ${{ secrets.SSH_USER }}
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+        run: |
+          set -euo pipefail
+          ssh -o StrictHostKeyChecking=no "$SSH_USER@$SSH_HOST" bash <<'EOF'
             docker pull ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKER_IMAGE_NAME }}
             docker stop ${{ secrets.DOCKER_IMAGE_NAME }} || true
             docker rm ${{ secrets.DOCKER_IMAGE_NAME }} || true
-            docker run -d -p 8080:8080 --restart always --name ${{ secrets.DOCKER_IMAGE_NAME }} \
+            docker run -d -p 8090:8080 --restart always --name ${{ secrets.DOCKER_IMAGE_NAME }} \
             ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKER_IMAGE_NAME }}:latest
+          EOF
