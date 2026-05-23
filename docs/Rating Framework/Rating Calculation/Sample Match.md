@@ -223,8 +223,10 @@ $$
 
 Finally, Piemanray314's final rating and volatility are calculated by using these effective values to modify the initial rating and volatility:
 
-$$\begin{align*}\mu_{\text{Piemanray314}}^{\text{new}} &= 1100 + \left(\frac{6}{8}\right)^{0.5} \Omega_{\text{eff}} \approx \boxed{1076.7},\\
-\sigma_{\text{Piemanray314}}^{\text{new}} &= 280 \sqrt{1 - \left(\frac{6}{8}\right)^{0.5} \Delta_{\text{eff}}} \approx \boxed{273.0}.\end{align*}$$
+$$
+\begin{align*}\mu_{\text{Piemanray314}}^{\text{new}} &= 1100 + \left(\frac{6}{8}\right)^{0.5} \Omega_{\text{eff}} \approx \boxed{1076.7},\\
+\sigma_{\text{Piemanray314}}^{\text{new}} &= 280 \sqrt{1 - \left(\frac{6}{8}\right)^{0.5} \Delta_{\text{eff}}} \approx \boxed{273.0}.\end{align*}
+$$
 
 The factor of $\left(\frac{\text{games}}{8}\right)^{0.5}$ increases rating changes for longer games, so because this match ended quickly, the rating changes are slightly dampened. The table below shows the resulting adjustments to ratings and volatilities for all six players of this match, rounded to the nearest tenth.
 
