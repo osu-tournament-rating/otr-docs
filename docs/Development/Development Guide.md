@@ -120,7 +120,7 @@ cp .env.example .env
 
 Use these commands to test and run the processor:
 
-- `cargo test`- run tests, all should pass.
+- `cargo test` - run tests, all should pass.
 - `cargo run -r` - run the processor.
 
 After running the processor and revisiting the website locally, ratings should be present and the leaderboard will be populated.
