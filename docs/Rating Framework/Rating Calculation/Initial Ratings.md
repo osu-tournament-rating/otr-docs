@@ -16,7 +16,7 @@ $$
 This rank z-score will be a real number typically between $-3$ and $3$, with better-ranked players having a higher z-score.
 
 > [!info]
-> Instead of constantly recomputing the values of $\text{avg}(\ln(\text{rank})$ and $\text{stddev}(\ln(\text{rank}))$ for every rating recalculation, a snapshot of those values was stored during the beta phase of o!TR and is used for all calculations. The constants are found in [the code](https://github.com/osu-tournament-rating/otr-processor/blob/master/src/model/rating_utils.rs#L151) and are also listed in the table below.
+> Instead of constantly recomputing the values of $\text{avg}(\ln(\text{rank})$ and $\text{stddev}(\ln(\text{rank}))$ for every rating recalculation, a snapshot of those values was stored during the beta phase of o!TR and is used for all calculations. The constants are found in [the processor code](https://github.com/osu-tournament-rating/otr-processor/blob/master/src/model/rating_utils.rs#L151) and are also listed in the table below.
 
 |  Game mode   | $\text{avg}(\ln(\text{rank})$ | $\text{stddev}(\ln(\text{rank}))$ |
 | :----------: | :---------------------------: | :-------------------------------: |
@@ -52,13 +52,15 @@ Any players whose rank data cannot be recovered from either osu!track or the osu
 
 ## Initial Ratings for Filtering and Seeding
 
-Tournaments may use o!TR's built-in [[Registrant Filtering|filtering tool]] to filter or seed players. However, players who have never played a non-qualifiers match in a verified tournament (which we call "provisional players") will not have an assigned TR. Here are some best practices for how to account for this situation:
+Tournaments may use our built-in [[Registrant Filtering|filtering tool]] to filter or seed players. However, players who have never played in a verified match will not have a rating in the system. In some cases, these players may be filtered by the tool, such as when enforcing a minimum rating. Tournament organizers should follow these steps to ensure these players are accounted for.
 
 1. Using the formula above, an *estimated initial rating* can be calculated from a player's current rank. If players' ranks and o!TR ratings are both being displayed on a tournament's main sheet, we recommend calculating estimated initial ratings using those displayed ranks for consistency.
-1. If o!TR is being used solely for *filtering*, then it is best for rank-eligible players to have estimated initial ratings within the filtering range. For example, players ranked between $\#99,999$ and $\#10,000$ would have an initial rating roughly between $985$ and $1288$, so a 5 digit tournament should typically have an upper o!TR rating limit higher than $1288$. If such recommendations are followed, then the filtering tool will correctly allow provisional players to play, and no additional steps are necessary.
-1. If o!TR is also being used for *seeding*, then it is useful to keep in mind that on average, new players lose rating in their first matches. Thus, to avoid overestimating new players' performances, consider using an *adjusted initial rating*. For example, if a tournament is seeding the top $32$ players by o!TR rating into a bracket, it may be sensible to use the formula $\text{adjusted initial rating} = \text{estimated initial rating} - 100$ for any provisional players without a rating on record at the time of seeding.[^2]
-1. As a reminder, any use of o!TR for an officially supported tournament must have approval from the Tournament Committee before play begins. If there is any deviation from simply using the filtering tool, be sure to document it clearly on the tournament's forum post and in the request for usage.
+1. If ratings are used solely for *filtering*, then it is best for rank-eligible players to have estimated initial ratings within the filtering range. For example, players ranked between $\#99,999$ and $\#10,000$ would have an initial rating roughly between $985$ and $1288$. Therefore, a 5-digit tournament should typically have an upper rating limit higher than $1288$. If there is no minimum rating required to play, the filtering tool will not exclude players without a rating.
+1. If ratings are also used for *seeding*, keep in mind that on average, new players lose rating in their first matches. To avoid overestimating the performance of new players, consider using an *adjusted initial rating*. For example, if a tournament is seeding the top $32$ players by rating into a bracket, the formula $\text{adjusted initial rating} = \text{estimated initial rating} - 100$ could be used for players without a rating.[^2]
+
+> [!important]
+> As a reminder, any use of o!TR for an officially supported tournament must have approval from the Tournament Committee before play begins. Tournaments which deviate from the filtering tool's results, including to follow these recommendations, must clearly document exactly what is different. To ensure fairness, organizers should determine how they will deviate from the filtering tool's outputs before advertising their tournament.
 
 [^1]: This term refers to how a player at a certain rank today typically displays a higher skill level than a player at that same rank years ago.
 
-[^2]: The choice of $-100$ comes from empirical rating data. Specifically, players ranked $\#10,000$ or worse lose roughly $100$ TR on average in their first $5$ matches and $150$ TR in their first $15$ matches, so subtracting off $100$ from their estimated initial rating is a modest correction to avoid overestimating first-tournament performance.
+[^2]: The choice of $-100$ comes from empirical rating data. Specifically, osu! players currently ranked $\#10,000$ or worse lose roughly $100$ TR on average in their first $5$ matches and $150$ TR in their first $15$ matches, so subtracting off $100$ from their estimated initial rating is a modest correction to avoid overestimating first-tournament performance.
