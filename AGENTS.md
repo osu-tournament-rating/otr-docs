@@ -17,7 +17,7 @@ Rating platform. Source documents are Obsidian-compatible Markdown under
 
 ## Authoring
 
-- Read the surrounding document and `docs/Development/Contribution Guide.md`
+- Read the surrounding document and `docs/Development/Docs/Style Guide.md`
   before making broad style changes.
 - Write in the third person and keep prose concise, informative, searchable, and
   focused on what the reader needs to act.
@@ -46,10 +46,7 @@ Branch: <short-kebab-case-description>
 
 Commit:
 <Imperative verb> <specific outcome>
-
-<Optional explanation of why, compatibility impact, or validation details>
-
-Refs #<issue>  # optional
+(#<issue>)  # optional
 ```
 
 - Branch names use two to five meaningful lowercase kebab-case terms, such as
