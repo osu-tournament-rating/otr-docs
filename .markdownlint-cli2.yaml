@@ -15,4 +15,3 @@ globs:
   - "./docs/**/*.md"
 ignores:
   - "./quartz/"
-  - ".aider*.md"
