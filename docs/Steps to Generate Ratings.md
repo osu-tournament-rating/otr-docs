@@ -1,4 +1,4 @@
-This guide explains how to regenerate player ratings from publicly-available datasets as they were at the time of the snapshot. This enables independent verification of tournaments which use the platform for filtering and/or seeding. The `otr-replay` tool performs the entire procedure automatically, however, the equivalent manual process is also documented.
+This guide explains how to regenerate player ratings from publicly-available datasets as they were at the time of the snapshot. This enables independent verification of tournaments which use the platform for filtering and/or seeding. The [`otr-replay`](https://github.com/osu-tournament-rating/otr-replay) tool performs the entire procedure automatically, however, the equivalent manual process is also documented.
 
 Throughout this guide, the **"effective date"** is the point in time that ratings are generated for. This is usually the moment a tournament closed registrations, or another date the tournament announced for capturing ratings of registrants. All dates and times are in UTC.
 
