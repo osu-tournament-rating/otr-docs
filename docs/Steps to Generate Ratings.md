@@ -110,7 +110,6 @@ The `RABBITMQ_URL` deliberately points at an unreachable address: a replay runs 
 
 > [!example]
 > If the effective date is `2026-07-01T23:00:00`, the latest release available at that time is `2026.05.18`.
-> 
 > ![[processor-release-names.png]]
 
 ### Reconcile decay
