@@ -1,17 +1,21 @@
 This guide explains how to regenerate player ratings from publicly-available datasets as they were at the time of the snapshot. This enables independent verification of tournaments which use the platform for filtering and/or seeding. The `otr-replay` tool performs the entire procedure automatically; the manual steps remain available as a fallback.
 
+Throughout this guide, the effective date is the point in time that ratings are generated for. This is usually the moment a tournament closed registrations, or another date the tournament announced for taking ratings. All dates and times are in UTC.
+
 ## Using otr-replay
 
 `otr-replay` requires [Docker](https://www.docker.com/get-started/) and [uv](https://docs.astral.sh/uv/). No other configuration is necessary.
 
 1. Clone the [otr-replay](https://github.com/osu-tournament-rating/otr-replay) repository.
-2. From the repository root, run the program with the UTC timestamp at which the tournament closed registrations. If the tournament provides another date by which ratings are taken from, use that date instead.
+1. From the repository root, run the program with the effective date as a timestamp.
 
 ```bash
-uv run otr-replay --as-of 2026-06-27T23:59Z
+uv run otr-replay --as-of 2026-06-27T23:59
 ```
 
 The program downloads the correct public replica from the [public replicas site](https://data.otr.stagec.net), verifies its checksum, imports it into a temporary database, runs the correct [[Development/Platform Architecture#processor|processor]] release, reconciles decay, and writes two files: a CSV with the columns `osu_id`, `username`, `ruleset`, `rating`, and `volatility`, and a metadata file describing the run.
+
+To verify a tournament's use of o!TR, compare the export against the values the tournament screened with. The tournament must provide the `osu_id` and `rating` values it used, at minimum.
 
 ## Decay Reconciliation
 
@@ -19,24 +23,24 @@ The processor applies a final [[Rating Framework/Rating Calculation/Rating Decay
 
 The `otr-replay` tool automatically corrects this using the following process:
 
-1. It verifies that only decay adjustments exist after the effective date.
-2. It deletes those adjustments and restores the exact rating and volatility values they recorded.
-3. It refuses to write any output if anything other than decay follows the instant.
+1. It verifies that only decay adjustments exist after the snapshot was created.
+1. It deletes those adjustments and restores the exact rating and volatility values they recorded.
+1. It refuses to write any output if anything other than decay follows the snapshot.
 
 The tool never recomputes any rating mathematics; it only removes adjustments which were not present at the time of the snapshot.
 
 ### Example
 
-In this example, the processor release is `2026.05.18`, the database snapshot is for `2026-06-03_23_20_30.gz`, and the effective date is  `2026-06-05T12:00:00`. Without reconciliation, `im a fancy lad`'s decay is generated through the present day, as shown below.
+In this example, the processor release is `2026.05.18`, the database snapshot is for `2026-06-03_23_20_30.gz`, the effective date is `2026-06-05T12:00:00`, and the execution date is `2026-08-06`. Without reconciliation, `im a fancy lad`'s decay is generated through the Wednesday prior to the present day (`2026-08-05`), as shown below.
 
 ![[fancylad-rating-history-table-2.png]]
 ![[fancylad-rating-history-table.png]]
 
-With reconciliation, however, the decay now stops at `2026-06-03` - the Wednesday at 12:00UTC immediately prior to the snapshot (in this case, ~11 hours prior).
+With reconciliation, however, the decay now stops at `2026-06-03` - the Wednesday at 12:00 UTC immediately prior to the snapshot (in this case, ~11 hours prior).
 
 ![[fancylad-rating-history-chart.png]]
 
-Note the odd timestamp of the database snapshot - this is an edge case where the dataset was created late due to a technical issue. Remember, decay is calculated on each Wednesday at 12:00UTC, so this decay adjustment did exist at the time the snapshot was created. Had the snapshot been created as scheduled, this specific adjustment would be dropped.
+Note the odd timestamp of the database snapshot - this is an edge case where the dataset was created late due to a technical issue. Remember, decay is calculated on each Wednesday at 12:00 UTC, so this decay adjustment did exist at the time the snapshot was created. Had the snapshot been created as scheduled, this specific adjustment would be dropped.
 
 ## Manual Verification
 
@@ -55,7 +59,7 @@ docker compose up -d otr-db rabbitmq
 
 Public database replicas are published on the [public replicas site](https://data.otr.stagec.net). These weekly replicas exclude most data, but provide enough data to verify a tournament's use of o!TR.
 
-Download the most recent replica dated before the tournament closed registrations, along with its `.sha256` checksum file, and verify the download:
+Download the most recent replica dated before the effective date, along with its `.sha256` checksum file, and verify the download:
 
 ```bash
 sha256sum -c otr-public-replica_YYYY-MM-DD_HH_MM_SS.gz.sha256
@@ -84,11 +88,11 @@ docker run --rm \
 ```
 
 > [!example]
-> If the date of interest is `2026-07-01T23:00:00Z`, the latest release available at that time is `2026.05.18`.
+> If the effective date is `2026-07-01T23:00:00`, the latest release available at that time is `2026.05.18`.
 
 ### Reconcile decay
 
-The processor applies decay up to the moment it runs rather than the effective date, so the database now contains decay adjustments that did not exist at the requested time. Remove them by restoring each affected rating and deleting those adjustments. Replace both `YYYY-MM-DD` values with the date of interest ("as-of" date) in the command below:
+The processor applies decay up to the moment it runs rather than the effective date, so the database now contains decay adjustments that did not exist when the snapshot was created. Remove them by restoring each affected rating and deleting those adjustments. Replace both `YYYY-MM-DD` values with the date of the replica you imported, taken from its filename, in the command below:
 
 ```bash
 docker exec -it otr-db psql -U postgres -d postgres -c "\
@@ -114,7 +118,7 @@ COMMIT;"
 ```
 
 > [!tip]
-> Adjustment types `1` and `3` are rating decay and volatility decay. Decay is always timestamped Wednesday 12:00 UTC, so every decay adjustment after the effective date can be safely removed.
+> Adjustment types `1` and `3` are rating decay and volatility decay. Decay is always timestamped Wednesday 12:00 UTC, so every decay adjustment dated after the replica was created is a product of the replay and can be safely removed.
 
 ### Export player ratings
 
@@ -156,6 +160,6 @@ docker compose down -v
 
 - **Database connection refused**: Ensure the PostgreSQL container is running with `docker ps`.
 - **Processor warns that RabbitMQ is unreachable**: This can be safely ignored.
-- **`otr-replay` reports that adjustments after the instant are not decay**: The snapshot cannot be reconciled to the requested instant; please [[Contact|contact us]].
-- **`otr-replay` reports that no checksum is published**: The selected replica predates published checksums; choose a later timestamp or [[Contact|contact us]].
+- **`otr-replay` reports that adjustments after the snapshot are not decay**: The snapshot cannot be reconciled; please [[Contact|contact us]].
+- **`otr-replay` reports that no checksum is published**: The selected replica predates published checksums; choose a later effective date or [[Contact|contact us]].
 - **Export produces empty files**: Verify the database import completed successfully.
