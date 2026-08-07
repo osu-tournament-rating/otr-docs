@@ -70,8 +70,6 @@ Before importing, repeat the following command until it reports that the server 
 docker exec otr-db pg_isready -h 127.0.0.1 -U postgres
 ```
 
-![[Pasted image 20260807163956.png]]
-
 ### Import a database replica
 
 Public database replicas are published on the [public replicas site](https://data.otr.stagec.net).
@@ -124,23 +122,23 @@ Remove them by restoring each affected rating and deleting those adjustments. Re
 > For `otr-public-replica_2026-08-04_11_45_01.gz`, use `2026-08-04 11:45:01+00`.
 
 ```bash
-docker exec -i otr-db psql -v ON_ERROR_STOP=1 -U postgres -d postgres <<'SQL'
+printf '%s' '
 BEGIN;
 DO $guard$
 BEGIN
   IF EXISTS (
     SELECT FROM rating_adjustments
-    WHERE timestamp > 'YYYY-MM-DD HH:MM:SS+00'
+    WHERE timestamp > $ts$YYYY-MM-DD HH:MM:SS+00$ts$
       AND (adjustment_type NOT IN (1, 3) OR match_id IS NOT NULL)
   ) THEN
-    RAISE EXCEPTION 'adjustments after the snapshot are not decay; cannot reconcile';
+    RAISE EXCEPTION $msg$adjustments after the snapshot are not decay; cannot reconcile$msg$;
   END IF;
 END $guard$;
 WITH earliest AS (
     SELECT DISTINCT ON (player_id, ruleset)
         player_id, ruleset, rating_before, volatility_before
     FROM rating_adjustments
-    WHERE timestamp > 'YYYY-MM-DD HH:MM:SS+00'
+    WHERE timestamp > $ts$YYYY-MM-DD HH:MM:SS+00$ts$
       AND adjustment_type IN (1, 3)
     ORDER BY player_id, ruleset, timestamp, id
 )
@@ -151,10 +149,10 @@ FROM earliest
 WHERE pr.player_id = earliest.player_id
   AND pr.ruleset = earliest.ruleset;
 DELETE FROM rating_adjustments
-WHERE timestamp > 'YYYY-MM-DD HH:MM:SS+00'
+WHERE timestamp > $ts$YYYY-MM-DD HH:MM:SS+00$ts$
   AND adjustment_type IN (1, 3);
 COMMIT;
-SQL
+' | docker exec -i otr-db psql -v ON_ERROR_STOP=1 -U postgres -d postgres
 ```
 
 > [!tip]
@@ -173,8 +171,7 @@ Export player ratings for verification. Rulesets are mapped as follows:
 
 ```bash
 # Export all player ratings to CSV
-docker exec -i otr-db psql -U postgres -d postgres -c "\
-COPY (
+docker exec -i otr-db psql -U postgres -d postgres -c "COPY (
     SELECT
         p.osu_id,
         p.username,
