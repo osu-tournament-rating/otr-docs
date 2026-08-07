@@ -1,21 +1,31 @@
-This guide explains how to regenerate player ratings from publicly-available datasets as they were at the time of the snapshot. This enables independent verification of tournaments which use the platform for filtering and/or seeding. The `otr-replay` tool performs the entire procedure automatically; the manual steps remain available as a fallback.
+This guide explains how to regenerate player ratings from publicly-available datasets as they were at the time of the snapshot. This enables independent verification of tournaments which use the platform for filtering and/or seeding. The `otr-replay` tool performs the entire procedure automatically, however, the equivalent manual process is also documented.
 
-Throughout this guide, the effective date is the point in time that ratings are generated for. This is usually the moment a tournament closed registrations, or another date the tournament announced for taking ratings. All dates and times are in UTC.
+Throughout this guide, the **"effective date"** is the point in time that ratings are generated for. This is usually the moment a tournament closed registrations, or another date the tournament announced for capturing ratings of registrants. All dates and times are in UTC.
+
+Ratings are reproduced exactly as they were at the instant the database snapshot was created. `otr-replay` automatically selects the newest public snapshot available at or before the effective date, so every effective date covered by the same snapshot produces identical output.
 
 ## Using otr-replay
 
-`otr-replay` requires [Docker](https://www.docker.com/get-started/) and [uv](https://docs.astral.sh/uv/). No other configuration is necessary.
+`otr-replay` requires [Docker](https://www.docker.com/get-started/) and [uv](https://docs.astral.sh/uv/).
 
-1. Clone the [otr-replay](https://github.com/osu-tournament-rating/otr-replay) repository.
-1. From the repository root, run the program with the effective date as a timestamp.
+1. Clone the [otr-replay](https://github.com/osu-tournament-rating/otr-replay) repository: `git clone https://github.com/osu-tournament-rating/otr-replay.git`.
+2. From the repository root, run the program with the effective date as a timestamp. Replace the example date in the command below with the effective date. Timestamps use the format `YYYY-MM-DDTHH:MM[:SS]` and are always interpreted as UTC.
 
 ```bash
+cd otr-replay
 uv run otr-replay --as-of 2026-06-27T23:59
 ```
 
 The program downloads the correct public replica from the [public replicas site](https://data.otr.stagec.net), verifies its checksum, imports it into a temporary database, runs the correct [[Development/Platform Architecture#processor|processor]] release, reconciles decay, and writes two files: a CSV with the columns `osu_id`, `username`, `ruleset`, `rating`, and `volatility`, and a metadata file describing the run.
 
-To verify a tournament's use of o!TR, compare the export against the values the tournament screened with. The tournament must provide the `osu_id` and `rating` values it used, at minimum.
+> [!note]
+> The first public replica is dated `2025-10-06`, and `2025.10.01` is the first supported processor release for this process. A release is only supported when a corresponding public replica is available.
+
+To verify a tournament's use of o!TR, compare the export against the tournament's data. Ideally, this is supplied in CSV form with at least the `osu_id` and `rating` properties present for each registrant.
+
+### The metadata file
+
+Every run writes a `.metadata.json` file beside the CSV. It describes the exact inputs the ratings were produced from along with the reconciliation that was applied and a SHA-256 digest of the CSV itself. Keep and share the two files together; the metadata is what makes a CSV traceable back to its inputs. To confirm a CSV matches its metadata, compare the file's SHA-256 digest against the recorded one. Two runs are directly comparable through their metadata files alone.
 
 ## Decay Reconciliation
 
@@ -25,83 +35,112 @@ The `otr-replay` tool automatically corrects this using the following process:
 
 1. It verifies that only decay adjustments exist after the snapshot was created.
 1. It deletes those adjustments and restores the exact rating and volatility values they recorded.
-1. It refuses to write any output if anything other than decay follows the snapshot.
+2. It refuses to write any output if anything other than decay follows the snapshot.
 
-The tool never recomputes any rating mathematics; it only removes adjustments which were not present at the time of the snapshot.
-
+This process is required to restore ratings to their state at the time of the snapshot.
 ### Example
 
-In this example, the processor release is `2026.05.18`, the database snapshot is for `2026-06-03_23_20_30.gz`, the effective date is `2026-06-05T12:00:00`, and the execution date is `2026-08-06`. Without reconciliation, `im a fancy lad`'s decay is generated through the Wednesday prior to the present day (`2026-08-05`), as shown below.
+In this example, the processor release is `2026.05.18`, the database snapshot is for `2026-06-03_23_20_30.gz`, the effective date is `2026-06-05T12:00:00`, and the system date is `2026-08-06`. Without reconciliation, `im a fancy lad`'s decay is generated through the Wednesday prior to the present day (`2026-08-05`), as shown below.
 
 ![[fancylad-rating-history-table-2.png]]
 ![[fancylad-rating-history-table.png]]
 
-With reconciliation, however, the decay now stops at `2026-06-03` - the Wednesday at 12:00 UTC immediately prior to the snapshot (in this case, ~11 hours prior).
+With reconciliation, however, the decay now stops at `2026-06-03` - the Wednesday at 12:00 UTC immediately prior to the snapshot.
 
 ![[fancylad-rating-history-chart.png]]
 
-Note the odd timestamp of the database snapshot - this is an edge case where the dataset was created late due to a technical issue. Remember, decay is calculated on each Wednesday at 12:00 UTC, so this decay adjustment did exist at the time the snapshot was created. Had the snapshot been created as scheduled, this specific adjustment would be dropped.
-
 ## Manual Verification
 
-The manual procedure below reproduces what `otr-replay` automates. It requires the setup from the [[Development/Development Guide|development guide]] so the `otr-web` and `otr-processor` repositories are available locally, configured, and (on Windows) [Git Bash](https://git-scm.com/downloads) or [WSL](https://learn.microsoft.com/en-us/windows/wsl/install).
+The manual procedure below reproduces what `otr-replay` automates. Because the database is imported directly from a replica, no application setup is required; the only prerequisites are [Docker](https://www.docker.com/get-started/) and, on Windows, [Git Bash](https://git-scm.com/downloads) or [WSL](https://learn.microsoft.com/en-us/windows/wsl/install).
 
 ### Start the database
 
-Start Postgres and RabbitMQ from the `otr-web` repository directory:
+Create a network and a standalone PostgreSQL container:
 
 ```bash
-# From the `otr-web` repository
-docker compose up -d otr-db rabbitmq
+docker network create otr-replay-net
+docker run -d --name otr-db --network otr-replay-net \
+  -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=password -e POSTGRES_DB=postgres \
+  postgres:17
 ```
+
+Before importing, repeat the following command until it reports that the server is accepting connections:
+
+```bash
+docker exec otr-db pg_isready -h 127.0.0.1 -U postgres
+```
+
+![[Pasted image 20260807163956.png]]
 
 ### Import a database replica
 
-Public database replicas are published on the [public replicas site](https://data.otr.stagec.net). These weekly replicas exclude most data, but provide enough data to verify a tournament's use of o!TR.
+Public database replicas are published on the [public replicas site](https://data.otr.stagec.net).
 
-Download the most recent replica dated before the effective date, along with its `.sha256` checksum file, and verify the download:
+Download the most recent replica dated at or before the effective date, along with its `.sha256` checksum file, and verify the download:
 
 ```bash
-sha256sum -c otr-public-replica_YYYY-MM-DD_HH_MM_SS.gz.sha256
+# Note: Both the replica .gz and the
+# .sha256 file must be in the same directory
+sha256sum -c /path/to/replica.gz.sha256
 ```
 
 Then import the replica:
 
 ```bash
-gunzip -c /path/to/replica.gz | docker exec -i otr-db bash -c "psql -U postgres -d template1 -c 'DROP DATABASE IF EXISTS postgres;' && psql -U postgres -d template1 -c 'CREATE DATABASE postgres;' && psql -U postgres -d postgres"
+gunzip -c /path/to/replica.gz | docker exec -i otr-db psql -U postgres -d postgres
 ```
 
 > [!tip]
-> Some errors, such as `ERROR: role [...] does not exist`, can be safely ignored.
+> `ERROR: role [...] does not exist` messages are expected and can be safely ignored. Any other error means the import failed.
 
 ### Run the processor
 
-Browse the [releases page](https://github.com/osu-tournament-rating/otr-processor/releases) to find the most recent release available at the effective date. Then, take the name of the release and replace the `YYYY.MM.DD` text below with that value.
+Browse the [releases page](https://github.com/osu-tournament-rating/otr-processor/releases) to find the most recent release available at the effective date. Docker image tags match release versions, so take the name of the release and replace the `YYYY.MM.DD` text below with that value.
 
 ```bash
 docker run --rm \
   --name otr-processor \
-  --network host \
-  -e CONNECTION_STRING="postgresql://postgres:password@localhost:5432/postgres" \
+  --network otr-replay-net \
+  -e CONNECTION_STRING="postgresql://postgres:password@otr-db:5432/postgres" \
   -e IGNORE_CONSTRAINTS=true \
+  -e RABBITMQ_URL="amqp://guest:guest@127.0.0.1:1" \
   stagecodes/otr-processor:YYYY.MM.DD
 ```
 
+The `RABBITMQ_URL` deliberately points at an unreachable address: a replay runs without messaging, so the processor warns that RabbitMQ is unreachable and continues, exactly as it does under `otr-replay`.
+
 > [!example]
 > If the effective date is `2026-07-01T23:00:00`, the latest release available at that time is `2026.05.18`.
+> 
+> ![[Screenshot_20260807_164507.png]]
 
 ### Reconcile decay
 
-The processor applies decay up to the moment it runs rather than the effective date, so the database now contains decay adjustments that did not exist when the snapshot was created. Remove them by restoring each affected rating and deleting those adjustments. Replace both `YYYY-MM-DD` values with the date of the replica you imported, taken from its filename, in the command below:
+The processor applies decay up to the moment it runs rather than the effective date, so the database now contains decay adjustments that did not exist when the snapshot was created.
+
+Remove them by restoring each affected rating and deleting those adjustments. Replace every `YYYY-MM-DD HH:MM:SS` value with the exact timestamp of the replica you imported, taken from its filename.
+
+>[!example]
+> For `otr-public-replica_2026-08-04_11_45_01.gz`, use `2026-08-04 11:45:01+00`.
 
 ```bash
-docker exec -it otr-db psql -U postgres -d postgres -c "\
+docker exec -i otr-db psql -v ON_ERROR_STOP=1 -U postgres -d postgres <<'SQL'
 BEGIN;
+DO $guard$
+BEGIN
+  IF EXISTS (
+    SELECT FROM rating_adjustments
+    WHERE timestamp > 'YYYY-MM-DD HH:MM:SS+00'
+      AND (adjustment_type NOT IN (1, 3) OR match_id IS NOT NULL)
+  ) THEN
+    RAISE EXCEPTION 'adjustments after the snapshot are not decay; cannot reconcile';
+  END IF;
+END $guard$;
 WITH earliest AS (
     SELECT DISTINCT ON (player_id, ruleset)
         player_id, ruleset, rating_before, volatility_before
     FROM rating_adjustments
-    WHERE timestamp > 'YYYY-MM-DD 12:00:00+00'
+    WHERE timestamp > 'YYYY-MM-DD HH:MM:SS+00'
       AND adjustment_type IN (1, 3)
     ORDER BY player_id, ruleset, timestamp, id
 )
@@ -112,13 +151,14 @@ FROM earliest
 WHERE pr.player_id = earliest.player_id
   AND pr.ruleset = earliest.ruleset;
 DELETE FROM rating_adjustments
-WHERE timestamp > 'YYYY-MM-DD 12:00:00+00'
+WHERE timestamp > 'YYYY-MM-DD HH:MM:SS+00'
   AND adjustment_type IN (1, 3);
-COMMIT;"
+COMMIT;
+SQL
 ```
 
 > [!tip]
-> Adjustment types `1` and `3` are rating decay and volatility decay. Decay is always timestamped Wednesday 12:00 UTC, so every decay adjustment dated after the replica was created is a product of the replay and can be safely removed.
+> Adjustment types `1` and `3` are rating decay and volatility decay respectively. Decay adjustments dated after the replica was created are a product of the replay and can be safely removed. The first block refuses to reconcile if anything other than decay follows the snapshot.
 
 ### Export player ratings
 
@@ -127,13 +167,13 @@ Export player ratings for verification. Rulesets are mapped as follows:
 - 0=osu!
 - 1=osu!taiko
 - 2=osu!catch
-- 3=osu!mania (Other) [No ratings are generated for this ruleset]
+- 3=osu!mania (Other) (No ratings are generated for this ruleset)
 - 4=osu!mania 4K
 - 5=osu!mania 7K
 
 ```bash
 # Export all player ratings to CSV
-docker exec -it otr-db psql -U postgres -d postgres -c "\
+docker exec -i otr-db psql -U postgres -d postgres -c "\
 COPY (
     SELECT
         p.osu_id,
@@ -143,23 +183,25 @@ COPY (
         pr.volatility
     FROM public.players p
     JOIN public.player_ratings pr ON p.id = pr.player_id
-    ORDER BY pr.ruleset, pr.rating DESC
+    ORDER BY pr.ruleset, pr.rating DESC, p.osu_id
 ) TO STDOUT WITH CSV HEADER;" > ratings.csv
 ```
 
+A manual run and an `otr-replay` run of the same effective date produce identical file contents; their SHA-256 digests should match.
+
 ### Clean up
 
-Remove the created containers and volumes (to keep the database and other volumes, remove `-v`).
+Remove the temporary container and network (the processor container removes itself):
 
 ```bash
-# From otr-web
-docker compose down -v
+docker rm -f otr-db
+docker network rm otr-replay-net
 ```
 
 ## Troubleshooting
 
-- **Database connection refused**: Ensure the PostgreSQL container is running with `docker ps`.
-- **Processor warns that RabbitMQ is unreachable**: This can be safely ignored.
-- **`otr-replay` reports that adjustments after the snapshot are not decay**: The snapshot cannot be reconciled; please [[Contact|contact us]].
-- **`otr-replay` reports that no checksum is published**: The selected replica predates published checksums; choose a later effective date or [[Contact|contact us]].
-- **Export produces empty files**: Verify the database import completed successfully.
+- **Database connection refused**: Ensure the PostgreSQL container is running with `docker ps` and accepts connections per `pg_isready` above.
+- **Processor warns that RabbitMQ is unreachable**: This is expected; a replay runs without messaging.
+- **Adjustments after the snapshot are not decay**: The snapshot cannot be reconciled; please [[Contact|contact us]].
+- **`otr-replay` fails because a checksum is missing or does not match**: Every replica has a published checksum, and a download is never used unverified. Retry, and [[Contact|contact us]] if it persists.
+- **Export produces an empty or corrupted file**: Ensure the export command uses `docker exec -i` without `-t`; a TTY corrupts output that is redirected to a file.
