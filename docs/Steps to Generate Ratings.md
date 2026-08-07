@@ -35,9 +35,10 @@ The `otr-replay` tool automatically corrects this using the following process:
 
 1. It verifies that only decay adjustments exist after the snapshot was created.
 1. It deletes those adjustments and restores the exact rating and volatility values they recorded.
-2. It refuses to write any output if anything other than decay follows the snapshot.
+1. It refuses to write any output if anything other than decay follows the snapshot.
 
 This process is required to restore ratings to their state at the time of the snapshot.
+
 ### Example
 
 In this example, the processor release is `2026.05.18`, the database snapshot is for `2026-06-03_23_20_30.gz`, the effective date is `2026-06-05T12:00:00`, and the system date is `2026-08-06`. Without reconciliation, `im a fancy lad`'s decay is generated through the Wednesday prior to the present day (`2026-08-05`), as shown below.
