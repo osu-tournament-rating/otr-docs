@@ -23,6 +23,11 @@ The program downloads the correct public replica from the [public replicas site]
 
 To verify a tournament's use of o!TR, compare the export against the tournament's data. Ideally, this is supplied in CSV form with at least the `osu_id` and `rating` properties present for each registrant.
 
+Tournament hosts who filter registrants with the [filtering tool](https://otr.stagec.net/tools/filter) are instructed to list the filter report ID on the tournament's forum post, so a report should be available. Use the [filter report lookup tool](https://otr.stagec.net/tools/filter-reports) to search for the report ID and download the CSV file.
+
+> [!note]
+> The filter reports web interface rounds ratings to two decimal places for display. The downloaded CSV contains full precision values.
+
 ### The metadata file
 
 Every run writes a `.metadata.json` file beside the CSV. It describes the exact inputs the ratings were produced from, along with the [[#Decay Reconciliation|decay reconcilation]] that was applied and a SHA-256 digest of the CSV itself. Keep and share the two files together; the metadata is what makes a CSV traceable back to its inputs. 
