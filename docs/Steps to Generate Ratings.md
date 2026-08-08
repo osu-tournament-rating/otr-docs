@@ -18,19 +18,19 @@ uv run otr-replay --as-of 2026-06-27T23:59
 
 The program downloads the correct public replica from the [public replicas site](https://data.otr.stagec.net), verifies its checksum, imports it into a temporary database, runs the correct [[Development/Platform Architecture#processor|processor]] release, reconciles decay, and writes two files: a CSV with the columns `osu_id`, `username`, `ruleset`, `rating`, and `volatility`, and a metadata file describing the run.
 
+The replica is stored in the system's default temp directory and is discarded when the process finishes, even if it fails.
+
 > [!note]
-> The first public replica is dated `2025-10-06`, and `2025.10.01` is the earliest supported processor release for this process. A release is only supported when a corresponding public replica is available.
+> The first public replica is dated `2025-10-06T21:13:57Z`, and `2025.10.01` is the earliest supported processor release for this process.
 
-To verify a tournament's use of o!TR, compare the export against the tournament's data. Ideally, this is supplied in CSV form with at least the `osu_id` and `rating` properties present for each registrant.
-
-Tournament hosts who filter registrants with the [filtering tool](https://otr.stagec.net/tools/filter) are instructed to list the filter report ID on the tournament's forum post, so a report should be available. Use the [filter report lookup tool](https://otr.stagec.net/tools/filter-reports) to search for the report ID and download the CSV file.
+Tournament hosts who filter registrants with the [filtering tool](https://otr.stagec.net/tools/filter) are instructed to list the filter report ID on the tournament's forum post, so a report should be available. Use the [filter report lookup tool](https://otr.stagec.net/tools/filter-reports) to search for the report ID and download the CSV file. If one is not provided. If not, compare the export against the tournament's publicly-available rating data. Ideally, this is supplied in CSV form with at least the `osu_id` and `rating` properties present for each registrant.
 
 > [!note]
 > The filter reports web interface rounds ratings to two decimal places for display. The downloaded CSV contains full precision values.
 
 ### The metadata file
 
-Every run writes a `.metadata.json` file beside the CSV. It describes the exact inputs the ratings were produced from, along with the [[#Decay Reconciliation|decay reconcilation]] that was applied and a SHA-256 digest of the CSV itself. Keep and share the two files together; the metadata is what makes a CSV traceable back to its inputs. 
+Every run writes a `.metadata.json` file beside the CSV. It describes the exact inputs the ratings were produced from, along with the [[#Decay Reconciliation|decay reconciliation]] that was applied and a SHA-256 digest of the CSV itself. Keep and share the two files together; the metadata is what makes a CSV traceable back to its inputs.
 
 To confirm that a CSV matches its metadata, compare the file's SHA-256 digest against the recorded one. Two runs are directly comparable through their metadata files alone.
 
@@ -48,18 +48,22 @@ This process is required to restore ratings to their state at the time of the sn
 
 ### Example
 
-In this example, the processor release is `2026.05.18`, the database snapshot is for `2026-06-03T23:20:30Z.gz`, the effective date is `2026-06-05T12:00:00`, and the system date is `2026-08-06`. Without reconciliation, `im a fancy lad`'s decay is generated through the Wednesday prior to the present day (`2026-08-05`), as shown below.
+Decay is applied every Wednesday at 12:00 UTC, so reconciliation always restores ratings to the last adjustment that precedes the snapshot.
 
-![[fancylad-rating-history-table.png]]
+In this example, the processor release is `2026.05.18`, the database snapshot is for `2026-06-09T11:45:01Z`, the effective date is `2026-06-12T12:00:00Z`, and the system date is `2026-08-08`. Without reconciliation, `im a fancy lad`'s decay is generated through the Wednesday prior to the present day (`2026-08-05T12:00:00Z`), as shown below.
 
-With reconciliation, however, the final decay update occurs on `2026-06-03`, the Wednesday at 12:00 UTC immediately prior to the snapshot.
+![[fancylad-rating-history-unreconciled.png]]
 
-![[fancylad-rating-history-chart.png]]
+With reconciliation, however, the final decay update occurs at `2026-06-03T12:00:00Z`, which is the time of the last decay application at the time of the snapshot.
+
+![[fancylad-rating-history-reconciled.png]]
 
 ## Manual Verification
 
 The manual procedure below reproduces what `otr-replay` automates. Because the database is imported directly from a replica, no application setup is required; the only prerequisites are [Docker](https://www.docker.com/get-started/) and, on Windows, [Git Bash](https://git-scm.com/downloads) or [WSL](https://learn.microsoft.com/en-us/windows/wsl/install).
 
+> [!warning]
+> Read this section carefully to avoid accidentally selecting the wrong replica or processor version.
 ### Start the database
 
 Create a network and a standalone PostgreSQL container:
@@ -81,7 +85,7 @@ docker exec otr-db pg_isready -h 127.0.0.1 -U postgres
 
 Public database replicas are published on the [public replicas site](https://data.otr.stagec.net).
 
-Download the most recent replica dated at or before the effective date, along with its `.sha256` checksum file, and verify the download:
+Download the most recent replica available **at or before the *effective date***, along with its `.sha256` checksum file, and verify the download:
 
 ```bash
 # Note: Both the replica .gz and the
@@ -100,7 +104,9 @@ gunzip -c /path/to/replica.gz | docker exec -i otr-db psql -U postgres -d postgr
 
 ### Run the processor
 
-Browse the [releases page](https://github.com/osu-tournament-rating/otr-processor/releases) to find the most recent release available at the effective date. Docker image tags match release versions, so take the name of the release and replace the `YYYY.MM.DD` text below with that value.
+Browse the [releases page](https://github.com/osu-tournament-rating/otr-processor/releases) to find the most recent release published **at or before the timestamp of the *replica*** imported earlier. The replica's timestamp, not the effective date, is the reference point. The ratings in a replica were produced by whichever release was live when it was taken.
+
+Docker image tags match release versions, so take the name of the release and replace the `YYYY.MM.DD` text below with that value.
 
 ```bash
 docker run --rm \
@@ -112,11 +118,22 @@ docker run --rm \
   stagecodes/otr-processor:YYYY.MM.DD
 ```
 
-The `RABBITMQ_URL` deliberately points at an unreachable address: a replay runs without messaging, so the processor warns that RabbitMQ is unreachable and continues, exactly as it does under `otr-replay`.
+> [!note]
+> A placeholder `RABBITMQ_URL` is provided as the processor requires it be set. A warning will appear in the processor that can be safely ignored.
 
 > [!example]
-> If the effective date is `2026-07-01T23:00:00`, the latest release available at that time is `2026.05.18`.
+> If the effective date is `2026-07-01T23:00:00Z`, the newest replica at or before it is `2026-06-30T11:45:01Z`, and the latest release published before that replica is `2026.05.18`. 
+
+> [!example]
+> Releases `2026.08.03` and `2026.08.04` were published at `2026-08-03T23:05:05Z` and `2026-08-04T23:41:47Z`. For an effective date of `2026-08-05T12:00:00Z`, the newest replica at or before it is `2026-08-04T11:45:01Z`, which was taken roughly twelve hours before `2026.08.04` shipped. The correct release is therefore `2026.08.03`, even though `2026.08.04` was already published by the effective date.
+>
 > ![[processor-release-names.png]]
+
+> [!notice]
+> A release is only deployed once its Docker image exists. Usually this happens a few minutes after the GitHub release. This can be verified on [Docker Hub](https://hub.docker.com/r/stagecodes/otr-processor/tags).
+
+> [!tip]
+> The releases page shows relative dates such as "3 days ago". Hover over one to reveal its exact publication time in UTC. When a release and the replica share a date, compare those two times directly and skip the release if it came later.
 
 ### Reconcile decay
 
