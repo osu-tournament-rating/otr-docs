@@ -1,6 +1,6 @@
-This guide explains how to regenerate player ratings from publicly-available datasets as they were at the time of the snapshot. This enables independent verification of tournaments which use the platform for filtering and/or seeding. The [`otr-replay`](https://github.com/osu-tournament-rating/otr-replay) tool performs the entire procedure automatically, however, the equivalent manual process is also documented.
+This guide explains how to regenerate player ratings from publicly available datasets as they were at the time of the snapshot. This enables independent verification of tournaments which use the platform for filtering and/or seeding. The [`otr-replay`](https://github.com/osu-tournament-rating/otr-replay) tool performs the entire procedure automatically; however, the equivalent manual process is also documented.
 
-Throughout this guide, the **"effective date"** is the point in time that ratings are generated for. This is usually the moment a tournament closed registrations, or another date the tournament announced for capturing ratings of registrants. All dates and times are in UTC.
+Throughout this guide, the **"effective date"** is the point in time that ratings are generated for. This is usually the moment a tournament closes registrations, or another date the tournament announces for capturing ratings of registrants. All dates and times are in UTC.
 
 Ratings are reproduced exactly as they were at the instant the database snapshot was created. `otr-replay` automatically selects the newest public snapshot available at or before the effective date, so every effective date covered by the same snapshot produces identical output.
 
@@ -19,13 +19,15 @@ uv run otr-replay --as-of 2026-06-27T23:59
 The program downloads the correct public replica from the [public replicas site](https://data.otr.stagec.net), verifies its checksum, imports it into a temporary database, runs the correct [[Development/Platform Architecture#processor|processor]] release, reconciles decay, and writes two files: a CSV with the columns `osu_id`, `username`, `ruleset`, `rating`, and `volatility`, and a metadata file describing the run.
 
 > [!note]
-> The first public replica is dated `2025-10-06`, and `2025.10.01` is the first supported processor release for this process. A release is only supported when a corresponding public replica is available.
+> The first public replica is dated `2025-10-06`, and `2025.10.01` is the earliest supported processor release for this process. A release is only supported when a corresponding public replica is available.
 
 To verify a tournament's use of o!TR, compare the export against the tournament's data. Ideally, this is supplied in CSV form with at least the `osu_id` and `rating` properties present for each registrant.
 
 ### The metadata file
 
-Every run writes a `.metadata.json` file beside the CSV. It describes the exact inputs the ratings were produced from along with the reconciliation that was applied and a SHA-256 digest of the CSV itself. Keep and share the two files together; the metadata is what makes a CSV traceable back to its inputs. To confirm a CSV matches its metadata, compare the file's SHA-256 digest against the recorded one. Two runs are directly comparable through their metadata files alone.
+Every run writes a `.metadata.json` file beside the CSV. It describes the exact inputs the ratings were produced from, along with the [[#Decay Reconciliation|decay reconcilation]] that was applied and a SHA-256 digest of the CSV itself. Keep and share the two files together; the metadata is what makes a CSV traceable back to its inputs. 
+
+To confirm that a CSV matches its metadata, compare the file's SHA-256 digest against the recorded one. Two runs are directly comparable through their metadata files alone.
 
 ## Decay Reconciliation
 
@@ -34,7 +36,7 @@ The processor applies a final [[Rating Framework/Rating Calculation/Rating Decay
 The `otr-replay` tool automatically corrects this using the following process:
 
 1. It verifies that only decay adjustments exist after the snapshot was created.
-1. It deletes those adjustments and restores the exact rating and volatility values they recorded.
+1. It deletes those adjustments and restores the exact rating and volatility values recorded without them.
 1. It refuses to write any output if anything other than decay follows the snapshot.
 
 This process is required to restore ratings to their state at the time of the snapshot.
@@ -45,7 +47,7 @@ In this example, the processor release is `2026.05.18`, the database snapshot is
 
 ![[fancylad-rating-history-table.png]]
 
-With reconciliation, however, the decay now stops at `2026-06-03` - the Wednesday at 12:00 UTC immediately prior to the snapshot.
+With reconciliation, however, the final decay update occurs on `2026-06-03`, the Wednesday at 12:00 UTC immediately prior to the snapshot.
 
 ![[fancylad-rating-history-chart.png]]
 
@@ -155,18 +157,18 @@ COMMIT;
 ```
 
 > [!tip]
-> Adjustment types `1` and `3` are rating decay and volatility decay respectively. Decay adjustments dated after the replica was created are a product of the replay and can be safely removed. The first block refuses to reconcile if anything other than decay follows the snapshot.
+> Adjustment types `1` and `3` are rating decay and volatility decay respectively. Decay adjustments dated after the replica was created are a product of the replay and should be removed. The first block refuses to reconcile if anything other than decay follows the snapshot.
 
 ### Export player ratings
 
 Export player ratings for verification. Rulesets are mapped as follows:
 
-- 0=osu!
-- 1=osu!taiko
-- 2=osu!catch
-- 3=osu!mania (Other) (No ratings are generated for this ruleset)
-- 4=osu!mania 4K
-- 5=osu!mania 7K
+- `0` = osu!
+- `1` = osu!taiko
+- `2` = osu!catch
+- `3` = osu!mania (Other) (No ratings are generated for this ruleset)
+- `4` = osu!mania 4K
+- `5` = osu!mania 7K
 
 ```bash
 # Export all player ratings to CSV
