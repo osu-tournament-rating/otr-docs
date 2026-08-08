@@ -9,7 +9,7 @@ Ratings are reproduced exactly as they were at the instant the database snapshot
 `otr-replay` requires [Docker](https://www.docker.com/get-started/) and [uv](https://docs.astral.sh/uv/).
 
 1. Clone the [otr-replay](https://github.com/osu-tournament-rating/otr-replay) repository: `git clone https://github.com/osu-tournament-rating/otr-replay.git`.
-2. From the repository root, run the program with the effective date as a timestamp. Replace the example date in the command below with the effective date. Timestamps use the format `YYYY-MM-DDTHH:MM[:SS]` and are always interpreted as UTC.
+1. From the repository root, run the program with the effective date as a timestamp. Replace the example date in the command below with the effective date. Timestamps use the format `YYYY-MM-DDTHH:MM[:SS][Z]` and are always interpreted as UTC, so a replica timestamp such as `2026-08-08T00:06:13Z` can be pasted as-is.
 
 ```bash
 cd otr-replay
@@ -41,7 +41,7 @@ This process is required to restore ratings to their state at the time of the sn
 
 ### Example
 
-In this example, the processor release is `2026.05.18`, the database snapshot is for `2026-06-03_23_20_30.gz`, the effective date is `2026-06-05T12:00:00`, and the system date is `2026-08-06`. Without reconciliation, `im a fancy lad`'s decay is generated through the Wednesday prior to the present day (`2026-08-05`), as shown below.
+In this example, the processor release is `2026.05.18`, the database snapshot is for `2026-06-03T23:20:30Z.gz`, the effective date is `2026-06-05T12:00:00`, and the system date is `2026-08-06`. Without reconciliation, `im a fancy lad`'s decay is generated through the Wednesday prior to the present day (`2026-08-05`), as shown below.
 
 ![[fancylad-rating-history-table-2.png]]
 ![[fancylad-rating-history-table.png]]
@@ -116,10 +116,10 @@ The `RABBITMQ_URL` deliberately points at an unreachable address: a replay runs 
 
 The processor applies decay up to the moment it runs rather than the effective date, so the database now contains decay adjustments that did not exist when the snapshot was created.
 
-Remove them by restoring each affected rating and deleting those adjustments. Replace every `YYYY-MM-DD HH:MM:SS` value with the exact timestamp of the replica you imported, taken from its filename.
+Remove them by restoring each affected rating and deleting those adjustments. Replace every `YYYY-MM-DD HH:MM:SS` value with the exact timestamp of the replica you imported, taken from its filename: replace the `T` with a space and the trailing `Z` with `+00`.
 
 >[!example]
-> For `otr-public-replica_2026-08-04_11_45_01.gz`, use `2026-08-04 11:45:01+00`.
+> For `otr-public-replica_2026-08-08T00:06:13Z.gz`, use `2026-08-08 00:06:13+00`.
 
 ```bash
 printf '%s' '
