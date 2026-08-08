@@ -43,7 +43,6 @@ This process is required to restore ratings to their state at the time of the sn
 
 In this example, the processor release is `2026.05.18`, the database snapshot is for `2026-06-03T23:20:30Z.gz`, the effective date is `2026-06-05T12:00:00`, and the system date is `2026-08-06`. Without reconciliation, `im a fancy lad`'s decay is generated through the Wednesday prior to the present day (`2026-08-05`), as shown below.
 
-![[fancylad-rating-history-table-2.png]]
 ![[fancylad-rating-history-table.png]]
 
 With reconciliation, however, the decay now stops at `2026-06-03` - the Wednesday at 12:00 UTC immediately prior to the snapshot.
