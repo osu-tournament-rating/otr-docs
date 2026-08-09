@@ -64,6 +64,7 @@ The manual procedure below reproduces what `otr-replay` automates. Because the d
 
 > [!warning]
 > Read this section carefully to avoid accidentally selecting the wrong replica or processor version.
+
 ### Start the database
 
 Create a network and a standalone PostgreSQL container:
@@ -121,8 +122,10 @@ docker run --rm \
 > [!note]
 > A placeholder `RABBITMQ_URL` is provided as the processor requires it be set. A warning will appear in the processor that can be safely ignored.
 
+
 > [!example]
 > If the effective date is `2026-07-01T23:00:00Z`, the newest replica at or before it is `2026-06-30T11:45:01Z`, and the latest release published before that replica is `2026.05.18`. 
+
 
 > [!example]
 > Releases `2026.08.03` and `2026.08.04` were published at `2026-08-03T23:05:05Z` and `2026-08-04T23:41:47Z`. For an effective date of `2026-08-05T12:00:00Z`, the newest replica at or before it is `2026-08-04T11:45:01Z`, which was taken roughly twelve hours before `2026.08.04` shipped. The correct release is therefore `2026.08.03`, even though `2026.08.04` was already published by the effective date.
