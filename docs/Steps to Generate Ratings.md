@@ -23,7 +23,9 @@ The replica is stored in the system's default temp directory and is discarded wh
 > [!note]
 > The first public replica is dated `2025-10-06T21:13:57Z`, and `2025.10.01` is the earliest supported processor release for this process.
 
-Tournament hosts who filter registrants with the [filtering tool](https://otr.stagec.net/tools/filter) are instructed to list the filter report ID on the tournament's forum post, so a report should be available. Use the [filter report lookup tool](https://otr.stagec.net/tools/filter-reports) to search for the report ID and download the CSV file. If one is not provided. If not, compare the export against the tournament's publicly-available rating data. Ideally, this is supplied in CSV form with at least the `osu_id` and `rating` properties present for each registrant.
+Tournament hosts who filter registrants with the [filtering tool](https://otr.stagec.net/tools/filter) are instructed to list the filter report ID on the tournament's forum post, so a report should be available. Use the [filter report lookup tool](https://otr.stagec.net/tools/filter-reports) to search for the report ID and download the CSV file. 
+
+If the forum post does not provide a report ID, compare the export against the tournament's publicly available rating data. Ideally, this is supplied in CSV form with at least the `osu_id` and `rating` properties present for each registrant.
 
 > [!note]
 > The filter reports web interface rounds ratings to two decimal places for display. The downloaded CSV contains full precision values.
