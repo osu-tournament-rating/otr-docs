@@ -27,6 +27,9 @@ Below is a non-exhaustive list of rules to follow when writing Markdown.
 - Each subheading must increment by exactly one step (`##` -> `###`).
 - There must be one empty line before and after each heading.
 - There must always be plain text at the top of the file before introducing a `##` heading.
+- `##` headings must use title case.
+- `###` and smaller headings must use sentence case.
+- Proper nouns keep their canonical casing at any heading level. For example, `otr-docs` remains lowercase.
 
 ### Lists
 

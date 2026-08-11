@@ -10,10 +10,10 @@ This article details how to clone and configure the website, data worker, and pr
 > [!warning]
 > Windows users may encounter difficulty installing Docker and Rust as they require additional configuration. Docker requires virtualization settings to be enabled while Rust may require editing the system PATH variable manually.
 
-- Install [git](https://git-scm.com/downloads)
-- Install [Docker Desktop](https://www.docker.com/)
-- Install [Bun](https://bun.sh/) 1.1 or later
-- Install [Rust](https://rust-lang.org/tools/install/)
+- [git](https://git-scm.com/downloads)
+- [Docker Desktop](https://www.docker.com/) (optional)
+- [Bun](https://bun.sh/) (1.3+)
+- [Rust](https://rust-lang.org/tools/install/) (1.97.1+)
 - Download the latest [public replica](https://data.otr.stagec.net/) (`.gz` file)
 - Create an [osu! API v2 client](https://osu.ppy.sh/home/account/edit) and set the `Application Callback URLs` field to `http://localhost:3000/api/auth/oauth2/callback/osu`.
 
