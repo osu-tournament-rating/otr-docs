@@ -185,7 +185,7 @@ COMMIT;
 ```
 
 > [!tip]
-> Adjustment types `1` and `3` are rating decay and volatility decay respectively. Decay adjustments dated after the replica was created are a product of the replay and should be removed. The first block refuses to reconcile if anything other than decay follows the snapshot.
+> Adjustment types `1` and `3` are rating decay and volatility decay respectively. Decay adjustments dated after the replica was created are a product of the replay and should be removed. The first code block above refuses to reconcile if anything other than decay follows the snapshot.
 
 ### Export player ratings
 
