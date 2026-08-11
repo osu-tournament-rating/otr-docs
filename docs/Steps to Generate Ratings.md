@@ -100,6 +100,9 @@ Then import the replica:
 gunzip -c /path/to/replica.gz | docker exec -i otr-db psql -U postgres -d postgres
 ```
 
+> [!Tip]
+> The replica file names use `:`, which Windows may flag as an illegal character. If trouble arises during import, replace `:` with `-` in the replica's file name.
+
 > [!tip]
 > `ERROR: role [...] does not exist` messages are expected and can be safely ignored. Any other error means the import failed.
 
