@@ -49,4 +49,4 @@ This page records changes to the [otr-web](https://github.com/osu-tournament-rat
 
 ## Full Changelogs
 
-- 2026.08.16: https://github.com/osu-tournament-rating/otr-web/compare/2026.06.16...2026.08.16
+- [2026.08.16](https://github.com/osu-tournament-rating/otr-web/compare/2026.06.16...2026.08.16)
