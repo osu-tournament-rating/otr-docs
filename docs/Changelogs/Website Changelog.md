@@ -6,13 +6,13 @@ This page records changes to the [otr-web](https://github.com/osu-tournament-rat
 
 - Added child audit logs to tournament, match, game, and score audit pages, showing changes recorded against an entity's children.
     - Added `GET /audit/descendants` and `GET /audit/descendant-counts`.
-- Added distributed tracing from oRPC procedures through to database queries, with Tempo wired into the Grafana dashboards.
+- Added support for tracing oRPC procedures through to database queries using Tempo.
 - Updated the leaderboard first-visit notice to a single sentence that can be dismissed immediately.
 
 ### Fixed
 
 - Fixed the profile avatar's report notification dot not clearing after an admin viewed [`/admin/reports`](https://otr.stagec.net/admin/reports).
-- Fixed audit logs labeling automated verifications and rejections as pre-verification and pre-rejection.
+- Fixed audit logs labeling automated verifications and rejections as pre-verified and pre-rejected.
 - Fixed tooltip text contrast in the light theme.
 
 ### Other
