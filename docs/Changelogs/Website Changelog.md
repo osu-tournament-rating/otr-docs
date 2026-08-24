@@ -6,6 +6,10 @@ This page records changes to the [otr-web](https://github.com/osu-tournament-rat
 
 - Added child audit logs to tournament, match, game, and score audit pages, showing changes recorded against an entity's children.
     - Added `GET /audit/descendants` and `GET /audit/descendant-counts`.
+- Added the ability for admins to fill in beatmap data for beatmaps the osu! API no longer serves.
+    - Editable fields are the difficulty name, ruleset, creators, star rating, BPM, length, and hit object counts.
+    - Saving marks the beatmap as manually configured, which is permanent and stops later refetches from overwriting it.
+    - Beatmap edits and admin notes are recorded at `/audit/beatmaps/{id}`.
 - Added support for tracing oRPC procedures through to database queries using Tempo.
 - Updated the leaderboard first-visit notice to a single sentence that can be dismissed immediately.
 
