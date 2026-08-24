@@ -2,6 +2,10 @@ This page records changes to the [otr-web](https://github.com/osu-tournament-rat
 
 ## Unreleased
 
+### Added
+
+- Updated the leaderboard first-visit notice to a single sentence that can be dismissed immediately.
+
 ### Fixed
 
 - Fixed the profile avatar's report notification dot not clearing after an admin viewed [`/admin/reports`](https://otr.stagec.net/admin/reports).
