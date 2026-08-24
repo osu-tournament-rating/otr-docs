@@ -1,5 +1,11 @@
 This page records changes to the [otr-web](https://github.com/osu-tournament-rating/otr-web) project. Changelog format is based on [keep a changelog](https://keepachangelog.com/en/1.1.0/).
 
+## Unreleased
+
+### Fixed
+
+- Fixed the profile avatar's report notification dot not clearing after an admin viewed [`/admin/reports`](https://otr.stagec.net/admin/reports).
+
 ## [2026.08.16](https://github.com/osu-tournament-rating/otr-web/compare/2026.06.16...2026.08.16)
 
 ### Breaking API Changes
