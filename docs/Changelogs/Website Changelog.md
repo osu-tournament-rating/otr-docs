@@ -4,11 +4,21 @@ This page records changes to the [otr-web](https://github.com/osu-tournament-rat
 
 ### Added
 
+- Added child audit logs to tournament, match, game, and score audit pages, showing changes recorded against an entity's children.
+    - Added `GET /audit/descendants` and `GET /audit/descendant-counts`.
+- Added support for tracing oRPC procedures through to database queries using Tempo.
 - Updated the leaderboard first-visit notice to a single sentence that can be dismissed immediately.
 
 ### Fixed
 
 - Fixed the profile avatar's report notification dot not clearing after an admin viewed [`/admin/reports`](https://otr.stagec.net/admin/reports).
+- Fixed audit logs labeling automated verifications and rejections as pre-verified and pre-rejected.
+- Fixed tooltip text contrast in the light theme.
+
+### Other
+
+- Added per-pull-request preview deployments served on private tailnet URLs.
+- Added `OTEL_EXPORTER_OTLP_ENDPOINT` to the `.env` format.
 
 ## [2026.08.16](https://github.com/osu-tournament-rating/otr-web/compare/2026.06.16...2026.08.16)
 
