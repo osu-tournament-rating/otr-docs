@@ -18,7 +18,7 @@ This page records changes to the [otr-web](https://github.com/osu-tournament-rat
 ### Other
 
 - Added per-pull-request preview deployments served on private tailnet URLs.
-- Added `OTEL_EXPORTER_OTLP_ENDPOINT`, `OTEL_TRACES_SAMPLER`, and `OTEL_TRACES_SAMPLER_ARG` to the `.env` format.
+- Added `OTEL_EXPORTER_OTLP_ENDPOINT` to the `.env` format.
 
 ## [2026.08.16](https://github.com/osu-tournament-rating/otr-web/compare/2026.06.16...2026.08.16)
 
