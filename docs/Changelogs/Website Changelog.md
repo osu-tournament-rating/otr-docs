@@ -21,6 +21,8 @@ This page records changes to the [otr-web](https://github.com/osu-tournament-rat
 - Added support for tracing oRPC procedures through to database queries using Tempo.
 - Updated the leaderboard first-visit notice to a single sentence that can be dismissed immediately.
 - Added sticky column headers to the leaderboard, tournaments list, beatmap list, player rating history, and filter report results tables.
+- Added site-wide search matching on osu! usernames a player no longer holds.
+    - A result matched through a former username shows `formerly <name>`.
 
 ### Fixed
 
