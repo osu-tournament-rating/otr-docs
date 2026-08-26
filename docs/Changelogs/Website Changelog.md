@@ -1,5 +1,8 @@
 This page records changes to the [otr-web](https://github.com/osu-tournament-rating/otr-web) project. Changelog format is based on [keep a changelog](https://keepachangelog.com/en/1.1.0/).
 
+> [!note]
+> This changelog began tracking releases on 2026.08.16. Changes made before that date are not recorded on this page.
+
 ## Unreleased
 
 ### Added
@@ -12,6 +15,7 @@ This page records changes to the [otr-web](https://github.com/osu-tournament-rat
     - Beatmap edits and admin notes are recorded at `/audit/beatmaps/{id}`.
 - Added support for tracing oRPC procedures through to database queries using Tempo.
 - Updated the leaderboard first-visit notice to a single sentence that can be dismissed immediately.
+- Added sticky column headers to the leaderboard, tournaments list, beatmap list, player rating history, and filter report results tables.
 
 ### Fixed
 
