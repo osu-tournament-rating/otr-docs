@@ -14,7 +14,7 @@ This page records changes to the [otr-web](https://github.com/osu-tournament-rat
         - Difficulty name, artist, and title.
         - Set owner and mappers.
         - Ruleset, star rating, BPM, length, and drain length.
-        - CS, HP, OD, and AR. CS carries the key count in osu!mania.
+        - CS, HP, OD, and AR. CS represents key count in osu!mania.
         - Circle, slider, and spinner counts, and max combo.
     - When a beatmap is edited in this way, it is permanently marked as unable to be fetched by the osu! API from that point.
     - Audits are recorded at `/audit/beatmaps/{id}`.
