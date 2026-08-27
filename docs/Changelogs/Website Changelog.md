@@ -5,6 +5,10 @@ This page records changes to the [otr-web](https://github.com/osu-tournament-rat
 
 ## Unreleased
 
+### Breaking API Changes
+
+- Changed `GET /players/{id}/beatmaps` to return `beatmapsetId` as `null` for manually configured beatmaps.
+
 ### Added
 
 - Added child audit logs to tournament, match, game, and score audit pages, showing changes recorded against an entity's children.
@@ -27,6 +31,7 @@ This page records changes to the [otr-web](https://github.com/osu-tournament-rat
 - Fixed the profile avatar's report notification dot not clearing after an admin viewed [`/admin/reports`](https://otr.stagec.net/admin/reports).
 - Fixed audit logs labeling automated verifications and rejections as pre-verified and pre-rejected.
 - Fixed tooltip text contrast in the light theme.
+- Fixed manually configured beatmaps not appearing in search, the beatmap list, match pages, tournament pools, the beatmapset difficulty list, and the player beatmaps tab.
 
 ### Other
 
