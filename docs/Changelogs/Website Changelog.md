@@ -16,7 +16,8 @@ This page records changes to the [otr-web](https://github.com/osu-tournament-rat
         - Ruleset, star rating, BPM, length, and drain length.
         - CS, HP, OD, and AR. CS represents key count in osu!mania.
         - Circle, slider, and spinner counts, and max combo.
-    - When a beatmap is edited in this way, it is permanently marked as unable to be fetched by the osu! API from that point.
+    - Labeled beatmaps edited this way `Manually configured`.
+    - Stopped the osu! API from overwriting beatmaps edited this way.
     - Audits are recorded at `/audit/beatmaps/{id}`.
 - Added support for tracing oRPC procedures through to database queries using Tempo.
 - Updated the leaderboard first-visit notice to a single sentence that can be dismissed immediately.
