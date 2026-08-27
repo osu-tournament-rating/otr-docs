@@ -32,6 +32,7 @@ This page records changes to the [otr-web](https://github.com/osu-tournament-rat
 - Fixed audit logs labeling automated verifications and rejections as pre-verified and pre-rejected.
 - Fixed tooltip text contrast in the light theme.
 - Fixed match dates on the tournament page showing in local time instead of UTC on narrow screens.
+- Fixed audit cascade banners showing mismatched counts, such as `993 of 8 games`.
 
 ### Other
 
