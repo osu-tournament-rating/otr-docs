@@ -28,7 +28,7 @@ This page records changes to the [otr-web](https://github.com/osu-tournament-rat
 ### Fixed
 
 - Fixed the results header not staying pinned while scrolling on the [registrant filtering tool](https://otr.stagec.net/tools/filter).
-- Fixed the profile avatar's report notification dot not clearing after an admin viewed [`/admin/reports`](https://otr.stagec.net/admin/reports).
+- Fixed the profile avatar's report notification dot not clearing while viewing reports on [`/admin/reports`](https://otr.stagec.net/admin/reports) or [`/reports`](https://otr.stagec.net/reports).
 - Fixed audit logs labeling automated verifications and rejections as pre-verified and pre-rejected.
 - Fixed tooltip text contrast in the light theme.
 - Fixed match dates on the tournament page showing in local time instead of UTC on narrow screens.
