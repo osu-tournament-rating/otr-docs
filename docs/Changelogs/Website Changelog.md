@@ -14,7 +14,7 @@ This page records changes to the [otr-web](https://github.com/osu-tournament-rat
         - Difficulty name, artist, and title.
         - Set owner and mappers.
         - Ruleset, star rating, BPM, length, and drain length.
-        - CS, HP, OD, and AR. CS represents key count in osu!mania.
+        - CS, HP, OD, and AR. CS accepts `0-10` and represents key count in osu!mania.
         - Circle, slider, and spinner counts, and max combo.
     - When a beatmap is edited in this way, it is permanently marked as unable to be fetched by the osu! API from that point.
     - Audits are recorded at `/audit/beatmaps/{id}`.
@@ -27,6 +27,7 @@ This page records changes to the [otr-web](https://github.com/osu-tournament-rat
 - Fixed the profile avatar's report notification dot not clearing after an admin viewed [`/admin/reports`](https://otr.stagec.net/admin/reports).
 - Fixed audit logs labeling automated verifications and rejections as pre-verified and pre-rejected.
 - Fixed tooltip text contrast in the light theme.
+- Fixed beatmap length on the beatmap page reading `72:15` instead of `1:12:15` for maps over an hour.
 
 ### Other
 
