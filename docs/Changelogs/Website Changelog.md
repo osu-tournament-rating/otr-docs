@@ -21,7 +21,13 @@ This page records changes to the [otr-web](https://github.com/osu-tournament-rat
     - Audits are recorded at `/audit/beatmaps/{id}`.
 - Added support for tracing oRPC procedures through to database queries using Tempo.
 - Updated the leaderboard first-visit notice to a single sentence that can be dismissed immediately.
-- Added sticky column headers to the leaderboard, tournaments list, beatmap list, player rating history, and filter report results tables.
+- Added sticky column headers to tables across the site.
+    - [Leaderboard](https://otr.stagec.net/leaderboard), [tournaments list](https://otr.stagec.net/tournaments), and [beatmap list](https://otr.stagec.net/beatmaps).
+    - Tournament match list, ratings tab, and the admin bulk match table.
+    - Player rating history and per-tournament match tables.
+    - Beatmap score leaderboard and pooled tournaments dialog.
+    - Filter report results.
+    - [`/reports`](https://otr.stagec.net/reports) and [`/admin/reports`](https://otr.stagec.net/admin/reports).
 - Added site-wide search matching on osu! usernames a player no longer holds.
     - A result matched through a former username shows `formerly <name>`.
 
