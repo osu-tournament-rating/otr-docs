@@ -39,6 +39,10 @@ This page records changes to the [otr-web](https://github.com/osu-tournament-rat
 - Fixed tooltip text contrast in the light theme.
 - Fixed match dates on the tournament page showing in local time instead of UTC on narrow screens.
 - Fixed audit cascade banners showing mismatched counts, such as `993 of 8 games`.
+- Updated audit log diffs to show the verification badge on both sides of a verification status change.
+- Removed the red and green highlighting from audit log diffs for verification statuses and for user fields such as `Verified By`.
+- Updated cascade banners on audit timelines to name each level's outcomes and counts, such as `rejected 1, verified 1 of 5 matches`.
+- Added a verification badge beside each entity listed when a cascade level is expanded.
 
 ### Other
 
