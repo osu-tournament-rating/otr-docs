@@ -39,6 +39,10 @@ This page records changes to the [otr-web](https://github.com/osu-tournament-rat
 - Fixed tooltip text contrast in the light theme.
 - Fixed match dates on the tournament page showing in local time instead of UTC on narrow screens.
 - Fixed audit cascade banners showing mismatched counts, such as `993 of 8 games`.
+- Fixed "Accept pre-verification statuses" leaving data under a rejected parent unresolved.
+    - Everything under a rejected tournament, match, or game is now rejected, including data that was already rejected before the action ran.
+    - Data rejected this way now records the rejection reason for its rejected parent instead of no reason at all.
+    - Data the automated checks have not reviewed yet is left untouched.
 
 ### Other
 
