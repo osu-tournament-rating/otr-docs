@@ -31,8 +31,6 @@ This page records changes to the [otr-web](https://github.com/osu-tournament-rat
 - Added site-wide search matching on osu! usernames a player no longer holds.
     - A result matched through a former username shows `formerly <name>`.
 - Added a setting on the [settings page](https://otr.stagec.net/settings) to turn off the `Ctrl+L` shortcut that switches between the light and dark themes.
-    - The shortcut stays on by default.
-    - The first use of the shortcut shows a one-time notice linking to the setting.
 
 ### Fixed
 
