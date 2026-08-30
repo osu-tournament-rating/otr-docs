@@ -39,6 +39,8 @@ This page records changes to the [otr-web](https://github.com/osu-tournament-rat
 - Fixed tooltip text contrast in the light theme.
 - Fixed match dates on the tournament page showing in local time instead of UTC on narrow screens.
 - Fixed audit cascade banners showing mismatched counts, such as `993 of 8 games`.
+- Fixed audit log cards for bulk verification describing an entire cascade by its top-level action. A card that verified a tournament and rejected some of its matches now names each outcome and its count.
+- Fixed verification statuses in audit log changes always reading as a red original value and a green new value. Each status is now colored by its own meaning.
 
 ### Other
 
