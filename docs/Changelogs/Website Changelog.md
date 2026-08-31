@@ -41,10 +41,14 @@ This page records changes to the [otr-web](https://github.com/osu-tournament-rat
     - Setting a parent to verified no longer verifies its children on its own.
     - Setting a parent to rejected still rejects all of its children.
 - Disabled verifying a match, game, or score whose parent is rejected.
+- Redesigned the match list on the tournament page.
+    - Grouped matches by the weekend they were played on, with the first and last date of each group in its header.
+    - Showed a verification pip for every game in a match, wrapping onto more lines instead of hiding games on large matches.
 
 ### Fixed
 
 - Fixed the results header not staying pinned while scrolling on the [registrant filtering tool](https://otr.stagec.net/tools/filter).
+- Fixed matches with no start time being listed under the current date on the tournament page. They now appear in a `No start time` group at the end of the match list.
 - Fixed Easy scores in osu!lazer matches being stored without the 1.75x multiplier.
 - Fixed the profile avatar's report notification dot not clearing while viewing reports on [`/admin/reports`](https://otr.stagec.net/admin/reports) or [`/reports`](https://otr.stagec.net/reports).
 - Fixed audit logs labeling automated verifications and rejections as pre-verified and pre-rejected.
