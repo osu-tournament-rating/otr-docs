@@ -41,10 +41,10 @@ This page records changes to the [otr-web](https://github.com/osu-tournament-rat
     - Setting a parent to verified no longer verifies its children on its own.
     - Setting a parent to rejected still rejects all of its children.
 - Disabled verifying a match, game, or score whose parent is rejected.
-- Redesigned the match list on the tournament page.
-    - Showed the points scoreline of each match on its row, with the winning team named first.
-    - Grouped matches by the weekend they were played on, with the first and last date of each group in its header.
-    - Showed a verification pip for every game in a match, wrapping onto more lines instead of hiding games on large matches.
+- Redesigned the tournament page match list.
+    - Matches are grouped by weekend, with each group's dates in its header.
+    - Each match row shows its scoreline, winning team first.
+    - Every game shows a verification pip; large matches no longer hide games.
 
 ### Fixed
 
