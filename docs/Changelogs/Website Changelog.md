@@ -62,6 +62,7 @@ This page records changes to the [otr-web](https://github.com/osu-tournament-rat
     - A pre-rejected tournament now rejects all of its matches, games, and scores.
     - Scores rejected because their game was rejected now carry the `Rejected game` reason instead of no reason.
 - Fixed the admin score editor running off the edge of the screen on phones when a score had mods, cutting off the `Mods` field and the `Save` button.
+- Fixed the note explaining the 1.75x Easy multiplier never appearing on a player's Mod Performance chart.
 
 ### Other
 
