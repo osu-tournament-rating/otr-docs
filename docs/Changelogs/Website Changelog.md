@@ -23,7 +23,7 @@ This page records changes to the [otr-web](https://github.com/osu-tournament-rat
 - Updated the leaderboard first-visit notice to a single sentence that can be dismissed immediately.
 - Added sticky column headers to tables across the site.
     - [Leaderboard](https://otr.stagec.net/leaderboard), [tournaments list](https://otr.stagec.net/tournaments), and [beatmap list](https://otr.stagec.net/beatmaps).
-    - Tournament match list, ratings tab, and the admin bulk match table.
+    - Tournament match list and ratings tab.
     - Player rating history and per-tournament match tables.
     - Beatmap score leaderboard and pooled tournaments dialog.
     - Filter report results.
