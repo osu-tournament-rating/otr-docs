@@ -32,7 +32,9 @@ This page records changes to the [otr-web](https://github.com/osu-tournament-rat
     - A result matched through a former username shows `formerly <name>`.
 - Added a setting on the [settings page](https://otr.stagec.net/settings) to turn off the `Ctrl+L` shortcut that switches between the light and dark themes.
 - Added separate raw score and score override fields to the admin score editor.
-    - `Raw Score` shows the total the osu! API reported, and `Score Override` replaces it when o!TR adjusts the value.
+    - Admins may now set a 'score override'. Previously, overriding a score was a permanent change to the score object. Now, the original API value is always kept in-tact alongside the override.
+    - Automated modifications to scores, such as EZ's 1.75x adjustment, are now stored in a new field `adjustedScore`. This way, automatic/expected and manual score overrides are maintained separately *and* the original API data is preserved.
+    - Previous automatic adjustments have been identified and mapped to the `adjustedScore` column.
     - Easy scores keep the original osu! total alongside the 1.75x adjusted value, which previously replaced it.
     - Match API responses now include `rawScore` and `scoreOverride` alongside `score`.
 
