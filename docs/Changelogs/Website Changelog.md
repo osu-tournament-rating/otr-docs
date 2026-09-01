@@ -61,6 +61,7 @@ This page records changes to the [otr-web](https://github.com/osu-tournament-rat
 - Refined the logic behind the `Accept pre-verification statuses` action. Functionally, it behaves the same as before, just in a more predictable way.
     - A pre-rejected tournament now rejects all of its matches, games, and scores.
     - Scores rejected because their game was rejected now carry the `Rejected game` reason instead of no reason.
+- Fixed the admin score editor running off the edge of the screen on phones when a score had mods, cutting off the `Mods` field and the `Save` button.
 
 ### Other
 
