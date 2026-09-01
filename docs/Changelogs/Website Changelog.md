@@ -37,6 +37,10 @@ This page records changes to the [otr-web](https://github.com/osu-tournament-rat
     - Previous automatic adjustments have been identified and mapped to the `adjustedScore` column.
     - Easy scores keep the original osu! total alongside the 1.75x adjusted value, which previously replaced it.
     - Match API responses now include `rawScore` and `scoreOverride` alongside `score`.
+- Added a choice of what happens to a tournament's, match's, or game's children when an admin sets it to verified: verify all children, accept pre-verification statuses, or leave children unchanged.
+    - Setting a parent to verified no longer verifies its children on its own.
+    - Setting a parent to rejected still rejects all of its children.
+- Disabled verifying a match, game, or score whose parent is rejected.
 
 ### Fixed
 
@@ -49,6 +53,9 @@ This page records changes to the [otr-web](https://github.com/osu-tournament-rat
 - Fixed audit cascade banners showing mismatched counts, such as `993 of 8 games`.
 - Fixed audit log cards for bulk verification describing an entire cascade by its top-level action. A card that verified a tournament and rejected some of its matches now names each outcome and its count.
 - Fixed verification statuses in audit log changes always reading as a red original value and a green new value. Each status is now colored by its own meaning.
+- Refined the logic behind the `Accept pre-verification statuses` action. Functionally, it behaves the same as before, just in a more predictable way.
+    - A pre-rejected tournament now rejects all of its matches, games, and scores.
+    - Scores rejected because their game was rejected now carry the `Rejected game` reason instead of no reason.
 
 ### Other
 
