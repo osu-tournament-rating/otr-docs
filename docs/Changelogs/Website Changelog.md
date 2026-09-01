@@ -31,12 +31,11 @@ This page records changes to the [otr-web](https://github.com/osu-tournament-rat
 - Added site-wide search matching on osu! usernames a player no longer holds.
     - A result matched through a former username shows `formerly <name>`.
 - Added a setting on the [settings page](https://otr.stagec.net/settings) to turn off the `Ctrl+L` shortcut that switches between the light and dark themes.
-- Added separate raw score and score override fields to the admin score editor.
-    - Admins may now set a 'score override'. Previously, overriding a score was a permanent change to the score object. Now, the original API value is always kept in-tact alongside the override.
-    - Automated modifications to scores, such as EZ's 1.75x adjustment, are now stored in a new field `adjustedScore`. This way, automatic/expected and manual score overrides are maintained separately *and* the original API data is preserved.
-    - Previous automatic adjustments have been identified and mapped to the `adjustedScore` column.
-    - Easy scores keep the original osu! total alongside the 1.75x adjusted value, which previously replaced it.
-    - Match API responses now include `rawScore` and `scoreOverride` alongside `score`.
+- Added separate `Raw Score`, `Adjusted Score`, and `Score Override` fields to the admin score editor.
+    - `Raw Score` shows the total the osu! API reported. `Adjusted Score` is o!TR's automatic result, such as the 1.75x Easy multiplier. `Score Override` is what an admin sets by hand.
+    - The score shown across the site uses the override if set, otherwise the adjusted score, otherwise the raw score.
+    - Re-fetching a match no longer wipes an admin's score override.
+    - Match API responses now include `rawScore`, `adjustedScore`, and `scoreOverride` alongside `score`.
 - Added a choice of what happens to a tournament's, match's, or game's children when an admin sets it to verified: verify all children, accept pre-verification statuses, or leave children unchanged.
     - Setting a parent to verified no longer verifies its children on its own.
     - Setting a parent to rejected still rejects all of its children.
