@@ -31,6 +31,10 @@ This page records changes to the [otr-web](https://github.com/osu-tournament-rat
 - Added site-wide search matching on osu! usernames a player no longer holds.
     - A result matched through a former username shows `formerly <name>`.
 - Added a setting on the [settings page](https://otr.stagec.net/settings) to turn off the `Ctrl+L` shortcut that switches between the light and dark themes.
+- Added separate raw score and score override fields to the admin score editor.
+    - `Raw Score` shows the total the osu! API reported, and `Score Override` replaces it when o!TR adjusts the value.
+    - Easy scores keep the original osu! total alongside the 1.75x adjusted value, which previously replaced it.
+    - Match API responses now include `rawScore` and `scoreOverride` alongside `score`.
 
 ### Fixed
 
