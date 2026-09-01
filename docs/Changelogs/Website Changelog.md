@@ -23,7 +23,7 @@ This page records changes to the [otr-web](https://github.com/osu-tournament-rat
 - Updated the leaderboard first-visit notice to a single sentence that can be dismissed immediately.
 - Added sticky column headers to tables across the site.
     - [Leaderboard](https://otr.stagec.net/leaderboard), [tournaments list](https://otr.stagec.net/tournaments), and [beatmap list](https://otr.stagec.net/beatmaps).
-    - Tournament match list, ratings tab, and the admin bulk match table.
+    - Tournament match list and ratings tab.
     - Player rating history and per-tournament match tables.
     - Beatmap score leaderboard and pooled tournaments dialog.
     - Filter report results.
@@ -41,10 +41,15 @@ This page records changes to the [otr-web](https://github.com/osu-tournament-rat
     - Setting a parent to verified no longer verifies its children on its own.
     - Setting a parent to rejected still rejects all of its children.
 - Disabled verifying a match, game, or score whose parent is rejected.
+- Redesigned the tournament page match list.
+    - Matches are grouped by weekend, with each group's dates in its header.
+    - Each match row shows its scoreline, winning team first.
+    - Every game shows a verification pip, even on large matches.
 
 ### Fixed
 
 - Fixed the results header not staying pinned while scrolling on the [registrant filtering tool](https://otr.stagec.net/tools/filter).
+- Fixed matches with no start time being listed under the current date on the tournament page. They now appear in a `No start time` group at the end of the match list.
 - Fixed Easy scores in osu!lazer matches being stored without the 1.75x multiplier.
 - Fixed the profile avatar's report notification dot not clearing while viewing reports on [`/admin/reports`](https://otr.stagec.net/admin/reports) or [`/reports`](https://otr.stagec.net/reports).
 - Fixed audit logs labeling automated verifications and rejections as pre-verified and pre-rejected.
