@@ -42,6 +42,7 @@ This page records changes to the [otr-web](https://github.com/osu-tournament-rat
     - Setting a parent to rejected still rejects all of its children.
 - Disabled verifying a match, game, or score whose parent is rejected.
 - Redesigned the match list on the tournament page.
+    - Showed the points scoreline of each match on its row, with the winning team named first.
     - Grouped matches by the weekend they were played on, with the first and last date of each group in its header.
     - Showed a verification pip for every game in a match, wrapping onto more lines instead of hiding games on large matches.
 
