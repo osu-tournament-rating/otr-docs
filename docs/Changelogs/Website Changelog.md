@@ -44,7 +44,7 @@ This page records changes to the [otr-web](https://github.com/osu-tournament-rat
 - Redesigned the tournament page match list.
     - Matches are grouped by weekend, with each group's dates in its header.
     - Each match row shows its scoreline, winning team first.
-    - Every game shows a verification pip; large matches no longer hide games.
+    - Every game shows a verification pip, even on large matches.
 
 ### Fixed
 
