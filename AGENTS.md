@@ -13,7 +13,7 @@ Run commands from the repository root.
 - `markdownlint-cli2 <changed files>` matches CI (`.markdownlint-cli2.yaml`).
 - `docker build -t otr-docs:local . && docker run --rm -p 8080:8080 otr-docs:local`
   serves the site at `http://localhost:8080`. Check rendered links, callouts,
-  headings, code blocks, and navigation when presentation could change.
+  headings, code blocks, and navigation when a change affects presentation.
 
 ## Authoring
 
@@ -23,5 +23,7 @@ Run commands from the repository root.
 - Extend the document that owns a topic; create a new one only for a distinct
   navigation destination.
 - Preserve `[[wikilinks]]` and callouts such as `[!note]`.
-- Changelog entries go under `## Unreleased` in `docs/Changelogs/`, matching
-  the newest dated release's format. Never add a version or date.
+- Changelog entries go under `## Unreleased` in `docs/Changelogs/`, in the
+  format of the `2026.08.16` release in `Website Changelog.md`. Never add a
+  version or a date.
+- A changelog branch is named `changelog/<repo>-<pr>`.
