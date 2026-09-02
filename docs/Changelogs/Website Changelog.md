@@ -3,6 +3,16 @@ This page records changes to the [otr-web](https://github.com/osu-tournament-rat
 > [!note]
 > This changelog began tracking releases on 2026.08.16. Changes made before that date are not recorded on this page.
 
+## Unreleased
+
+### Added
+
+- Added the o!TR Discord bot with `/player`, `/tournament`, `/beatmap`, and `/leaderboard` commands.
+    - The player card shows the rating, tier, rank, record, peak, frequent teammates and opponents, and a rating history chart, with pages for tournaments and pooled maps.
+    - The tournament card shows the dates, format, counts, and top match cost, with pages for players, the pool, and matches.
+    - The beatmap card shows the settings, pool usage, mod split, top scores, and recent pools, with a score percentile page and a tournaments page.
+    - The leaderboard page shows twenty players with rank, rating, tier, matches, and win rate, filtered by ruleset and country.
+
 ## [2026.09.01](https://github.com/osu-tournament-rating/otr-web/compare/2026.08.16...2026.09.01)
 
 ### Added
