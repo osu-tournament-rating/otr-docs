@@ -1,8 +1,6 @@
 # otr-docs agent guidance
 
-Run commands from the repository root. Expand `$HOME` to the current user's home
-directory, then first read `$HOME/code/git/otr/AGENTS.md` and
-`$HOME/code/git/otr/.agents/WORKFLOW.md`.
+Run commands from the repository root.
 
 - `docs/` is the authored source of truth. Quartz renders it. Do not edit
   `quartz/` or its submodule reference unless the task is a Quartz change.
@@ -26,6 +24,6 @@ reader's task. Extend the document that owns the topic; create a page only for a
 distinct navigation destination. Preserve `[[wikilinks]]` and callouts such as
 `[!note]`.
 
-Changelog entries go under `## Unreleased` in `docs/Changelogs/` and follow the
-workspace changelog rules. Never add a version or date. Name a changelog branch
-`changelog/<repo>-<pr>`.
+Changelog entries go under `## Unreleased` in `docs/Changelogs/`, in the format
+of the `2026.08.16` release in `Website Changelog.md`. Never add a version or
+date. Name a changelog branch `changelog/<repo>-<pr>`.
