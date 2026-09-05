@@ -9,6 +9,11 @@ This page records changes to the [otr-web](https://github.com/osu-tournament-rat
 
 - Added the o!TR Discord bot with `/player`, `/tournament`, `/beatmap`, and `/leaderboard` commands.
 
+### Fixed
+
+- Fixed the `tierProgress` fields in player stats, leaderboard, and search responses so `nextSubTier`, `ratingForNextTier`, and `subTierFillPercentage` point at the next higher sub-tier (III to II, II to I, and I to the next tier) instead of the lower one.
+- Fixed the `GET /beatmaps/{id}/stats` OpenAPI schema to document `topPerformers[].accuracy` as a 0 to 1 fraction, matching the returned value.
+
 ## [2026.09.01](https://github.com/osu-tournament-rating/otr-web/compare/2026.08.16...2026.09.01)
 
 ### Added
