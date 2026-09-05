@@ -3,6 +3,12 @@ This page records changes to the [otr-web](https://github.com/osu-tournament-rat
 > [!note]
 > This changelog began tracking releases on 2026.08.16. Changes made before that date are not recorded on this page.
 
+## Unreleased
+
+### Added
+
+- Added the o!TR Discord bot with `/player`, `/tournament`, `/beatmap`, and `/leaderboard` commands.
+
 ## [2026.09.01](https://github.com/osu-tournament-rating/otr-web/compare/2026.08.16...2026.09.01)
 
 ### Added
