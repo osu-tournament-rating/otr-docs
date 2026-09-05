@@ -9,6 +9,10 @@ This page records changes to the [otr-web](https://github.com/osu-tournament-rat
 
 - Added the o!TR Discord bot with `/player`, `/tournament`, `/beatmap`, and `/leaderboard` commands.
 
+### Fixed
+
+- Fixed the `Search Relevance` sort on the [tournaments list](https://otr.stagec.net/tournaments) ranking rejected tournaments whose names start with the search text above verified tournaments whose abbreviations match it. Verified tournaments now come first, followed by exact abbreviation, exact name, abbreviation prefix, and name prefix matches. This also applies to `GET /tournaments` with `sort=3` and the Discord bot's `/tournament` search.
+
 ## [2026.09.01](https://github.com/osu-tournament-rating/otr-web/compare/2026.08.16...2026.09.01)
 
 ### Added
