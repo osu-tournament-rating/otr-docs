@@ -1,8 +1,8 @@
 # otr-docs agent guidance
 
-Run commands from the repository root. First read
-`/home/stage/code/git/otr/AGENTS.md` and
-`/home/stage/code/git/otr/.agents/WORKFLOW.md`.
+Run commands from the repository root. Expand `$HOME` to the current user's home
+directory, then first read `$HOME/code/git/otr/AGENTS.md` and
+`$HOME/code/git/otr/.agents/WORKFLOW.md`.
 
 - `docs/` is the authored source of truth. Quartz renders it. Do not edit
   `quartz/` or its submodule reference unless the task is a Quartz change.
