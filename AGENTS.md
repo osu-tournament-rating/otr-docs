@@ -18,10 +18,12 @@ Run commands from the repository root.
 
 ## Authoring
 
-Read the surrounding document and `docs/Development/Docs/Style Guide.md` before
-broad style work. Write concise, searchable third-person guidance for the
-reader's task. Extend the document that owns the topic; create a page only for a
-distinct navigation destination. Preserve `[[wikilinks]]` and callouts such as
+Before every documentation change, read the surrounding document and
+`docs/Development/Docs/Style Guide.md`. After every change, compare all changed
+documents against the Style Guide and verify their layout and formatting.
+Write concise, searchable third-person guidance for the reader's task. Extend
+the document that owns the topic; create a page only for a distinct navigation
+destination. Preserve `[[wikilinks]]` and callouts such as
 `[!note]`.
 
 Changelog entries go under `## Unreleased` in `docs/Changelogs/`, in the format
