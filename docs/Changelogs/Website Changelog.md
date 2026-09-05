@@ -9,6 +9,10 @@ This page records changes to the [otr-web](https://github.com/osu-tournament-rat
 
 - Added the o!TR Discord bot with `/player`, `/tournament`, `/beatmap`, and `/leaderboard` commands.
 
+### Fixed
+
+- Fixed most tooltips on icons and other small labels being unreachable without a mouse. They now open on keyboard focus, and tapping one pins it open until it is dismissed. Tooltips inside a link or a search result stay pointer-only, and name what they say for screen readers instead.
+
 ## [2026.09.01](https://github.com/osu-tournament-rating/otr-web/compare/2026.08.16...2026.09.01)
 
 ### Added
