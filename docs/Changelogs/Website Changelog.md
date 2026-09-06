@@ -9,6 +9,10 @@ This page records changes to the [otr-web](https://github.com/osu-tournament-rat
 
 - Added the o!TR Discord bot with `/player`, `/tournament`, `/beatmap`, and `/leaderboard` commands.
 
+### Fixed
+
+- Fixed player profiles and osu!track history updates remaining stuck after an interrupted fetch.
+
 ## [2026.09.01](https://github.com/osu-tournament-rating/otr-web/compare/2026.08.16...2026.09.01)
 
 ### Added
