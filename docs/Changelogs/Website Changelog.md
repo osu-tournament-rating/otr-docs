@@ -9,6 +9,20 @@ This page records changes to the [otr-web](https://github.com/osu-tournament-rat
 
 - Added the o!TR Discord bot with `/player`, `/tournament`, `/beatmap`, and `/leaderboard` commands.
 
+### Fixed
+
+- Fixed tournament search ranking to list `Verified` tournaments first, then prioritize exact abbreviation and name matches over partial matches in site-wide search and `GET /tournaments` with `sort=3`. The hidden `sort=3` option sorts by search relevance and should only be used with a search query.
+- Fixed the [tournament list](https://otr.stagec.net/tournaments) to use `Search relevance` while searching unless a sort was explicitly selected, and to preserve that selection during searches.
+- Fixed incorrect next sub-tier targets in player statistics, leaderboard, and search API responses.
+- Fixed API responses reporting higher Bronze sub-tiers than rating charts for some players. Bronze II now starts at 200 TR instead of about 133 TR, and Bronze I at 300 TR instead of about 267 TR.
+- Fixed `topPerformers[].accuracy` in the `GET /beatmaps/{id}/stats` schema to use a fraction from 0 to 1 instead of a percentage from 0 to 100.
+
+### Other
+
+- Improved release and preview image builds to continue when exporting the build cache fails.
+- Removed the `dotenv` startup banner from worker and Discord bot logs.
+- Improved lint rules and test reliability.
+
 ## [2026.09.01](https://github.com/osu-tournament-rating/otr-web/compare/2026.08.16...2026.09.01)
 
 ### Added
