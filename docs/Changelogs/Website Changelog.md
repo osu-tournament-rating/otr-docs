@@ -8,6 +8,7 @@ This page records changes to the [otr-web](https://github.com/osu-tournament-rat
 ### Added
 
 - Added the o!TR Discord bot with `/player`, `/tournament`, `/beatmap`, and `/leaderboard` commands.
+- Added per-mod median scores and play counts to `GET /players/{id}/stats`, grouped by displayed mods and limited to verified ScoreV2 scores with verified games, matches, and tournaments. The aggregates respect the selected ruleset and date range.
 
 ## [2026.09.01](https://github.com/osu-tournament-rating/otr-web/compare/2026.08.16...2026.09.01)
 
