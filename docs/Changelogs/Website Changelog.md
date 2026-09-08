@@ -16,6 +16,7 @@ This page records changes to the [otr-web](https://github.com/osu-tournament-rat
 - Fixed incorrect next sub-tier targets in player statistics, leaderboard, and search API responses.
 - Fixed API responses reporting higher Bronze sub-tiers than rating charts for some players. Bronze II now starts at 200 TR instead of about 133 TR, and Bronze I at 300 TR instead of about 267 TR.
 - Fixed `topPerformers[].accuracy` in the `GET /beatmaps/{id}/stats` schema to use a fraction from 0 to 1 instead of a percentage from 0 to 100.
+- Fixed audit timeline rows expanding or collapsing when the acting user's name is clicked. The name only opens the player's profile, and the `N fields changed` control toggles the row.
 
 ### Other
 
