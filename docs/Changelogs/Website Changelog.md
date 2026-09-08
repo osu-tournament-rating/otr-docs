@@ -8,9 +8,11 @@ This page records changes to the [otr-web](https://github.com/osu-tournament-rat
 ### Added
 
 - Added the o!TR Discord bot with `/player`, `/tournament`, `/beatmap`, and `/leaderboard` commands.
+- Added `osuRestricted` to player API responses, including `GET /players/{id}` and `GET /players/{id}/stats`.
 
 ### Fixed
 
+- Fixed leaderboards listing players restricted on osu!. Restricted players no longer appear on any leaderboard, including the friends tab and the Discord bot, until a later osu! fetch succeeds.
 - Fixed tournament search ranking to list `Verified` tournaments first, then prioritize exact abbreviation and name matches over partial matches in site-wide search and `GET /tournaments` with `sort=3`. The hidden `sort=3` option sorts by search relevance and should only be used with a search query.
 - Fixed the [tournament list](https://otr.stagec.net/tournaments) to use `Search relevance` while searching unless a sort was explicitly selected, and to preserve that selection during searches.
 - Fixed incorrect next sub-tier targets in player statistics, leaderboard, and search API responses.
