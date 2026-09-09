@@ -19,6 +19,7 @@ This page records changes to the [otr-web](https://github.com/osu-tournament-rat
 
 ### Other
 
+- Updated dependencies to address reported security vulnerabilities.
 - Improved release and preview image builds to continue when exporting the build cache fails.
 - Removed the `dotenv` startup banner from worker and Discord bot logs.
 - Improved lint rules and test reliability.
