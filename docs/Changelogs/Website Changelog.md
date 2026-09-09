@@ -8,6 +8,15 @@ This page records changes to the [otr-web](https://github.com/osu-tournament-rat
 ### Added
 
 - Added the o!TR Discord bot with `/player`, `/tournament`, `/beatmap`, and `/leaderboard` commands.
+- Added a Players tab to the [statistics page](https://otr.stagec.net/stats) with a ruleset selector.
+    - Rating distribution and monthly participation for the selected ruleset.
+    - Players with the most verified tournaments, matches, and games.
+    - Mod specialists for osu!, osu!taiko, and osu!catch.
+    - Established duos, biggest 1v1 upsets, highest first place rate, most active players, milestones, and newcomers.
+    - Long lists open a `View more` dialog.
+    - Statistics refresh hourly after verified data changes.
+    - Added `GET /stats/players`.
+- Updated the verification status chart on the statistics page to a donut with a legend.
 
 ### Fixed
 
