@@ -11,6 +11,7 @@ This page records changes to the [otr-web](https://github.com/osu-tournament-rat
 
 ### Fixed
 
+- Fixed authentication callback links redirecting to external websites.
 - Fixed tournament search ranking to list `Verified` tournaments first, then prioritize exact abbreviation and name matches over partial matches in site-wide search and `GET /tournaments` with `sort=3`. The hidden `sort=3` option sorts by search relevance and should only be used with a search query.
 - Fixed the [tournament list](https://otr.stagec.net/tournaments) to use `Search relevance` while searching unless a sort was explicitly selected, and to preserve that selection during searches.
 - Fixed incorrect next sub-tier targets in player statistics, leaderboard, and search API responses.
