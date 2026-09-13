@@ -7,7 +7,6 @@ This page records changes to the [otr-web](https://github.com/osu-tournament-rat
 
 ### Added
 
-- Added background beatmap attribute calculation from source files, with versioned results and ruleset-specific default mod profiles.
 - Added the o!TR Discord bot with `/player`, `/tournament`, `/beatmap`, and `/leaderboard` commands.
 
 ### Fixed
