@@ -5,10 +5,6 @@ This page records changes to the [otr-web](https://github.com/osu-tournament-rat
 
 ## Unreleased
 
-### Added
-
-- Added the o!TR Discord bot with `/player`, `/tournament`, `/beatmap`, and `/leaderboard` commands.
-
 ### Fixed
 
 - Fixed tournament search ranking to list `Verified` tournaments first, then prioritize exact abbreviation and name matches over partial matches in site-wide search and `GET /tournaments` with `sort=3`. The hidden `sort=3` option sorts by search relevance and should only be used with a search query.
@@ -19,8 +15,9 @@ This page records changes to the [otr-web](https://github.com/osu-tournament-rat
 
 ### Other
 
+- Removed the unreleased Discord bot and its deployment support. `DISCORD_BOT_TOKEN` and `DISCORD_BOT_GUILD_ID` are no longer used.
 - Improved release and preview image builds to continue when exporting the build cache fails.
-- Removed the `dotenv` startup banner from worker and Discord bot logs.
+- Removed the `dotenv` startup banner from worker logs.
 - Improved lint rules and test reliability.
 
 ## [2026.09.01](https://github.com/osu-tournament-rating/otr-web/compare/2026.08.16...2026.09.01)
