@@ -34,7 +34,7 @@ Further, it natively supports message queue priority. The platform utilizes prio
 
 ### Processor
 
-The processor, located under `otr-web/apps/processor`, is a [Rust](https://www.rust-lang.org/) program rather than a hosted service. A cron job on the production host runs it [[Rating Calculation Overview#Rating update schedule|once a week]], on Tuesdays at 12:00 UTC. It looks at all verified tournament data and builds a rating network from individual match data by utilizing OpenSkill[^1], an open-source multiplayer rating algorithm ([source code](https://crates.io/crates/openskill)). For each game the processor hasn't processed before, placements for the game's scores are stored in the `game_scores` table.
+The processor, located under `otr-web/apps/processor`, is a [Rust](https://www.rust-lang.org/) CLI tool. A cron job on the production host runs it [[Rating Calculation Overview#Rating update schedule|once a week]], on Tuesdays at 12:00 UTC. It looks at all verified tournament data and builds a rating network from individual match data by utilizing OpenSkill[^1], an open-source multiplayer rating algorithm ([source code](https://crates.io/crates/openskill)). For each game the processor hasn't processed before, placements for the game's scores are stored in the `game_scores` table.
 
 Processor releases up to `2026.08.16` were published from the [otr-processor](https://github.com/osu-tournament-rating/otr-processor) repository; later processor releases are [otr-web releases](https://github.com/osu-tournament-rating/otr-web/releases) that changed the processor. The [[Processor Changelog|processor changelog]] records them.
 

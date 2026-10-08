@@ -114,7 +114,7 @@ Processor releases up to `2026.08.16` were published from the [otr-processor rep
 
 Find the most recent processor release published **at or before the timestamp of the *replica*** imported earlier. The replica's timestamp, not the effective date, is the reference point. The ratings in a replica were produced by whichever release was live when it was taken. `otr-replay` makes this selection automatically.
 
-Docker image tags match release names, so take the name of the release and replace the `YYYY.MM.DD` text below with that value. Later otr-web releases on the same day add a `.N` suffix, such as `YYYY.MM.DD.1`, and the image tag keeps it.
+Docker image tags match release names, so take the name of the release and replace the `YYYY.MM.DD` text below with that value.
 
 ```bash
 docker run --rm \
