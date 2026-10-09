@@ -16,6 +16,9 @@ Each merged change deploys as its own [otr-web release](https://github.com/osu-t
 ### Other
 
 - Changed releases to be created after each merge to master, replacing batched releases and the staging environment.
+- Moved the [otr-processor](https://github.com/osu-tournament-rating/otr-processor) codebase into otr-web under [`apps/processor`](https://github.com/osu-tournament-rating/otr-web/tree/master/apps/processor), as part of migrating o!TR towards a monorepo. Processor changes are recorded in the [[Processor Changelog|processor changelog]].
+    - Added processor format, lint, test, and image checks to CI, which run when `apps/processor` changes.
+    - Changed releases to build the `stagecodes/otr-processor` image only when `apps/processor` changed since the previous release. Each release's notes name the processor image it runs.
 
 ## [2026.10.03](https://github.com/osu-tournament-rating/otr-web/compare/2026.09.01...2026.10.03)
 
